@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Sparkles } from "lucide-react";
+import { Sparkles, Mail, Linkedin } from "lucide-react";
 
 const teamMembers = [
   {
@@ -12,6 +12,8 @@ const teamMembers = [
     image: "/images/team/james.jpg",
     description:
       "Personal Care Our goal each day is to ensure that our residents' needs are not only met but exceeded. Assisted Living Our goal each day is..",
+    email: "james.wilson@hudsal.com",
+    linkedin: "https://linkedin.com/in/jameswilson",
   },
   {
     id: 2,
@@ -20,6 +22,8 @@ const teamMembers = [
     image: "/images/team/sarah.jpg",
     description:
       "Personal Care Our goal each day is to ensure that our residents' needs are not only met but exceeded. Assisted Living Our goal each day is..",
+    email: "sarah.chen@hudsal.com",
+    linkedin: "https://linkedin.com/in/sarahchen",
   },
   {
     id: 3,
@@ -28,6 +32,8 @@ const teamMembers = [
     image: "/images/team/emma.jpg",
     description:
       "Personal Care Our goal each day is to ensure that our residents' needs are not only met but exceeded. Assisted Living Our goal each day is..",
+    email: "emma.thompson@hudsal.com",
+    linkedin: "https://linkedin.com/in/emmathompson",
   },
 ];
 
@@ -35,6 +41,22 @@ export function Team() {
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-secondary/30">
       <div className="max-w-7xl mx-auto">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <Sparkles className="w-5 h-5 text-emerald" />
+            <span className="text-emerald text-sm font-medium tracking-wider uppercase">
+              Meet Our Team
+            </span>
+          </div>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+            Our Expert Healthcare Team
+          </h2>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            Meet the dedicated professionals who make exceptional care possible at Hudsal Senior Care
+          </p>
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Image and Info Card */}
           <div className="relative">
@@ -95,6 +117,8 @@ interface TeamMember {
   role: string;
   image: string;
   description: string;
+  email: string;
+  linkedin: string;
 }
 
 function TeamMemberCard({ member }: { member: TeamMember }) {
@@ -118,13 +142,35 @@ function TeamMemberCard({ member }: { member: TeamMember }) {
       </div>
 
       {/* Info */}
-      <div className="pt-2">
+      <div className="pt-2 flex-1">
         <h3 className="text-xl font-semibold text-foreground mb-2">
           {member.name}
         </h3>
-        <p className="text-muted-foreground text-sm leading-relaxed">
+        <p className="text-muted-foreground text-sm leading-relaxed mb-4">
           {member.description}
         </p>
+        
+        {/* Contact Information */}
+        <div className="flex items-center gap-4">
+          <a
+            href={`mailto:${member.email}`}
+            className="flex items-center gap-2 text-emerald hover:text-emerald-dark transition-colors"
+            title={`Email ${member.name}`}
+          >
+            <Mail className="w-4 h-4" />
+            <span className="text-sm">Email</span>
+          </a>
+          <a
+            href={member.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-emerald hover:text-emerald-dark transition-colors"
+            title={`${member.name} on LinkedIn`}
+          >
+            <Linkedin className="w-4 h-4" />
+            <span className="text-sm">LinkedIn</span>
+          </a>
+        </div>
       </div>
     </div>
   );
