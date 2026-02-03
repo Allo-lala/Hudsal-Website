@@ -59,33 +59,40 @@ const services = [
 
 export function Services() {
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-secondary/30">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
-          {/* Left Column - Header */}
-          <div className="lg:col-span-1">
-            {/* Badge */}
-            <div className="flex items-center gap-2 mb-4">
-              <Sparkles className="w-4 h-4 text-emerald" />
-              <span className="text-emerald text-sm font-medium tracking-wider uppercase">
-                Our Services
-              </span>
-            </div>
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <Sparkles className="w-4 h-4 text-emerald" />
+            <span className="text-emerald text-sm font-medium tracking-wider uppercase">
+              Our Services
+            </span>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-balance">
+            Comprehensive Healthcare Services
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            We provide a full range of healthcare services designed to meet the unique needs of every individual with compassion and professionalism.
+          </p>
+        </div>
 
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+          {/* Left Column - Additional Info */}
+          <div className="lg:col-span-1">
             {/* Heading */}
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 text-balance">
-              Deserves Our Best Services
-            </h2>
+            <h3 className="text-2xl font-bold text-foreground mb-6 text-balance">
+              Every Senior Deserves Our Best Services
+            </h3>
 
             {/* Description */}
             <p className="text-muted-foreground mb-8 leading-relaxed">
-              At Hudsal Senior Care, we believe every senior deserves our best
-              services—because quality care isn't a luxury, it's a right.
+              At Hudsal Healthcare, we believe every senior deserves our best services—because quality care isn't a luxury, it's a right.
             </p>
 
             {/* CTA Button */}
             <Button className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-8 py-3 flex items-center gap-2">
-              LEARN MORE
+              VIEW ALL SERVICES
               <span className="rotate-45">→</span>
             </Button>
           </div>

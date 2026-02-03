@@ -1,165 +1,206 @@
+"use client";
+
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Sparkles, Users, Heart, Award, Clock, ChevronLeft, ChevronRight } from "lucide-react";
+import { Sparkles, Users, Heart, Award } from "lucide-react";
 
-const stats = [
-  { icon: Users, value: "500+", label: "Care Professionals" },
-  { icon: Heart, value: "10,000+", label: "Patients Served" },
-  { icon: Award, value: "15+", label: "Years Experience" },
-  { icon: Clock, value: "24/7", label: "Support Available" },
-];
-
-const certifications = [
+const features = [
   {
-    name: "CQC",
-    fullName: "Care Quality Commission",
-    logo: "/images/certifications/cqc-logo.svg",
-    description: "Regulated by the Care Quality Commission"
+    icon: Users,
+    title: "Expert Nursing Staff",
+    description: "Our expert nursing staff deliver compassionate, professional support tailored."
   },
   {
-    name: "NHS",
-    fullName: "National Health Service",
-    logo: "/images/certifications/nhs-logo.svg",
-    description: "NHS Approved Healthcare Provider"
+    icon: Heart,
+    title: "Medical Social Services",
+    description: "Medical Social Services provides vital emotional, social, and practical support to seniors and their families."
   },
   {
-    name: "UK Employment",
-    fullName: "UK Employment Standards",
-    logo: "/images/certifications/uk-employment-logo.svg",
-    description: "Compliant with UK Employment Standards"
+    icon: Award,
+    title: "Free Medical CheckUp",
+    description: "Our comprehensive assessments include vital signs monitoring, chronic condition screenings, medication reviews."
   }
 ];
 
+// Counter component with animation
+function Counter({ value, suffix = "", duration = 2000, className = "text-3xl font-bold text-emerald" }: { 
+  value: number; 
+  suffix?: string; 
+  duration?: number;
+  className?: string;
+}) {
+  const [count, setCount] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const counterRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (counterRef.current) {
+      observer.observe(counterRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
+    let startTime: number;
+    const startValue = 0;
+    const endValue = value;
+
+    const animate = (currentTime: number) => {
+      if (!startTime) startTime = currentTime;
+      const progress = Math.min((currentTime - startTime) / duration, 1);
+      
+      const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+      const currentValue = Math.floor(startValue + (endValue - startValue) * easeOutQuart);
+      
+      setCount(currentValue);
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    };
+
+    requestAnimationFrame(animate);
+  }, [isVisible, value, duration]);
+
+  return (
+    <div ref={counterRef} className={className}>
+      {count}{suffix}
+    </div>
+  );
+}
+
 export function AboutSection() {
   return (
-    <>
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-secondary/30">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Image with stats overlay like the inspiration */}
-            <div className="relative">
-              {/* Main image container */}
-              <div className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden">
-                <Image
-                  src="/images/about-hero.jpg"
-                  alt="Hudsal Healthcare facility"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              
-              {/* Floating stats cards - positioned like the inspiration */}
-              <div className="absolute -top-4 -right-4 bg-emerald rounded-2xl p-6 text-white shadow-xl">
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
-                    <Heart className="w-4 h-4" />
-                  </div>
-                  <span className="text-sm font-medium">Happy Customers</span>
-                </div>
-                <p className="text-3xl font-bold">25K+</p>
-              </div>
-              
-              <div className="absolute -bottom-4 -left-4 bg-white rounded-2xl p-6 shadow-xl">
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="w-8 h-8 rounded-full bg-emerald/10 flex items-center justify-center">
-                    <Users className="w-4 h-4 text-emerald" />
-                  </div>
-                  <span className="text-sm font-medium text-gray-600">Customer Support</span>
-                </div>
-                <p className="text-3xl font-bold text-gray-900">15K+</p>
-              </div>
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-background relative">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Left Column - Triangle Image Structure */}
+          <div className="relative pb-20">
+            {/* Bottom Left image */}
+            <div className="relative h-[240px] w-[240px] rounded-2xl overflow-hidden shadow-xl">
+              <Image
+                src="/images/about-hero.jpg"
+                alt="Healthcare professional with elderly patient"
+                fill
+                className="object-cover"
+              />
             </div>
 
-            {/* Content */}
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <Sparkles className="w-4 h-4 text-emerald" />
-                <span className="text-emerald text-sm font-medium tracking-wider uppercase">
-                  About Us
-                </span>
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 text-balance">
-                Our mission is to provide accurate and timely medical diagnostic services to help you take control of your health.
-              </h2>
-              
-              {/* Three feature boxes like the inspiration */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 bg-[#1a2e1a] rounded-2xl p-6">
-                <div className="text-center text-white">
-                  <div className="w-12 h-12 rounded-lg bg-emerald/20 flex items-center justify-center mx-auto mb-3">
-                    <Award className="w-6 h-6 text-emerald" />
-                  </div>
-                  <h3 className="font-semibold mb-2">Highest Level Expertise</h3>
-                  <p className="text-sm text-white/70">We stay up to date with the latest medical advancements to ensure safe, effective, and compassionate care.</p>
-                </div>
-                
-                <div className="text-center text-white">
-                  <div className="w-12 h-12 rounded-lg bg-emerald/20 flex items-center justify-center mx-auto mb-3">
-                    <Heart className="w-6 h-6 text-emerald" />
-                  </div>
-                  <h3 className="font-semibold mb-2">Additional Services will Grow</h3>
-                  <p className="text-sm text-white/70">With Grankare, every individual gets the attention and support they deserve, ensuring continued growth in health.</p>
-                </div>
-                
-                <div className="text-center text-white">
-                  <div className="w-12 h-12 rounded-lg bg-emerald/20 flex items-center justify-center mx-auto mb-3">
-                    <Users className="w-6 h-6 text-emerald" />
-                  </div>
-                  <h3 className="font-semibold mb-2">97% Client Satisfaction</h3>
-                  <p className="text-sm text-white/70">When you choose Grankare, you're choosing a care provider that consistently exceeds expectations and delivers top-tier service.</p>
+            {/* Bottom Right image */}
+            <div className="absolute top-0 right-0 h-[240px] w-[240px] rounded-2xl overflow-hidden shadow-xl border-4 border-white">
+              <Image
+                src="/images/hero-care.jpg"
+                alt="Caring healthcare moment"
+                fill
+                className="object-cover"
+              />
+            </div>
+
+            {/* Top Center image - creating triangle */}
+            <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 h-[240px] w-[240px] rounded-2xl overflow-hidden shadow-xl border-4 border-white z-10">
+              <Image
+                src="/placeholder.jpg"
+                alt="Healthcare team collaboration"
+                fill
+                className="object-cover"
+              />
+            </div>
+
+            {/* Counters centered below the images */}
+            <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 flex gap-8">
+              {/* Residents - No background */}
+              <div className="flex items-center gap-2">
+                <Users className="w-5 h-5 text-blue-600" />
+                <div>
+                  <Counter value={500} suffix="+" className="text-2xl font-bold text-blue-600" />
+                  <p className="text-xs text-blue-600 font-medium">Residents</p>
                 </div>
               </div>
-              
-              <Link href="/about">
-                <Button className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-8 py-3">
-                  Learn More About Us
-                </Button>
-              </Link>
+
+              {/* Care Homes - No background */}
+              <div className="flex items-center gap-2">
+                <Heart className="w-5 h-5 text-purple-600" />
+                <div>
+                  <Counter value={25} suffix="+" className="text-2xl font-bold text-purple-600" />
+                  <p className="text-xs text-purple-600 font-medium">Care Homes</p>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Certifications Slider Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-background">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="flex items-center justify-center gap-2 mb-4">
+          {/* Right Column - Content */}
+          <div>
+            <div className="flex items-center gap-2 mb-4">
               <Sparkles className="w-4 h-4 text-emerald" />
               <span className="text-emerald text-sm font-medium tracking-wider uppercase">
-                Our Certifications
+                About Us
               </span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Certified & Regulated Healthcare Provider
+            
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 text-balance">
+              Professional Care Can Trust & We Provide
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              We maintain the highest standards through our certifications and regulatory compliance.
-            </p>
-          </div>
 
-          {/* Certifications Slider */}
-          <div className="relative">
-            <div className="flex justify-center items-center gap-8 md:gap-12">
-              {certifications.map((cert, index) => (
-                <div key={cert.name} className="flex flex-col items-center group">
-                  <div className="w-24 h-24 md:w-32 md:h-32 rounded-2xl bg-white shadow-lg border border-border flex items-center justify-center mb-4 group-hover:shadow-xl transition-shadow">
-                    <Image
-                      src={cert.logo}
-                      alt={cert.fullName}
-                      width={80}
-                      height={80}
-                      className="object-contain"
-                    />
+            {/* Brief company description */}
+            <p className="text-muted-foreground mb-8 leading-relaxed">
+              At Hudsal Healthcare, we are dedicated to providing exceptional care services that prioritize dignity, compassion, and professional excellence. Our experienced team delivers personalized healthcare solutions designed to enhance the quality of life for every individual we serve.
+            </p>
+
+            {/* Features List */}
+            <div className="space-y-6 mb-8">
+              {features.map((feature, index) => (
+                <div key={index} className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-lg bg-emerald/10 flex items-center justify-center flex-shrink-0">
+                    <feature.icon className="w-6 h-6 text-emerald" />
                   </div>
-                  <h3 className="font-semibold text-foreground text-center">{cert.name}</h3>
-                  <p className="text-sm text-muted-foreground text-center mt-1">{cert.description}</p>
+                  <div>
+                    <h3 className="font-semibold text-foreground mb-2">{feature.title}</h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">{feature.description}</p>
+                  </div>
                 </div>
               ))}
             </div>
+
+            {/* Years of Experience Counter - replacing Learn More button */}
+            <div className="bg-emerald/10 rounded-2xl p-6 inline-block">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-lg bg-emerald/20 flex items-center justify-center">
+                  <Award className="w-6 h-6 text-emerald" />
+                </div>
+                <div>
+                  <Counter value={15} suffix="+" />
+                  <p className="text-sm text-emerald font-medium">Years Experience</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </section>
-    </>
+      </div>
+
+      {/* Customer Support - Bottom Right - styled like years experience */}
+      <div className="absolute bottom-8 right-1/4 bg-emerald/10 rounded-2xl p-6 shadow-xl">
+        <div className="flex items-center gap-3">
+          <div className="w-12 h-12 rounded-lg bg-emerald/20 flex items-center justify-center">
+            <Users className="w-6 h-6 text-emerald" />
+          </div>
+          <div>
+            <Counter value={15} suffix="K+" />
+            <p className="text-sm text-emerald font-medium">Customer Support</p>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
