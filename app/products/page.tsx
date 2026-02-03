@@ -84,7 +84,7 @@ export default function ProductsPage() {
         description="Choose the perfect subscription plan for your healthcare organization. Flexible solutions designed to meet your operational needs."
       />
 
-      {/* Products Section */}
+      {/* Products Section - Spotify-style single screen layout */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
@@ -102,58 +102,92 @@ export default function ProductsPage() {
             </p>
           </div>
 
-          {/* Products Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {products.map((product) => {
+          {/* Products Grid - Spotify-style cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {products.map((product, index) => {
               const Icon = product.icon;
+              const isRecommended = index === 0; // Gold On Demand as recommended
               return (
-                <Link 
-                  key={product.id} 
-                  href={`/products/${product.id}`}
-                  className="group"
+                <div 
+                  key={product.id}
+                  className={`relative bg-card border rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 ${
+                    isRecommended ? 'border-emerald shadow-emerald/20 scale-105' : 'border-border hover:border-emerald/30'
+                  }`}
                 >
-                  <div className="h-full bg-card border border-border rounded-2xl overflow-hidden hover:shadow-xl hover:border-emerald/30 transition-all duration-300">
-                    {/* Header with gradient */}
-                    <div className={`bg-gradient-to-r ${product.color} p-6`}>
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-3">
-                          <div className="w-12 h-12 rounded-xl bg-white/20 backdrop-blur flex items-center justify-center">
-                            <Icon className="w-6 h-6 text-white" />
-                          </div>
-                          <h3 className="text-xl font-bold text-white">
-                            {product.name}
-                          </h3>
-                        </div>
-                        <ArrowRight className="w-5 h-5 text-white/70 group-hover:translate-x-1 transition-transform" />
+                  {isRecommended && (
+                    <div className="absolute top-0 left-0 right-0 bg-emerald text-white text-center py-2 text-sm font-medium">
+                      Most Popular
+                    </div>
+                  )}
+                  
+                  {/* Header */}
+                  <div className={`bg-gradient-to-r ${product.color} p-6 ${isRecommended ? 'pt-12' : ''}`}>
+                    <div className="text-center">
+                      <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur flex items-center justify-center mx-auto mb-4">
+                        <Icon className="w-8 h-8 text-white" />
+                      </div>
+                      <h3 className="text-xl font-bold text-white mb-2">
+                        {product.name}
+                      </h3>
+                      <div className="text-white/90 text-sm">
+                        Starting from
+                      </div>
+                      <div className="text-3xl font-bold text-white">
+                        £{index === 0 ? '99' : index === 1 ? '199' : index === 2 ? '299' : '499'}
+                        <span className="text-lg font-normal">/month</span>
                       </div>
                     </div>
+                  </div>
 
-                    {/* Content */}
-                    <div className="p-6">
-                      <p className="text-muted-foreground mb-6 leading-relaxed">
-                        {product.description}
-                      </p>
+                  {/* Content */}
+                  <div className="p-6">
+                    <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
+                      {product.description}
+                    </p>
 
-                      {/* Highlights */}
-                      <ul className="space-y-3 mb-6">
-                        {product.highlights.map((highlight) => (
-                          <li key={highlight} className="flex items-center gap-3">
-                            <CheckCircle className="w-5 h-5 text-emerald flex-shrink-0" />
-                            <span className="text-foreground text-sm">{highlight}</span>
-                          </li>
-                        ))}
-                      </ul>
+                    {/* Features */}
+                    <ul className="space-y-3 mb-6">
+                      {product.highlights.map((highlight) => (
+                        <li key={highlight} className="flex items-start gap-3">
+                          <CheckCircle className="w-4 h-4 text-emerald flex-shrink-0 mt-0.5" />
+                          <span className="text-foreground text-sm">{highlight}</span>
+                        </li>
+                      ))}
+                    </ul>
 
-                      {/* CTA */}
-                      <Button className="w-full bg-emerald hover:bg-emerald-dark text-white rounded-full group-hover:shadow-lg transition-all">
-                        Learn More
+                    {/* CTA */}
+                    <Link href={`/products/${product.id}`}>
+                      <Button 
+                        className={`w-full rounded-full transition-all ${
+                          isRecommended 
+                            ? 'bg-emerald hover:bg-emerald-dark text-white shadow-lg' 
+                            : 'bg-emerald/10 hover:bg-emerald hover:text-white text-emerald border border-emerald/20'
+                        }`}
+                      >
+                        {isRecommended ? 'Get Started' : 'Learn More'}
                         <ArrowRight className="w-4 h-4 ml-2" />
                       </Button>
-                    </div>
+                    </Link>
                   </div>
-                </Link>
+                </div>
               );
             })}
+          </div>
+
+          {/* Additional info */}
+          <div className="text-center mt-12">
+            <p className="text-muted-foreground mb-4">
+              All plans include 24/7 support and can be cancelled anytime
+            </p>
+            <div className="flex justify-center gap-4">
+              <Button variant="outline" className="rounded-full">
+                Compare Plans
+              </Button>
+              <Button className="bg-emerald hover:bg-emerald-dark text-white rounded-full">
+                <Phone className="w-4 h-4 mr-2" />
+                Contact Sales
+              </Button>
+            </div>
           </div>
         </div>
       </section>

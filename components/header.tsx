@@ -2,14 +2,12 @@
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
   ChevronDown,
-  Search,
   Menu,
   X,
-  Heart,
-  Sparkles,
 } from "lucide-react";
 
 const navItems = [
@@ -26,7 +24,6 @@ const navItems = [
   },
   { name: "SERVICES", href: "/services", hasDropdown: false },
   { name: "PRODUCTS", href: "/products", hasDropdown: false },
-  { name: "CONTACT US", href: "/contact", hasDropdown: false },
 ];
 
 export function Header() {
@@ -47,23 +44,19 @@ export function Header() {
   return (
     <header className="absolute top-0 left-0 right-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between py-6">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-full bg-emerald flex items-center justify-center">
-              <Heart className="w-5 h-5 text-white" />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-white font-bold text-xl tracking-wide">
-                HUDSAL
-              </span>
-              <span className="text-white/60 text-xs">
-                Living in harmony, every day
-              </span>
-            </div>
+        <div className="flex items-center py-6">
+          {/* Logo - pushed more to the left */}
+          <Link href="/" className="flex items-center gap-2 ml-4 mr-auto">
+            <Image
+              src="/images/logo.png"
+              alt="Logo"
+              width={120}
+              height={50}
+              className="h-10 w-auto"
+            />
           </Link>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation with integrated Contact Us button */}
           <nav className="hidden lg:flex items-center gap-8" ref={dropdownRef}>
             {navItems.map((item) => (
               <div key={item.name} className="relative">
@@ -102,34 +95,19 @@ export function Header() {
                 )}
               </div>
             ))}
+            
+            {/* Contact Us Button integrated into navigation */}
+            <Link href="/contact">
+              <Button className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-6 py-2 flex items-center gap-2 ml-4">
+                CONTACT US
+              </Button>
+            </Link>
           </nav>
-
-          {/* Right Side Actions */}
-          <div className="hidden lg:flex items-center gap-4">
-            <button
-              type="button"
-              className="text-white/90 hover:text-white transition-colors"
-              aria-label="Search"
-            >
-              <Search className="w-5 h-5" />
-            </button>
-            <Button className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-6 py-2 flex items-center gap-2">
-              APPOINTMENT
-              <span className="rotate-45">→</span>
-            </Button>
-            <button
-              type="button"
-              className="text-white/90 hover:text-white"
-              aria-label="Grid"
-            >
-              <Sparkles className="w-6 h-6" />
-            </button>
-          </div>
 
           {/* Mobile Menu Button */}
           <button
             type="button"
-            className="lg:hidden text-white"
+            className="lg:hidden text-white ml-auto"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -186,9 +164,11 @@ export function Header() {
                   )}
                 </div>
               ))}
-              <Button className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-6 py-2 w-full mt-4">
-                APPOINTMENT
-              </Button>
+              <Link href="/contact">
+                <Button className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-6 py-2 w-full mt-4">
+                  CONTACT US
+                </Button>
+              </Link>
             </nav>
           </div>
         )}

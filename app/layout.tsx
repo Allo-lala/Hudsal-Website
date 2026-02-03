@@ -8,9 +8,8 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Hudsal - Healthcare Staffing & Care Services UK',
+  title: 'Hudsal Limited',
   description: 'Hudsal provides healthcare staffing, care home services, IT solutions for care providers, and certified healthcare products. CQC & NHS compliant.',
-  generator: 'v0.app',
   icons: {
     icon: [
       {
@@ -26,7 +25,7 @@ export const metadata: Metadata = {
         type: 'image/svg+xml',
       },
     ],
-    apple: '/apple-icon.png',
+    apple: '/logo.png',
   },
 }
 
