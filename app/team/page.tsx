@@ -5,7 +5,7 @@ import { PageHeader } from "@/components/page-header";
 import { Sparkles, Linkedin, Mail } from "lucide-react";
 
 export const metadata = {
-  title: "Our Team - Hudsal Healthcare",
+  title: "Our Team ",
   description: "Meet the dedicated professionals at Hudsal Healthcare who are committed to providing exceptional care services.",
 };
 

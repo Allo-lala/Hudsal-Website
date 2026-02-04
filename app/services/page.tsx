@@ -17,7 +17,7 @@ import {
 import Link from "next/link";
 
 export const metadata = {
-  title: "Our Services - Hudsal Healthcare",
+  title: "Our Services ",
   description: "Explore Hudsal Healthcare services including healthcare staffing, residential care, nursing care, IT solutions, and professional training programs.",
 };
 

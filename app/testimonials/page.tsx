@@ -6,7 +6,7 @@ import { Star, Quote, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const metadata = {
-  title: "Testimonials - Hudsal Healthcare",
+  title: "Testimonials",
   description: "Read what our clients, families, and partners say about Hudsal Healthcare services.",
 };
 

@@ -1,8 +1,7 @@
 "use client";
 
 import React from "react"
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { PageHeader } from "@/components/page-header";
@@ -34,6 +33,10 @@ const contactInfo = [
 ];
 
 export default function ContactPage() {
+  useEffect(() => {
+    document.title = "Contact Us | Hudsal Limited";
+  }, []);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",

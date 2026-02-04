@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 
 export const metadata = {
-  title: "Subscription Products - Hudsal",
+  title: "Products",
   description: "Explore our subscription products: Gold On Demand, Platinum Selection, Emerald Global, and Hudsal House.",
 };
 
@@ -106,7 +106,7 @@ export default function ProductsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {products.map((product, index) => {
               const Icon = product.icon;
-              const isRecommended = index === 0; // Gold On Demand as recommended
+              const isRecommended = index === 2; // Emerald Global as recommended
               return (
                 <div 
                   key={product.id}

@@ -3,7 +3,7 @@ import { Footer } from "@/components/footer";
 import { PageHeader } from "@/components/page-header";
 
 export const metadata = {
-  title: "Privacy Policy - Hudsal Healthcare",
+  title: "Privacy Policy ",
   description: "Learn how Hudsal Healthcare collects, uses, and protects your personal information.",
 };
 

@@ -3,7 +3,7 @@ import { Footer } from "@/components/footer";
 import { PageHeader } from "@/components/page-header";
 
 export const metadata = {
-  title: "Terms & Conditions - Hudsal Healthcare",
+  title: "Terms & Conditions",
   description: "Read our terms and conditions for using Hudsal Healthcare services.",
 };
 
