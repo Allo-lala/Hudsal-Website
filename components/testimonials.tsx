@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Star, Quote, Sparkles } from "lucide-react";
+import { Star, Quote } from "lucide-react";
 
 const testimonials = [
   {
@@ -37,7 +37,6 @@ export function Testimonials() {
         {/* Header */}
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-2 mb-4">
-            <Sparkles className="w-4 h-4 text-emerald" />
             <span className="text-emerald text-sm font-medium tracking-wider uppercase">
               Testimonials
             </span>

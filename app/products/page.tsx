@@ -4,7 +4,7 @@ import { Footer } from "@/components/footer";
 import { PageHeader } from "@/components/page-header";
 import { Button } from "@/components/ui/button";
 import { 
-  Sparkles, 
+  // Sparkles, 
   ArrowRight, 
   Crown, 
   Diamond, 
@@ -16,7 +16,7 @@ import {
 
 export const metadata = {
   title: "Products",
-  description: "Explore our subscription products: Gold On Demand, Platinum Selection, Emerald Global, and Hudsal House.",
+  // description: "Explore our subscription products: Gold On Demand, Platinum Selection, Emerald Global, and Hudsal House.",
 };
 
 const products = [
@@ -24,52 +24,69 @@ const products = [
     id: "gold-on-demand",
     name: "Gold On Demand",
     icon: Crown,
-    color: "from-amber-400 to-amber-600",
+    color: "from-amber-600 to-amber-600",
     bgColor: "bg-amber-500",
     description: "Flexible support when you need it most. Operate without restrictive long-term commitments while getting expert oversight and staffing support.",
     highlights: [
       "Free Business Health Check",
       "Free Workforce & Rota Stress Index",
       "Free Inspection Pressure Brief",
+      "Free Business Stability Scorecard",
+      "Free Leadership Pressure Map",
+      "Free 24/Hr Business X-Ray",
+      "24/Hr On Call Support",
+      "Zero No Contract",
+      "Enjoy Last Minute Bookings",
+      "Recruit both Permanent & Temporary Staff"
     ],
   },
   {
     id: "platinum-selection",
     name: "Platinum Selection",
     icon: Diamond,
-    color: "from-slate-300 to-slate-500",
+    color: "from-slate-500 to-slate-500",
     bgColor: "bg-slate-400",
     description: "Leadership demands more than effort. Get your external strategic intelligence unit with continuous insight and proactive governance.",
     highlights: [
-      "Free Access to Hudsal CRM",
-      "Free Leadership Pressure Tracking",
+      "All Gold On Demand Features",
+      // "Free Leadership Pressure Tracking",
       "Includes Gold On Demand Services",
+      "Early warning intelligence",
+      " Priority recalibration",
+      "Invitation to private briefing",
+      "Governed execution windows",
+      "Kill-switch authority",
+      "Regulatory & reputational risk control",
+      "Strategic growth orchestration",
+      "Monthly executive review",
+      "Executive window",
+      "Compliance & inspection readiness",
     ],
   },
   {
     id: "emerald-global",
     name: "Emerald Global",
     icon: Gem,
-    color: "from-emerald-400 to-emerald-600",
+    color: "from-emerald-600 to-emerald-600",
     bgColor: "bg-emerald",
     description: "Our comprehensive global solution for healthcare organizations seeking excellence in care delivery and operational efficiency.",
     highlights: [
       "All Platinum Selection Features",
-      "Global Support Network",
-      "Premium Analytics Dashboard",
+      "This is pending",
+      "This is pending",
     ],
   },
   {
     id: "hudsal-house",
-    name: "Hudsal House",
+    name: "Hadsul House",
     icon: Home,
-    color: "from-emerald-600 to-emerald-800",
+    color: "from-emerald-800 to-emerald-800",
     bgColor: "bg-emerald-dark",
     description: "The ultimate partnership for healthcare facilities seeking complete operational transformation and long-term success.",
     highlights: [
-      "All Emerald Global Features",
-      "Dedicated Account Manager",
+      "All Hadsul Features",
       "On-site Support Available",
+      "This is pending",
     ],
   },
 ];
@@ -79,7 +96,7 @@ export default function ProductsPage() {
     <main>
       <Header />
       <PageHeader 
-        badge="Our Products" 
+        badge="  " 
         title="Subscription Products"
         description="Choose the perfect subscription plan for your healthcare organization. Flexible solutions designed to meet your operational needs."
       />
@@ -89,10 +106,10 @@ export default function ProductsPage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <div className="flex items-center justify-center gap-2 mb-4">
-              <Sparkles className="w-4 h-4 text-emerald" />
-              <span className="text-emerald text-sm font-medium tracking-wider uppercase">
+              {/* <Sparkles className="w-4 h-4 text-emerald" /> */}
+              {/* <span className="text-emerald text-sm font-medium tracking-wider uppercase">
                 Choose Your Plan
-              </span>
+              </span> */}
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-balance">
               Subscription Plans for Every Need
@@ -123,7 +140,7 @@ export default function ProductsPage() {
                   {/* Header */}
                   <div className={`bg-gradient-to-r ${product.color} p-6 ${isRecommended ? 'pt-12' : ''}`}>
                     <div className="text-center">
-                      <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur flex items-center justify-center mx-auto mb-4">
+                      <div className="w-16 h-16 rounded-full backdrop-blur flex items-center justify-center mx-auto mb-4">
                         <Icon className="w-8 h-8 text-white" />
                       </div>
                       <h3 className="text-xl font-bold text-white mb-2">
@@ -181,7 +198,7 @@ export default function ProductsPage() {
             </p>
             <div className="flex justify-center gap-4">
               <Button variant="outline" className="rounded-full">
-                Compare Plans
+                Visit Our Shop
               </Button>
               <Button className="bg-emerald hover:bg-emerald-dark text-white rounded-full">
                 <Phone className="w-4 h-4 mr-2" />
@@ -197,10 +214,10 @@ export default function ProductsPage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <div className="flex items-center justify-center gap-2 mb-4">
-              <Sparkles className="w-4 h-4 text-emerald" />
-              <span className="text-emerald text-sm font-medium tracking-wider uppercase">
+              {/* <Sparkles className="w-4 h-4 text-emerald" /> */}
+              {/* <span className="text-emerald text-sm font-medium tracking-wider uppercase">
                 Why Subscribe
-              </span>
+              </span> */}
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground text-balance">
               Benefits of Hudsal Subscriptions
@@ -214,7 +231,7 @@ export default function ProductsPage() {
               { title: "Continuous Support", description: "Round-the-clock assistance when operational pressure requires expert help." },
             ].map((item) => (
               <div key={item.title} className="text-center">
-                <div className="w-16 h-16 rounded-full bg-emerald/10 flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <CheckCircle className="w-8 h-8 text-emerald" />
                 </div>
                 <h3 className="text-xl font-semibold text-foreground mb-2">{item.title}</h3>

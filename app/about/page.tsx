@@ -6,7 +6,7 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { PageHeader } from "@/components/page-header";
 import { Button } from "@/components/ui/button";
-import { Sparkles, Users, Award, Clock, Heart, Stethoscope, Laptop, Calculator, CheckCircle, ChevronDown } from "lucide-react";
+import { Users, Award, Clock, Heart, Stethoscope, Laptop, Calculator, CheckCircle, ChevronDown } from "lucide-react";
 
 const stats = [
   { icon: Users, value: "500+", label: "Care Professionals" },
@@ -202,7 +202,7 @@ export default function AboutPage() {
             {/* Content */}
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <Sparkles className="w-4 h-4 text-emerald" />
+                {/* <Sparkles className="w-4 h-4 text-emerald" /> */}
                 <span className="text-emerald text-sm font-medium tracking-wider uppercase">
                   Who We Are
                 </span>
@@ -262,7 +262,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <div className="flex items-center justify-center gap-2 mb-4">
-              <Sparkles className="w-4 h-4 text-emerald" />
+              {/* <Sparkles className="w-4 h-4 text-emerald" /> */}
               <span className="text-emerald text-sm font-medium tracking-wider uppercase">
                 Our Services
               </span>
@@ -333,7 +333,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <div className="flex items-center justify-center gap-2 mb-4">
-              <Sparkles className="w-4 h-4 text-emerald" />
+              {/* <Sparkles className="w-4 h-4 text-emerald" /> */}
               <span className="text-emerald text-sm font-medium tracking-wider uppercase">
                 Our Core Values
               </span>

@@ -5,7 +5,6 @@ import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 import {
-  Sparkles,
   Stethoscope,
   HeartPulse,
   Home,
@@ -18,7 +17,7 @@ const services = [
   {
     id: "01",
     icon: Stethoscope,
-    title: "Medical Checkup",
+    title: "HealthCare stuffing ",
     slug: "medical",
     description:
       "Our experienced healthcare professionals provide routine screenings and comprehensive health assessments.",
@@ -26,7 +25,7 @@ const services = [
   {
     id: "02",
     icon: HeartPulse,
-    title: "Nursing Care",
+    title: "Consultancy ",
     slug: "nursing",
     description:
       "Every care plan is personalized to meet the unique health needs of each resident with compassion.",
@@ -34,7 +33,7 @@ const services = [
   {
     id: "03",
     icon: Home,
-    title: "Residential Care",
+    title: "Care Homes",
     slug: "residential",
     description:
       "Our dedicated team delivers personalized care, 24/7 supervision, and medical support tailored to you.",
@@ -42,7 +41,7 @@ const services = [
   {
     id: "04",
     icon: Activity,
-    title: "Health & Medical Care",
+    title: "Client & Relationship Management",
     slug: "health-medical",
     description:
       "From routine health monitoring and medication management to chronic disease support and post-hospital care.",
@@ -50,7 +49,7 @@ const services = [
   {
     id: "05",
     icon: Users,
-    title: "Senior Citizen",
+    title: "IT Solutions",
     slug: "senior-citizen",
     description:
       "We offer a full range of services—including medical assistance, personal care, and daily living support.",
@@ -64,7 +63,7 @@ export function Services() {
         {/* Section Header */}
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-2 mb-4">
-            <Sparkles className="w-4 h-4 text-emerald" />
+            {/* <Sparkles className="w-4 h-4 text-emerald" /> */}
             <span className="text-emerald text-sm font-medium tracking-wider uppercase">
               Our Services
             </span>
@@ -91,10 +90,10 @@ export function Services() {
             </p>
 
             {/* CTA Button */}
-            <Button className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-8 py-3 flex items-center gap-2">
+            {/* <Button className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-8 py-3 flex items-center gap-2">
               VIEW ALL SERVICES
               <span className="rotate-45">→</span>
-            </Button>
+            </Button> */}
           </div>
 
           {/* Right Column - Service Cards Grid */}
@@ -127,13 +126,13 @@ function ServiceCard({ service }: { service: Service }) {
       <div className="border border-border rounded-lg p-6 hover:shadow-lg transition-all duration-300 bg-card hover:border-emerald/30">
         <div className="flex items-start justify-between mb-4">
           {/* Icon */}
-          <div className="w-14 h-14 rounded-lg bg-emerald/10 flex items-center justify-center group-hover:bg-emerald transition-colors">
+          <div className="w-14 h-14 rounded-lg flex items-center justify-center group-hover:bg-emerald transition-colors">
             <Icon className="w-7 h-7 text-emerald group-hover:text-white transition-colors" />
           </div>
           {/* Service Number */}
-          <span className="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">
+          {/* <span className="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">
             Service {service.id}
-          </span>
+          </span> */}
         </div>
 
         {/* Title */}

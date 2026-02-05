@@ -8,7 +8,6 @@ import { Footer } from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import {
-  Sparkles,
   Stethoscope,
   HeartPulse,
   Home,
@@ -164,7 +163,7 @@ export default function ServiceDetailPage() {
         <Header />
         <div className="min-h-screen flex items-center justify-center bg-background">
           <div className="text-center">
-            <h1 className="text-4xl font-bold text-foreground mb-4">Service Not Found</h1>
+            <h1 className="text-4xl font-bold text-foreground mb-4">Page Not Found</h1>
             <p className="text-muted-foreground mb-8">The service you are looking for does not exist.</p>
             <Link href="/services">
               <Button className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-8">
@@ -194,12 +193,11 @@ export default function ServiceDetailPage() {
             <ArrowLeft className="w-4 h-4" />
             <span>Back to Services</span>
           </Link>
-          <div className="flex items-center gap-2 mb-4">
-            <Sparkles className="w-4 h-4 text-emerald" />
+          {/* <div className="flex items-center gap-2 mb-4">
             <span className="text-emerald text-sm font-medium tracking-wider uppercase">
               Our Services
             </span>
-          </div>
+          </div> */}
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
             {service.title}
           </h1>

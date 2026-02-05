@@ -3,7 +3,6 @@ import { Footer } from "@/components/footer";
 import { PageHeader } from "@/components/page-header";
 import { Button } from "@/components/ui/button";
 import { 
-  Sparkles, 
   Stethoscope, 
   HeartPulse, 
   Home, 
@@ -18,32 +17,32 @@ import Link from "next/link";
 
 export const metadata = {
   title: "Our Services ",
-  description: "Explore Hudsal Healthcare services including healthcare staffing, residential care, nursing care, IT solutions, and professional training programs.",
+  // description: "Explore Hadsul Healthcare services including healthcare staffing, residential care, nursing care, IT solutions, and professional training programs.",
 };
 
 const services = [
   {
     id: "01",
     icon: Stethoscope,
-    title: "Medical Checkup",
+    title: "Healthcare Staffing",
     description: "Our experienced healthcare professionals provide routine screenings and comprehensive health assessments to ensure early detection.",
-    features: ["Health Screenings", "Regular Monitoring", "GP Partnerships", "Specialist Referrals"],
+    features: ["HCA/MHA/Support Worker", "Nurses ", "Cleaners", "Team Leaders", "Kitchen Assistants "],
     href: "/services/medical",
   },
   {
     id: "02",
     icon: HeartPulse,
-    title: "Nursing Care",
+    title: "Consultancy",
     description: "Professional nursing services delivered by registered nurses, providing clinical care for complex medical needs with compassion.",
-    features: ["Registered Nurses", "Medical Management", "Wound Care", "End of Life Care"],
+    features: ["IT Consultancy ", "Financial Consultancy", "Health Care Consultancy"],
     href: "/services/nursing",
   },
   {
     id: "03",
     icon: Home,
-    title: "Residential Care",
-    description: "Our residential care homes offer a safe, comfortable, and nurturing environment for seniors requiring long-term care and support.",
-    features: ["Personalized Care Plans", "Qualified Staff", "Home-like Environment", "Activities Programs"],
+    title: "Home Care",
+    description: "Our residential care homes offer a safe, comfortable, and nurturing environment for seniors requiring long-term care and support across the UK with a wide including but not limited to...",
+    features: ["west sussex ", "East sussex ", " East Grin", "Chichester"],
     href: "/services/residential",
   },
   {
@@ -57,8 +56,8 @@ const services = [
   {
     id: "05",
     icon: Users,
-    title: "Senior Citizen Care",
-    description: "We offer a full range of services including medical assistance, personal care, and daily living support for seniors.",
+    title: "Client Relation Management",
+    description: "Our systems offers a full range of services including medical assistance, personal care, and daily living support for residents icluding.....",
     features: ["CQC Compliant Staff", "24/7 Availability", "Thorough Vetting", "Ongoing Training"],
     href: "/services/senior-citizen",
   },
@@ -85,7 +84,7 @@ export default function ServicesPage() {
     <main>
       <Header />
       <PageHeader 
-        badge="Our Services" 
+        badge=" " 
         title="Healthcare Services"
         description="Comprehensive healthcare solutions tailored to meet the diverse needs of individuals, families, and care providers."
       />
@@ -95,7 +94,6 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <div className="flex items-center justify-center gap-2 mb-4">
-              <Sparkles className="w-4 h-4 text-emerald" />
               <span className="text-emerald text-sm font-medium tracking-wider uppercase">
                 What We Offer
               </span>
@@ -111,22 +109,20 @@ export default function ServicesPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service) => {
-              const Icon = service.icon;
               return (
                 <div 
                   key={service.id} 
                   className="group bg-card border border-border rounded-2xl p-8 hover:shadow-xl transition-all duration-300 hover:border-emerald/30"
                 >
-                  <div className="flex items-start justify-between mb-6">
+                  {/* <div className="flex items-start justify-between mb-6">
                     <div className="w-14 h-14 rounded-xl bg-emerald/10 flex items-center justify-center group-hover:bg-emerald group-hover:text-white transition-colors">
                       <Icon className="w-7 h-7 text-emerald group-hover:text-white" />
                     </div>
                     <span className="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">
                       Service {service.id}
                     </span>
-                  </div>
-
-                  <h3 className="text-xl font-semibold text-foreground mb-3">{service.title}</h3>
+                  </div> */}
+                  <h3 className="text-xl font-semibold text-foreground mb-3">{service.title}</h3> 
                   <p className="text-muted-foreground text-sm leading-relaxed mb-6">
                     {service.description}
                   </p>
@@ -144,7 +140,7 @@ export default function ServicesPage() {
                     href={service.href}
                     className="inline-flex items-center gap-2 text-emerald hover:text-emerald-dark font-medium text-sm transition-colors"
                   >
-                    Learn More
+                    Read More
                     <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
@@ -161,7 +157,7 @@ export default function ServicesPage() {
             Ready to Experience Quality Healthcare?
           </h2>
           <p className="text-white/70 mb-8 text-lg">
-            Contact us today to discuss your healthcare needs and discover how Hudsal can support you.
+            Contact us today to discuss your healthcare needs and discover how Hadsul can support you.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-8 py-3">

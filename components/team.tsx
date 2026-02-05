@@ -2,36 +2,36 @@
 
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Sparkles, Mail, Linkedin } from "lucide-react";
+import { Mail, Linkedin } from "lucide-react";
 
 const teamMembers = [
   {
     id: 1,
-    name: "James Wilson",
-    role: "Manager",
+    name: "Mushin Ssenyonga",
+    role: " ",
     image: "/images/team/james.jpg",
     description:
-      "Personal Care Our goal each day is to ensure that our residents' needs are not only met but exceeded. Assisted Living Our goal each day is..",
+      " Manager ",
     email: "james.wilson@hudsal.com",
     linkedin: "https://linkedin.com/in/jameswilson",
   },
   {
     id: 2,
-    name: "Dr. Sarah Chen",
-    role: "Doctor",
-    image: "/images/team/sarah.jpg",
+    name: "Mushin Ssenyonga",
+    role: " ",
+    image: "/images/team/james.jpg",
     description:
-      "Personal Care Our goal each day is to ensure that our residents' needs are not only met but exceeded. Assisted Living Our goal each day is..",
+      "Manager ",
     email: "sarah.chen@hudsal.com",
     linkedin: "https://linkedin.com/in/sarahchen",
   },
   {
     id: 3,
-    name: "Emma Thompson",
-    role: "Founder",
-    image: "/images/team/emma.jpg",
+    name: "Mushin Ssenyonga",
+    role: " ",
+    image: "/images/team/james.jpg",
     description:
-      "Personal Care Our goal each day is to ensure that our residents' needs are not only met but exceeded. Assisted Living Our goal each day is..",
+      "Manager",
     email: "emma.thompson@hudsal.com",
     linkedin: "https://linkedin.com/in/emmathompson",
   },
@@ -44,7 +44,7 @@ export function Team() {
         {/* Section Header */}
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-2 mb-4">
-            <Sparkles className="w-5 h-5 text-emerald" />
+            {/* <Sparkles className="w-5 h-5 text-emerald" /> */}
             <span className="text-emerald text-sm font-medium tracking-wider uppercase">
               Meet Our Team
             </span>
@@ -74,7 +74,7 @@ export function Team() {
             <div className="absolute bottom-8 right-0 md:right-[-40px] bg-card rounded-lg shadow-xl p-6 max-w-sm">
               {/* Badge */}
               <div className="flex items-center gap-2 mb-4">
-                <Sparkles className="w-4 h-4 text-emerald" />
+                {/* <Sparkles className="w-4 h-4 text-emerald" /> */}
                 <span className="text-emerald text-sm font-medium tracking-wider uppercase">
                   Our Experts
                 </span>
@@ -93,8 +93,8 @@ export function Team() {
 
               {/* CTA Button */}
               <Button className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-6 py-2 flex items-center gap-2">
-                KNOW MORE US
-                <span className="rotate-45">→</span>
+                Our Team
+                {/* <span className="rotate-45">→</span> */}
               </Button>
             </div>
           </div>

@@ -9,21 +9,18 @@ const slides = [
     id: 1,
     image: "/images/hero-care.jpg",
     title: "Seniors Deserve Better Life Taking Care of Relatives",
-    // subtitle: "Raise Your Voice to Win",
     buttonText: "Get Care Support"
   },
   {
     id: 2,
     image: "/images/about-hero.jpg",
     title: "Professional Healthcare Services for Every Need",
-    // subtitle: "Excellence in Care",
     buttonText: "Order Products"
   },
   {
     id: 3,
-    image: "/images/hero-slide-3.jpg",
+    image: "/images/hero-care.jpg",
     title: "Compassionate Care That Makes a Difference",
-    // subtitle: "Your Health, Our Priority",
     buttonText: "Our CRM"
   }
 ];
@@ -63,8 +60,10 @@ export function Hero() {
               src={slide.image}
               alt={`Healthcare slide ${slide.id}`}
               fill
+              sizes="100vw"
               className="object-cover object-center"
               priority={index === 0}
+              quality={90}
             />
           </div>
         ))}
@@ -73,7 +72,8 @@ export function Hero() {
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 min-h-screen flex items-center">
-        <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-12">
+        {/* <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> */}
+          <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-12">
           {/* Left Content */}
           <div className="flex-1 max-w-2xl text-center lg:text-left">
             {/* Badge - Dynamic based on current slide */}
@@ -180,7 +180,8 @@ export function Hero() {
               </div>
             </div>
           </div>
-        </div>
+          </div>
+        {/* </div> */}
       </div>
     </section>
   );

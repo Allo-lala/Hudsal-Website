@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     default: 'Hudsal Limited',
     template: '%s | Hudsal '
   },
-  description: 'Hudsal provides healthcare staffing, care home services, IT solutions for care providers, and certified healthcare products. CQC & NHS compliant.',
+  description: 'We are based & operate legally in the UK Providing exceptional healthcare services. CQC registered and NHS compliant.',
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: '32x32' },

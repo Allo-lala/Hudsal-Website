@@ -9,8 +9,8 @@ import { Footer } from "@/components/footer";
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Home | Hudsal',
-  description: 'Hudsal Senior Care - Providing exceptional healthcare services, personal care, and assisted living for seniors. CQC registered and NHS compliant.',
+  title: 'Welcome | Hudsal',
+  description: 'We are based & operate legally in the UK Providing exceptional healthcare services. CQC registered and NHS compliant.',
 };
 
 export default function Home() {

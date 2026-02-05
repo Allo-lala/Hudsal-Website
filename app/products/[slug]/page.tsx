@@ -8,7 +8,6 @@ import { Footer } from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import { SubscriptionModal } from "@/components/subscription-modal";
 import {
-  Sparkles,
   ArrowLeft,
   Crown,
   Diamond,
@@ -43,7 +42,7 @@ const productsData: Record<string, {
     tagline: "Flexible Support When You Need It Most",
     description: "Operate without restrictive long-term commitments. Remain in control, using Hudsal when operational pressure requires expert oversight and staffing support. Our Gold On Demand service provides rapid response when gaps appear unexpectedly.",
     icon: Crown,
-    color: "from-amber-400 to-amber-600",
+    color: "from-amber-600 to-amber-600",
     bgColor: "bg-amber-500",
     features: [
       {
@@ -85,7 +84,7 @@ const productsData: Record<string, {
     tagline: "Strategic Intelligence for Decisive Leadership",
     description: "Leadership demands more than effort—it's a structured, continuous interpretation of reality. With Platinum Selection, get an external intelligence framework that transforms data into decisive action. Our suite of integrated service functions serves as your external strategic intelligence unit.",
     icon: Diamond,
-    color: "from-slate-300 to-slate-500",
+    color: "from-slate-500 to-slate-500",
     bgColor: "bg-slate-400",
     features: [
       {
@@ -127,7 +126,7 @@ const productsData: Record<string, {
     tagline: "Comprehensive Global Healthcare Solutions",
     description: "Our most comprehensive solution for healthcare organizations seeking excellence in care delivery and operational efficiency on a global scale. Emerald Global combines all our premium services with expanded international support.",
     icon: Gem,
-    color: "from-emerald-400 to-emerald-600",
+    color: "from-emerald-600 to-emerald-600",
     bgColor: "bg-emerald",
     features: [
       {
@@ -169,7 +168,7 @@ const productsData: Record<string, {
     tagline: "The Ultimate Healthcare Partnership",
     description: "The pinnacle of healthcare operational partnership. Hudsal House provides complete operational transformation with dedicated resources, on-site support, and a long-term commitment to your organization's success.",
     icon: Home,
-    color: "from-emerald-600 to-emerald-800",
+    color: "from-emerald-800 to-emerald-800",
     bgColor: "bg-emerald-dark",
     features: [
       {
@@ -257,7 +256,7 @@ export default function ProductDetailPage() {
             </div>
             <div>
               <div className="flex items-center gap-2 mb-1">
-                <Sparkles className="w-4 h-4 text-white/70" />
+                {/* <Sparkles className="w-4 h-4 text-white/70" /> */}
                 <span className="text-white/70 text-sm font-medium tracking-wider uppercase">
                   Subscription Product
                 </span>
@@ -296,10 +295,10 @@ export default function ProductDetailPage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <div className="flex items-center justify-center gap-2 mb-4">
-              <Sparkles className="w-4 h-4 text-emerald" />
-              <span className="text-emerald text-sm font-medium tracking-wider uppercase">
+              {/* <Sparkles className="w-4 h-4 text-emerald" /> */}
+              {/* <span className="text-emerald text-sm font-medium tracking-wider uppercase">
                 What You Get
-              </span>
+              </span> */}
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground text-balance">
               Key Features
@@ -311,7 +310,7 @@ export default function ProductDetailPage() {
               const FeatureIcon = feature.icon;
               return (
                 <div key={feature.title} className="bg-card border border-border rounded-2xl p-6 hover:shadow-lg transition-shadow">
-                  <div className="w-14 h-14 rounded-xl bg-emerald/10 flex items-center justify-center mb-4">
+                  <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-4">
                     <FeatureIcon className="w-7 h-7 text-emerald" />
                   </div>
                   <h3 className="text-lg font-semibold text-foreground mb-2">{feature.title}</h3>
@@ -327,12 +326,12 @@ export default function ProductDetailPage() {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <div className="flex items-center justify-center gap-2 mb-4">
+            {/* <div className="flex items-center justify-center gap-2 mb-4">
               <CheckCircle className="w-4 h-4 text-emerald" />
               <span className="text-emerald text-sm font-medium tracking-wider uppercase">
                 Also Included
               </span>
-            </div>
+            </div> */}
             <h2 className="text-3xl md:text-4xl font-bold text-foreground text-balance">
               What's Included
             </h2>
@@ -343,7 +342,7 @@ export default function ProductDetailPage() {
               const ItemIcon = item.icon;
               return (
                 <div key={item.title} className="bg-card border border-border rounded-2xl p-6 hover:shadow-lg transition-shadow">
-                  <div className="w-14 h-14 rounded-xl bg-emerald/10 flex items-center justify-center mb-4">
+                  <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-4">
                     <ItemIcon className="w-7 h-7 text-emerald" />
                   </div>
                   <h3 className="text-lg font-semibold text-foreground mb-2">{item.title}</h3>

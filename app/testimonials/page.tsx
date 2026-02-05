@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 
 export const metadata = {
   title: "Testimonials",
-  description: "Read what our clients, families, and partners say about Hudsal Healthcare services.",
+  // description: "Read what our clients, families, and partners say about Hudsal Healthcare services.",
 };
 
 const testimonials = [
@@ -85,7 +85,7 @@ export default function TestimonialsPage() {
     <main>
       <Header />
       <PageHeader 
-        badge="Testimonials" 
+        badge=" " 
         title="What Our Clients Say"
         description="Real stories from families, residents, and partners who have experienced the Hudsal difference."
       />
@@ -169,12 +169,12 @@ export default function TestimonialsPage() {
       {/* CTA Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-secondary/30">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="flex items-center justify-center gap-2 mb-4">
+          {/* <div className="flex items-center justify-center gap-2 mb-4">
             <Sparkles className="w-4 h-4 text-emerald" />
             <span className="text-emerald text-sm font-medium tracking-wider uppercase">
               Share Your Experience
             </span>
-          </div>
+          </div> */}
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 text-balance">
             Have You Used Our Services?
           </h2>

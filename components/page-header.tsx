@@ -19,7 +19,6 @@ export function PageHeader({ badge, title, description }: PageHeaderProps) {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Badge */}
         <div className="flex items-center justify-center gap-2 mb-4">
-          <Sparkles className="w-4 h-4 text-emerald" />
           <span className="text-emerald text-sm font-medium tracking-wider uppercase">
             {badge}
           </span>
@@ -36,15 +35,6 @@ export function PageHeader({ badge, title, description }: PageHeaderProps) {
             {description}
           </p>
         )}
-
-        {/* Breadcrumb */}
-        <div className="mt-8 flex items-center justify-center gap-2 text-sm">
-          <a href="/" className="text-white/60 hover:text-emerald transition-colors">
-            Home
-          </a>
-          <span className="text-white/40">/</span>
-          <span className="text-emerald">{title}</span>
-        </div>
       </div>
     </section>
   );

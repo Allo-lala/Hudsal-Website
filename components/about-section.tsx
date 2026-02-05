@@ -2,23 +2,23 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { Sparkles, Users, Heart, Award } from "lucide-react";
+import { Users, Heart, Award } from "lucide-react";
 
 const features = [
   {
     icon: Users,
-    title: "Expert Nursing Staff",
+    title: "Healthcare Staffing",
     description: "Our expert nursing staff deliver compassionate, professional support tailored."
   },
   {
     icon: Heart,
-    title: "Medical Social Services",
-    description: "Medical Social Services provides vital emotional, social, and practical support to seniors and their families."
+    title: "Consultancy",
+    description: "Our consultancy Services provides vital emotional, social, and practical support to seniors and their families."
   },
   {
     icon: Award,
-    title: "Free Medical CheckUp",
-    description: "Our comprehensive assessments include vital signs monitoring, chronic condition screenings, medication reviews."
+    title: "IT Solutions",
+    description: "Our comprehensive solutions include vital signs monitoring, chronic condition screenings, medication reviews for a better life...."
   }
 ];
 
@@ -91,7 +91,7 @@ export function AboutSection() {
             {/* Bottom Left image */}
             <div className="relative h-[240px] w-[240px] rounded-2xl overflow-hidden shadow-xl">
               <Image
-                src="/images/about-hero.jpg"
+                src="/images/hero-care.jpg"
                 alt="Healthcare professional with elderly patient"
                 fill
                 className="object-cover"
@@ -102,7 +102,7 @@ export function AboutSection() {
             <div className="absolute top-0 right-0 h-[240px] w-[240px] rounded-2xl overflow-hidden shadow-xl border-4 border-white">
               <Image
                 src="/images/hero-care.jpg"
-                alt="Caring healthcare moment"
+                alt="Caring moment"
                 fill
                 className="object-cover"
               />
@@ -111,8 +111,8 @@ export function AboutSection() {
             {/* Top Center image - creating triangle */}
             <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 h-[240px] w-[240px] rounded-2xl overflow-hidden shadow-xl border-4 border-white z-10">
               <Image
-                src="/placeholder.jpg"
-                alt="Healthcare team collaboration"
+                src="/images/hero-care.jpg"
+                alt="team collaboration"
                 fill
                 className="object-cover"
               />
@@ -131,10 +131,10 @@ export function AboutSection() {
 
               {/* Care Homes - No background */}
               <div className="flex items-center gap-2">
-                <Heart className="w-5 h-5 text-purple-600" />
+                <Heart className="w-5 h-5 text-blue-600" />
                 <div>
-                  <Counter value={25} suffix="+" className="text-2xl font-bold text-purple-600" />
-                  <p className="text-xs text-purple-600 font-medium">Care Homes</p>
+                  <Counter value={125} suffix="+" className="text-2xl font-bold text-blue-600" />
+                  <p className="text-xs text-blue-600 font-medium">Care Homes</p>
                 </div>
               </div>
             </div>
@@ -143,7 +143,7 @@ export function AboutSection() {
           {/* Right Column - Content */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <Sparkles className="w-4 h-4 text-emerald" />
+              {/* <Sparkles className="w-4 h-4 text-emerald" /> */}
               <span className="text-emerald text-sm font-medium tracking-wider uppercase">
                 About Us
               </span>
@@ -162,7 +162,7 @@ export function AboutSection() {
             <div className="space-y-6 mb-8">
               {features.map((feature, index) => (
                 <div key={index} className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-emerald/10 flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
                     <feature.icon className="w-6 h-6 text-emerald" />
                   </div>
                   <div>
@@ -174,9 +174,9 @@ export function AboutSection() {
             </div>
 
             {/* Years of Experience Counter - replacing Learn More button */}
-            <div className="bg-emerald/10 rounded-2xl p-6 inline-block">
+            <div className=" rounded-2xl p-6 inline-block">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-lg bg-emerald/20 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-lg flex items-center justify-center">
                   <Award className="w-6 h-6 text-emerald" />
                 </div>
                 <div>
@@ -192,7 +192,7 @@ export function AboutSection() {
       {/* Customer Support - Bottom Right - styled like years experience */}
       <div className="absolute bottom-8 right-1/4 bg-emerald/10 rounded-2xl p-6 shadow-xl">
         <div className="flex items-center gap-3">
-          <div className="w-12 h-12 rounded-lg bg-emerald/20 flex items-center justify-center">
+          <div className="w-12 h-12 rounded-lg flex items-center justify-center">
             <Users className="w-6 h-6 text-emerald" />
           </div>
           <div>

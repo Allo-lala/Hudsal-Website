@@ -7,23 +7,23 @@ import { Footer } from "@/components/footer";
 import { PageHeader } from "@/components/page-header";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Sparkles, MapPin, Phone, Mail, Clock, Send } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
 
 const contactInfo = [
   {
     icon: MapPin,
     title: "Our Address",
-    details: ["123 Healthcare Drive", "London, EC1A 1BB", "United Kingdom"],
+    details: ["6 Pelling Way", " Horsham,  Horsham","England", "RH12 3GW"],
   },
   {
     icon: Phone,
     title: "Phone Numbers",
-    details: ["+44 (0) 20 1234 5678", "+44 (0) 800 123 4567 (Freephone)"],
+    details: ["+44 (0) 73 9948 3885", "+44 (0) 800 123 4567 (Freephone)"],
   },
   {
     icon: Mail,
     title: "Email Address",
-    details: ["info@hudsal.co.uk", "support@hudsal.co.uk"],
+    details: ["admin@hudsal.co.uk", "support@hudsal.co.uk"],
   },
   {
     icon: Clock,
@@ -34,7 +34,7 @@ const contactInfo = [
 
 export default function ContactPage() {
   useEffect(() => {
-    document.title = "Contact Us | Hudsal Limited";
+    document.title = "Contact Us | Hudsal";
   }, []);
 
   const [formData, setFormData] = useState({
@@ -60,9 +60,9 @@ export default function ContactPage() {
     <main>
       <Header />
       <PageHeader 
-        badge="Contact Us" 
+        badge=" " 
         title="Get In Touch"
-        description="We're here to help. Reach out to us for any inquiries about our services."
+        // description="We're here to help. Reach out to us for any inquiries about our services."
       />
 
       {/* Contact Section */}
@@ -72,13 +72,13 @@ export default function ContactPage() {
             {/* Contact Info */}
             <div className="lg:col-span-1">
               <div className="flex items-center gap-2 mb-4">
-                <Sparkles className="w-4 h-4 text-emerald" />
-                <span className="text-emerald text-sm font-medium tracking-wider uppercase">
+                {/* <Sparkles className="w-4 h-4 text-emerald" /> */}
+                {/* <span className="text-emerald text-sm font-medium tracking-wider uppercase">
                   Contact Information
-                </span>
+                </span> */}
               </div>
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">
-                {"Let's Start a Conversation"}
+                {" Contact Information"}
               </h2>
 
               <div className="space-y-8">
@@ -86,7 +86,7 @@ export default function ContactPage() {
                   const Icon = item.icon;
                   return (
                     <div key={item.title} className="flex gap-4">
-                      <div className="w-12 h-12 rounded-lg bg-emerald/10 flex items-center justify-center flex-shrink-0">
+                      <div className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
                         <Icon className="w-5 h-5 text-emerald" />
                       </div>
                       <div>
@@ -118,7 +118,7 @@ export default function ContactPage() {
                         required
                         value={formData.name}
                         onChange={handleChange}
-                        placeholder="John Smith"
+                        placeholder="John Doe"
                         className="w-full"
                       />
                     </div>
@@ -133,7 +133,7 @@ export default function ContactPage() {
                         required
                         value={formData.email}
                         onChange={handleChange}
-                        placeholder="john@example.com"
+                        placeholder="your@email.com"
                         className="w-full"
                       />
                     </div>
@@ -209,10 +209,10 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <div className="flex items-center justify-center gap-2 mb-4">
-              <Sparkles className="w-4 h-4 text-emerald" />
-              <span className="text-emerald text-sm font-medium tracking-wider uppercase">
+              {/* <Sparkles className="w-4 h-4 text-emerald" /> */}
+              {/* <span className="text-emerald text-sm font-medium tracking-wider uppercase">
                 Our Location
-              </span>
+              </span> */}
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground text-balance">
               Find Us on the Map

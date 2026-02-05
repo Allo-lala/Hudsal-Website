@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { PageHeader } from "@/components/page-header";
-import { Sparkles, Linkedin, Mail } from "lucide-react";
+import { Linkedin, Mail } from "lucide-react";
 
 export const metadata = {
   title: "Our Team ",
@@ -12,61 +12,61 @@ export const metadata = {
 const teamMembers = [
   {
     id: 1,
-    name: "James Wilson",
+    name: "Mushin Ssenyonga",
     role: "Chief Executive Officer",
-    department: "Leadership",
+    department: " ",
     image: "/images/team/james.jpg",
-    bio: "James has over 20 years of experience in healthcare management. His vision and leadership have shaped Hudsal into the trusted provider it is today.",
+    bio: " ",
     linkedin: "#",
     email: "james@hudsal.co.uk",
   },
   {
     id: 2,
-    name: "Dr. Sarah Chen",
+    name: "Mushin Ssenyonga",
     role: "Medical Director",
-    department: "Medical",
-    image: "/images/team/sarah.jpg",
-    bio: "Dr. Chen brings extensive clinical expertise to our team, ensuring all our care services meet the highest medical standards.",
+    department: " ",
+    image: "/images/team/james.jpg",
+    bio: " ",
     linkedin: "#",
     email: "sarah@hudsal.co.uk",
   },
   {
     id: 3,
-    name: "Emma Thompson",
+    name: "Mushin Ssenyonga",
     role: "Founder & Chairman",
-    department: "Leadership",
-    image: "/images/team/emma.jpg",
-    bio: "Emma founded Hudsal with a mission to transform healthcare delivery. Her passion for quality care drives our organization forward.",
+    department: " ",
+    image: "/images/team/james.jpg",
+    bio: " ",
     linkedin: "#",
     email: "emma@hudsal.co.uk",
   },
   {
     id: 4,
-    name: "Margaret Thompson",
+    name: "Mushin Ssenyonga",
     role: "Director of Nursing",
-    department: "Clinical",
-    image: "/images/testimonials/client1.jpg",
-    bio: "Margaret leads our nursing team with over 15 years of experience in clinical care and staff development.",
+    department: " ",
+    image: "/images/team/james.jpg",
+    bio: " ",
     linkedin: "#",
     email: "margaret@hudsal.co.uk",
   },
   {
     id: 5,
-    name: "Robert Williams",
+    name: "Mushin Ssenyonga",
     role: "Operations Manager",
-    department: "Operations",
-    image: "/images/testimonials/client2.jpg",
-    bio: "Robert ensures smooth day-to-day operations across all our facilities, maintaining excellence in service delivery.",
+    department: " ",
+    image: "/images/team/james.jpg",
+    bio: " ",
     linkedin: "#",
     email: "robert@hudsal.co.uk",
   },
   {
     id: 6,
-    name: "David Harrison",
+    name: "Mushin Ssenyonga",
     role: "IT Director",
-    department: "Technology",
-    image: "/images/testimonials/client3.jpg",
-    bio: "David leads our technology initiatives, developing innovative solutions that enhance care quality and efficiency.",
+    department: " ",
+    image: "/images/team/james.jpg",
+    bio: " ",
     linkedin: "#",
     email: "david@hudsal.co.uk",
   },
@@ -79,9 +79,9 @@ export default function TeamPage() {
     <main>
       <Header />
       <PageHeader 
-        badge="Our Team" 
+        badge=" " 
         title="Meet Our Experts"
-        description="Dedicated professionals committed to delivering exceptional healthcare services."
+        // description="Dedicated professionals committed to delivering exceptional healthcare services."
       />
 
       {/* Team Section */}
@@ -160,12 +160,12 @@ export default function TeamPage() {
       {/* Join Team CTA */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#1a2e1a] dark:bg-[#0f1a0f]">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="flex items-center justify-center gap-2 mb-4">
+          {/* <div className="flex items-center justify-center gap-2 mb-4">
             <Sparkles className="w-4 h-4 text-emerald" />
             <span className="text-emerald text-sm font-medium tracking-wider uppercase">
               Join Our Team
             </span>
-          </div>
+          </div> */}
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 text-balance">
             Want to Make a Difference in Healthcare?
           </h2>
@@ -180,6 +180,9 @@ export default function TeamPage() {
           </a>
         </div>
       </section>
+
+      {/* Spacer between CTA and Footer */}
+      <div className="h-16 bg-background" />
 
       <Footer />
     </main>

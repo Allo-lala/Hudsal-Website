@@ -53,7 +53,7 @@ export function Header() {
               alt="Logo"
               width={120}
               height={50}
-              className="h-25 w-auto"
+              className="h-15 w-auto"
             />
           </Link>
 
