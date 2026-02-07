@@ -170,7 +170,7 @@ export default function AboutPage() {
       <Header />
       <PageHeader 
         badge="About Us" 
-        title="About Hudsal Healthcare"
+        title="About Hadsul Healthcare"
         description="Dedicated to providing exceptional healthcare services with compassion and professionalism."
       />
 

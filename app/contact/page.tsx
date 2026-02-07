@@ -13,12 +13,12 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "Our Address",
-    details: ["6 Pelling Way", " Horsham,  Horsham","England", "RH12 3GW"],
+    details: ["6 Pelling Way", " Horsham, West Sussex","England", "RH12 3GW"],
   },
   {
     icon: Phone,
     title: "Phone Numbers",
-    details: ["+44 (0) 73 9948 3885", "+44 (0) 800 123 4567 (Freephone)"],
+    details: ["+44 (0) 73 9948 3885", "+44 (0) 745 569 8119 (Freephone)"],
   },
   {
     icon: Mail,
@@ -45,7 +45,7 @@ export default function ContactPage() {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Handle form submission
     alert("Thank you for your message! We will get back to you shortly.");
@@ -91,9 +91,37 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <h3 className="font-semibold text-foreground mb-1">{item.title}</h3>
-                        {item.details.map((detail) => (
-                          <p key={detail} className="text-muted-foreground text-sm">{detail}</p>
-                        ))}
+                        {item.details.map((detail) => {
+                          // Check if this is a phone number
+                          if (item.title === "Phone Numbers") {
+                            const phoneNumber = detail.replace(/\s+/g, "").replace(/\(0\)/g, "");
+                            return (
+                              <a 
+                                key={detail} 
+                                href={`tel:${phoneNumber}`}
+                                className="text-muted-foreground text-sm hover:text-emerald transition-colors cursor-pointer block"
+                              >
+                                {detail}
+                              </a>
+                            );
+                          }
+                          // Check if this is an email
+                          if (item.title === "Email Address") {
+                            return (
+                              <a 
+                                key={detail} 
+                                href={`mailto:${detail}`}
+                                className="text-muted-foreground text-sm hover:text-emerald transition-colors cursor-pointer block"
+                              >
+                                {detail}
+                              </a>
+                            );
+                          }
+                          // Regular text for other items
+                          return (
+                            <p key={detail} className="text-muted-foreground text-sm">{detail}</p>
+                          );
+                        })}
                       </div>
                     </div>
                   );

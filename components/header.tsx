@@ -21,9 +21,11 @@ const navItems = [
       { name: "Our Team", href: "/team" },
       { name: "Testimonials", href: "/testimonials" },
       { name: "FAQ", href: "/faq" },
+      { name: "Events", href: "/events" },
     ]
   },
   { name: "SERVICES", href: "/services", hasDropdown: false },
+  { name: "CAREERS", href: "/careers", hasDropdown: false },
   { name: "PRODUCTS", href: "/products", hasDropdown: false },
 ];
 

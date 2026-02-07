@@ -86,7 +86,7 @@ export function Services() {
 
             {/* Description */}
             <p className="text-muted-foreground mb-8 leading-relaxed">
-              At Hudsal Healthcare, we believe every senior deserves our best services—because quality care isn't a luxury, it's a right.
+              At Hadsul Healthcare, we believe every senior deserves our best services—because quality care isn't a luxury, it's a right.
             </p>
 
             {/* CTA Button */}

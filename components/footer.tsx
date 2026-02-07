@@ -13,6 +13,7 @@ const quickLinks = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "/about" },
   { name: "Services", href: "/services" },
+  { name: "Careers", href: "/careers" },
   { name: "Products", href: "/products" },
   { name: "Contact", href: "/contact" },
 ];
@@ -124,6 +125,14 @@ export function Footer() {
                   </a>
                 </li>
 
+                <li>
+                  <a href="mailto:info@hadsul.co.uk" className="text-gray-400 hover:text-white" aria-label="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-envelope" viewBox="0 0 16 16">
+                    <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/>
+                  </svg>
+                  </a>
+                </li>
+
               </ul>
             </div>
 
@@ -209,7 +218,7 @@ export function Footer() {
           <div className="mt-12 pt-8 border-t border-white/10">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="text-white/60 text-sm">
-                © {new Date().getFullYear()} Hudsal. All rights reserved.
+                © {new Date().getFullYear()} Hadsul. All rights reserved.
               </p>
               <p className="text-white/60 text-sm">
                 CQC Registered | NHS Compliant | ISO 9001 Certified

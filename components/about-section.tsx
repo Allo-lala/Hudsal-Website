@@ -190,7 +190,7 @@ export function AboutSection() {
       </div>
 
       {/* Customer Support - Bottom Right - styled like years experience */}
-      <div className="absolute bottom-8 right-1/4 bg-emerald/10 rounded-2xl p-6 shadow-xl">
+      <div className="absolute bottom-8 right-1/4 rounded-2xl ">
         <div className="flex items-center gap-3">
           <div className="w-12 h-12 rounded-lg flex items-center justify-center">
             <Users className="w-6 h-6 text-emerald" />

@@ -17,8 +17,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Hudsal Limited',
-    template: '%s | Hudsal '
+    default: 'Hadsul Limited',
+    template: '%s | Hadsul '
   },
   description: 'We are based & operate legally in the UK Providing exceptional healthcare services. CQC registered and NHS compliant.',
   icons: {

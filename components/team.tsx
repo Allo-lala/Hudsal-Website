@@ -7,7 +7,7 @@ import { Mail, Linkedin } from "lucide-react";
 const teamMembers = [
   {
     id: 1,
-    name: "Mushin Ssenyonga",
+    name: "Mushin Senyonga",
     role: " ",
     image: "/images/team/james.jpg",
     description:
@@ -17,7 +17,7 @@ const teamMembers = [
   },
   {
     id: 2,
-    name: "Mushin Ssenyonga",
+    name: "Mushin Senyonga",
     role: " ",
     image: "/images/team/james.jpg",
     description:
@@ -27,7 +27,7 @@ const teamMembers = [
   },
   {
     id: 3,
-    name: "Mushin Ssenyonga",
+    name: "Mushin Senyonga",
     role: " ",
     image: "/images/team/james.jpg",
     description:
@@ -53,7 +53,7 @@ export function Team() {
             Our Expert Healthcare Team
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Meet the dedicated professionals who make exceptional care possible at Hudsal Senior Care
+            Meet the dedicated professionals who make exceptional care possible at Hadsul Senior Care
           </p>
         </div>
 
@@ -87,7 +87,7 @@ export function Team() {
 
               {/* Description */}
               <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
-                At Hudsal Senior Care, our Registered Nurses and Skilled
+                At Hadsul Senior Care, our Registered Nurses and Skilled
                 Professionals are the heart of our exceptional care services.
               </p>
 

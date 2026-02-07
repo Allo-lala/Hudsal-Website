@@ -26,7 +26,7 @@ const testimonials = [
     role: "Healthcare Partner",
     image: "/images/testimonials/client3.jpg",
     rating: 5,
-    text: "Working with Hudsal has transformed our care home operations. Their staffing solutions and IT support have streamlined everything. A truly professional and reliable healthcare partner.",
+    text: "Working with Hadsul has transformed our care home operations. Their staffing solutions and IT support have streamlined everything. A truly professional and reliable healthcare partner.",
   },
 ];
 

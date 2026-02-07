@@ -9,7 +9,7 @@ import { Footer } from "@/components/footer";
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Welcome | Hudsal',
+  title: 'Welcome | Hadsul',
   description: 'We are based & operate legally in the UK Providing exceptional healthcare services. CQC registered and NHS compliant.',
 };
 
