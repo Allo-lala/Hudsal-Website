@@ -78,100 +78,243 @@ export function BooksAndPodcasts() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Books Section */}
           <div>
-            <div className="flex items-center gap-3 mb-8">
+            <div className="flex items-center gap-3 mb-4">
               <div className="w-12 h-12 rounded-lg bg-emerald/10 flex items-center justify-center">
                 <BookOpen className="w-6 h-6 text-emerald" />
               </div>
               <h3 className="text-2xl font-bold text-foreground">Our Books</h3>
             </div>
+            <p className="text-muted-foreground mb-8">
+              Expand your healthcare knowledge with our expertly written books
+            </p>
 
-            <div className="space-y-6">
-              {books.map((book) => (
-                <div key={book.id} className="bg-card border border-border rounded-xl p-6 hover:shadow-lg transition-shadow">
-                  <div className="flex gap-4">
-                    <div className="w-20 h-28 bg-gradient-to-br from-emerald/20 to-emerald/5 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <BookOpen className="w-8 h-8 text-emerald" />
-                    </div>
-                    <div className="flex-1">
-                      <h4 className="font-semibold text-foreground mb-1">{book.title}</h4>
-                      <p className="text-sm text-muted-foreground mb-2">by {book.author}</p>
-                      <p className="text-sm text-muted-foreground mb-3">{book.description}</p>
-                      <div className="flex items-center justify-between">
-                        <span className="text-lg font-bold text-emerald">{book.price}</span>
-                        <Button className="bg-emerald hover:bg-emerald-dark text-white">
-                          <ShoppingCart className="w-4 h-4 mr-2" />
-                          Buy Now
-                        </Button>
-                      </div>
-                    </div>
+            {/* Book Display - Side by Side Layout */}
+            <div className="bg-card border border-border rounded-2xl p-6 md:p-8 shadow-lg">
+              <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-center md:items-start">
+                {/* Book Image - Left Side */}
+                <div className="flex-shrink-0">
+                  <div className="relative w-48 h-64 md:w-56 md:h-72 rounded-lg overflow-hidden shadow-xl">
+                    <Image
+                      src="/images/books/image.webp"
+                      alt="Healthcare Book"
+                      fill
+                      className="object-cover"
+                    />
                   </div>
                 </div>
-              ))}
+
+                {/* Book Content - Right Side */}
+                <div className="flex-1 space-y-4">
+                  <h4 className="text-xl md:text-2xl font-bold text-foreground">
+                    Healthcare & Leadership For Modern Times
+                  </h4>
+                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                    A comprehensive guide to leading healthcare teams through challenges and change. 
+                    This book covers essential leadership principles, team management strategies, 
+                    and how to navigate the complex healthcare landscape with confidence and expertise.
+                  </p>
+                  
+                  <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                    <span className="flex items-center gap-1">
+                      <BookOpen className="w-4 h-4" />
+                      320 pages
+                    </span>
+                    <span>•</span>
+                    <span>Written by Mushin</span>
+                  </div>
+
+                  <div className="pt-4">
+                    <p className="text-2xl md:text-3xl font-bold text-emerald mb-4">£24.99</p>
+                    <a
+                      href="https://your-ecommerce-link.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block w-full"
+                    >
+                      <Button className="bg-[#25D366] hover:bg-[#20bd5a] text-white w-full text-base md:text-lg py-5 md:py-6 rounded-full shadow-lg hover:shadow-xl transition-all">
+                        <ShoppingCart className="w-5 h-5 mr-2" />
+                        ORDER NOW
+                      </Button>
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div className="mt-8 text-center">
+            {/* <div className="mt-8 text-center">
               <Button variant="outline" className="border-emerald text-emerald hover:bg-emerald hover:text-white">
                 View All Books
                 <ExternalLink className="w-4 h-4 ml-2" />
               </Button>
-            </div>
+            </div> */}
           </div>
 
           {/* Podcasts Section */}
           <div>
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-12 h-12 rounded-lg bg-emerald/10 flex items-center justify-center">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-12 h-12 rounded-lg flex items-center justify-center">
                 <Headphones className="w-6 h-6 text-emerald" />
               </div>
               <h3 className="text-2xl font-bold text-foreground">Our Podcasts</h3>
             </div>
+            <p className="text-muted-foreground mb-8">
+              Listen to our healthcare podcasts on your favorite platform
+            </p>
 
-            <div className="space-y-6">
-              {podcasts.map((podcast) => (
-                <div key={podcast.id} className="bg-card border border-border rounded-xl p-6 hover:shadow-lg transition-shadow">
-                  <div className="flex gap-4">
-                    <div className="w-20 h-20 bg-gradient-to-br from-emerald/20 to-emerald/5 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Headphones className="w-8 h-8 text-emerald" />
-                    </div>
-                    <div className="flex-1">
-                      <h4 className="font-semibold text-foreground mb-1">{podcast.title}</h4>
-                      <p className="text-sm text-muted-foreground mb-2">{podcast.episodes} episodes</p>
-                      <p className="text-sm text-muted-foreground mb-4">{podcast.description}</p>
-                      <div className="flex gap-2">
-                        <Button 
-                          size="sm" 
-                          className="bg-[#1DB954] hover:bg-[#1ed760] text-white"
-                          onClick={() => window.open('https://open.spotify.com', '_blank')}
-                        >
-                          <svg className="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.42 1.56-.299.421-1.02.599-1.559.3z"/>
-                          </svg>
-                          Spotify
-                        </Button>
-                        <Button 
-                          size="sm" 
-                          variant="outline"
-                          className="border-purple-500 text-purple-500 hover:bg-purple-500 hover:text-white"
-                          onClick={() => window.open('https://podcasts.apple.com', '_blank')}
-                        >
-                          <svg className="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.62 5.367 11.987 11.988 11.987s11.987-5.367 11.987-11.987C24.004 5.367 18.637.001 12.017.001zM8.232 17.988c-.423 0-.766-.343-.766-.766s.343-.766.766-.766.766.343.766.766-.343.766-.766.766zm2.827-2.54c-1.135 0-2.062-.927-2.062-2.063 0-1.135.927-2.062 2.062-2.062s2.063.927 2.063 2.062c0 1.136-.928 2.063-2.063 2.063zm0-5.395c-1.841 0-3.332 1.491-3.332 3.332s1.491 3.333 3.332 3.333 3.333-1.492 3.333-3.333-1.492-3.332-3.333-3.332zm0-2.7c-3.34 0-6.033 2.693-6.033 6.032s2.693 6.033 6.033 6.033 6.032-2.694 6.032-6.033S14.399 7.353 11.059 7.353z"/>
-                          </svg>
-                          Apple Podcasts
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
+            {/* Circular Podcast Design */}
+            <div className="relative w-full aspect-square max-w-lg mx-auto">
+              {/* Multiple Dashed Circles in WhatsApp Green */}
+              <svg className="absolute inset-0 w-full h-full animate-spin" style={{ animationDuration: '60s' }}>
+                <circle
+                  cx="50%"
+                  cy="50%"
+                  r="45%"
+                  fill="none"
+                  stroke="#25D366"
+                  strokeWidth="2"
+                  strokeDasharray="10 10"
+                  opacity="0.5"
+                />
+                <circle
+                  cx="50%"
+                  cy="50%"
+                  r="38%"
+                  fill="none"
+                  stroke="#25D366"
+                  strokeWidth="2"
+                  strokeDasharray="8 8"
+                  opacity="0.45"
+                />
+                <circle
+                  cx="50%"
+                  cy="50%"
+                  r="31%"
+                  fill="none"
+                  stroke="#25D366"
+                  strokeWidth="2"
+                  strokeDasharray="6 6"
+                  opacity="0.4"
+                />
+                <circle
+                  cx="50%"
+                  cy="50%"
+                  r="24%"
+                  fill="none"
+                  stroke="#25D366"
+                  strokeWidth="2"
+                  strokeDasharray="5 5"
+                  opacity="0.35"
+                />
+                <circle
+                  cx="50%"
+                  cy="50%"
+                  r="17%"
+                  fill="none"
+                  stroke="#25D366"
+                  strokeWidth="2"
+                  strokeDasharray="4 4"
+                  opacity="0.3"
+                />
+              </svg>
+
+              {/* Central Podcast Host Image */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 sm:w-48 sm:h-48 rounded-full overflow-hidden shadow-2xl border-4 border-[#25D366]/30 animate-pulse" style={{ animationDuration: '3s' }}>
+                <Image
+                  src="/images/podcast/cover.jpeg"
+                  alt="Podcast Host"
+                  width={192}
+                  height={192}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* YouTube Icon - Top */}
+              <a
+                href="https://youtube.com/hadsulltd"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute top-[5%] left-1/2 -translate-x-1/2 w-16 h-16 rounded-xl shadow-lg hover:scale-125 transition-all duration-300"
+                style={{
+                  animation: 'zoomInOut 4s ease-in-out infinite',
+                  animationDelay: '0s'
+                }}
+              >
+                <Image
+                  src="/images/podcast/youtube.png"
+                  alt="YouTube"
+                  width={64}
+                  height={64}
+                  className="w-full h-full object-contain drop-shadow-lg"
+                />
+              </a>
+
+              {/* Apple Podcasts Icon - Right */}
+              <a
+                href="https://podcasts.apple.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute top-1/2 right-[5%] -translate-y-1/2 w-16 h-16 rounded-xl shadow-lg hover:scale-125 transition-all duration-300"
+                style={{
+                  animation: 'zoomInOut 4.5s ease-in-out infinite',
+                  animationDelay: '1s'
+                }}
+              >
+                <Image
+                  src="/images/podcast/ApplePodcasts.png"
+                  alt="Apple Podcasts"
+                  width={64}
+                  height={64}
+                  className="w-full h-full object-contain drop-shadow-lg"
+                />
+              </a>
+
+              {/* Spotify Icon - Left */}
+              <a
+                href="https://open.spotify.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute top-1/2 left-[5%] -translate-y-1/2 w-16 h-16 rounded-xl shadow-lg hover:scale-125 transition-all duration-300"
+                style={{
+                  animation: 'zoomInOut 5s ease-in-out infinite',
+                  animationDelay: '2s'
+                }}
+              >
+                <Image
+                  src="/images/podcast/Spotify.png"
+                  alt="Spotify"
+                  width={64}
+                  height={64}
+                  className="w-full h-full object-contain drop-shadow-lg"
+                />
+              </a>
+
+              {/* Amazon Music Icon - Bottom */}
+              <a
+                href="https://music.amazon.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-[5%] left-1/2 -translate-x-1/2 w-16 h-16 rounded-xl shadow-lg hover:scale-125 transition-all duration-300"
+                style={{
+                  animation: 'zoomInOut 5.5s ease-in-out infinite',
+                  animationDelay: '3s'
+                }}
+              >
+                <Image
+                  src="/images/podcast/amazonMusic.png"
+                  alt="Amazon Music"
+                  width={64}
+                  height={64}
+                  className="w-full h-full object-contain drop-shadow-lg"
+                />
+              </a>
             </div>
 
-            <div className="mt-8 text-center">
+            {/* <div className="mt-12 text-center">
               <Button variant="outline" className="border-emerald text-emerald hover:bg-emerald hover:text-white">
-                View All Podcasts
+                View All Episodes
                 <ExternalLink className="w-4 h-4 ml-2" />
               </Button>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
