@@ -2,6 +2,7 @@ import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
 import { AboutSection } from "@/components/about-section";
 import { Services } from "@/components/services";
+import { BooksAndPodcasts } from "@/components/books-podcasts";
 import { FAQ } from "@/components/faq";
 import { Team } from "@/components/team";
 import { Testimonials } from "@/components/testimonials";
@@ -15,11 +16,12 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main>
+    <main className="overflow-x-hidden">
       <Header />
       <Hero />
       <AboutSection />
       <Services />
+      <BooksAndPodcasts />
       <FAQ />
       <Team />
       <Testimonials />

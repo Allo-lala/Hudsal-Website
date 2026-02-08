@@ -22,6 +22,12 @@ const slides = [
     image: "/images/hero-care.jpg",
     title: "Compassionate Care That Makes a Difference",
     buttonText: "Our CRM"
+  },
+  {
+    id: 4,
+    image: "/images/about-hero.jpg",
+    title: "Expand Your Knowledge with Books and Podcasts",
+    buttonText: "Explore Content"
   }
 ];
 
