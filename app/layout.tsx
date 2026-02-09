@@ -1,18 +1,104 @@
 import React from "react"
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import localFont from 'next/font/local'
 import { Analytics } from '@vercel/analytics/next'
 import { LoadingProvider } from '@/components/loading-provider'
 import './globals.css'
 
-const geist = Geist({
-  subsets: ['latin'],
-  variable: '--font-geist-sans',
-})
-
-const geistMono = Geist_Mono({
-  subsets: ['latin'],
-  variable: '--font-geist-mono',
+const poppins = localFont({
+  src: [
+    {
+      path: '../public/fonts/Poppins/Poppins-Thin.ttf',
+      weight: '100',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/Poppins/Poppins-ThinItalic.ttf',
+      weight: '100',
+      style: 'italic',
+    },
+    {
+      path: '../public/fonts/Poppins/Poppins-ExtraLight.ttf',
+      weight: '200',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/Poppins/Poppins-ExtraLightItalic.ttf',
+      weight: '200',
+      style: 'italic',
+    },
+    {
+      path: '../public/fonts/Poppins/Poppins-Light.ttf',
+      weight: '300',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/Poppins/Poppins-LightItalic.ttf',
+      weight: '300',
+      style: 'italic',
+    },
+    {
+      path: '../public/fonts/Poppins/Poppins-Regular.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/Poppins/Poppins-Italic.ttf',
+      weight: '400',
+      style: 'italic',
+    },
+    {
+      path: '../public/fonts/Poppins/Poppins-Medium.ttf',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/Poppins/Poppins-MediumItalic.ttf',
+      weight: '500',
+      style: 'italic',
+    },
+    {
+      path: '../public/fonts/Poppins/Poppins-SemiBold.ttf',
+      weight: '600',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/Poppins/Poppins-SemiBoldItalic.ttf',
+      weight: '600',
+      style: 'italic',
+    },
+    {
+      path: '../public/fonts/Poppins/Poppins-Bold.ttf',
+      weight: '700',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/Poppins/Poppins-BoldItalic.ttf',
+      weight: '700',
+      style: 'italic',
+    },
+    {
+      path: '../public/fonts/Poppins/Poppins-ExtraBold.ttf',
+      weight: '800',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/Poppins/Poppins-ExtraBoldItalic.ttf',
+      weight: '800',
+      style: 'italic',
+    },
+    {
+      path: '../public/fonts/Poppins/Poppins-Black.ttf',
+      weight: '900',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/Poppins/Poppins-BlackItalic.ttf',
+      weight: '900',
+      style: 'italic',
+    },
+  ],
+  variable: '--font-poppins',
 })
 
 export const metadata: Metadata = {
@@ -39,7 +125,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geist.variable} ${geistMono.variable} font-sans antialiased`}>
+      <body className={`${poppins.variable} font-sans antialiased`}>
         <LoadingProvider>
           {children}
         </LoadingProvider>

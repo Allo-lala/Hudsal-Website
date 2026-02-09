@@ -83,8 +83,8 @@
 }
 
 @theme inline {
-  --font-sans: var(--font-geist-sans), 'Geist', ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), 'Geist Mono', ui-monospace, monospace;
+  --font-sans: var(--font-poppins), 'Poppins', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, monospace;
   --color-emerald: var(--emerald);
   --color-emerald-dark: var(--emerald-dark);
   --color-beige: var(--beige);

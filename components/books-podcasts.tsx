@@ -79,7 +79,7 @@ export function BooksAndPodcasts() {
           {/* Books Section */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-lg bg-emerald/10 flex items-center justify-center">
+              <div className="w-12 h-12 rounded-lg flex items-center justify-center">
                 <BookOpen className="w-6 h-6 text-emerald" />
               </div>
               <h3 className="text-2xl font-bold text-foreground">Our Books</h3>
@@ -88,55 +88,53 @@ export function BooksAndPodcasts() {
               Expand your healthcare knowledge with our expertly written books
             </p>
 
-            {/* Book Display - Side by Side Layout */}
-            <div className="bg-card border border-border rounded-2xl p-6 md:p-8 shadow-lg">
-              <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-center md:items-start">
-                {/* Book Image - Left Side */}
-                <div className="flex-shrink-0">
-                  <div className="relative w-48 h-64 md:w-56 md:h-72 rounded-lg overflow-hidden shadow-xl">
-                    <Image
-                      src="/images/books/image.webp"
-                      alt="Healthcare Book"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
+            {/* Book Display - Side by Side Layout (No Card) */}
+            <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-center md:items-start">
+              {/* Book Image - Left Side */}
+              <div className="flex-shrink-0">
+                <div className="relative w-48 h-64 md:w-56 md:h-72 rounded-lg overflow-hidden shadow-2xl bg-transparent">
+                  <Image
+                    src="/images/books/image.webp"
+                    alt="Healthcare Book"
+                    fill
+                    className="object-contain"
+                  />
                 </div>
+              </div>
 
-                {/* Book Content - Right Side */}
-                <div className="flex-1 space-y-4">
-                  <h4 className="text-xl md:text-2xl font-bold text-foreground">
-                    Healthcare & Leadership For Modern Times
-                  </h4>
-                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-                    A comprehensive guide to leading healthcare teams through challenges and change. 
-                    This book covers essential leadership principles, team management strategies, 
-                    and how to navigate the complex healthcare landscape with confidence and expertise.
-                  </p>
-                  
-                  <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                    <span className="flex items-center gap-1">
-                      <BookOpen className="w-4 h-4" />
-                      320 pages
-                    </span>
-                    <span>•</span>
-                    <span>Written by Mushin</span>
-                  </div>
+              {/* Book Content - Right Side */}
+              <div className="flex-1 space-y-4">
+                <h4 className="text-xl md:text-2xl font-bold text-foreground">
+                  Healthcare & Leadership For Modern Times
+                </h4>
+                <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                  A comprehensive guide to leading healthcare teams through challenges and change. 
+                  This book covers essential leadership principles, team management strategies, 
+                  and how to navigate the complex healthcare landscape with confidence and expertise.
+                </p>
+                
+                {/* <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                  <span className="flex items-center gap-1">
+                    <BookOpen className="w-4 h-4" />
+                    320 pages
+                  </span>
+                  <span>•</span>
+                  <span>Written by Mushin</span>
+                </div> */}
 
-                  <div className="pt-4">
-                    <p className="text-2xl md:text-3xl font-bold text-emerald mb-4">£24.99</p>
-                    <a
-                      href="https://your-ecommerce-link.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-block w-full"
-                    >
-                      <Button className="bg-[#25D366] hover:bg-[#20bd5a] text-white w-full text-base md:text-lg py-5 md:py-6 rounded-full shadow-lg hover:shadow-xl transition-all">
-                        <ShoppingCart className="w-5 h-5 mr-2" />
-                        ORDER NOW
-                      </Button>
-                    </a>
-                  </div>
+                <div className="pt-4">
+                  <p className="text-2xl md:text-3xl font-bold text-emerald mb-4">£24.99</p>
+                  <a
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block w-full"
+                  >
+                    <Button className="bg-[#25D366] hover:bg-[#20bd5a] text-white w-full text-base md:text-lg py-5 md:py-6 rounded-full shadow-lg hover:shadow-xl transition-all">
+                      <ShoppingCart className="w-5 h-5 mr-2" />
+                      ORDER NOW
+                    </Button>
+                  </a>
                 </div>
               </div>
             </div>

@@ -22,7 +22,7 @@ const navItems = [
       { name: "Testimonials", href: "/testimonials" },
       { name: "FAQ", href: "/faq" },
       { name: "Events", href: "/events" },
-      { name: "Books & Podcasts", href: "/books-podcasts" },
+      // { name: "Books & Podcasts", href: "/books-podcasts" },
     ]
   },
   { name: "SERVICES", href: "/services", hasDropdown: false },
