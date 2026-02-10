@@ -106,7 +106,7 @@ export const metadata: Metadata = {
     default: 'Hadsul Limited',
     template: '%s | Hadsul '
   },
-  description: 'We are based & operate legally in the UK Providing exceptional healthcare services. CQC registered and NHS compliant.',
+  description: 'We are based & operate in the UK Providing exceptional healthcare services. CQC registered and NHS compliant.',
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: '32x32' },

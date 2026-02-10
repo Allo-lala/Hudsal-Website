@@ -164,8 +164,8 @@ export default function ProductsPage() {
 
                     {/* Features */}
                     <ul className="space-y-3 mb-6">
-                      {product.highlights.map((highlight) => (
-                        <li key={highlight} className="flex items-start gap-3">
+                      {product.highlights.map((highlight, highlightIndex) => (
+                        <li key={`${product.id}-${highlightIndex}`} className="flex items-start gap-3">
                           <CheckCircle className="w-4 h-4 text-emerald flex-shrink-0 mt-0.5" />
                           <span className="text-foreground text-sm">{highlight}</span>
                         </li>
@@ -220,7 +220,7 @@ export default function ProductsPage() {
               </span> */}
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground text-balance">
-              Benefits of Hudsal Subscriptions
+              Benefits of Hadsul Subscriptions
             </h2>
           </div>
 

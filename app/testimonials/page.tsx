@@ -2,12 +2,12 @@ import Image from "next/image";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { PageHeader } from "@/components/page-header";
-import { Star, Quote, Sparkles } from "lucide-react";
+import { Star, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const metadata = {
   title: "Testimonials",
-  // description: "Read what our clients, families, and partners say about Hudsal Healthcare services.",
+  // description: "Read what our clients, families, and partners say about Hadsul Healthcare services.",
 };
 
 const testimonials = [
