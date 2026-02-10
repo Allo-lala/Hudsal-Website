@@ -160,12 +160,16 @@ export default function ServicesPage() {
             Contact us today to discuss your healthcare needs and discover how Hadsul can support you.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-8 py-3">
-              Get Started
-            </Button>
-            <Button variant="outline" className="border-white/30 text-white hover:bg-white/10 rounded-full px-8 py-3 bg-transparent">
-              Contact Us
-            </Button>
+            <Link href="/products">
+              <Button className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-8 py-3">
+                Get Started
+              </Button>
+            </Link>
+            <Link href="/contact">
+              <Button variant="outline" className="border-white/30 text-white hover:bg-white/10 rounded-full px-8 py-3 bg-transparent">
+                Contact Us
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

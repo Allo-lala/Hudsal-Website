@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const slides = [
@@ -9,25 +10,29 @@ const slides = [
     id: 1,
     image: "/images/hero-care.jpg",
     title: "Seniors Deserve Better Life Taking Care of Relatives",
-    buttonText: "Get Care Support"
+    buttonText: "Get Care Support",
+    href: "/services"
   },
   {
     id: 2,
     image: "/images/about-hero.jpg",
     title: "Professional Healthcare Services for Every Need",
-    buttonText: "Order Products"
+    buttonText: "Order Products",
+    href: "/products"
   },
   {
     id: 3,
     image: "/images/hero-care.jpg",
     title: "Compassionate Care That Makes a Difference",
-    buttonText: "Our CRM"
+    buttonText: "Our CRM",
+    href: "/contact"
   },
   {
     id: 4,
     image: "/images/about-hero.jpg",
     title: "Expand Your Knowledge with Books and Podcasts",
-    buttonText: "Explore Content"
+    buttonText: "Explore Content",
+    href: "/books-podcasts"
   }
 ];
 
@@ -105,12 +110,12 @@ export function Hero() {
 
             {/* WhatsApp-colored Pill Button */}
             <div className="mb-12 flex justify-center lg:justify-start">
-              <button
-                type="button"
-                className="bg-[#25D366] hover:bg-[#20b858] text-white font-medium px-8 py-4 rounded-full transition-colors duration-300 shadow-lg hover:shadow-xl"
+              <Link
+                href={slides[currentSlide].href}
+                className="bg-[#25D366] hover:bg-[#20b858] text-white font-medium px-8 py-4 rounded-full transition-colors duration-300 shadow-lg hover:shadow-xl inline-block"
               >
                 {slides[currentSlide].buttonText}
-              </button>
+              </Link>
             </div>
 
             {/* Navigation Arrows */}

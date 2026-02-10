@@ -1,7 +1,10 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import { Star, Quote } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ReviewModal } from "@/components/review-modal";
 
 const testimonials = [
   {
@@ -31,6 +34,8 @@ const testimonials = [
 ];
 
 export function Testimonials() {
+  const [isReviewModalOpen, setIsReviewModalOpen] = useState(false);
+
   return (
     <section className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -99,7 +104,28 @@ export function Testimonials() {
             </div>
           ))}
         </div>
+
+        {/* Leave a Review CTA */}
+        <div className="text-center mt-16">
+          <h3 className="text-2xl font-bold text-foreground mb-4">
+            Share Your Experience
+          </h3>
+          <p className="text-muted-foreground mb-6 max-w-md mx-auto">
+            Have you used our services? We'd love to hear about your experience with Hadsul.
+          </p>
+          <Button 
+            className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-8 py-3"
+            onClick={() => setIsReviewModalOpen(true)}
+          >
+            Leave a Review
+          </Button>
+        </div>
       </div>
+
+      <ReviewModal 
+        isOpen={isReviewModalOpen} 
+        onClose={() => setIsReviewModalOpen(false)} 
+      />
     </section>
   );
 }

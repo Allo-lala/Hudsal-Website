@@ -10,7 +10,7 @@ import { Users, Award, Clock, Heart, Stethoscope, Laptop, Calculator, CheckCircl
 
 const stats = [
   { icon: Users, value: "500+", label: "Care Professionals" },
-  { icon: Heart, value: "10,000+", label: "Patients Served" },
+  { icon: Heart, value: "10,000+", label: "Residents Served" },
   { icon: Award, value: "15+", label: "Years Experience" },
   { icon: Clock, value: "24/7", label: "Support Available" },
 ];
@@ -182,7 +182,7 @@ export default function AboutPage() {
             <div className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden">
               <Image
                 src="/images/about-hero.jpg"
-                alt="Hudsal Healthcare facility"
+                alt="Healthcare facility"
                 fill
                 className="object-cover"
               />
@@ -239,7 +239,7 @@ export default function AboutPage() {
               <div className="grid grid-cols-2 gap-6 mb-8">
                 {stats.slice(2).map((stat) => (
                   <div key={stat.label} className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-lg bg-emerald/10 flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-lg flex items-center justify-center">
                       <stat.icon className="w-6 h-6 text-emerald" />
                     </div>
                     <div>
@@ -250,7 +250,7 @@ export default function AboutPage() {
                 ))}
               </div>
               <Button className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-8 py-3">
-                Learn More About Our Services
+                Our Products
               </Button>
             </div>
           </div>
@@ -285,7 +285,7 @@ export default function AboutPage() {
                   key={service.title} 
                   className="bg-card border border-border rounded-2xl p-8 hover:shadow-lg transition-shadow"
                 >
-                  <div className="w-14 h-14 rounded-xl bg-emerald/10 flex items-center justify-center mb-6">
+                  <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-6">
                     <Icon className="w-7 h-7 text-emerald" />
                   </div>
                   <h3 className="text-xl font-semibold text-foreground mb-4">{service.title}</h3>

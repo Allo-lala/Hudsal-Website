@@ -8,6 +8,7 @@ import { PageHeader } from "@/components/page-header";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
+import { SuccessToast } from "@/components/success-toast";
 
 const contactInfo = [
   {
@@ -45,11 +46,40 @@ export default function ContactPage() {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState("");
+  const [showSuccessToast, setShowSuccessToast] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle form submission
-    alert("Thank you for your message! We will get back to you shortly.");
-    setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
+    setIsSubmitting(true);
+    setSubmitMessage("");
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitMessage(result.message);
+        setShowSuccessToast(true);
+        setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
+        setTimeout(() => setSubmitMessage(""), 5000);
+      } else {
+        setSubmitMessage(result.message || "Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      console.error('Contact form error:', error);
+      setSubmitMessage("An error occurred. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -58,6 +88,13 @@ export default function ContactPage() {
 
   return (
     <main>
+      <SuccessToast
+        isVisible={showSuccessToast}
+        onClose={() => setShowSuccessToast(false)}
+        title="Message Sent!"
+        message="Thank you for contacting us. We'll get back to you shortly."
+      />
+
       <Header />
       <PageHeader 
         badge=" " 
@@ -221,10 +258,33 @@ export default function ContactPage() {
                     />
                   </div>
 
-                  <Button type="submit" className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-8 py-3 w-full md:w-auto">
-                    <Send className="w-4 h-4 mr-2" />
-                    Send Message
+                  <Button 
+                    type="submit" 
+                    disabled={isSubmitting}
+                    className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-8 py-3 w-full md:w-auto disabled:opacity-50"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-4 h-4 mr-2" />
+                        Send Message
+                      </>
+                    )}
                   </Button>
+
+                  {submitMessage && (
+                    <div className={`mt-4 p-4 rounded-lg ${
+                      submitMessage.includes('Thank you') 
+                        ? 'bg-emerald/10 text-emerald border border-emerald/20' 
+                        : 'bg-red-50 text-red-600 border border-red-200'
+                    }`}>
+                      {submitMessage}
+                    </div>
+                  )}
                 </form>
               </div>
             </div>

@@ -8,6 +8,7 @@ import Image from "next/image";
 import { ArrowUp, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { SuccessToast } from "@/components/success-toast";
 
 const quickLinks = [
   { name: "Home", href: "/" },
@@ -35,6 +36,9 @@ const legal = [
 export function Footer() {
   const [email, setEmail] = useState("");
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState("");
+  const [showSuccessToast, setShowSuccessToast] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,15 +52,47 @@ export function Footer() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const handleNewsletterSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleNewsletterSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle newsletter subscription
-    setEmail("allankyagulanyi8@gmail.com");
-    alert("Thank you for subscribing to our newsletter!");
+    setIsSubmitting(true);
+    setSubmitMessage("");
+
+    try {
+      const response = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitMessage("Thank you for subscribing!");
+        setShowSuccessToast(true);
+        setEmail("");
+        setTimeout(() => setSubmitMessage(""), 5000);
+      } else {
+        setSubmitMessage(result.message || "Failed to subscribe. Please try again.");
+      }
+    } catch (error) {
+      console.error('Newsletter subscription error:', error);
+      setSubmitMessage("An error occurred. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <>
+      <SuccessToast
+        isVisible={showSuccessToast}
+        onClose={() => setShowSuccessToast(false)}
+        title="Successfully Subscribed!"
+        message="Welcome to Hadsul Newsletter! Check your email for a confirmation message."
+      />
+
       <footer className="bg-[#1a2e1a] dark:bg-[#0f1a0f] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
@@ -185,15 +221,26 @@ export function Footer() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
+                    disabled={isSubmitting}
                     className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-emerald"
                   />
                   <Button
                     type="submit"
-                    className="bg-emerald hover:bg-emerald-dark text-white px-4"
+                    disabled={isSubmitting}
+                    className="bg-emerald hover:bg-emerald-dark text-white px-4 disabled:opacity-50"
                   >
-                    <Send className="w-4 h-4" />
+                    {isSubmitting ? (
+                      <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                    ) : (
+                      <Send className="w-4 h-4" />
+                    )}
                   </Button>
                 </div>
+                {submitMessage && (
+                  <p className={`text-sm ${submitMessage.includes('Thank you!') ? 'text-emerald' : 'text-red-400'}`}>
+                    {submitMessage}
+                  </p>
+                )}
               </form>
 
               {/* Legal Links */}
