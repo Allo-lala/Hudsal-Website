@@ -165,7 +165,7 @@ export function Hero() {
                 </defs>
                 <text className="fill-white text-xs uppercase tracking-widest">
                   <textPath href="#circlePath">
-                    • HEALTHCARE STAFFING • CONSULTANCY • IT SOLUTIONS • We Do
+                    • HEALTHCARE STAFFING • CONSULTANCY • IT SOLUTIONS • WE DO 
                   </textPath>
                 </text>
               </svg>

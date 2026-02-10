@@ -61,6 +61,7 @@ export function LoadingProvider({ children }: LoadingProviderProps) {
                   width={200}
                   height={80}
                   className="mx-auto"
+                  // style={{ width: 'auto', height: 'auto' }}
                   priority
                 />
               </div>

@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import {
   ChevronDown,
@@ -34,6 +35,7 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -142,17 +144,31 @@ export function Header() {
                       {openDropdown === item.name && (
                         <div className="pl-4 space-y-2 mt-2">
                           {item.dropdownItems.map((dropdownItem) => (
-                            <Link
+                            <button
                               key={dropdownItem.name}
-                              href={dropdownItem.href}
-                              className="block text-white/70 hover:text-emerald text-sm py-1"
-                              onClick={() => {
+                              onTouchEnd={(e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
                                 setMobileMenuOpen(false);
                                 setOpenDropdown(null);
+                                setTimeout(() => {
+                                  window.location.href = dropdownItem.href;
+                                }, 200);
                               }}
+                              onClick={(e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                setMobileMenuOpen(false);
+                                setOpenDropdown(null);
+                                setTimeout(() => {
+                                  router.push(dropdownItem.href);
+                                }, 100);
+                              }}
+                              className="block w-full text-left text-white/70 hover:text-emerald text-sm py-1 rounded transition-colors cursor-pointer"
+                              // style={{ minHeight: '20px', touchAction: 'manipulation', pointerEvents: 'auto' }}
                             >
                               {dropdownItem.name}
-                            </Link>
+                            </button>
                           ))}
                         </div>
                       )}
