@@ -12,67 +12,73 @@ export const metadata = {
 const teamMembers = [
   {
     id: 1,
-    name: "Mushin Ssenyonga",
-    role: "Chief Executive Officer",
+    name: "Muhsin Senyonga",
+    role: "Director",
     department: " ",
-    image: "/images/team/james.jpg",
-    bio: " ",
-    linkedin: "#",
-    email: "james@hudsal.co.uk",
+    image: "/images/team/hajj.jpeg",
+    bio: "",
+    linkedin: "https://linkedin.com/in/jameswilson",
+    email: "manager@hadsul.co.uk",
+    imagePosition: "object-center",
   },
   {
     id: 2,
-    name: "Mushin Ssenyonga",
-    role: "Medical Director",
+    name: "Musoke Akisam",
+    role: "General Operations Manager",
     department: " ",
-    image: "/images/team/james.jpg",
-    bio: " ",
-    linkedin: "#",
-    email: "sarah@hudsal.co.uk",
+    image: "/images/team/team.jpeg",
+    bio: "",
+    linkedin: null,
+    email: "musokeakisam@hadsul.co.uk",
+    imagePosition: "object-center",
   },
   {
     id: 3,
-    name: "Mushin Ssenyonga",
-    role: "Founder & Chairman",
+    name: "James Mastiko",
+    role: "Marketing Manager",
     department: " ",
-    image: "/images/team/james.jpg",
-    bio: " ",
-    linkedin: "#",
-    email: "emma@hudsal.co.uk",
+    image: "/images/team/james.jpeg",
+    bio: "",
+    linkedin: null,
+    email: "matsikjames@gmail.com",
+    imagePosition: "object-top",
   },
   {
     id: 4,
-    name: "Mushin Ssenyonga",
-    role: "Director of Nursing",
+    name: "Coming Soon",
+    role: "Compliance ",
     department: " ",
-    image: "/images/team/james.jpg",
-    bio: " ",
-    linkedin: "#",
-    email: "margaret@hudsal.co.uk",
+    image: "/images/team/team.jpeg",
+    bio: "",
+    linkedin: null,
+    email: "careers@hadsul.co.uk",
+    imagePosition: "object-top",
   },
   {
     id: 5,
-    name: "Mushin Ssenyonga",
-    role: "Operations Manager",
+    name: "Hiring Soon",
+    role: "Quality Assurance",
     department: " ",
-    image: "/images/team/james.jpg",
-    bio: " ",
-    linkedin: "#",
-    email: "robert@hudsal.co.uk",
+    image: "/images/team/james.jpeg",
+    bio: "",
+    linkedin: null,
+    email: "careers@hadsul.co.uk",
+    imagePosition: "object-top",
   },
   {
     id: 6,
-    name: "Mushin Ssenyonga",
-    role: "IT Director",
+    name: "Hiring",
+    role: "Tech Support ",
     department: " ",
-    image: "/images/team/james.jpg",
-    bio: " ",
-    linkedin: "#",
-    email: "david@hudsal.co.uk",
+    image: "/images/team/team.jpeg",
+    bio: "",
+    linkedin: null,
+    email: "careers@hadsul.co.uk",
+    imagePosition: "object-top",
   },
 ];
 
-const departments = ["All", "Leadership", "Medical", "Clinical", "Operations", "Technology"];
+const departments = [];
 
 export default function TeamPage() {
   return (
@@ -87,23 +93,6 @@ export default function TeamPage() {
       {/* Team Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto">
-          {/* Department Filters */}
-          <div className="flex flex-wrap gap-3 justify-center mb-12">
-            {departments.map((dept, index) => (
-              <button
-                key={dept}
-                type="button"
-                className={`px-6 py-2 rounded-full text-sm font-medium transition-colors ${
-                  index === 0 
-                    ? "bg-emerald text-white" 
-                    : "bg-secondary text-foreground hover:bg-emerald/10 hover:text-emerald"
-                }`}
-              >
-                {dept}
-              </button>
-            ))}
-          </div>
-
           {/* Team Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {teamMembers.map((member) => (
@@ -117,7 +106,7 @@ export default function TeamPage() {
                     src={member.image || "/placeholder.svg"}
                     alt={member.name}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    className={`object-cover group-hover:scale-105 transition-transform duration-300 ${member.imagePosition || 'object-center'}`}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                   
@@ -128,13 +117,15 @@ export default function TeamPage() {
 
                   {/* Social Links */}
                   <div className="absolute bottom-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <a 
-                      href={member.linkedin}
-                      className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center hover:bg-emerald transition-colors"
-                      aria-label={`${member.name}'s LinkedIn`}
-                    >
-                      <Linkedin className="w-5 h-5 text-white" />
-                    </a>
+                    {member.linkedin && (
+                      <a 
+                        href={member.linkedin}
+                        className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center hover:bg-emerald transition-colors"
+                        aria-label={`${member.name}'s LinkedIn`}
+                      >
+                        <Linkedin className="w-5 h-5 text-white" />
+                      </a>
+                    )}
                     <a 
                       href={`mailto:${member.email}`}
                       className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center hover:bg-emerald transition-colors"
@@ -148,8 +139,7 @@ export default function TeamPage() {
                 {/* Content */}
                 <div className="p-6">
                   <h3 className="text-xl font-semibold text-foreground mb-1">{member.name}</h3>
-                  <p className="text-emerald font-medium text-sm mb-4">{member.role}</p>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{member.bio}</p>
+                  <p className="text-emerald font-medium text-sm">{member.role}</p>
                 </div>
               </div>
             ))}
@@ -173,7 +163,7 @@ export default function TeamPage() {
             We are always looking for passionate healthcare professionals to join our growing team.
           </p>
           <a 
-            href="/contact"
+            href="/careers"
             className="inline-flex items-center bg-emerald hover:bg-emerald-dark text-white rounded-full px-8 py-3 font-medium transition-colors"
           >
             View Open Positions

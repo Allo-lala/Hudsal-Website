@@ -169,7 +169,7 @@ export default function AboutPage() {
     <main>
       <Header />
       <PageHeader 
-        badge="About Us" 
+        badge=" " 
         title="About Hadsul Healthcare"
         description="Dedicated to providing exceptional healthcare services with compassion and professionalism."
       />
@@ -181,8 +181,8 @@ export default function AboutPage() {
             {/* Image */}
             <div className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden">
               <Image
-                src="/images/about-hero.jpg"
-                alt="Healthcare facility"
+                src="/images/podcast.jpeg"
+                alt="Healthcare staff"
                 fill
                 className="object-cover"
               />

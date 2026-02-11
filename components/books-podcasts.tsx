@@ -90,11 +90,11 @@ export function BooksAndPodcasts() {
 
             {/* Book Display - Side by Side Layout (No Card) */}
             <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-center md:items-start">
-              {/* Book Image - Left Side */}
+              {/* Book Image - Left Side - Increased Size */}
               <div className="flex-shrink-0">
-                <div className="relative w-48 h-64 md:w-56 md:h-72 rounded-lg overflow-hidden shadow-2xl bg-transparent">
+                <div className="relative w-64 h-80 md:w-72 md:h-96 lg:w-80 lg:h-[28rem] rounded-lg overflow-hidden shadow-2xl bg-transparent">
                   <Image
-                    src="/images/books/image.webp"
+                    src="/images/books/image.jpeg"
                     alt="Healthcare Book"
                     fill
                     className="object-contain"
@@ -108,29 +108,21 @@ export function BooksAndPodcasts() {
                   Healthcare & Leadership For Modern Times
                 </h4>
                 <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-                  A comprehensive guide to leading healthcare teams through challenges and change. 
-                  This book covers essential leadership principles, team management strategies, 
-                  and how to navigate the complex healthcare landscape with confidence and expertise.
+                  A comprehensive guide to leading healthcare teams through challenges and change in modern healthcare environments.
                 </p>
-                
-                {/* <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                  <span className="flex items-center gap-1">
-                    <BookOpen className="w-4 h-4" />
-                    320 pages
-                  </span>
-                  <span>•</span>
-                  <span>Written by Mushin</span>
-                </div> */}
 
                 <div className="pt-4">
-                  <p className="text-2xl md:text-3xl font-bold text-emerald mb-4">£24.99</p>
+                  <div className="flex items-baseline gap-1 mb-4">
+                    <span className="text-sm text-muted-foreground">from</span>
+                    <p className="text-2xl md:text-3xl font-bold text-emerald">£24.99</p>
+                  </div>
                   <a
                     href="#"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block w-full"
                   >
-                    <Button className="bg-[#25D366] hover:bg-[#20bd5a] text-white w-full text-base md:text-lg py-5 md:py-6 rounded-full shadow-lg hover:shadow-xl transition-all">
+                    <Button className="bg-[#25D366] hover:bg-[#20bd5a] text-white w-full text-base md:text-lg py-5 md:py-6 rounded-full shadow-lg hover:shadow-xl transition-all animate-pulse">
                       <ShoppingCart className="w-5 h-5 mr-2" />
                       ORDER NOW
                     </Button>

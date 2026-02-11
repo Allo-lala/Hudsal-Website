@@ -91,7 +91,7 @@ export function AboutSection() {
             {/* Bottom Left image */}
             <div className="relative h-[240px] w-[240px] rounded-2xl overflow-hidden shadow-xl">
               <Image
-                src="/images/hero-care.jpg"
+                src="/images/about.jpeg"
                 alt="Healthcare professional with elderly patient"
                 fill
                 className="object-cover"
@@ -101,7 +101,7 @@ export function AboutSection() {
             {/* Bottom Right image */}
             <div className="absolute top-0 right-0 h-[240px] w-[240px] rounded-2xl overflow-hidden shadow-xl border-4 border-white">
               <Image
-                src="/images/hero-care.jpg"
+                src="/images/abou.jpeg"
                 alt="Caring moment"
                 fill
                 className="object-cover"
@@ -111,7 +111,7 @@ export function AboutSection() {
             {/* Top Center image - creating triangle */}
             <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 h-[240px] w-[240px] rounded-2xl overflow-hidden shadow-xl border-4 border-white z-10">
               <Image
-                src="/images/hero-care.jpg"
+                src="/images/team.jpeg"
                 alt="team collaboration"
                 fill
                 className="object-cover"
@@ -155,7 +155,7 @@ export function AboutSection() {
 
             {/* Brief company description */}
             <p className="text-muted-foreground mb-8 leading-relaxed">
-              At Hudsal Healthcare, we are dedicated to providing exceptional care services that prioritize dignity, compassion, and professional excellence. Our experienced team delivers personalized healthcare solutions designed to enhance the quality of life for every individual we serve.
+              At Hadsul Healthcare, we are dedicated to providing exceptional care services that prioritize dignity, compassion, and professional excellence. Our experienced team delivers personalized healthcare solutions designed to enhance the quality of life for every individual we serve.
             </p>
 
             {/* Features List */}

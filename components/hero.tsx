@@ -8,14 +8,14 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 const slides = [
   {
     id: 1,
-    image: "/images/hero-care.jpg",
+    image: "/images/hero-care.jpeg",
     title: "Seniors Deserve Better Life Taking Care of Relatives",
     buttonText: "Get Care Support",
     href: "/services"
   },
   {
     id: 2,
-    image: "/images/about-hero.jpg",
+    image: "/images/products.jpeg",
     title: "Professional Healthcare Services for Every Need",
     buttonText: "Order Products",
     href: "/products"
@@ -29,7 +29,7 @@ const slides = [
   },
   {
     id: 4,
-    image: "/images/about-hero.jpg",
+    image: "/images/podcast.jpeg",
     title: "Expand Your Knowledge with Books and Podcasts",
     buttonText: "Explore Content",
     href: "/books-podcasts"
