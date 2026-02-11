@@ -106,10 +106,10 @@ interface TeamMember {
 
 function TeamMemberCard({ member }: { member: TeamMember }) {
   return (
-    <div className="flex items-start gap-8">
+    <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 sm:gap-8 text-center sm:text-left">
       {/* Larger Image with Role Badge */}
       <div className="relative flex-shrink-0">
-        <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-emerald shadow-xl">
+        <div className="w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-emerald shadow-xl">
           <Image
             src={member.image || "/placeholder.svg"}
             alt={member.name}
@@ -119,40 +119,40 @@ function TeamMemberCard({ member }: { member: TeamMember }) {
           />
         </div>
         {/* Role Badge */}
-        <span className="absolute -top-2 -right-2 bg-emerald text-white text-sm font-medium px-4 py-2 rounded-full shadow-lg">
+        <span className="absolute -top-2 -right-2 bg-emerald text-white text-xs sm:text-sm font-medium px-2 py-1 sm:px-4 sm:py-2 rounded-full shadow-lg">
           {member.role}
         </span>
       </div>
 
       {/* Info */}
-      <div className="pt-4 flex-1">
-        <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
+      <div className="pt-2 sm:pt-4 flex-1">
+        <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-2 sm:mb-3">
           {member.name}
         </h3>
-        <p className="text-muted-foreground text-base leading-relaxed mb-6">
+        <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-4 sm:mb-6">
           {member.description}
         </p>
         
         {/* Contact Information */}
-        <div className="flex items-center gap-6">
+        <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6">
           <a
             href={`mailto:${member.email}`}
-            className="flex items-center gap-3 text-emerald hover:text-emerald-dark transition-colors bg-emerald/10 hover:bg-emerald/20 px-4 py-2 rounded-full"
+            className="flex items-center gap-2 sm:gap-3 text-emerald hover:text-emerald-dark transition-colors bg-emerald/10 hover:bg-emerald/20 px-3 py-2 sm:px-4 sm:py-2 rounded-full"
             title={`Email ${member.name}`}
           >
-            <Mail className="w-5 h-5" />
-            <span className="text-sm font-medium">Email</span>
+            <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
+            <span className="text-xs sm:text-sm font-medium">Email</span>
           </a>
           {member.linkedin && (
             <a
               href={member.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 text-emerald hover:text-emerald-dark transition-colors bg-emerald/10 hover:bg-emerald/20 px-4 py-2 rounded-full"
+              className="flex items-center gap-2 sm:gap-3 text-emerald hover:text-emerald-dark transition-colors bg-emerald/10 hover:bg-emerald/20 px-3 py-2 sm:px-4 sm:py-2 rounded-full"
               title={`${member.name} on LinkedIn`}
             >
-              <Linkedin className="w-5 h-5" />
-              <span className="text-sm font-medium">LinkedIn</span>
+              <Linkedin className="w-4 h-4 sm:w-5 sm:h-5" />
+              <span className="text-xs sm:text-sm font-medium">LinkedIn</span>
             </a>
           )}
         </div>

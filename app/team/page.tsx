@@ -115,8 +115,8 @@ export default function TeamPage() {
                     {member.department}
                   </span>
 
-                  {/* Social Links */}
-                  <div className="absolute bottom-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                  {/* Social Links - Always Visible */}
+                  <div className="absolute bottom-4 right-4 flex gap-2 opacity-100 transition-opacity">
                     {member.linkedin && (
                       <a 
                         href={member.linkedin}
