@@ -73,6 +73,9 @@ export function Services() {
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             We provide a full range of healthcare services designed to meet the unique needs of every individual with compassion and professionalism.
+            <br />Hadsul limited is endowed with plentiful, expert, and proficient doctors and nurses. Their indefatigable nature plus 
+            experience positions them to be priotised most in communities where they render their services. We are devoted and compassionate when rendering services to communities. They eradicate the underlying
+            causes of formidable obstacles, not symptoms!
           </p>
         </div>
 
@@ -86,8 +89,9 @@ export function Services() {
 
             {/* Description */}
             <p className="text-muted-foreground mb-8 leading-relaxed">
-              At Hadsul Healthcare, we believe every senior deserves our best services—because quality care isn't a luxury, it's a right.
-            </p>
+              At Hudsal Healthcare, we believe every senior deserves our best services—because quality care isn't a luxury, it's a right.<br />
+              Hadsul Heealthcare staff provides the highest quality, most effective and most beneficial assistance to meet clients' satisfaction. We are convinced that elders deserve exceptional and astounding health irrespective of age.
+               </p>
 
             {/* CTA Button */}
             {/* <Button className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-8 py-3 flex items-center gap-2">

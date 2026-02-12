@@ -133,7 +133,7 @@ export default function ProductsPage() {
                 >
                   {isRecommended && (
                     <div className="absolute top-0 left-0 right-0 bg-emerald text-white text-center py-2 text-sm font-medium">
-                      Most Popular
+                  {/*   Most Popular  */}
                     </div>
                   )}
                   

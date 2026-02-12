@@ -240,41 +240,50 @@ export default function ProductDetailPage() {
       <Header />
       
       {/* Page Header */}
-      <section className={`bg-gradient-to-r ${product.color} pt-28 pb-16 px-4 sm:px-6 lg:px-8`}>
-        <div className="max-w-7xl mx-auto">
+      <section className={`bg-gradient-to-r ${product.color} py-20  px-8 sm:px-6 lg:px-8 text-center pt-32 pb-20 overflow-hidden`}>
+
+
+
+   {/*  <div className="max-w-5xl mx-5x1 justify-center p-24 flex items-center gap-6 mb-8">*/}
           <Link 
             href="/products" 
-            className="inline-flex items-center gap-2 text-white/70 hover:text-white mb-6 transition-colors"
+            className=" items-center gap-2 text-white/70 hover:text-white mb-6 transition-colors"
           >
-            <ArrowLeft className="w-4 h-4" />
-            <span>Back to Products</span>
+           {/*ArrowLeft className="w-5 h-6" />
+            <span>BACK</span>*/}
           </Link>
           
-          <div className="flex items-center gap-4 mb-4">
-            <div className="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur flex items-center justify-center">
-              <Icon className="w-8 h-8 text-white" />
-            </div>
-            <div>
-              <div className="flex items-center gap-2 mb-1">
+         
+    {/*   <div className="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur flex items-center justify-center">
+          <div className="flex item-center gap-6 mb-8">
+          
+          <Icon className="w-10 h-11 text-white inline-flex"/>
+            </div>*/}
+   {/*        <div>
+              <div className=">
                 {/* <Sparkles className="w-4 h-4 text-white/70" /> */}
-                <span className="text-white/70 text-sm font-medium tracking-wider uppercase">
-                  Subscription Product
-                </span>
-              </div>
+                <span className="text-white/70 text-sm font-medium tracking-wider uppercase" />
+                 {/*Subscription Product*/} 
+                
+              
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
                 {product.name}
               </h1>
-            </div>
-          </div>
-          
-          <p className="text-white/90 text-xl max-w-3xl">
+             
+     {/*    </div>  */}
+        
+     {/*    </div> */}
+         
+          <p className="text-white/90 text-xl max-w-3x text-center">
             {product.tagline}
           </p>
-        </div>
+
+       {/* /div>
+        </div>*/}
       </section>
 
       {/* Description Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-background">
+      <section className="flex justify-center p-24">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-3xl">
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
