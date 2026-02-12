@@ -17,7 +17,7 @@ const teamMembers = [
     department: " ",
     image: "/images/team/hajj.jpeg",
     bio: "",
-    linkedin: "https://linkedin.com/in/jameswilson",
+    linkedin: "https://www.linkedin.com/in/muhsin-senyonga-0a3907326/",
     email: "manager@hadsul.co.uk",
     imagePosition: "object-center",
   },

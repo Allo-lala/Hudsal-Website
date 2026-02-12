@@ -27,10 +27,10 @@ const servicesData: Record<string, {
   fullContent: string;
 }> = {
   medical: {
-    title: "Medical Checkup",
+    title: "Healthcare Staffing",
     description: "Comprehensive health assessments and screenings",
     icon: Stethoscope,
-    image: "/images/hero-care.jpg",
+    image: "/images/staff.jpeg",
     shortContent: "Our experienced healthcare professionals provide routine screenings and comprehensive health assessments to ensure early detection and prevention of health issues. We offer comprehensive health screenings, regular vital signs monitoring, blood tests and diagnostics, and specialist consultations.",
     fullContent: `Our experienced healthcare professionals provide routine screenings and comprehensive health assessments to ensure early detection and prevention of health issues.
 
@@ -50,8 +50,8 @@ Early detection is key to preventing serious health issues. Regular checkups pro
 Whether you need an annual health check or have specific health concerns, our team is here to help. We work with you to create a preventive care plan that fits your lifestyle and health goals.`,
   },
   nursing: {
-    title: "Nursing Care",
-    description: "Professional nursing services with compassion",
+    title: "Consultancy",
+    description: "Professional Consultancy services with Expertise",
     icon: HeartPulse,
     image: "/images/hero-care.jpg",
     shortContent: "Every care plan is personalized to meet the unique health needs of each resident with compassion and professionalism from our registered nurses. We provide 24/7 registered nurse availability, medication management, wound care, and post-operative care.",
@@ -277,7 +277,7 @@ export default function ServiceDetailPage() {
                 {/* Service Card */}
                 <div className="bg-card border border-border rounded-2xl p-6">
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="w-14 h-14 rounded-lg bg-emerald/10 flex items-center justify-center">
+                    <div className="w-14 h-14 rounded-lg flex items-center justify-center">
                       <Icon className="w-7 h-7 text-emerald" />
                     </div>
                     <div>

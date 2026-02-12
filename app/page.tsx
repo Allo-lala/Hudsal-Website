@@ -4,7 +4,6 @@ import { AboutSection } from "@/components/about-section";
 import { Services } from "@/components/services";
 import { BooksAndPodcasts } from "@/components/books-podcasts";
 import { FAQ } from "@/components/faq";
-import { Team } from "@/components/team";
 import { Testimonials } from "@/components/testimonials";
 import { Footer } from "@/components/footer";
 import type { Metadata } from 'next';
@@ -23,7 +22,6 @@ export default function Home() {
       <Services />
       <BooksAndPodcasts />
       <FAQ />
-      <Team />
       <Testimonials />
       <Footer />
     </main>

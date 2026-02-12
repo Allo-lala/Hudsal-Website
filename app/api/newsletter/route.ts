@@ -23,7 +23,7 @@ export async function POST(request: NextRequest) {
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
           <div style="text-align: center; margin-bottom: 30px;">
-            <h1 style="color: #059669; margin-bottom: 10px;">Welcome to Hudsal Newsletter!</h1>
+            <h1 style="color: #059669; margin-bottom: 10px;">Welcome to Hadsul Newsletter!</h1>
             <p style="color: #6b7280; font-size: 16px;">Thank you for subscribing to our healthcare updates</p>
           </div>
           

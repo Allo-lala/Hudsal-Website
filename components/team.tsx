@@ -14,7 +14,7 @@ const teamMembers = [
     description:
       "Leading Hadsul with vision and expertise in healthcare management. Muhsin brings years of experience in healthcare operations and strategic leadership to ensure exceptional care delivery across all our services.",
     email: "manager@hadsul.co.uk",
-    linkedin: "https://linkedin.com/in/jameswilson",
+    linkedin: "https://www.linkedin.com/in/muhsin-senyonga-0a3907326/",
   },
 ];
 
@@ -34,7 +34,7 @@ export function Team() {
             Meet Our Director
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Leading Hudsal Healthcare with vision, expertise, and commitment to exceptional care delivery
+            Leading Hadsul Healthcare with vision, expertise, and commitment to exceptional care delivery
           </p>
         </div>
 

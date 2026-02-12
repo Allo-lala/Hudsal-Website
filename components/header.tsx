@@ -19,7 +19,7 @@ const navItems = [
     href: "#", 
     hasDropdown: true,
     dropdownItems: [
-      { name: "Our Team", href: "/team" },
+      // { name: "Our Team", href: "/team" },
       { name: "Testimonials", href: "/testimonials" },
       { name: "FAQ", href: "/faq" },
       { name: "Events", href: "/events" },

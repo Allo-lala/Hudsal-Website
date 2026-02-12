@@ -21,9 +21,9 @@ const quickLinks = [
 ];
 
 const services = [
-  { name: "Healthcare Staffing", href: "/services/staffing" },
-  { name: "Consultancy ", href: "/services/care-home" },
-  { name: "IT Solutions", href: "/services/it" },
+  { name: "Healthcare Staffing", href: "/services" },
+  { name: "Consultancy", href: "/services" },
+  { name: "IT Solutions", href: "/services" },
 ];
 
 const legal = [
