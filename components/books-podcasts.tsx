@@ -94,7 +94,7 @@ export function BooksAndPodcasts() {
               <div className="flex-shrink-0 mb-6">
                 <div className="relative w-48 h-64 sm:w-52 sm:h-72 rounded-lg overflow-hidden shadow-2xl bg-transparent">
                   <Image
-                    src="/images/books/image.jpeg"
+                    src="/images/books/book.webp"
                     alt="Healthcare Book"
                     fill
                     className="object-contain"
@@ -166,7 +166,7 @@ export function BooksAndPodcasts() {
                     strokeDasharray="8 8"
                     opacity="0.45"
                   />
-                  <circle
+                  {/* <circle
                     cx="50%"
                     cy="50%"
                     r="24%"
@@ -175,23 +175,13 @@ export function BooksAndPodcasts() {
                     strokeWidth="2"
                     strokeDasharray="6 6"
                     opacity="0.4"
-                  />
-                  <circle
-                    cx="50%"
-                    cy="50%"
-                    r="16%"
-                    fill="none"
-                    stroke="#25D366"
-                    strokeWidth="2"
-                    strokeDasharray="5 5"
-                    opacity="0.35"
-                  />
+                  /> */}
                 </svg>
 
                 {/* Central Podcast Host Image - Larger */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 sm:w-48 sm:h-48 rounded-full overflow-hidden shadow-2xl border-4 border-[#25D366]/30 animate-pulse" style={{ animationDuration: '3s' }}>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 sm:w-48 sm:h-48 rounded-full overflow-hidden shadow-2xl animate-pulse" style={{ animationDuration: '3s' }}>
                   <Image
-                    src="/images/podcast/cover.jpeg"
+                    src="/images/podcast/pod.webp"
                     alt="Podcast Host"
                     width={192}
                     height={192}

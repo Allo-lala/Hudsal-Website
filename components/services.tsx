@@ -2,6 +2,7 @@
 
 import React from "react"
 import Link from "next/link";
+import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -123,7 +124,7 @@ export function Services() {
                 </div>
               </div>
               <p className="text-sm text-muted-foreground">
-                Trusted across the UK for exceptional healthcare services
+                Trusted across the UK for exceptional services
               </p>
             </div>
           </div>
@@ -139,24 +140,46 @@ export function Services() {
         </div>
 
         {/* Bottom CTA Section */}
-        <div className="mt-20 text-center bg-gradient-to-r from-emerald/10 to-emerald/5 rounded-3xl p-12 animate-slide-up">
-          <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-            Ready to Experience Quality Healthcare?
-          </h3>
-          <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Join hundreds of families who trust us with their healthcare needs. Contact us today for a personalized consultation.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact">
-              <Button className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-8 py-3 font-semibold shadow-lg hover:shadow-xl transition-all">
-                Start Your Journey
-              </Button>
-            </Link>
-            <Link href="/about">
-              <Button variant="outline" className="border-emerald text-emerald hover:bg-emerald hover:text-white rounded-full px-8 py-3 font-semibold">
-                Learn About Us
-              </Button>
-            </Link>
+        <div className="mt-20 relative">
+          <div className="text-center bg-gradient-to-r from-emerald/10 to-emerald/5 rounded-3xl p-12 animate-slide-up relative overflow-visible">
+            {/* Left Image - Slightly elevated and pointing out */}
+            <div className="absolute -left-8 top-1/2 -translate-y-1/2 w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 hidden md:block animate-float">
+              <Image
+                src="/images/services/bump.avif"
+                alt="Healthcare Service"
+                fill
+                className="object-contain drop-shadow-2xl"
+              />
+            </div>
+
+            {/* Right Image - Slightly elevated and pointing out */}
+            <div className="absolute -right-8 top-1/2 -translate-y-1/2 w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 hidden md:block animate-float" style={{ animationDelay: '1s' }}>
+              <Image
+                src="/images/services/gooof.avif"
+                alt="Healthcare Service"
+                fill
+                className="object-contain drop-shadow-2xl"
+              />
+            </div>
+
+            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+              Ready to Experience Quality ?
+            </h3>
+            <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Join hundreds of trustees. Contact us today for a personalized consultation.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/contact">
+                <Button className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-8 py-3 font-semibold shadow-lg hover:shadow-xl transition-all">
+                  Start Your Journey
+                </Button>
+              </Link>
+              <Link href="/about">
+                <Button variant="outline" className="border-emerald text-emerald hover:bg-emerald hover:text-white rounded-full px-8 py-3 font-semibold">
+                  Learn About Us
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

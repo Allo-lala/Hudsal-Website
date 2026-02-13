@@ -1,11 +1,10 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { Button } from "@/components/ui/button";
 import { Play, Pause, Volume2, VolumeX, Maximize } from "lucide-react";
 
 export function PhilanthropySection() {
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
   const [showControls, setShowControls] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -43,14 +42,16 @@ export function PhilanthropySection() {
         ref={videoRef}
         className="absolute inset-0 w-full h-full object-cover"
         poster="/images/philanthropy/video-poster.jpg"
+        autoPlay
         muted={isMuted}
         loop
+        playsInline
         onPlay={() => setIsPlaying(true)}
         onPause={() => setIsPlaying(false)}
         onMouseEnter={() => setShowControls(true)}
         onMouseLeave={() => setShowControls(false)}
       >
-        <source src="/videos/africa-impact.mp4" type="video/mp4" />
+        <source src="/images/video.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
@@ -60,17 +61,16 @@ export function PhilanthropySection() {
       {/* Content Overlay */}
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="text-center text-white max-w-4xl mx-auto px-4">
-          <div className="mb-6">
+          {/* <div className="mb-6">
             <span className="text-emerald text-sm font-medium tracking-wider uppercase animate-fade-in">
               Our Impact in Africa
             </span>
-          </div>
+          </div> */}
           <h2 className="text-4xl md:text-6xl font-bold mb-6 animate-slide-up">
-            Transforming Lives Across Africa
+            In a gentle way, you can shake the world ~ Ghandi
           </h2>
           <p className="text-xl md:text-2xl text-white/90 mb-8 animate-slide-up animate-delay-200">
-            Watch how we're creating lasting change in African communities through 
-            sustainable healthcare, education, and infrastructure projects.
+            Joining hands towards basic needs where its urgent
           </p>
           
           {/* Stats Overlay */}
@@ -81,12 +81,24 @@ export function PhilanthropySection() {
             </div>
             <div className="text-center">
               <div className="text-3xl md:text-4xl font-bold text-emerald mb-2">50+</div>
-              <div className="text-white/80">Healthcare Centers</div>
+              <div className="text-white/80">Support Centers</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-emerald mb-2">8</div>
-              <div className="text-white/80">Countries</div>
+              <div className="text-3xl md:text-4xl font-bold text-emerald mb-2">158</div>
+              <div className="text-white/80">Communities</div>
             </div>
+          </div>
+
+          {/* Donate Button */}
+          <div className="animate-slide-up animate-delay-400">
+            <a
+              href="/donate"
+              className="inline-block"
+            >
+              <button className="bg-emerald hover:bg-emerald-dark text-white font-semibold px-10 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                Support the Campaign
+              </button>
+            </a>
           </div>
         </div>
       </div>
@@ -115,9 +127,9 @@ export function PhilanthropySection() {
             </button>
           </div>
 
-          <div className="text-white text-sm font-medium">
-            Our Work in Africa - Philanthropy Impact
-          </div>
+          {/* <div className="text-white text-sm font-medium">
+            Raising hands towards basic need were its urgent
+          </div> */}
 
           <button
             onClick={handleFullscreen}

@@ -7,39 +7,39 @@ import { Leaf, ChevronLeft, ChevronRight } from "lucide-react";
 const climateImages = [
   {
     id: 1,
-    src: "/images/climate/solar-panels.jpg",
-    title: "Solar Energy Initiative",
-    description: "100% renewable energy transition across all facilities"
+    src: "/images/climate/time.jpg",
+    title: "Renewable energy transition",
+    description: " "
   },
   {
     id: 2,
-    src: "/images/climate/green-building.jpg",
-    title: "Sustainable Architecture",
-    description: "Eco-friendly healthcare facilities with green certifications"
+    src: "/images/climate/coott.jpg",
+    title: "Sustainable Lifestyles",
+    description: " "
   },
   {
     id: 3,
-    src: "/images/climate/tree-planting.jpg",
+    src: "/images/climate/planet.jpg",
     title: "Reforestation Projects",
-    description: "50,000+ trees planted across our global operations"
+    description: " "
   },
   {
     id: 4,
-    src: "/images/climate/recycling.jpg",
-    title: "Waste Reduction",
-    description: "75% waste reduction through innovative recycling programs"
+    src: "/images/climate/climate.jpg",
+    title: "Proper Waste Management",
+    description: " "
   },
   {
     id: 5,
-    src: "/images/climate/electric-vehicles.jpg",
-    title: "Clean Transportation",
-    description: "Electric vehicle fleet for all healthcare services"
+    src: "/images/climate/rubbish.jpg",
+    title: "Clean Water",
+    description: " "
   },
   {
     id: 6,
-    src: "/images/climate/water-conservation.jpg",
-    title: "Water Conservation",
-    description: "Advanced water recycling systems in all care homes"
+    src: "/images/climate/change.jpg",
+    title: "Wildlife Conservation",
+    description: " "
   }
 ];
 
@@ -97,14 +97,14 @@ export function ClimateSection() {
       {/* Content Overlay */}
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="text-center text-white max-w-4xl mx-auto px-4">
-          <div className="mb-6">
+          {/* <div className="mb-6">
             <Leaf className="w-8 h-8 text-emerald mx-auto mb-4 animate-pulse" />
             <span className="text-emerald text-sm font-medium tracking-wider uppercase animate-fade-in">
               Climate Action
             </span>
-          </div>
+          </div> */}
           <h2 className="text-4xl md:text-6xl font-bold mb-6 animate-slide-up">
-            Building a Sustainable Future
+             Speak the Planet's Green Language
           </h2>
           <p className="text-xl md:text-2xl text-white/90 mb-8 animate-slide-up animate-delay-200">
             {climateImages[currentSlide].description}
@@ -127,14 +127,34 @@ export function ClimateSection() {
               <div className="text-3xl md:text-4xl font-bold text-emerald mb-2">75%</div>
               <div className="text-white/80 text-sm">Waste Reduction</div>
             </div>
-            <div className="text-center">
+            {/* <div className="text-center">
               <div className="text-3xl md:text-4xl font-bold text-emerald mb-2">100%</div>
               <div className="text-white/80 text-sm">Renewable Energy</div>
-            </div>
+            </div> */}
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-emerald mb-2">40%</div>
-              <div className="text-white/80 text-sm">Carbon Reduction</div>
+              <div className="text-3xl md:text-4xl font-bold text-emerald mb-2">£ 1M</div>
+              <div className="text-white/80 text-sm">Grants through Donations</div>
             </div>
+          </div>
+
+          {/* Action Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12 animate-slide-up animate-delay-500">
+            <a
+              href="/donate"
+              className="inline-block"
+            >
+              <button className="bg-emerald hover:bg-emerald-dark text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                Donate
+              </button>
+            </a>
+            <a
+              href="/apply-grant"
+              className="inline-block"
+            >
+              <button className="bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white font-semibold px-8 py-4 rounded-full border-2 border-white/50 hover:border-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                Request for a Grant
+              </button>
+            </a>
           </div>
         </div>
       </div>
