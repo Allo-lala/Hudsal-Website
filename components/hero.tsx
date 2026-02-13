@@ -102,7 +102,7 @@ export function Hero() {
             {/* Main Heading - Dynamic based on current slide */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8">
               {slides[currentSlide].title.split(' ').map((word, index) => (
-                <span key={index} className={index % 2 === 0 ? "text-white" : "text-emerald"}>
+                <span key={index} className={index % 2 === 0 ? "text-white" : "text-emerald font-script"}>
                   {word}{' '}
                 </span>
               ))}

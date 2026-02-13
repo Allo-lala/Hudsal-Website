@@ -1,9 +1,11 @@
 import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
-import { AboutSection } from "@/components/about-section";
+import { ProductsSection } from "@/components/products-section";
 import { Services } from "@/components/services";
 import { BooksAndPodcasts } from "@/components/books-podcasts";
-import { FAQ } from "@/components/faq";
+import { PhilanthropySection } from "@/components/philanthropy-section";
+import { AwardsSection } from "@/components/awards-section";
+import { ClimateSection } from "@/components/climate-section";
 import { Testimonials } from "@/components/testimonials";
 import { Footer } from "@/components/footer";
 import type { Metadata } from 'next';
@@ -18,10 +20,12 @@ export default function Home() {
     <main className="overflow-x-hidden">
       <Header />
       <Hero />
-      <AboutSection />
+      <ProductsSection />
       <Services />
       <BooksAndPodcasts />
-      <FAQ />
+      <PhilanthropySection />
+      <AwardsSection />
+      <ClimateSection />
       <Testimonials />
       <Footer />
     </main>

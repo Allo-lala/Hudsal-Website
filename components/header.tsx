@@ -21,7 +21,6 @@ const navItems = [
     dropdownItems: [
       // { name: "Our Team", href: "/team" },
       { name: "Testimonials", href: "/testimonials" },
-      { name: "FAQ", href: "/faq" },
       { name: "Events", href: "/events" },
       // { name: "Books & Podcasts", href: "/books-podcasts" },
     ]

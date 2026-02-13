@@ -5,7 +5,7 @@ import React from "react"
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUp, Send } from "lucide-react";
+import { ArrowUp, Send, MessageCircle, Mail, Bot } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { SuccessToast } from "@/components/success-toast";
@@ -39,6 +39,7 @@ export function Footer() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState("");
   const [showSuccessToast, setShowSuccessToast] = useState(false);
+  const [showChatOptions, setShowChatOptions] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -276,28 +277,91 @@ export function Footer() {
         </div>
       </footer>
 
-      {/* WhatsApp Button - Fixed on right side, above back to top */}
-      <a
-        href="https://wa.me/447399483885"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-24 right-4 sm:right-6 z-40 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white shadow-lg shadow-[#25D366]/30 flex items-center justify-center transition-all hover:scale-110"
-        aria-label="Contact us on WhatsApp"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" className="sm:w-7 sm:h-7" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
-        </svg>
-      </a>
-
-      {/* Back to Top Button - Fixed on the right side */}
+      {/* Chatbot Placeholder - Top Right */}
       {showBackToTop && (
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-8 right-4 sm:right-6 z-40 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-emerald hover:bg-emerald-dark text-white shadow-lg shadow-emerald/30 flex items-center justify-center transition-all animate-in fade-in slide-in-from-bottom-4"
-          aria-label="Back to top"
+        <div className="fixed bottom-32 right-4 sm:right-6 z-50">
+          <div className="bg-emerald hover:bg-emerald-dark text-white rounded-full p-4 shadow-lg shadow-emerald/30 cursor-pointer transition-all hover:scale-110 animate-in fade-in slide-in-from-bottom-4">
+            <Bot className="w-6 h-6" />
+            <div className="absolute -top-2 -right-2 w-4 h-4 bg-red-500 rounded-full flex items-center justify-center">
+              <span className="text-xs text-white font-bold">1</span>
+            </div>
+          </div>
+          {/* Chatbot tooltip */}
+          <div className="absolute right-16 top-1/2 -translate-y-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 hover:opacity-100 transition-opacity whitespace-nowrap">
+            Chat with AI Assistant
+          </div>
+        </div>
+      )}
+
+      {/* Floating Chat Widget */}
+      {showBackToTop && (
+        <div 
+          className="fixed bottom-8 right-4 sm:right-6 z-40"
+          onMouseEnter={() => setShowChatOptions(true)}
+          onMouseLeave={() => setShowChatOptions(false)}
         >
-          <ArrowUp className="w-5 h-5 sm:w-6 sm:h-6" />
-        </button>
+          {/* Chat Options Menu */}
+          {showChatOptions && (
+            <div className="absolute bottom-16 right-0 bg-white rounded-2xl shadow-2xl border border-emerald/20 p-4 min-w-[200px] animate-in fade-in slide-in-from-bottom-2">
+              <div className="space-y-3">
+                {/* WhatsApp Option */}
+                <a
+                  href="https://wa.me/447399483885"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-emerald/10 transition-all group"
+                >
+                  <div className="w-10 h-10 bg-[#25D366] rounded-full flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 16 16">
+                      <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-foreground group-hover:text-emerald">WhatsApp</p>
+                    {/* <p className="text-xs text-muted-foreground">Chat with us</p> */}
+                  </div>
+                </a>
+
+                {/* Email Option */}
+                <a
+                  href="mailto:info@hadsul.co.uk"
+                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-emerald/10 transition-all group"
+                >
+                  <div className="w-10 h-10 bg-emerald rounded-full flex items-center justify-center">
+                    <Mail className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-foreground group-hover:text-emerald">Email</p>
+                    {/* <p className="text-xs text-muted-foreground">Send us a message</p> */}
+                  </div>
+                </a>
+
+                {/* Back to Top Option */}
+                <button
+                  onClick={scrollToTop}
+                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-emerald/10 transition-all group w-full text-left"
+                >
+                  <div className="w-10 h-10 bg-emerald rounded-full flex items-center justify-center">
+                    <ArrowUp className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-foreground group-hover:text-emerald">Back to Top</p>
+                    <p className="text-xs text-muted-foreground">Scroll to top</p>
+                  </div>
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* Main Chat Button */}
+          <div className="w-14 h-14 bg-emerald hover:bg-emerald-dark text-white rounded-full shadow-lg shadow-emerald/30 flex items-center justify-center transition-all hover:scale-110 cursor-pointer animate-in fade-in slide-in-from-bottom-4">
+            <MessageCircle className="w-7 h-7" />
+            {/* Notification dot */}
+            <div className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full flex items-center justify-center animate-pulse">
+              <span className="text-xs text-white font-bold">3</span>
+            </div>
+          </div>
+        </div>
       )}
     </>
   );

@@ -37,33 +37,42 @@ export function Testimonials() {
   const [isReviewModalOpen, setIsReviewModalOpen] = useState(false);
 
   return (
-    <section className="py-20 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 bg-gradient-to-b from-background to-emerald/5 relative overflow-hidden">
+      {/* Background Animation Elements */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-20 left-10 w-40 h-40 bg-emerald rounded-full animate-pulse"></div>
+        <div className="absolute bottom-32 right-20 w-32 h-32 bg-emerald rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 right-1/4 w-24 h-24 bg-emerald rounded-full animate-pulse" style={{ animationDelay: '4s' }}></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Header */}
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-2 mb-4">
-            <span className="text-emerald text-sm font-medium tracking-wider uppercase">
+            <Star className="w-5 h-5 text-emerald animate-pulse" />
+            <span className="text-emerald text-sm font-medium tracking-wider uppercase animate-fade-in">
               Testimonials
             </span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground text-balance">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground text-balance animate-slide-up">
             What Our Clients Say
           </h2>
-          <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
+          <p className="mt-4 text-muted-foreground max-w-2xl mx-auto animate-slide-up animate-delay-200">
             Hear from families, residents, and partners who have experienced the
-            Hudsal difference in quality healthcare services.
+            Hadsul difference in quality healthcare services.
           </p>
         </div>
 
         {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.map((testimonial) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          {testimonials.map((testimonial, index) => (
             <div
               key={testimonial.id}
-              className="bg-card border border-border rounded-2xl p-8 relative group hover:shadow-lg transition-shadow"
+              className="bg-card border border-border rounded-2xl p-8 relative group hover:shadow-2xl transition-all duration-500 hover-lift animate-slide-up"
+              style={{ animationDelay: `${index * 0.2}s` }}
             >
               {/* Quote Icon */}
-              <div className="absolute top-6 right-6 text-emerald/20">
+              <div className="absolute top-6 right-6 text-emerald/20 group-hover:text-emerald/40 transition-colors">
                 <Quote className="w-12 h-12" />
               </div>
 
@@ -72,28 +81,29 @@ export function Testimonials() {
                 {[...Array(testimonial.rating)].map((_, i) => (
                   <Star
                     key={i}
-                    className="w-5 h-5 fill-emerald text-emerald"
+                    className="w-5 h-5 fill-emerald text-emerald group-hover:scale-110 transition-transform"
+                    style={{ transitionDelay: `${i * 0.1}s` }}
                   />
                 ))}
               </div>
 
               {/* Text */}
-              <p className="text-foreground/80 leading-relaxed mb-8">
+              <p className="text-foreground/80 leading-relaxed mb-8 group-hover:text-foreground transition-colors">
                 {`"${testimonial.text}"`}
               </p>
 
               {/* Author */}
               <div className="flex items-center gap-4">
-                <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-emerald">
+                <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-emerald group-hover:border-emerald-dark transition-colors">
                   <Image
                     src={testimonial.image || "/placeholder.svg"}
                     alt={testimonial.name}
                     fill
-                    className="object-cover"
+                    className="object-cover group-hover:scale-110 transition-transform duration-300"
                   />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-foreground">
+                  <h4 className="font-semibold text-foreground group-hover:text-emerald transition-colors">
                     {testimonial.name}
                   </h4>
                   <p className="text-sm text-muted-foreground">
