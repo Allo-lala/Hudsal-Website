@@ -176,8 +176,8 @@ export default function StoryPage() {
       {/* Timeline Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-background relative">
         {/* Timeline Title */}
-        <div className="max-w-7xl mx-auto text-center mb-20">
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold">
+        <div className="max-w-7xl mx-auto text-center mb-20 px-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
             <span className="text-foreground">THE HADSUL </span>
             <span className="font-script italic text-emerald">Timeline</span>
           </h2>
@@ -198,14 +198,14 @@ export default function StoryPage() {
                 style={{ transitionDelay: `${index * 150}ms` }}
               >
                 {/* Mobile Layout (Stacked) */}
-                <div className="lg:hidden flex flex-col items-center text-center space-y-6">
+                <div className="lg:hidden flex flex-col items-center text-center space-y-6 px-4">
                   {/* Year */}
-                  <div className="text-7xl md:text-8xl font-bold text-foreground/10 leading-none">
+                  <div className="text-5xl sm:text-6xl md:text-7xl font-bold text-foreground/10 leading-none">
                     {event.year}
                   </div>
 
                   {/* Circular Image */}
-                  <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden shadow-2xl">
+                  <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-64 md:h-64 rounded-full overflow-hidden shadow-2xl">
                     <Image
                       src={event.image}
                       alt={event.title}
@@ -215,11 +215,11 @@ export default function StoryPage() {
                   </div>
 
                   {/* Title & Description */}
-                  <div className="max-w-md">
-                    <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3">
+                  <div className="max-w-sm sm:max-w-md px-4">
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-foreground mb-3 leading-tight">
                       {event.title}
                     </h3>
-                    <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
+                    <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
                       {event.description}
                     </p>
                   </div>
@@ -315,28 +315,28 @@ export default function StoryPage() {
           {/* Duplicate the text multiple times for seamless loop */}
           {[...Array(3)].map((_, i) => (
             <div key={i} className="flex items-center">
-              <span className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mx-8">
+              <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mx-4 sm:mx-6 lg:mx-8">
                 Together,
               </span>
-              <span className="text-4xl md:text-5xl lg:text-6xl font-script italic text-beige mx-8">
+              <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-script italic text-beige mx-4 sm:mx-6 lg:mx-8">
                  We benefit better •
               </span>
-              <span className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mx-8">
+              <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mx-4 sm:mx-6 lg:mx-8">
                 We learnt from Mistakes
               </span>
-              <span className="text-4xl md:text-5xl lg:text-6xl font-script italic text-beige mx-8">
+              <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-script italic text-beige mx-4 sm:mx-6 lg:mx-8">
                 So you don't Have to! •
               </span>
-              <span className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mx-8">
+              <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mx-4 sm:mx-6 lg:mx-8">
                 Push
               </span>
-              <span className="text-4xl md:text-5xl lg:text-6xl font-script italic text-beige mx-8">
+              <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-script italic text-beige mx-4 sm:mx-6 lg:mx-8">
                 with momentum •
               </span>
-              <span className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mx-8">
+              <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mx-4 sm:mx-6 lg:mx-8">
                 Transform
               </span>
-              <span className="text-4xl md:text-5xl lg:text-6xl font-script italic text-beige mx-8">
+              <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-script italic text-beige mx-4 sm:mx-6 lg:mx-8">
                 Your Life
               </span>
             </div>
