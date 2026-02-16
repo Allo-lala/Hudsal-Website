@@ -71,7 +71,7 @@ export function BooksAndPodcasts() {
             Books, Podcasts & Webinars
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Expand your knowledge with our curated collection of healthcare books, insightful podcasts, and interactive webinars
+            Expand your knowledge with our curated collection of books, insightful podcasts, and interactive webinars
           </p>
         </div>
 
@@ -85,7 +85,7 @@ export function BooksAndPodcasts() {
               <h3 className="text-2xl font-bold text-foreground">Our Books</h3>
             </div>
             <p className="text-muted-foreground mb-8">
-              Expand your healthcare knowledge with our expertly written books
+              Expand your knowledge with our human written books
             </p>
 
             {/* Book Display - Vertical Layout */}
@@ -105,7 +105,7 @@ export function BooksAndPodcasts() {
               {/* Book Content - Below Image */}
               <div className="space-y-4 max-w-sm">
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  A comprehensive guide to leading healthcare teams through challenges and change in modern healthcare environments.
+                  {/* A comprehensive guide to leading healthcare teams through challenges and change in modern healthcare environments. */}
                 </p>
 
                 <div className="pt-2">

@@ -9,30 +9,31 @@ const slides = [
   {
     id: 1,
     image: "/images/hero-care.jpeg",
-    title: "Seniors Deserve Better Life Taking Care of Relatives",
-    buttonText: "Get Care Support",
-    href: "/services"
+    title: "Become a caregiver with Hadsul",
+    subtitle: "With flexible schedules and positions available across multiple locations, you can find a job that fits your lifestyle.",
+    buttonText: "Apply Now",
+    href: "https://forms.gle/wf62ZWLCipTd5FsV6"
   },
   {
     id: 2,
     image: "/images/products.jpeg",
-    title: "Professional Healthcare Services for Every Need",
-    buttonText: "Order Products",
-    href: "/products"
+    title: "Get Wholesale Health and wellness products Delivered Instantly",
+    buttonText: "Order Now",
+    href: "#"
   },
   {
     id: 3,
     image: "/images/hero-care.jpg",
-    title: "Compassionate Care That Makes a Difference",
-    buttonText: "Our CRM",
+    title: "Start Streamlining Operations with AI, Integrations and Automation with Our CRM",
+    buttonText: "Free CRM",
     href: "/contact"
   },
   {
     id: 4,
     image: "/images/podcast.jpeg",
-    title: "Expand Your Knowledge with Books and Podcasts",
+    title: "Explore a collection of webinars and podcasts hosted by HADSUL",
     buttonText: "Explore Content",
-    href: "/books-podcasts"
+    href: "#"
   }
 ];
 
@@ -100,13 +101,20 @@ export function Hero() {
             </div>
 
             {/* Main Heading - Dynamic based on current slide */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
               {slides[currentSlide].title.split(' ').map((word, index) => (
                 <span key={index} className={index % 2 === 0 ? "text-white" : "text-emerald font-script"}>
                   {word}{' '}
                 </span>
               ))}
             </h1>
+
+            {/* Subtitle - Only show if slide has subtitle */}
+            {slides[currentSlide].subtitle && (
+              <p className="text-lg md:text-xl text-white/90 leading-relaxed mb-8 max-w-xl">
+                {slides[currentSlide].subtitle}
+              </p>
+            )}
 
             {/* WhatsApp-colored Pill Button */}
             <div className="mb-12 flex justify-center lg:justify-start">

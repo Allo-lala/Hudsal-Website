@@ -76,10 +76,10 @@ export function Services() {
             </span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-balance animate-slide-up">
-            Comprehensive Healthcare Services
+            Comprehensive Services
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto animate-slide-up animate-delay-200">
-            We provide a full range of healthcare services designed to meet the unique needs of every individual with compassion and professionalism.
+            We provide a full range of services designed to meet the unique needs with compassion and professionalism.
           </p>
         </div>
 
@@ -88,12 +88,12 @@ export function Services() {
           <div className="lg:col-span-1 animate-slide-in-left">
             {/* Heading */}
             <h3 className="text-2xl font-bold text-foreground mb-6 text-balance">
-              Every Senior Deserves Our Best Services
+              We believe quality isn't a luxury, it's a right.
             </h3>
 
             {/* Description */}
             <p className="text-muted-foreground mb-8 leading-relaxed">
-              At Hadsul Healthcare, we believe every senior deserves our best services—because quality care isn't a luxury, it's a right.
+              We know the value of serving, and we’re here to support you every step of the way. 
             </p>
 
             {/* Enhanced CTA Section */}
@@ -196,18 +196,21 @@ interface Service {
 }
 
 function ServiceCard({ service, index }: { service: Service; index: number }) {
-  const Icon = service.icon;
-
   return (
     <Link href={`/services/${service.slug}`} className="block group">
       <div 
-        className="border border-border rounded-lg p-6 hover:shadow-lg transition-all duration-300 bg-card hover:border-emerald/30 hover-lift animate-slide-up"
+        className="border border-border rounded-lg p-6 hover:shadow-lg transition-all duration-300 bg-card hover:border-emerald/30 hover-lift animate-slide-up text-center"
         style={{ animationDelay: `${index * 0.1}s` }}
       >
-        <div className="flex items-start justify-between mb-4">
-          {/* Icon */}
-          <div className="w-14 h-14 rounded-lg flex items-center justify-center group-hover:bg-emerald transition-colors duration-300">
-            <Icon className="w-7 h-7 text-emerald group-hover:text-white transition-colors duration-300" />
+        {/* Centered Image */}
+        <div className="flex justify-center mb-6">
+          <div className="relative w-20 h-20 rounded-lg overflow-hidden group-hover:scale-110 transition-transform duration-300">
+            <Image
+              src="/images/services/consult.webp"
+              alt={service.title}
+              fill
+              className="object-cover"
+            />
           </div>
         </div>
 
@@ -222,7 +225,7 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
         </p>
 
         {/* Arrow Link */}
-        <span className="inline-flex items-center gap-2 text-muted-foreground group-hover:text-emerald transition-colors">
+        <span className="inline-flex items-center justify-center gap-2 text-muted-foreground group-hover:text-emerald transition-colors">
           <span className="text-sm font-medium">Read More</span>
           <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
         </span>

@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Leaf, ChevronLeft, ChevronRight } from "lucide-react";
+import { GrantApplicationModal } from "@/components/grant-application-modal";
 
 const climateImages = [
   {
@@ -46,6 +47,7 @@ const climateImages = [
 export function ClimateSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [isGrantModalOpen, setIsGrantModalOpen] = useState(false);
 
   // Auto-slide functionality
   useEffect(() => {
@@ -147,17 +149,21 @@ export function ClimateSection() {
                 Donate
               </button>
             </a>
-            <a
-              href="/apply-grant"
-              className="inline-block"
+            <button
+              onClick={() => setIsGrantModalOpen(true)}
+              className="bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white font-semibold px-8 py-4 rounded-full border-2 border-white/50 hover:border-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
-              <button className="bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white font-semibold px-8 py-4 rounded-full border-2 border-white/50 hover:border-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                Request for a Grant
-              </button>
-            </a>
+              Request for a Grant
+            </button>
           </div>
         </div>
       </div>
+
+      {/* Grant Application Modal */}
+      <GrantApplicationModal 
+        isOpen={isGrantModalOpen} 
+        onClose={() => setIsGrantModalOpen(false)} 
+      />
 
       {/* Navigation Controls */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">

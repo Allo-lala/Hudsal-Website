@@ -5,56 +5,56 @@ import Image from "next/image";
 const awards = [
   {
     id: 1,
-    logo: "/images/awards/spoty.avif",
+    logo: "/images/awards/benecol.svg",
     organization: "CQC",
     category: "Outstanding Care Provider",
     year: "2024"
   },
   {
     id: 2,
-    logo: "/images/awards/spo.avif",
+    logo: "/images/awards/spons.svg",
     organization: "NHS",
     category: "Excellence in Healthcare",
     year: "2023"
   },
   {
     id: 3,
-    logo: "/images/awards/spoty.avif",
+    logo: "/images/awards/spons.svg",
     organization: "ISO",
     category: "Quality Management",
     year: "2024"
   },
   {
     id: 4,
-    logo: "/images/awards/spo.avif",
+    logo: "/images/awards/Heylen.svg",
     organization: "Healthcare Awards",
     category: "Innovation in Care",
     year: "2023"
   },
   {
     id: 5,
-    logo: "/images/awards/spoty.avif",
+    logo: "/images/awards/Vlaamse.svg",
     organization: "Care Industry",
     category: "Best Staffing Solutions",
     year: "2024"
   },
   {
     id: 6,
-    logo: "/images/awards/aroc.png",
+    logo: "/images/awards/sponlog.svg",
     organization: "UK Healthcare",
     category: "Digital Excellence",
     year: "2023"
   },
   {
     id: 7,
-    logo: "/images/awards/spo.avif",
+    logo: "/images/awards/spons.svg",
     organization: "Business Excellence",
     category: "Sustainability Leader",
     year: "2024"
   },
   {
     id: 8,
-    logo: "/images/awards/spoty.avif",
+    logo: "/images/awards/sponlog.svg",
     organization: " Awards",
     category: "Outstanding Service",
     year: "2023"
@@ -66,36 +66,26 @@ export function AwardsSection() {
   const duplicatedAwards = [...awards, ...awards];
 
   return (
-    <section className="py-16 bg-gradient-to-r from-emerald/5 to-background relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-10 left-20 w-32 h-32 bg-emerald rounded-full animate-pulse"></div>
-        <div className="absolute bottom-10 right-20 w-24 h-24 bg-emerald rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        {/* Infinite Scrolling Awards - Reduced Size */}
+    <section className="py-12 bg-emerald overflow-hidden">
+      <div className="max-w-full">
+        {/* Infinite Scrolling Awards - Full Width */}
         <div className="relative mb-8">
-          {/* Gradient Overlays for smooth edges */}
-          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-emerald/10 to-transparent z-10"></div>
-          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-emerald/10 to-transparent z-10"></div>
-          
-          {/* Scrolling Container - Reduced Height */}
-          <div className="overflow-hidden bg-emerald/10 rounded-2xl py-4 mx-4">
-            <div className="flex animate-scroll-left items-center">
+          {/* Scrolling Container - Full Screen Width */}
+          <div className="overflow-hidden py-6">
+            <div className="flex animate-scroll-left items-center whitespace-nowrap">
               {duplicatedAwards.map((award, index) => (
                 <div
                   key={`${award.id}-${index}`}
-                  className="flex-shrink-0 mx-6 group"
+                  className="flex-shrink-0 mx-8 group"
                 >
                   <div className="flex items-center justify-center hover:scale-110 transition-all duration-300">
-                    {/* Award Logo - Smaller Size */}
+                    {/* Award Logo */}
                     <Image
                       src={award.logo}
                       alt={`${award.organization} award`}
-                      width={60}
-                      height={60}
-                      className="object-contain"
+                      width={80}
+                      height={80}
+                      className="object-contain filter brightness-0 invert"
                     />
                   </div>
                 </div>
@@ -107,10 +97,10 @@ export function AwardsSection() {
         {/* Our Awards Button */}
         <div className="text-center">
           <a
-            href="/awards"
+            href="#"
             className="inline-block"
           >
-            <button className="bg-emerald hover:bg-emerald-dark text-white font-semibold px-10 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <button className="bg-white hover:bg-gray-100 text-emerald font-semibold px-10 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
               Our Awards
             </button>
           </a>

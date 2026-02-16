@@ -14,8 +14,11 @@ import {
 const navItems = [
   { name: "HOME", href: "/", hasDropdown: false },
   { name: "STORY", href: "/story", hasDropdown: false },
+  { name: "SERVICES", href: "/services", hasDropdown: false },
+  { name: "CAREERS", href: "/careers", hasDropdown: false },
+  { name: "PRODUCTS", href: "/products", hasDropdown: false },
   { 
-    name: "PAGES", 
+    name: "HADSUL HOUSE", 
     href: "#", 
     hasDropdown: true,
     dropdownItems: [
@@ -25,9 +28,6 @@ const navItems = [
       // { name: "Books & Podcasts", href: "/books-podcasts" },
     ]
   },
-  { name: "SERVICES", href: "/services", hasDropdown: false },
-  { name: "CAREERS", href: "/careers", hasDropdown: false },
-  { name: "PRODUCTS", href: "/products", hasDropdown: false },
 ];
 
 export function Header() {

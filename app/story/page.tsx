@@ -179,7 +179,7 @@ export default function StoryPage() {
         <div className="max-w-7xl mx-auto text-center mb-20">
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold">
             <span className="text-foreground">THE HADSUL </span>
-            <span className="font-script italic text-yellow-400">Timeline</span>
+            <span className="font-script italic text-emerald">Timeline</span>
           </h2>
         </div>
 
@@ -316,22 +316,22 @@ export default function StoryPage() {
           {[...Array(3)].map((_, i) => (
             <div key={i} className="flex items-center">
               <span className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mx-8">
-                Learn
+                Together,
               </span>
               <span className="text-4xl md:text-5xl lg:text-6xl font-script italic text-beige mx-8">
-                from the Best!
+                 We benefit better •
               </span>
               <span className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mx-8">
-                Get
+                We learnt from Mistakes
               </span>
               <span className="text-4xl md:text-5xl lg:text-6xl font-script italic text-beige mx-8">
-                Moving
+                So you don't Have to! •
               </span>
               <span className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mx-8">
-                Build
+                Push
               </span>
               <span className="text-4xl md:text-5xl lg:text-6xl font-script italic text-beige mx-8">
-                Your Empire
+                with momentum •
               </span>
               <span className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mx-8">
                 Transform

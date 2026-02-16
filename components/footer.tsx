@@ -49,6 +49,24 @@ export function Footer() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close chat options when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Element;
+      if (showChatOptions && !target.closest('.chat-widget')) {
+        setShowChatOptions(false);
+      }
+    };
+
+    if (showChatOptions) {
+      document.addEventListener('click', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [showChatOptions]);
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -288,18 +306,14 @@ export function Footer() {
           </div>
           {/* Chatbot tooltip */}
           <div className="absolute right-16 top-1/2 -translate-y-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 hover:opacity-100 transition-opacity whitespace-nowrap">
-            Chat with AI Assistant
+            Hadsul Chat Bot
           </div>
         </div>
       )}
 
       {/* Floating Chat Widget */}
       {showBackToTop && (
-        <div 
-          className="fixed bottom-8 right-4 sm:right-6 z-40"
-          onMouseEnter={() => setShowChatOptions(true)}
-          onMouseLeave={() => setShowChatOptions(false)}
-        >
+        <div className="fixed bottom-8 right-4 sm:right-6 z-40 chat-widget">
           {/* Chat Options Menu */}
           {showChatOptions && (
             <div className="absolute bottom-16 right-0 bg-white rounded-2xl shadow-2xl border border-emerald/20 p-4 min-w-[200px] animate-in fade-in slide-in-from-bottom-2">
@@ -411,7 +425,7 @@ export function Footer() {
                     <ArrowUp className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-foreground group-hover:text-emerald"> </p>
+                    <p className="text-sm font-semibold text-foreground group-hover:text-emerald">Back </p>
                   </div>
                 </button>
               </div>
@@ -419,7 +433,10 @@ export function Footer() {
           )}
 
           {/* Main Chat Button */}
-          <div className="w-14 h-14 bg-emerald hover:bg-emerald-dark text-white rounded-full shadow-lg shadow-emerald/30 flex items-center justify-center transition-all hover:scale-110 cursor-pointer animate-in fade-in slide-in-from-bottom-4">
+          <div 
+            className="w-14 h-14 bg-emerald hover:bg-emerald-dark text-white rounded-full shadow-lg shadow-emerald/30 flex items-center justify-center transition-all hover:scale-110 cursor-pointer animate-in fade-in slide-in-from-bottom-4"
+            onClick={() => setShowChatOptions(!showChatOptions)}
+          >
             <MessageCircle className="w-7 h-7" />
             {/* Notification dot */}
             <div className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full flex items-center justify-center animate-pulse">

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -29,7 +29,7 @@ const testimonials = [
     role: "Healthcare Partner",
     image: "/images/testimonials/client3.jpg",
     rating: 5,
-    text: "Working with Hadsul has transformed our care home operations. Their staffing solutions and IT support have streamlined everything. A truly professional and reliable healthcare partner.",
+    text: "Working with Hadsul has transformed our care home operations. Their emergency staffing solutions and IT support have streamlined everything. A truly professional and reliable partner.",
   },
   {
     id: 4,
@@ -45,7 +45,7 @@ const testimonials = [
     role: "Care Home Manager",
     image: "/images/testimonials/client2.jpg",
     rating: 5,
-    text: "Hadsul's healthcare staffing solutions have been game-changing for our facility. Professional, reliable, and always exceeding expectations.",
+    text: "Hadsul's CRM is game-changing for our facility. Professional, reliable, and exceeded expectations.",
   },
   {
     id: 6,
@@ -60,8 +60,20 @@ const testimonials = [
 export function Testimonials() {
   const [isReviewModalOpen, setIsReviewModalOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const testimonialsPerPage = 3;
   const totalSlides = Math.ceil(testimonials.length / testimonialsPerPage);
+
+  // Auto-slide functionality
+  useEffect(() => {
+    if (!isAutoPlaying || totalSlides <= 1) return;
+
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % totalSlides);
+    }, 2000); // Change slide every 2 seconds
+
+    return () => clearInterval(interval);
+  }, [isAutoPlaying, totalSlides]);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % totalSlides);
@@ -102,12 +114,16 @@ export function Testimonials() {
           </h2>
           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto animate-slide-up animate-delay-200">
             Hear from families, residents, and partners who have experienced the
-            Hadsul difference in quality healthcare services.
+            Hadsul difference in quality services.
           </p>
         </div>
 
         {/* Testimonials Slider */}
-        <div className="relative mb-16">
+        <div 
+          className="relative mb-16"
+          onMouseEnter={() => setIsAutoPlaying(false)}
+          onMouseLeave={() => setIsAutoPlaying(true)}
+        >
           {/* Testimonials Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-500">
             {visibleTestimonials.map((testimonial, index) => (
@@ -165,6 +181,8 @@ export function Testimonials() {
             {/* Previous Button */}
             <button
               onClick={prevSlide}
+              onMouseEnter={() => setIsAutoPlaying(false)}
+              onMouseLeave={() => setIsAutoPlaying(true)}
               className="w-12 h-12 rounded-full bg-emerald/10 hover:bg-emerald text-emerald hover:text-white flex items-center justify-center transition-all hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
               disabled={totalSlides <= 1}
             >
@@ -177,6 +195,8 @@ export function Testimonials() {
                 <button
                   key={index}
                   onClick={() => goToSlide(index)}
+                  onMouseEnter={() => setIsAutoPlaying(false)}
+                  onMouseLeave={() => setIsAutoPlaying(true)}
                   className={`w-3 h-3 rounded-full transition-all ${
                     index === currentSlide
                       ? 'bg-emerald scale-125'
@@ -190,6 +210,8 @@ export function Testimonials() {
             {/* Next Button */}
             <button
               onClick={nextSlide}
+              onMouseEnter={() => setIsAutoPlaying(false)}
+              onMouseLeave={() => setIsAutoPlaying(true)}
               className="w-12 h-12 rounded-full bg-emerald/10 hover:bg-emerald text-emerald hover:text-white flex items-center justify-center transition-all hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
               disabled={totalSlides <= 1}
             >
