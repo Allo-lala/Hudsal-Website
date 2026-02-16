@@ -174,7 +174,7 @@ export function Services() {
                   Start Your Journey
                 </Button>
               </Link>
-              <Link href="/about">
+              <Link href="/story">
                 <Button variant="outline" className="border-emerald text-emerald hover:bg-emerald hover:text-white rounded-full px-8 py-3 font-semibold">
                   Learn About Us
                 </Button>

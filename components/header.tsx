@@ -13,7 +13,7 @@ import {
 
 const navItems = [
   { name: "HOME", href: "/", hasDropdown: false },
-  { name: "ABOUT", href: "/about", hasDropdown: false },
+  { name: "STORY", href: "/story", hasDropdown: false },
   { 
     name: "PAGES", 
     href: "#", 

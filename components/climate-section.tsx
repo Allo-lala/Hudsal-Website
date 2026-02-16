@@ -200,34 +200,6 @@ export function ClimateSection() {
           </button>
         </div>
       </div>
-
-      {/* Auto-play Indicator */}
-      <div className="absolute top-8 right-8">
-        <div className="bg-black/50 backdrop-blur-sm rounded-lg px-4 py-2 text-white text-sm">
-          <div className="flex items-center gap-2">
-            <div className={`w-2 h-2 rounded-full ${isAutoPlaying ? 'bg-emerald animate-pulse' : 'bg-white/40'}`}></div>
-            {isAutoPlaying ? 'Auto-playing' : 'Paused'}
-          </div>
-        </div>
-      </div>
-
-      {/* Progress Bar */}
-      <div className="absolute bottom-0 left-0 right-0 h-1 bg-black/20">
-        <div 
-          className="h-full bg-emerald transition-all duration-4000 ease-linear"
-          style={{ 
-            width: isAutoPlaying ? '100%' : '0%',
-            animation: isAutoPlaying ? 'progress 4s linear infinite' : 'none'
-          }}
-        ></div>
-      </div>
-
-      <style jsx>{`
-        @keyframes progress {
-          0% { width: 0%; }
-          100% { width: 100%; }
-        }
-      `}</style>
     </section>
   );
 }

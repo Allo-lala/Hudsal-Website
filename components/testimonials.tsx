@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Star, Quote } from "lucide-react";
+import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ReviewModal } from "@/components/review-modal";
 
@@ -31,10 +31,54 @@ const testimonials = [
     rating: 5,
     text: "Working with Hadsul has transformed our care home operations. Their staffing solutions and IT support have streamlined everything. A truly professional and reliable healthcare partner.",
   },
+  {
+    id: 4,
+    name: "Sarah Mitchell",
+    role: "Family Member",
+    image: "/images/testimonials/client1.jpg",
+    rating: 5,
+    text: "The level of care and attention my father receives is outstanding. The staff goes above and beyond every day. We're so grateful to have found Hadsul.",
+  },
+  {
+    id: 5,
+    name: "James Anderson",
+    role: "Care Home Manager",
+    image: "/images/testimonials/client2.jpg",
+    rating: 5,
+    text: "Hadsul's healthcare staffing solutions have been game-changing for our facility. Professional, reliable, and always exceeding expectations.",
+  },
+  {
+    id: 6,
+    name: "Emily Roberts",
+    role: "Healthcare Professional",
+    image: "/images/testimonials/client3.jpg",
+    rating: 5,
+    text: "Working with Hadsul has been an incredible experience. They truly value their staff and provide excellent support. Proud to be part of this team.",
+  },
 ];
 
 export function Testimonials() {
   const [isReviewModalOpen, setIsReviewModalOpen] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const testimonialsPerPage = 3;
+  const totalSlides = Math.ceil(testimonials.length / testimonialsPerPage);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % totalSlides);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
+  };
+
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
+  };
+
+  const visibleTestimonials = testimonials.slice(
+    currentSlide * testimonialsPerPage,
+    (currentSlide + 1) * testimonialsPerPage
+  );
 
   return (
     <section className="py-20 bg-gradient-to-b from-background to-emerald/5 relative overflow-hidden">
@@ -49,7 +93,6 @@ export function Testimonials() {
         {/* Header */}
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-2 mb-4">
-            <Star className="w-5 h-5 text-emerald animate-pulse" />
             <span className="text-emerald text-sm font-medium tracking-wider uppercase animate-fade-in">
               Testimonials
             </span>
@@ -63,56 +106,96 @@ export function Testimonials() {
           </p>
         </div>
 
-        {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {testimonials.map((testimonial, index) => (
-            <div
-              key={testimonial.id}
-              className="bg-card border border-border rounded-2xl p-8 relative group hover:shadow-2xl transition-all duration-500 hover-lift animate-slide-up"
-              style={{ animationDelay: `${index * 0.2}s` }}
+        {/* Testimonials Slider */}
+        <div className="relative mb-16">
+          {/* Testimonials Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-500">
+            {visibleTestimonials.map((testimonial, index) => (
+              <div
+                key={testimonial.id}
+                className="bg-card border border-border rounded-2xl p-8 relative group hover:shadow-2xl transition-all duration-500 hover-lift animate-slide-up"
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                {/* Quote Icon */}
+                <div className="absolute top-6 right-6 text-emerald/20 group-hover:text-emerald/40 transition-colors">
+                  <Quote className="w-12 h-12" />
+                </div>
+
+                {/* Rating */}
+                <div className="flex gap-1 mb-6">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className="w-5 h-5 fill-emerald text-emerald group-hover:scale-110 transition-transform"
+                      style={{ transitionDelay: `${i * 0.1}s` }}
+                    />
+                  ))}
+                </div>
+
+                {/* Text */}
+                <p className="text-foreground/80 leading-relaxed mb-8 group-hover:text-foreground transition-colors">
+                  {`"${testimonial.text}"`}
+                </p>
+
+                {/* Author */}
+                <div className="flex items-center gap-4">
+                  <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-emerald group-hover:border-emerald-dark transition-colors">
+                    <Image
+                      src={testimonial.image || "/placeholder.svg"}
+                      alt={testimonial.name}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-foreground group-hover:text-emerald transition-colors">
+                      {testimonial.name}
+                    </h4>
+                    <p className="text-sm text-muted-foreground">
+                      {testimonial.role}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Navigation Controls */}
+          <div className="flex items-center justify-center gap-4 mt-12">
+            {/* Previous Button */}
+            <button
+              onClick={prevSlide}
+              className="w-12 h-12 rounded-full bg-emerald/10 hover:bg-emerald text-emerald hover:text-white flex items-center justify-center transition-all hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
+              disabled={totalSlides <= 1}
             >
-              {/* Quote Icon */}
-              <div className="absolute top-6 right-6 text-emerald/20 group-hover:text-emerald/40 transition-colors">
-                <Quote className="w-12 h-12" />
-              </div>
+              <ChevronLeft className="w-6 h-6" />
+            </button>
 
-              {/* Rating */}
-              <div className="flex gap-1 mb-6">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className="w-5 h-5 fill-emerald text-emerald group-hover:scale-110 transition-transform"
-                    style={{ transitionDelay: `${i * 0.1}s` }}
-                  />
-                ))}
-              </div>
-
-              {/* Text */}
-              <p className="text-foreground/80 leading-relaxed mb-8 group-hover:text-foreground transition-colors">
-                {`"${testimonial.text}"`}
-              </p>
-
-              {/* Author */}
-              <div className="flex items-center gap-4">
-                <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-emerald group-hover:border-emerald-dark transition-colors">
-                  <Image
-                    src={testimonial.image || "/placeholder.svg"}
-                    alt={testimonial.name}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-foreground group-hover:text-emerald transition-colors">
-                    {testimonial.name}
-                  </h4>
-                  <p className="text-sm text-muted-foreground">
-                    {testimonial.role}
-                  </p>
-                </div>
-              </div>
+            {/* Dots Indicator */}
+            <div className="flex gap-2">
+              {[...Array(totalSlides)].map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`w-3 h-3 rounded-full transition-all ${
+                    index === currentSlide
+                      ? 'bg-emerald scale-125'
+                      : 'bg-emerald/30 hover:bg-emerald/50'
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
             </div>
-          ))}
+
+            {/* Next Button */}
+            <button
+              onClick={nextSlide}
+              className="w-12 h-12 rounded-full bg-emerald/10 hover:bg-emerald text-emerald hover:text-white flex items-center justify-center transition-all hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
+              disabled={totalSlides <= 1}
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+          </div>
         </div>
 
         {/* Leave a Review CTA */}

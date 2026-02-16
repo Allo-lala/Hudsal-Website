@@ -54,7 +54,7 @@ const testimonials = [
     location: "Bristol",
     image: "/images/team/james.jpg",
     rating: 5,
-    text: "Hudsal's healthcare staffing service has been invaluable to our hospital. They consistently provide qualified, professional staff who integrate seamlessly with our teams. Their reliability and quality are unmatched.",
+    text: "Hadsul's healthcare staffing service has been invaluable to our hospital. They consistently provide qualified, professional staff who integrate seamlessly with our teams. Their reliability and quality are unmatched.",
     service: "Healthcare Staffing",
   },
   {
@@ -64,7 +64,7 @@ const testimonials = [
     location: "Edinburgh",
     image: "/images/team/emma.jpg",
     rating: 5,
-    text: "The IT solutions provided by Hudsal have modernized our entire operation. From staff scheduling to resident records, everything is now efficient and compliant. Their support team is always responsive and helpful.",
+    text: "The IT solutions provided by Hadsul have modernized our entire operation. From staff scheduling to resident records, everything is now efficient and compliant. Their support team is always responsive and helpful.",
     service: "IT Solutions",
   },
 ];
