@@ -135,7 +135,7 @@ export default function StoryPage() {
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
                   <span className="text-emerald">You Have Two Choices In Life:</span>
                   <br />
-                  <span className="text-white italic font-script text-5xl sm:text-6xl lg:text-7xl">
+                  <span className="text-white italic text-5xl sm:text-6xl lg:text-7xl">
                     Success or Fear
                   </span>
                   <br />
@@ -179,7 +179,7 @@ export default function StoryPage() {
         <div className="max-w-7xl mx-auto text-center mb-20 px-4">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
             <span className="text-foreground">THE HADSUL </span>
-            <span className="font-script italic text-emerald">Timeline</span>
+            <span className="italic text-emerald">Timeline</span>
           </h2>
         </div>
 
@@ -367,7 +367,7 @@ export default function StoryPage() {
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
                   STUCK ON{" "}
                   <span className="block lg:inline">WHERE TO</span>{" "}
-                  <span className="font-script italic text-emerald text-4xl md:text-5xl lg:text-6xl">START?</span>
+                  <span className="italic text-emerald text-4xl md:text-5xl lg:text-6xl">START?</span>
                 </h2>
                 <p className="text-lg md:text-xl text-foreground/80 mb-6">
                   Your next <span className="font-bold text-emerald">BIG</span> move starts right here!

@@ -5,7 +5,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const slides = [
+interface Slide {
+  id: number;
+  image: string;
+  title: string;
+  subtitle?: string;
+  buttonText: string;
+  href: string;
+}
+
+const slides: Slide[] = [
   {
     id: 1,
     image: "/images/hero-care.jpeg",
@@ -31,7 +40,7 @@ const slides = [
   {
     id: 4,
     image: "/images/podcast.jpeg",
-    title: "Explore a collection of webinars and podcasts hosted by HADSUL",
+    title: "Explore a collection of webinars, books and podcasts hosted by HADSUL",
     buttonText: "Explore Content",
     href: "#"
   }
@@ -103,7 +112,7 @@ export function Hero() {
             {/* Main Heading - Dynamic based on current slide */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
               {slides[currentSlide].title.split(' ').map((word, index) => (
-                <span key={index} className={index % 2 === 0 ? "text-white" : "text-emerald font-script"}>
+                <span key={index} className={index % 2 === 0 ? "text-white" : "text-emerald"}>
                   {word}{' '}
                 </span>
               ))}

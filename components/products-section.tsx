@@ -131,7 +131,7 @@ export function ProductsSection() {
                 <br />
                 <span className="text-emerald">WE'VE GOT</span>
                 <br />
-                <span className="text-foreground italic font-script text-4xl sm:text-5xl lg:text-7xl">
+                <span className="text-foreground italic text-4xl sm:text-4xl lg:text-7xl">
                   the vision
                   <br />
                   the path
