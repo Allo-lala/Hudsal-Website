@@ -19,7 +19,7 @@ const slides: Slide[] = [
     id: 1,
     image: "/images/hero-care.jpeg",
     title: "Become a caregiver with Hadsul",
-    subtitle: "With flexible schedules and positions available across multiple locations in the UK, you can find a job that fits your lifestyle.",
+    subtitle: "With flexible schedules and positions available across the UK, you can find a job that fits your lifestyle.",
     buttonText: "Apply Now",
     href: "https://forms.gle/wf62ZWLCipTd5FsV6"
   },

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { PageHeader } from "@/components/page-header";
@@ -27,7 +28,8 @@ const services = [
     title: "Healthcare Staffing",
     description: "Our experienced healthcare professionals provide routine screenings and comprehensive health assessments to ensure early detection.",
     features: ["HCA/MHA/Support Worker", "Nurses ", "Cleaners", "Team Leaders", "Kitchen Assistants "],
-    href: "/services/medical",
+    href: "/services/healthcare-staffing",
+    image: "/images/services/staffing.jpg",
   },
   {
     id: "02",
@@ -35,7 +37,8 @@ const services = [
     title: "Consultancy",
     description: "Professional nursing services delivered by registered nurses, providing clinical care for complex medical needs with compassion.",
     features: ["IT Consultancy ", "Financial Consultancy", "Health Care Consultancy"],
-    href: "/services/nursing",
+    href: "/services/consultancy",
+    image: "/images/services/consult.jpg",
   },
   {
     id: "03",
@@ -43,23 +46,26 @@ const services = [
     title: "Home Care",
     description: "Our residential care homes offer a safe, comfortable, and nurturing environment for seniors requiring long-term care and support across the UK with a wide including but not limited to...",
     features: ["west sussex ", "East sussex ", " East Grin", "Chichester"],
-    href: "/services/residential",
+    href: "/services/homecare",
+    image: "/images/services/homecare.jpg",
   },
   {
     id: "04",
     icon: Activity,
-    title: "Health & Medical Care",
+    title: "Client Relationship Management (CRM)",
     description: "From routine health monitoring and medication management to chronic disease support and post-hospital care services.",
     features: ["Personal Care", "Medication Support", "Companionship", "Household Tasks"],
-    href: "/services/health-medical",
+    href: "/services/client-relationship-manager",
+    image: "/images/services/crm.webp",
   },
   {
     id: "05",
     icon: Users,
-    title: "Client Relation Management",
+    title: "Companionship Services",
     description: "Our systems offers a full range of services including medical assistance, personal care, and daily living support for residents icluding.....",
     features: ["CQC Compliant Staff", "24/7 Availability", "Thorough Vetting", "Ongoing Training"],
-    href: "/services/senior-citizen",
+    href: "/services/companionship-services",
+    image: "/images/services/companion.jpg",
   },
   {
     id: "06",
@@ -67,15 +73,35 @@ const services = [
     title: "IT Solutions",
     description: "Innovative technology solutions designed specifically for healthcare providers to improve efficiency and care quality.",
     features: ["Care Management Systems", "Digital Records", "Staff Scheduling", "Compliance Tools"],
-    href: "/services/it",
+    href: "/services/it-solutions",
+    image: "/images/services/solutions.avif",
   },
   {
     id: "07",
     icon: GraduationCap,
-    title: "Training Programs",
+    title: "Palliative Care at Home",
     description: "Accredited training courses for healthcare professionals to enhance skills and maintain compliance with regulations.",
     features: ["NVQ Qualifications", "Mandatory Training", "CPD Courses", "Leadership Programs"],
-    href: "/services/training",
+    href: "/services/palliative-care-at-home",
+    image: "/images/services/Palliative.jpg",
+  },
+  {
+    id: "08",
+    icon: HeartPulse,
+    title: "Respite Care",
+    description: "Temporary relief care services for family caregivers, providing professional support while you take a well-deserved break.",
+    features: ["Short-term Care", "Flexible Scheduling", "Professional Caregivers", "Peace of Mind"],
+    href: "/services/respite-care",
+    image: "/images/services/recipite.jpg",
+  },
+  {
+    id: "09",
+    icon: Home,
+    title: "Private Care",
+    description: "Personalized one-on-one care services tailored to your specific needs, providing dedicated support in the comfort of your home.",
+    features: ["One-on-One Care", "Personalized Plans", "Flexible Hours", "Dedicated Caregiver"],
+    href: "/services/private-care",
+    image: "/images/services/private.jpg",
   },
 ];
 
@@ -94,9 +120,9 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <div className="flex items-center justify-center gap-2 mb-4">
-              <span className="text-emerald text-sm font-medium tracking-wider uppercase">
+              {/* <span className="text-emerald text-sm font-medium tracking-wider uppercase">
                 What We Offer
-              </span>
+              </span> */}
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-balance">
               Comprehensive Care Solutions
@@ -112,26 +138,30 @@ export default function ServicesPage() {
               return (
                 <div 
                   key={service.id} 
-                  className="group bg-card border border-border rounded-2xl p-8 hover:shadow-xl transition-all duration-300 hover:border-emerald/30"
+                  className="group bg-card border border-border rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:border-emerald/30"
                 >
-                  {/* <div className="flex items-start justify-between mb-6">
-                    <div className="w-14 h-14 rounded-xl bg-emerald/10 flex items-center justify-center group-hover:bg-emerald group-hover:text-white transition-colors">
-                      <Icon className="w-7 h-7 text-emerald group-hover:text-white" />
-                    </div>
-                    <span className="text-xs text-muted-foreground border border-border rounded-full px-3 py-1">
-                      Service {service.id}
-                    </span>
-                  </div> */}
-                  <h3 className="text-xl font-semibold text-foreground mb-3">{service.title}</h3> 
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                    {service.description}
-                  </p>
+                  {/* Service Image */}
+                  <div className="relative w-full h-48 overflow-hidden">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                  </div>
 
-                  <ul className="space-y-2 mb-6">
-                    {service.features.map((feature) => (
-                      <li key={feature} className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <CheckCircle className="w-4 h-4 text-emerald flex-shrink-0" />
-                        {feature}
+                  {/* Service Content */}
+                  <div className="p-8">
+                    <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-emerald transition-colors">{service.title}</h3> 
+                    <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                      {service.description}
+                    </p>
+
+                    <ul className="space-y-2 mb-6">
+                      {service.features.map((feature) => (
+                        <li key={feature} className="flex items-center gap-2 text-sm text-muted-foreground">
+                          <CheckCircle className="w-4 h-4 text-emerald flex-shrink-0" />
+                          {feature}
                       </li>
                     ))}
                   </ul>
@@ -143,6 +173,7 @@ export default function ServicesPage() {
                     Read More
                     <ArrowRight className="w-4 h-4" />
                   </Link>
+                  </div>
                 </div>
               );
             })}

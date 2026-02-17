@@ -66,16 +66,16 @@ export function AwardsSection() {
   const duplicatedAwards = [...awards, ...awards, ...awards];
 
   return (
-    <section className="py-12 bg-emerald overflow-hidden">
+    <section className="py-8 bg-emerald overflow-hidden">
       <div className="max-w-full">
         {/* Infinite Scrolling Awards - Full Width */}
-        <div className="relative mb-8">
+        <div className="relative mb-6">
           {/* Gradient Overlays for smooth edges */}
           <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-emerald to-transparent z-10 pointer-events-none"></div>
           <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-emerald to-transparent z-10 pointer-events-none"></div>
           
           {/* Scrolling Container - Full Screen Width */}
-          <div className="overflow-hidden py-6">
+          <div className="overflow-hidden py-4">
             <div className="flex animate-scroll-left items-center whitespace-nowrap">
               {duplicatedAwards.map((award, index) => (
                 <div

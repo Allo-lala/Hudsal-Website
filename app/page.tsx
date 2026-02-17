@@ -31,30 +31,30 @@ export default function Home() {
       <section className="py-12 bg-[#1a2e1a] overflow-hidden">
         <div className="flex whitespace-nowrap animate-scroll-left">
           {/* Duplicate the text multiple times for seamless loop */}
-          {[...Array(3)].map((_, i) => (
+          {[...Array(4)].map((_, i) => (
             <div key={i} className="flex items-center">
-              <span className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mx-8">
+              <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mx-4 sm:mx-6 md:mx-8">
                 Learn
               </span>
-              <span className="text-4xl md:text-5xl lg:text-6xl font-script italic text-beige mx-8">
+              <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-script italic text-beige mx-4 sm:mx-6 md:mx-8">
                 from the Best!
               </span>
-              <span className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mx-8">
+              <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mx-4 sm:mx-6 md:mx-8">
                 Experience
               </span>
-              <span className="text-4xl md:text-5xl lg:text-6xl font-script italic text-beige mx-8">
+              <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-script italic text-beige mx-4 sm:mx-6 md:mx-8">
                 Success
               </span>
-              <span className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mx-8">
+              {/* <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mx-4 sm:mx-6 md:mx-8">
                 Scale
               </span>
-              <span className="text-4xl md:text-5xl lg:text-6xl font-script italic text-beige mx-8">
+              <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-script italic text-beige mx-4 sm:mx-6 md:mx-8">
                 Your Empire
-              </span>
-              <span className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mx-8">
+              </span> */}
+              <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mx-4 sm:mx-6 md:mx-8">
                 Transform
               </span>
-              <span className="text-4xl md:text-5xl lg:text-6xl font-script italic text-beige mx-8">
+              <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-script italic text-beige mx-4 sm:mx-6 md:mx-8">
                 Forever
               </span>
             </div>

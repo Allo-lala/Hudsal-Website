@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-const resend = new Resend('re_QB8WzJtc_ztcLzo5mnPeVAzDGsWwpEKYc');
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: NextRequest) {
   try {
@@ -100,7 +100,7 @@ export async function POST(request: NextRequest) {
     // Send email using Resend
     const emailResponse = await resend.emails.send({
       from: 'Hadsul Website <noreply@hadsul.co.uk>',
-      to: ['allankyagulanyi8@gmail.com'],
+      to: ['info@hadsul.co.uk'],
       subject: `New Grant Application from ${name} - ${organizationName}`,
       html: htmlContent,
     });

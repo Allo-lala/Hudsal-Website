@@ -26,30 +26,39 @@ const servicesData: Record<string, {
   shortContent: string;
   fullContent: string;
 }> = {
-  medical: {
+  "healthcare-staffing": {
     title: "Healthcare Staffing",
     description: "Comprehensive health assessments and screenings",
     icon: Stethoscope,
     image: "/images/staff.jpeg",
-    shortContent: "Our experienced healthcare professionals provide routine screenings and comprehensive health assessments to ensure early detection and prevention of health issues. We offer comprehensive health screenings, regular vital signs monitoring, blood tests and diagnostics, and specialist consultations.",
-    fullContent: `Our experienced healthcare professionals provide routine screenings and comprehensive health assessments to ensure early detection and prevention of health issues.
+    shortContent: "At Hadsul, we specialise in providing trusted, high-quality healthcare staffing solutions to organisations across the UK. We supply fully vetted & trained HCAs, MHAs, Support Workers, Nurses, Cleaners, Team Leaders, and Kitchen Assistants to care homes, supported living services, hospitals, and community-based settings.   ",
+    fullContent: `At Hadsul, we specialise in providing trusted, high-quality healthcare staffing solutions to organisations across the UK. We supply fully trained HCAs, MHAs, Support Workers, Nurses, Cleaners, Team Leaders, and Kitchen Assistants to care homes, supported living services, hospitals, and community-based settings.
+    
+Our commitment is simple: reliable people, exceptional care, and staffing you can trust—every time.
 
-We offer a complete range of medical checkup services including:
+We understand that every service has unique staffing needs. That’s why we offer a wide range of flexible, carefully matched professionals, including:
 
-- Comprehensive health screenings to evaluate your overall health status
-- Regular vital signs monitoring including blood pressure, heart rate, and temperature
-- Blood tests and diagnostics to detect underlying conditions
-- Specialist consultations with our network of experienced doctors
-- Health risk assessments to identify potential future health concerns
-- Personalized health reports with actionable recommendations
+• HCA / MHA / Support Workers
+Compassionate and skilled staff supporting daily living, mental health needs, mobility, and quality-of-life care.
 
-Our medical checkup process begins with scheduling an appointment at your convenience. During your visit, our team reviews your medical history and addresses any current concerns. We then conduct a thorough physical examination along with necessary tests. Finally, you receive a detailed report with personalized health recommendations.
+• Nurses
+Registered Nurses delivering clinical excellence with professionalism, accuracy, and empathy.
 
-Early detection is key to preventing serious health issues. Regular checkups provide peace of mind and ensure you stay on top of your health. Our qualified healthcare professionals are dedicated to providing expert care in a comfortable environment.
+• Cleaners
+Hygiene specialists helping maintain safe, infection-free environments for residents, patients, and staff.
 
-Whether you need an annual health check or have specific health concerns, our team is here to help. We work with you to create a preventive care plan that fits your lifestyle and health goals.`,
+• Team Leaders
+Experienced leaders who ensure smooth operations, quality care, and confident decision-making during every shift.
+
+• Kitchen Assistants
+Catering support staff who help deliver nutritious meals and maintain safe, well-run kitchens.
+
+With us because you get reliable, high-quality staffing exactly when it’s needed—whether for short notice cover, full rotas, emergencies or ongoing support. Every professional we supply is thoroughly vetted, trained, and aligned with UK standards including CQC, NHS, GDPR, and employment regulations. Our flexible shift options ensure services operate smoothly, with staff who are prepared, compliant, and ready to deliver exceptional care in all settings.
+
+We value staff's work and support their growth. We offer competitive pay rates, friendly guidance, and flexible scheduling that fits their lifestyle, alongside opportunities to work in diverse, well-supported care environments. Our people-first approach ensures every team member feels confident, appreciated, and empowered to thrive in their role while making a real impact in the healthcare sector.`,
+
   },
-  nursing: {
+  consultancy: {
     title: "Consultancy",
     description: "Professional Consultancy services with Expertise",
     icon: HeartPulse,
@@ -99,8 +108,33 @@ Our home-like environment is complemented by opportunities for community living 
 
 We understand that moving to residential care is a significant decision. Our team is here to support you and your family through every step, ensuring a comfortable transition and ongoing quality of life.`,
   },
-  "health-medical": {
-    title: "Health & Medical Care",
+  homecare: {
+    title: "Home Care",
+    description: "Comfortable living with professional support",
+    icon: Home,
+    image: "/images/about-hero.jpg",
+    shortContent: "Our dedicated team delivers personalized care, 24/7 supervision, and medical support in a comfortable, home-like environment tailored to your needs. We offer private and shared room options, nutritious meals, and social activities.",
+    fullContent: `Our dedicated team delivers personalized care, 24/7 supervision, and medical support in a comfortable, home-like environment tailored to your needs.
+
+Our residential care facilities offer:
+
+- Private and shared room options to suit your preferences and budget
+- 24/7 professional care staff always available to assist
+- Nutritious meals and dietary support catering to various needs
+- Social activities and programs to keep residents engaged
+- Personal care assistance with daily living tasks
+- Safe and secure environment with modern safety features
+
+Living in our residential care homes means becoming part of a caring community. Our facilities are designed to feel like home while providing all the professional support needed for comfortable living.
+
+The journey begins with an initial enquiry where we discuss your residential care needs. We then conduct an assessment visit to evaluate care requirements and show you our facilities. Our team coordinates a smooth move-in process, and once settled, you receive continuous personalized care with regular reviews.
+
+Our home-like environment is complemented by opportunities for community living and social interaction. All daily living needs are professionally managed while maintaining open visiting hours for family involvement and participation in activities.
+
+We understand that moving to residential care is a significant decision. Our team is here to support you and your family through every step, ensuring a comfortable transition and ongoing quality of life.`,
+  },
+  "client-relationship-manager": {
+    title: "Client Relationship Management (CRM)",
     description: "Comprehensive health management services",
     icon: Activity,
     image: "/images/hero-care.jpg",
@@ -124,8 +158,8 @@ Our focus is always on maintaining and improving your quality of life. We unders
 
 Whether you are recovering from surgery, managing a chronic condition, or need ongoing health support, our health and medical care services are designed to help you live your best life.`,
   },
-  "senior-citizen": {
-    title: "Senior Citizen Care",
+  "companionship-services": {
+    title: "Companionship Services",
     description: "Dedicated care for our elderly community",
     icon: Users,
     image: "/images/about-hero.jpg",
@@ -148,6 +182,118 @@ The care journey begins with a family consultation to discuss care needs. We con
 Our commitment to dignity and respect means we always honor independence while ensuring safety with 24/7 monitoring and support. We provide programs to keep seniors active and engaged, while maintaining strong family bonds and communication.
 
 Growing older should be a time of comfort and contentment. Our senior citizen care services are designed to enhance quality of life, providing the support needed while celebrating the wisdom and experience that comes with age.`,
+  },
+  "palliative-care-at-home": {
+    title: "Palliative Care at Home",
+    description: "Compassionate end-of-life care in the comfort of your own home",
+    icon: Users,
+    image: "/images/about-hero.jpg",
+    shortContent: "We provide compassionate palliative care services in the comfort of your home, focusing on quality of life, pain management, and emotional support for patients and families.",
+    fullContent: `We provide compassionate palliative care services in the comfort of your home, focusing on quality of life, pain management, and emotional support for patients and families.
+
+Our palliative care at home services include:
+
+- Comprehensive pain and symptom management
+- 24/7 nursing care and medical support
+- Emotional and spiritual support for patients and families
+- Medication management and administration
+- Personal care assistance with dignity and respect
+- Coordination with healthcare providers and hospice services
+
+We understand that end-of-life care is a deeply personal journey. Our approach focuses on comfort, dignity, and quality of life, ensuring that patients can spend their final days in the familiar surroundings of home, surrounded by loved ones.
+
+Our palliative care team consists of experienced nurses, care assistants, and support staff who are specially trained in end-of-life care. We work closely with families to create personalized care plans that honor the patient's wishes and provide the highest level of comfort.
+
+The care journey begins with a compassionate consultation to understand the patient's needs and wishes. We develop a comprehensive care plan that addresses physical, emotional, and spiritual needs, and provide ongoing support to both the patient and family members.
+
+Our commitment is to ensure that every patient receives care with dignity, compassion, and respect. We believe that everyone deserves to spend their final days in comfort, surrounded by love, and we are honored to support families during this important time.`,
+  },
+  "respite-care": {
+    title: "Respite Care",
+    description: "Temporary relief care for family caregivers",
+    icon: HeartPulse,
+    image: "/images/about-hero.jpg",
+    shortContent: "We provide professional respite care services to give family caregivers a well-deserved break, ensuring your loved one receives quality care while you recharge and attend to personal needs.",
+    fullContent: `We provide professional respite care services to give family caregivers a well-deserved break, ensuring your loved one receives quality care while you recharge and attend to personal needs.
+
+Our respite care services include:
+
+- Short-term care from a few hours to several weeks
+- Flexible scheduling to meet your family's needs
+- Professional caregivers trained in various care needs
+- Personal care assistance and companionship
+- Medication management and health monitoring
+- Activities and engagement for your loved one
+- Emergency respite care availability
+
+We understand that caring for a loved one is both rewarding and demanding. Family caregivers often experience physical and emotional exhaustion, which is why respite care is essential for maintaining your own health and well-being.
+
+Our respite care team consists of experienced, compassionate caregivers who are trained to provide the same level of care your loved one receives from you. We take time to understand your loved one's routines, preferences, and care requirements to ensure continuity of care.
+
+The respite care process begins with a consultation to understand your loved one's needs and your schedule. We create a personalized care plan that maintains their routine and provides engaging activities. Our caregivers provide regular updates so you can enjoy your break with peace of mind.
+
+Whether you need a few hours to run errands, a day for self-care, or a week for vacation, our respite care services are designed to support both you and your loved one. We believe that taking care of yourself is essential to providing the best care for others.
+
+Our commitment is to provide reliable, professional care that gives you confidence and peace of mind. We honor the trust you place in us and treat your loved one with the same care, dignity, and respect you would provide yourself.`,
+  },
+  "private-care": {
+    title: "Private Care",
+    description: "Personalized one-on-one care in your home",
+    icon: Home,
+    image: "/images/about-hero.jpg",
+    shortContent: "We provide personalized private care services with dedicated caregivers who focus exclusively on your needs, delivering tailored support in the comfort and privacy of your own home.",
+    fullContent: `We provide personalized private care services with dedicated caregivers who focus exclusively on your needs, delivering tailored support in the comfort and privacy of your own home.
+
+Our private care services include:
+
+- Dedicated one-on-one caregiver assigned to you
+- Fully personalized care plans tailored to your needs
+- Flexible scheduling from a few hours to 24/7 live-in care
+- Personal care assistance with bathing, dressing, and grooming
+- Medication management and health monitoring
+- Meal preparation and nutritional support
+- Companionship and social engagement
+- Light housekeeping and errands
+- Transportation to appointments and activities
+
+We understand that everyone has unique care needs and preferences. Our private care service is designed to provide the highest level of personalized attention, with a dedicated caregiver who gets to know you, understands your routines, and adapts to your changing needs.
+
+Our private caregivers are carefully selected, thoroughly vetted, and extensively trained. We match caregivers based on personality, skills, and your specific requirements to ensure the best possible fit. Each caregiver is committed to providing compassionate, professional care that respects your independence and dignity.
+
+The private care journey begins with a comprehensive assessment of your needs, preferences, and lifestyle. We create a detailed care plan that addresses all aspects of your wellbeing, from physical care to emotional support. Your dedicated caregiver implements this plan while building a trusting relationship with you and your family.
+
+Whether you need assistance recovering from surgery, managing a chronic condition, or simply want support to maintain your independence at home, our private care services provide the personalized attention you deserve.
+
+Our commitment is to deliver exceptional care that enhances your quality of life. We believe that private care should be more than just assistance—it should be a partnership built on trust, respect, and genuine care for your wellbeing.`,
+  },
+  "it-solutions": {
+    title: "IT Solutions",
+    description: "Innovative technology solutions for healthcare",
+    icon: Activity,
+    image: "/images/about-hero.jpg",
+    shortContent: "We provide innovative technology solutions designed specifically for healthcare providers to improve efficiency, enhance care quality, and streamline operations across your organization.",
+    fullContent: `We provide innovative technology solutions designed specifically for healthcare providers to improve efficiency, enhance care quality, and streamline operations across your organization.
+
+Our IT solutions include:
+
+- Care Management Systems for comprehensive patient tracking
+- Digital Records for secure, accessible health information
+- Staff Scheduling tools for optimal workforce management
+- Compliance Tools to ensure regulatory adherence
+- Real-time reporting and analytics dashboards
+- Mobile applications for on-the-go access
+- Integration with existing healthcare systems
+- Data security and GDPR compliance
+
+We understand that healthcare organizations face unique technological challenges. Our IT solutions are designed with healthcare professionals in mind, providing intuitive interfaces and powerful features that enhance rather than complicate your workflow.
+
+Our technology team consists of experienced developers and healthcare IT specialists who understand both the technical and practical aspects of healthcare delivery. We work closely with your organization to implement solutions that fit your specific needs and integrate seamlessly with your existing processes.
+
+The implementation journey begins with a comprehensive assessment of your current systems and needs. We develop a customized solution plan that addresses your specific challenges, then provide full training and ongoing support to ensure successful adoption. Our team remains available for updates, maintenance, and continuous improvement.
+
+Whether you need a complete care management system, digital transformation support, or specific tools to address particular challenges, our IT solutions are designed to help you deliver better care more efficiently.
+
+Our commitment is to provide technology that empowers healthcare professionals, improves patient outcomes, and streamlines operations. We believe that the right technology should make your work easier, not harder, and we're dedicated to delivering solutions that truly make a difference.`,
   },
 };
 

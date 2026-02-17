@@ -59,7 +59,7 @@ export async function POST(request: NextRequest) {
     // Send notification to admin
     const { data: notificationData, error: notificationError } = await resend.emails.send({
       from: 'Hadsul Newsletter <onboarding@resend.dev>',
-      to: ['allankyagulanyi8@gmail.com'],
+      to: ['info@hadsul.co.uk'],
       subject: 'New Newsletter Subscription',
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">

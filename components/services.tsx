@@ -18,16 +18,16 @@ const services = [
   {
     id: "01",
     icon: Stethoscope,
-    title: "HealthCare stuffing ",
-    slug: "medical",
+    title: "HealthCare Staffing",
+    slug: "healthcare-staffing",
     description:
-      "We recruit professional social workers, nurses, support staff, domestic staff, and cleaning professionals, supplying them to a wide range of clients within the health, social care, and cleaning industries.",
+      "We recruit professional workers, nurses, support staff, domestic staff, cleaning professionals, supplying them to a wide range of clients within the health, social care, and cleaning industries.",
   },
   {
     id: "02",
     icon: HeartPulse,
-    title: "Consultancy ",
-    slug: "nursing",
+    title: "Consultancy",
+    slug: "consultancy",
     description:
       "We help healthcare professionals and suppliers to discover opportunities and deliver system transformation",
   },
@@ -43,15 +43,15 @@ const services = [
     id: "04",
     icon: Activity,
     title: "Client & Relationship Management",
-    slug: "health-medical",
+    slug: "client-relationship-manager",
     description:
       "Experience modern CRM efficiency from Automated Workflows, Dashboards to Payments and much more features empowering agencies.",
   },
   {
     id: "05",
     icon: Users,
-    title: "IT Solutions",
-    slug: "senior-citizen",
+    title: "Companionship Services",
+    slug: "companionship-services",
     description:
       "Our solutions for Saving time, Improve workflow efficiency, Gain real-time visibility, solutions are configured to your unique needs. ",
   },

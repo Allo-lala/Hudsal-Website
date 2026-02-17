@@ -313,25 +313,25 @@ export default function StoryPage() {
       <section className="py-12 bg-[#1a2e1a] overflow-hidden mb-20">
         <div className="flex whitespace-nowrap animate-scroll-left">
           {/* Duplicate the text multiple times for seamless loop */}
-          {[...Array(3)].map((_, i) => (
+          {[...Array(4)].map((_, i) => (
             <div key={i} className="flex items-center">
-              <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mx-4 sm:mx-6 lg:mx-8">
+              {/* <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mx-4 sm:mx-6 lg:mx-8">
                 Together,
               </span>
               <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-script italic text-beige mx-4 sm:mx-6 lg:mx-8">
                  We benefit better •
-              </span>
+              </span> */}
               <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mx-4 sm:mx-6 lg:mx-8">
                 We learnt from Mistakes
               </span>
               <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-script italic text-beige mx-4 sm:mx-6 lg:mx-8">
-                So you don't Have to! •
+                So you don't Have to! 
               </span>
               <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mx-4 sm:mx-6 lg:mx-8">
-                Push
+                Push from
               </span>
               <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-script italic text-beige mx-4 sm:mx-6 lg:mx-8">
-                with momentum •
+                the right route 
               </span>
               <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mx-4 sm:mx-6 lg:mx-8">
                 Transform
