@@ -19,23 +19,23 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Phone Numbers",
-    details: ["+44 (0) 73 9948 3885", "+44 (0) 745 569 8119 (Freephone)"],
+    details: ["+44 (0) 20 7123 6616", "+44 (0) 73 9948 38858 (Freephone)"],
   },
   {
     icon: Mail,
     title: "Email Address",
-    details: ["admin@hudsal.co.uk", "support@hudsal.co.uk"],
+    details: ["info@hadsul.co.uk"],
   },
   {
     icon: Clock,
     title: "Working Hours",
-    details: ["Mon - Fri: 8:00 AM - 6:00 PM", "Sat: 9:00 AM - 1:00 PM", "24/7 Emergency Care"],
+    details: ["Mon - Fri: 8:00 AM - 6:00 PM", "Sat: 9:00 AM - 1:00 PM", "24/7 Emergency Support"],
   },
 ];
 
 export default function ContactPage() {
   useEffect(() => {
-    document.title = "Contact Us | Hudsal";
+    document.title = "Contact Us | Hadsul";
   }, []);
 
   const [formData, setFormData] = useState({
@@ -316,7 +316,7 @@ export default function ContactPage() {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Hudsal Healthcare Location"
+              title="Hadsul Location"
             />
           </div>
         </div>

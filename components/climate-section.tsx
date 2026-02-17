@@ -90,8 +90,6 @@ export function ClimateSection() {
               className="object-cover"
               priority={index === 0}
             />
-            {/* Dark overlay for better text readability */}
-            <div className="absolute inset-0 bg-black/50"></div>
           </div>
         ))}
       </div>

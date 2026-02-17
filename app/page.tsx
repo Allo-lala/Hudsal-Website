@@ -40,13 +40,13 @@ export default function Home() {
                 from the Best!
               </span>
               <span className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mx-8">
-                Get
+                Experience
               </span>
               <span className="text-4xl md:text-5xl lg:text-6xl font-script italic text-beige mx-8">
-                Un-Stuck
+                Success
               </span>
               <span className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mx-8">
-                Build
+                Scale
               </span>
               <span className="text-4xl md:text-5xl lg:text-6xl font-script italic text-beige mx-8">
                 Your Empire
@@ -55,7 +55,7 @@ export default function Home() {
                 Transform
               </span>
               <span className="text-4xl md:text-5xl lg:text-6xl font-script italic text-beige mx-8">
-                Your Life
+                Forever
               </span>
             </div>
           ))}

@@ -40,9 +40,10 @@ export function ProductsSection() {
         {/* Product Images in Corners - Hidden on mobile, visible on larger screens */}
         <div className="hidden lg:block">
           {products.map((product) => (
-            <div
+            <Link
               key={product.id}
-              className={`absolute w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 ${
+              href="/products"
+              className={`absolute w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 cursor-pointer ${
                 product.position === "top-left" ? "top-0 left-0" :
                 product.position === "top-right" ? "top-0 right-0" :
                 product.position === "bottom-left" ? "bottom-16 left-0" :
@@ -78,7 +79,7 @@ export function ProductsSection() {
                   </h3>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 
@@ -86,7 +87,7 @@ export function ProductsSection() {
         <div className="lg:hidden mb-12">
           <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
             {products.map((product) => (
-              <div key={product.id} className="relative">
+              <Link key={product.id} href="/products" className="relative cursor-pointer">
                 {/* Crown for Hadsul House */}
                 {product.hasCrown && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-20">
@@ -116,7 +117,7 @@ export function ProductsSection() {
                     </h3>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -127,14 +128,14 @@ export function ProductsSection() {
             {/* Main Heading */}
             <div className="mb-6 lg:mb-8">
               <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-4">
-                <span className="text-emerald">YOU'VE GOT</span>
+                <span className="text-emerald">YOU'VE! And,</span>
                 <br />
                 <span className="text-emerald">WE'VE GOT</span>
                 <br />
                 <span className="text-foreground italic text-4xl sm:text-4xl lg:text-7xl">
-                  the vision
-                  <br />
-                  the path
+                   Vision &  Path
+                  {/* <br />
+                  the path */}
                 </span>
               </h1>
             </div>
@@ -144,17 +145,17 @@ export function ProductsSection() {
               {/* Left Column */}
               <div>
                 <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-foreground mb-3 lg:mb-4">
-                  It's no secret that 90% of new business ventures in the UK don't make it past their first year.* But that's where we come in...
+                  It's no secret that 90% of new business ventures in the UK don't make it past their first year. But that's where we come in...
                 </h2>
                 <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                  At Hadsul Healthcare, we provide the coaching, guidance, support programs & high-energy business building experiences that make all the difference in reaching your biggest, boldest, most outrageous success goals.
+                   Hadsul provides the coaching, guidance, support programs & high-energy business building experiences that make all the difference in reaching your biggest, boldest, most outrageous success goals.
                 </p>
               </div>
 
               {/* Right Column */}
               <div>
                 <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-3 lg:mb-4">
-                  Hadsul is built on real-world experience, hard-earned lessons, & the belief that you deserve more than just inspiration —you deserve a "tried & tested" path forward.
+                  Hadsul is built on real-world experience, hard-earned lessons, & the belief that you deserve more than just inspiration — you deserve a "Tried & Tested" path forward.
                 </p>
                 <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                   Whether you're just starting, growing or ready to scale, there's a place for you here.

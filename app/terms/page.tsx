@@ -4,7 +4,7 @@ import { PageHeader } from "@/components/page-header";
 
 export const metadata = {
   title: "Terms & Conditions",
-  description: "Read our terms and conditions for using Hudsal Healthcare services.",
+  description: "Read our terms and conditions for using Hadsul services.",
 };
 
 export default function TermsPage() {
@@ -26,12 +26,12 @@ export default function TermsPage() {
 
             <h2 className="text-2xl font-bold text-foreground mt-12 mb-4">1. Introduction</h2>
             <p className="text-muted-foreground mb-6 leading-relaxed">
-              Welcome to Hudsal Healthcare Limited (&quot;Hudsal&quot;, &quot;we&quot;, &quot;our&quot;, or &quot;us&quot;). These Terms and Conditions govern your use of our website, services, and products. By accessing or using our services, you agree to be bound by these terms.
+              Welcome to Hadsul Limited (&quot;Hadsul&quot;, &quot;we&quot;, &quot;our&quot;, or &quot;us&quot;). These Terms and Conditions govern your use of our website, services, and products. By accessing or using our services, you agree to be bound by these terms.
             </p>
 
             <h2 className="text-2xl font-bold text-foreground mt-12 mb-4">2. Services</h2>
             <p className="text-muted-foreground mb-6 leading-relaxed">
-              Hudsal Healthcare provides healthcare staffing services, residential care, nursing care, domiciliary care, IT solutions for healthcare providers, and healthcare products. All services are provided in accordance with applicable UK healthcare regulations, including CQC requirements.
+              Hudsal Healthcare provides healthcare staffing services, residential care, nursing care, domiciliary care, IT solutions for healthcare providers, and products. All services are provided in accordance with applicable UK healthcare regulations, including CQC requirements.
             </p>
 
             <h2 className="text-2xl font-bold text-foreground mt-12 mb-4">3. Eligibility</h2>
@@ -53,12 +53,12 @@ export default function TermsPage() {
 
             <h2 className="text-2xl font-bold text-foreground mt-12 mb-4">5. Healthcare Services</h2>
             <p className="text-muted-foreground mb-6 leading-relaxed">
-              Our healthcare services are delivered by qualified professionals in accordance with CQC standards and NHS guidelines. Care plans are developed on an individual basis, and all care is provided with dignity, respect, and in the best interests of the service user.
+              Our services are delivered by qualified professionals in accordance with CQC standards and NHS guidelines. Care plans are developed on an individual basis, and all care is provided with dignity, respect, and in the best interests of the service user.
             </p>
 
             <h2 className="text-2xl font-bold text-foreground mt-12 mb-4">6. Products</h2>
             <p className="text-muted-foreground mb-6 leading-relaxed">
-              Healthcare products sold through our platform are certified and comply with relevant UK and EU standards. Product descriptions are accurate to the best of our knowledge. Returns and refunds are subject to our returns policy.
+              Our products sold through our platform are certified and comply with relevant UK and EU standards. Product descriptions are accurate to the best of our knowledge. Returns and refunds are subject to our returns policy.
             </p>
 
             <h2 className="text-2xl font-bold text-foreground mt-12 mb-4">7. Payment Terms</h2>
@@ -68,12 +68,12 @@ export default function TermsPage() {
 
             <h2 className="text-2xl font-bold text-foreground mt-12 mb-4">8. Intellectual Property</h2>
             <p className="text-muted-foreground mb-6 leading-relaxed">
-              All content on our website, including text, graphics, logos, and software, is the property of Hudsal Healthcare or our licensors. You may not reproduce, distribute, or create derivative works without our written consent.
+              All content on our website, including text, graphics, logos, and software, is the property of Hadsul Limited or our licensors. You may not reproduce, distribute, or create derivative works without our written consent.
             </p>
 
             <h2 className="text-2xl font-bold text-foreground mt-12 mb-4">9. Limitation of Liability</h2>
             <p className="text-muted-foreground mb-6 leading-relaxed">
-              To the fullest extent permitted by law, Hudsal Healthcare shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of our services. Our liability is limited to the amount paid for the specific service or product.
+              To the fullest extent permitted by law, Hadsul Healthcare shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of our services. Our liability is limited to the amount paid for the specific service or product.
             </p>
 
             <h2 className="text-2xl font-bold text-foreground mt-12 mb-4">10. Termination</h2>
@@ -96,12 +96,13 @@ export default function TermsPage() {
               If you have any questions about these Terms and Conditions, please contact us at:
             </p>
             <div className="bg-secondary/30 rounded-lg p-6 text-muted-foreground">
-              <p className="font-semibold text-foreground">Hudsal Healthcare Limited</p>
-              <p>123 Healthcare Drive</p>
-              <p>London, EC1A 1BB</p>
-              <p>United Kingdom</p>
-              <p className="mt-4">Email: legal@hudsal.co.uk</p>
-              <p>Phone: +44 (0) 20 1234 5678</p>
+              <p>Hadsul Limited</p>
+              <p>6 Pelling Way</p>
+              <p>Horsham, West Sussex</p>
+              <p>England, RH12 3GW</p>
+              <p className="mt-4">Email: info@hadsul.co.uk</p>
+              <p>Phone: +44 (0) 73 9948 38858</p>
+              <p>Phone: +44 (0) 20 7123 6616</p>
             </div>
           </div>
         </div>

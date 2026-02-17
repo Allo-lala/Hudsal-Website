@@ -58,14 +58,14 @@ const podcasts = [
 
 export function BooksAndPodcasts() {
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
+    <section id="books-podcasts" className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-2 mb-4">
-            <span className="text-emerald text-sm font-medium tracking-wider uppercase">
+            {/* <span className="text-emerald text-sm font-medium tracking-wider uppercase">
               Knowledge & Insights
-            </span>
+            </span> */}
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Books, Podcasts & Webinars
@@ -181,7 +181,7 @@ export function BooksAndPodcasts() {
                 {/* Central Podcast Host Image - Larger */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 sm:w-48 sm:h-48 rounded-full overflow-hidden shadow-2xl animate-pulse" style={{ animationDuration: '3s' }}>
                   <Image
-                    src="/images/podcast/pod.webp"
+                    src="/images/podcast/podcast.png"
                     alt="Podcast Host"
                     width={192}
                     height={192}

@@ -62,14 +62,18 @@ const awards = [
 ];
 
 export function AwardsSection() {
-  // Duplicate awards for seamless infinite scroll
-  const duplicatedAwards = [...awards, ...awards];
+  // Triple duplicate awards for seamless infinite scroll
+  const duplicatedAwards = [...awards, ...awards, ...awards];
 
   return (
     <section className="py-12 bg-emerald overflow-hidden">
       <div className="max-w-full">
         {/* Infinite Scrolling Awards - Full Width */}
         <div className="relative mb-8">
+          {/* Gradient Overlays for smooth edges */}
+          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-emerald to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-emerald to-transparent z-10 pointer-events-none"></div>
+          
           {/* Scrolling Container - Full Screen Width */}
           <div className="overflow-hidden py-6">
             <div className="flex animate-scroll-left items-center whitespace-nowrap">
@@ -96,14 +100,14 @@ export function AwardsSection() {
 
         {/* Our Awards Button */}
         <div className="text-center">
-          <a
+          {/* <a
             href="#"
             className="inline-block"
-          >
+          > */}
             <button className="bg-white hover:bg-gray-100 text-emerald font-semibold px-10 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
               Our Awards
             </button>
-          </a>
+          {/* </a> */}
         </div>
       </div>
 
@@ -113,12 +117,12 @@ export function AwardsSection() {
             transform: translateX(0);
           }
           100% {
-            transform: translateX(-50%);
+            transform: translateX(-33.333%);
           }
         }
         
         .animate-scroll-left {
-          animation: scroll-left 30s linear infinite;
+          animation: scroll-left 15s linear infinite;
         }
         
         .animate-scroll-left:hover {

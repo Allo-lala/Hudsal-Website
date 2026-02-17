@@ -21,7 +21,7 @@ const services = [
     title: "HealthCare stuffing ",
     slug: "medical",
     description:
-      "Our experienced healthcare professionals provide routine screenings and comprehensive health assessments.",
+      "We recruit professional social workers, nurses, support staff, domestic staff, and cleaning professionals, supplying them to a wide range of clients within the health, social care, and cleaning industries.",
   },
   {
     id: "02",
@@ -29,23 +29,23 @@ const services = [
     title: "Consultancy ",
     slug: "nursing",
     description:
-      "Every care plan is personalized to meet the unique health needs of each resident with compassion.",
+      "We help healthcare professionals and suppliers to discover opportunities and deliver system transformation",
   },
-  {
-    id: "03",
-    icon: Home,
-    title: "Care Homes",
-    slug: "residential",
-    description:
-      "Our dedicated team delivers personalized care, 24/7 supervision, and medical support tailored to you.",
-  },
+  // {
+  //   id: "03",
+  //   icon: Home,
+  //   title: "Care Homes",
+  //   slug: "residential",
+  //   description:
+  //     "Our dedicated team delivers personalized care, 24/7 supervision, and medical support tailored to you.",
+  // },
   {
     id: "04",
     icon: Activity,
     title: "Client & Relationship Management",
     slug: "health-medical",
     description:
-      "From routine health monitoring and medication management to chronic disease support and post-hospital care.",
+      "Experience modern CRM efficiency from Automated Workflows, Dashboards to Payments and much more features empowering agencies.",
   },
   {
     id: "05",
@@ -53,7 +53,7 @@ const services = [
     title: "IT Solutions",
     slug: "senior-citizen",
     description:
-      "We offer a full range of services—including medical assistance, personal care, and daily living support.",
+      "Our solutions for Saving time, Improve workflow efficiency, Gain real-time visibility, solutions are configured to your unique needs. ",
   },
 ];
 
@@ -61,19 +61,19 @@ export function Services() {
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-secondary/30 relative overflow-hidden">
       {/* Background Animation Elements */}
-      <div className="absolute inset-0 opacity-5">
+      {/* <div className="absolute inset-0 opacity-5">
         <div className="absolute top-10 right-20 w-32 h-32 bg-emerald rounded-full animate-pulse"></div>
-        <div className="absolute bottom-20 left-10 w-24 h-24 bg-emerald rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
-      </div>
+        <div className="absolute bottom-20 left-10 w-24 h-24 bg-emerald rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
+      </div> */}
 
       <div className="max-w-7xl mx-auto relative">
         {/* Section Header */}
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-2 mb-4">
             {/* <Sparkles className="w-4 h-4 text-emerald" /> */}
-            <span className="text-emerald text-sm font-medium tracking-wider uppercase animate-fade-in">
+            {/* <span className="text-emerald text-sm font-medium tracking-wider uppercase animate-fade-in">
               Our Services
-            </span>
+            </span> */}
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-balance animate-slide-up">
             Comprehensive Services
@@ -88,7 +88,7 @@ export function Services() {
           <div className="lg:col-span-1 animate-slide-in-left">
             {/* Heading */}
             <h3 className="text-2xl font-bold text-foreground mb-6 text-balance">
-              We believe quality isn't a luxury, it's a right.
+               Quality isn't a luxury, it's a right.
             </h3>
 
             {/* Description */}

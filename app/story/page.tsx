@@ -10,7 +10,7 @@ const timelineEvents = [
     year: "2016",
     title: "The Beginning",
     description: "Hadsul Healthcare was founded with a vision to transform healthcare delivery in the UK. Started with a small team of passionate healthcare professionals.",
-    image: "/images/timeline/one.avif",
+    image: "/images/timeline/story.png",
     side: "left"
   },
   {
@@ -45,7 +45,7 @@ const timelineEvents = [
     year: "2021",
     title: "Recognition & Awards",
     description: "Received multiple industry awards for excellence in healthcare staffing and innovation. Reached milestone of 500+ healthcare professionals.",
-    image: "/images/timeline/two.avif",
+    image: "/images/timeline/awards.png",
     side: "right"
   },
   {
@@ -120,7 +120,7 @@ export default function StoryPage() {
             <div className="relative order-2 lg:order-1">
               <div className="relative w-full h-[400px] lg:h-[600px]">
                 <Image
-                  src="/images/story/story.avif"
+                  src="/images/story/first.png"
                   alt="Our Story"
                   fill
                   className="object-contain"
@@ -337,7 +337,7 @@ export default function StoryPage() {
                 Transform
               </span>
               <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-script italic text-beige mx-4 sm:mx-6 lg:mx-8">
-                Your Life
+                Forever
               </span>
             </div>
           ))}

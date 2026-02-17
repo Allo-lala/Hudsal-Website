@@ -26,7 +26,7 @@ export default function PrivacyPage() {
 
             <h2 className="text-2xl font-bold text-foreground mt-12 mb-4">1. Introduction</h2>
             <p className="text-muted-foreground mb-6 leading-relaxed">
-              Hudsal Healthcare Limited (&quot;Hudsal&quot;, &quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your personal information when you use our website, services, and products.
+              Hadsul Limited (&quot;Hadsul&quot;, &quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your personal information when you use our website, services, and products.
             </p>
 
             <h2 className="text-2xl font-bold text-foreground mt-12 mb-4">2. Information We Collect</h2>
@@ -131,12 +131,13 @@ export default function PrivacyPage() {
             </p>
             <div className="bg-secondary/30 rounded-lg p-6 text-muted-foreground">
               <p className="font-semibold text-foreground">Data Protection Officer</p>
-              <p>Hudsal Healthcare Limited</p>
-              <p>123 Healthcare Drive</p>
-              <p>London, EC1A 1BB</p>
-              <p>United Kingdom</p>
-              <p className="mt-4">Email: dpo@hudsal.co.uk</p>
-              <p>Phone: +44 (0) 20 1234 5678</p>
+              <p>Hadsul Limited</p>
+              <p>6 Pelling Way</p>
+              <p>Horsham, West Sussex</p>
+              <p>England, RH12 3GW</p>
+              <p className="mt-4">Email: info@hadsul.co.uk</p>
+              <p>Phone: +44 (0) 73 9948 38858</p>
+              <p>Phone: +44 (0) 20 7123 6616</p>
             </div>
 
             <h2 className="text-2xl font-bold text-foreground mt-12 mb-4">14. Complaints</h2>

@@ -305,9 +305,9 @@ export function Footer() {
             </div>
           </div>
           {/* Chatbot tooltip */}
-          <div className="absolute right-16 top-1/2 -translate-y-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 hover:opacity-100 transition-opacity whitespace-nowrap">
+          {/* <div className="absolute right-16 top-1/2 -translate-y-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 hover:opacity-100 transition-opacity whitespace-nowrap">
             Hadsul Chat Bot
-          </div>
+          </div> */}
         </div>
       )}
 

@@ -55,9 +55,6 @@ export function PhilanthropySection() {
         Your browser does not support the video tag.
       </video>
 
-      {/* Dark Overlay for Better Text Readability */}
-      <div className="absolute inset-0 bg-black/40"></div>
-
       {/* Content Overlay */}
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="text-center text-white max-w-4xl mx-auto px-4">

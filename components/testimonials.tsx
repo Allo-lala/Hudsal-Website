@@ -105,9 +105,9 @@ export function Testimonials() {
         {/* Header */}
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-2 mb-4">
-            <span className="text-emerald text-sm font-medium tracking-wider uppercase animate-fade-in">
+            {/* <span className="text-emerald text-sm font-medium tracking-wider uppercase animate-fade-in">
               Testimonials
-            </span>
+            </span> */}
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground text-balance animate-slide-up">
             What Our Clients Say

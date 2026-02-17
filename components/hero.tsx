@@ -19,57 +19,72 @@ const slides: Slide[] = [
     id: 1,
     image: "/images/hero-care.jpeg",
     title: "Become a caregiver with Hadsul",
-    subtitle: "With flexible schedules and positions available across multiple locations, you can find a job that fits your lifestyle.",
+    subtitle: "With flexible schedules and positions available across multiple locations in the UK, you can find a job that fits your lifestyle.",
     buttonText: "Apply Now",
     href: "https://forms.gle/wf62ZWLCipTd5FsV6"
   },
   {
     id: 2,
     image: "/images/products.jpeg",
-    title: "Get Wholesale Health and wellness products Delivered Instantly",
+    title: "Get Wholesale and wellness products ",
+    subtitle:"Do even more with Hadsul products you love. Get them delivered instantly & in condition. ",
     buttonText: "Order Now",
     href: "#"
   },
   {
     id: 3,
     image: "/images/hero-care.jpg",
-    title: "Start Streamlining Operations with AI, Integrations and Automation with Our CRM",
-    buttonText: "Free CRM",
+    title: "Streamline Operations with  Our free CRM ",
+    subtitle:"Experience efficiency from AI-driven Insights, In-Built Automated Workflows, AI Features, Dashboards to Payments and much more empowering agencies.",
+    buttonText: "CRM Log In",
     href: "/contact"
   },
   {
     id: 4,
     image: "/images/podcast.jpeg",
-    title: "Explore a collection of webinars, books and podcasts hosted by HADSUL",
+    title: "Explore a collection of Books, Podcasts & Webinars",
+    subtitle:"We are so grateful you found us. We invite you into content that is designed to help make you better, happier, healthier and more healed.",
     buttonText: "Explore Content",
-    href: "#"
+    href: "/#books-podcasts"
   }
 ];
 
 export function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   // Auto-slide functionality
   useEffect(() => {
+    if (!isAutoPlaying) return;
+
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 5000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [isAutoPlaying]);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
+    setIsAutoPlaying(false);
   };
 
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+    setIsAutoPlaying(false);
   };
 
   return (
     <section className="relative min-h-screen bg-[#1a2e1a] overflow-hidden">
       {/* Background Images with Transition */}
-      <div className="absolute inset-0">
+      <div 
+        className="absolute inset-0"
+        onMouseEnter={() => setIsAutoPlaying(false)}
+        onMouseLeave={() => setIsAutoPlaying(true)}
+        onClick={() => setIsAutoPlaying(!isAutoPlaying)}
+        onTouchStart={() => setIsAutoPlaying(false)}
+        onTouchEnd={() => setIsAutoPlaying(true)}
+      >
         {slides.map((slide, index) => (
           <div
             key={slide.id}
@@ -160,7 +175,10 @@ export function Hero() {
               {slides.map((_, index) => (
                 <button
                   key={index}
-                  onClick={() => setCurrentSlide(index)}
+                  onClick={() => {
+                    setCurrentSlide(index);
+                    setIsAutoPlaying(false);
+                  }}
                   className={`w-3 h-3 rounded-full transition-colors ${
                     index === currentSlide ? 'bg-emerald' : 'bg-white/30'
                   }`}
