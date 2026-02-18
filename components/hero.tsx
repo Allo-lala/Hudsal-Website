@@ -145,6 +145,10 @@ export function Hero() {
               <Link
                 href={slides[currentSlide].href}
                 className="bg-[#25D366] hover:bg-[#20b858] text-white font-medium px-8 py-4 rounded-full transition-colors duration-300 shadow-lg hover:shadow-xl inline-block"
+                {...(slides[currentSlide].href.startsWith('http') && {
+                  target: "_blank",
+                  rel: "noopener noreferrer"
+                })}
               >
                 {slides[currentSlide].buttonText}
               </Link>

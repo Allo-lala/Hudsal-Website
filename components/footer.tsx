@@ -11,12 +11,12 @@ import { Input } from "@/components/ui/input";
 import { SuccessToast } from "@/components/success-toast";
 
 const quickLinks = [
-  { name: "Business Xray", href: "/" },
+  { name: "Business Xray", href: "/business-xray" },
   // { name: "Emergency Cover", href: "/about" },
   { name: "Our Services", href: "/services" },
-  { name: "Compliance & Quality", href: "/careers" },
+  { name: "Compliance & Quality", href: "/compliance-quality" },
   { name: "Products", href: "/products" },
-  { name: "Register as a Carer", href: "/books-podcasts" },
+  { name: "Register as a Carer", href: "https://docs.google.com/forms/d/e/1FAIpQLSd7rFyu2Qwuc70Nv1j6FVgNAey3Ri03CAR8n6vtelqGD9C1_g/viewform" },
   { name: "Contact Us", href: "/contact" },
 ];
 
@@ -201,6 +201,10 @@ export function Footer() {
                     <Link
                       href={link.href}
                       className="text-white/70 hover:text-emerald transition-colors text-sm"
+                      {...(link.href.startsWith('http') && {
+                        target: "_blank",
+                        rel: "noopener noreferrer"
+                      })}
                     >
                       {link.name}
                     </Link>

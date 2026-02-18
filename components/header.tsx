@@ -23,6 +23,8 @@ const navItems = [
     hasDropdown: true,
     dropdownItems: [
       // { name: "Our Team", href: "/team" },
+      { name: "Business Xray", href: "/business-xray" },
+      { name: "Compliance & Quality", href: "/compliance-quality" },
       { name: "Testimonials", href: "/testimonials" },
       { name: "Events", href: "/events" },
       // { name: "Books & Podcasts", href: "/books-podcasts" },

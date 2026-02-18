@@ -128,7 +128,7 @@ export default function ServicesPage() {
               Comprehensive Solutions
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              From healthcare to Consultancy and IT solutions, we provide end-to-end 
+              From healthcare to Consultancy and IT solutions, we provide end-to-end  
               services to support the healthcare sector.
             </p>
           </div>
