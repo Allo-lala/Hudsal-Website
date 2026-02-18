@@ -18,7 +18,7 @@ const slides: Slide[] = [
   {
     id: 1,
     image: "/images/hero-care.jpeg",
-    title: "Become a caregiver with Hadsul",
+    title: "Join Hadsul House",
     subtitle: "With flexible schedules and positions available across the UK, you can find a job that fits your lifestyle.",
     buttonText: "Apply Now",
     href: "https://forms.gle/wf62ZWLCipTd5FsV6"
@@ -26,8 +26,8 @@ const slides: Slide[] = [
   {
     id: 2,
     image: "/images/products.jpeg",
-    title: "Get Wholesale and wellness products ",
-    subtitle:"Do even more with Hadsul products you love. Get them delivered instantly & in condition. ",
+    title: "Get in-store experience and human connection online ",
+    subtitle:"Better for you. Better for the planet. Join the thousands of people in the Hadsul community today... ",
     buttonText: "Order Now",
     href: "#"
   },
@@ -42,9 +42,9 @@ const slides: Slide[] = [
   {
     id: 4,
     image: "/images/podcast.jpeg",
-    title: "Explore a collection of Books, Podcasts & Webinars",
-    subtitle:"We are so grateful you found us. We invite you into content that is designed to help make you better, happier, healthier and more healed.",
-    buttonText: "Explore Content",
+    title: "Explore Books, Podcasts & Webinars",
+    subtitle:" Download E-books, order hard copies, get notified about new webinars, and catch up on our latest episodes, all in one place.",
+    buttonText: "Get Started",
     href: "/#books-podcasts"
   }
 ];

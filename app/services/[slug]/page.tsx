@@ -30,7 +30,7 @@ const servicesData: Record<string, {
     title: "Healthcare Staffing",
     description: "Comprehensive health assessments and screenings",
     icon: Stethoscope,
-    image: "/images/staff.jpeg",
+    image: "/images/services/staffing.jpg",
     shortContent: "At Hadsul, we specialise in providing trusted, high-quality healthcare staffing solutions to organisations across the UK. We supply fully vetted & trained HCAs, MHAs, Support Workers, Nurses, Cleaners, Team Leaders, and Kitchen Assistants to care homes, supported living services, hospitals, and community-based settings.   ",
     fullContent: `At Hadsul, we specialise in providing trusted, high-quality healthcare staffing solutions to organisations across the UK. We supply fully trained HCAs, MHAs, Support Workers, Nurses, Cleaners, Team Leaders, and Kitchen Assistants to care homes, supported living services, hospitals, and community-based settings.
     
@@ -62,7 +62,7 @@ We value staff's work and support their growth. We offer competitive pay rates, 
     title: "Consultancy",
     description: "Professional Consultancy services with Expertise",
     icon: HeartPulse,
-    image: "/images/hero-care.jpg",
+    image: "/images/services/consult.jpg",
     shortContent: "Every care plan is personalized to meet the unique health needs of each resident with compassion and professionalism from our registered nurses. We provide 24/7 registered nurse availability, medication management, wound care, and post-operative care.",
     fullContent: `Every care plan is personalized to meet the unique health needs of each resident with compassion and professionalism from our registered nurses.
 
@@ -112,7 +112,7 @@ We understand that moving to residential care is a significant decision. Our tea
     title: "Home Care",
     description: "Comfortable living with professional support",
     icon: Home,
-    image: "/images/about-hero.jpg",
+    image: "/images/services/homecare.jpg",
     shortContent: "Our dedicated team delivers personalized care, 24/7 supervision, and medical support in a comfortable, home-like environment tailored to your needs. We offer private and shared room options, nutritious meals, and social activities.",
     fullContent: `Our dedicated team delivers personalized care, 24/7 supervision, and medical support in a comfortable, home-like environment tailored to your needs.
 
@@ -137,7 +137,7 @@ We understand that moving to residential care is a significant decision. Our tea
     title: "Client Relationship Management (CRM)",
     description: "Comprehensive health management services",
     icon: Activity,
-    image: "/images/hero-care.jpg",
+    image: "/images/services/crm.webp",
     shortContent: "From routine health monitoring and medication management to chronic disease support and post-hospital care, we provide comprehensive health services. Our integrated approach coordinates all aspects of your health management.",
     fullContent: `From routine health monitoring and medication management to chronic disease support and post-hospital care, we provide comprehensive health services.
 
@@ -162,7 +162,7 @@ Whether you are recovering from surgery, managing a chronic condition, or need o
     title: "Companionship Services",
     description: "Dedicated care for our elderly community",
     icon: Users,
-    image: "/images/about-hero.jpg",
+    image: "/images/services/companion.jpg",
     shortContent: "We offer a full range of services including medical assistance, personal care, and daily living support designed specifically for senior citizens. Our care preserves dignity while ensuring safety and engagement.",
     fullContent: `We offer a full range of services including medical assistance, personal care, and daily living support designed specifically for senior citizens.
 
@@ -187,7 +187,7 @@ Growing older should be a time of comfort and contentment. Our senior citizen ca
     title: "Palliative Care at Home",
     description: "Compassionate end-of-life care in the comfort of your own home",
     icon: Users,
-    image: "/images/about-hero.jpg",
+    image: "/images/services/Palliative.jpg",
     shortContent: "We provide compassionate palliative care services in the comfort of your home, focusing on quality of life, pain management, and emotional support for patients and families.",
     fullContent: `We provide compassionate palliative care services in the comfort of your home, focusing on quality of life, pain management, and emotional support for patients and families.
 
@@ -212,7 +212,7 @@ Our commitment is to ensure that every patient receives care with dignity, compa
     title: "Respite Care",
     description: "Temporary relief care for family caregivers",
     icon: HeartPulse,
-    image: "/images/about-hero.jpg",
+    image: "/images/services/recipite.jpg",
     shortContent: "We provide professional respite care services to give family caregivers a well-deserved break, ensuring your loved one receives quality care while you recharge and attend to personal needs.",
     fullContent: `We provide professional respite care services to give family caregivers a well-deserved break, ensuring your loved one receives quality care while you recharge and attend to personal needs.
 
@@ -240,7 +240,7 @@ Our commitment is to provide reliable, professional care that gives you confiden
     title: "Private Care",
     description: "Personalized one-on-one care in your home",
     icon: Home,
-    image: "/images/about-hero.jpg",
+    image: "/images/services/private.jpg",
     shortContent: "We provide personalized private care services with dedicated caregivers who focus exclusively on your needs, delivering tailored support in the comfort and privacy of your own home.",
     fullContent: `We provide personalized private care services with dedicated caregivers who focus exclusively on your needs, delivering tailored support in the comfort and privacy of your own home.
 
@@ -270,7 +270,7 @@ Our commitment is to deliver exceptional care that enhances your quality of life
     title: "IT Solutions",
     description: "Innovative technology solutions for healthcare",
     icon: Activity,
-    image: "/images/about-hero.jpg",
+    image: "/images/services/solutions.avif",
     shortContent: "We provide innovative technology solutions designed specifically for healthcare providers to improve efficiency, enhance care quality, and streamline operations across your organization.",
     fullContent: `We provide innovative technology solutions designed specifically for healthcare providers to improve efficiency, enhance care quality, and streamline operations across your organization.
 

@@ -75,6 +75,15 @@ export function Testimonials() {
     return () => clearInterval(interval);
   }, [isAutoPlaying, totalSlides]);
 
+  // Pause auto-play when modal opens
+  useEffect(() => {
+    if (isReviewModalOpen) {
+      setIsAutoPlaying(false);
+    } else {
+      setIsAutoPlaying(true);
+    }
+  }, [isReviewModalOpen]);
+
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % totalSlides);
   };

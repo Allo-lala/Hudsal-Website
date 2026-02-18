@@ -11,13 +11,13 @@ import { Input } from "@/components/ui/input";
 import { SuccessToast } from "@/components/success-toast";
 
 const quickLinks = [
-  { name: "Home", href: "/" },
-  { name: "About Us", href: "/about" },
-  { name: "Services", href: "/services" },
-  { name: "Careers", href: "/careers" },
+  { name: "Business Xray", href: "/" },
+  // { name: "Emergency Cover", href: "/about" },
+  { name: "Our Services", href: "/services" },
+  { name: "Compliance & Quality", href: "/careers" },
   { name: "Products", href: "/products" },
-  // { name: "Books & Podcasts", href: "/books-podcasts" },
-  { name: "Contact", href: "/contact" },
+  { name: "Register as a Carer", href: "/books-podcasts" },
+  { name: "Contact Us", href: "/contact" },
 ];
 
 const services = [

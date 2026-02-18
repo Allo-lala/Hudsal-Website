@@ -125,10 +125,10 @@ export default function ServicesPage() {
               </span> */}
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-balance">
-              Comprehensive Care Solutions
+              Comprehensive Solutions
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              From healthcare staffing to residential care and IT solutions, we provide end-to-end 
+              From healthcare to Consultancy and IT solutions, we provide end-to-end 
               services to support the healthcare sector.
             </p>
           </div>
