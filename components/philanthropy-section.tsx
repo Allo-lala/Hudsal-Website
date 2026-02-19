@@ -92,9 +92,7 @@ export function PhilanthropySection() {
               href="/donate"
               className="inline-block"
             >
-              <button className="bg-emerald hover:bg-emerald-dark text-white font-semibold px-10 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                Support the Campaign
-              </button>
+              
             </a>
           </div>
         </div>

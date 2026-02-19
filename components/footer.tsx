@@ -438,12 +438,23 @@ export function Footer() {
 
           {/* Main Chat Button */}
           <div 
-            className="w-14 h-14 bg-emerald hover:bg-emerald-dark text-white rounded-full shadow-lg shadow-emerald/30 flex items-center justify-center transition-all hover:scale-110 cursor-pointer animate-in fade-in slide-in-from-bottom-4"
+            className="relative w-14 h-14 flex items-center justify-center transition-all hover:scale-110 cursor-pointer animate-in fade-in slide-in-from-bottom-4 group"
             onClick={() => setShowChatOptions(!showChatOptions)}
           >
-            <MessageCircle className="w-7 h-7" />
+            {/* Background circle - only visible on hover */}
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            
+            {/* Chat widget SVG */}
+            <Image
+              src="/chatwidget.svg"
+              alt="Chat"
+              width={56}
+              height={56}
+              className="w-14 h-14 relative z-10"
+            />
+            
             {/* Notification dot */}
-            <div className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full flex items-center justify-center animate-pulse">
+            <div className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 rounded-full flex items-center justify-center animate-pulse z-20">
               <span className="text-xs text-white font-bold">7</span>
             </div>
           </div>

@@ -12,22 +12,23 @@ import {
 } from "lucide-react";
 
 const navItems = [
-  { name: "HOME", href: "/", hasDropdown: false },
-  { name: "STORY", href: "/story", hasDropdown: false },
-  { name: "SERVICES", href: "/services", hasDropdown: false },
+  { name: "OUR INSIGHTS", href: "/", hasDropdown: false },
+  { name: "ABOUT HADSUL", href: "/story", hasDropdown: false },
+  { name: "WHAT WE DO", href: "/services", hasDropdown: false },
   { name: "CAREERS", href: "/careers", hasDropdown: false },
-  { name: "PRODUCTS", href: "/products", hasDropdown: false },
+  { name: " OUR PRODUCTS", href: "/products", hasDropdown: false },
+  // { name: "INDUSTRIES", href: "/industries", hasDropdown: false },
   { 
-    name: "HADSUL HOUSE", 
+    name: "THE HADSUL HOUSE", 
     href: "#", 
     hasDropdown: true,
     dropdownItems: [
       // { name: "Our Team", href: "/team" },
-      { name: "Business Xray", href: "/business-xray" },
-      { name: "Compliance & Quality", href: "/compliance-quality" },
+      { name: "Books", href: "/#books-podcasts" },
+      { name: "Webinars", href: "/#books-podcasts" },
+      { name: "Podcasts", href: "/#books-podcasts" },
       { name: "Testimonials", href: "/testimonials" },
       { name: "Events", href: "/events" },
-      // { name: "Books & Podcasts", href: "/books-podcasts" },
     ]
   },
 ];

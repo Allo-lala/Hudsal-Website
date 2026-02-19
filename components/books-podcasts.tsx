@@ -68,10 +68,10 @@ export function BooksAndPodcasts() {
             </span> */}
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Books, Podcasts & Webinars
+            The Hadsul House
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Expand your knowledge with our curated collection of books, insightful podcasts, and interactive webinars
+            A shortcut to clarity in a noisy world, The Hadsul content dives into the ideas, issues, and innovations reshaping business, the economy, and society. Tune in to hear from experts and thought leaders about the latest in AI breakthroughs, leadership, and more.
           </p>
         </div>
 

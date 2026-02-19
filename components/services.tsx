@@ -1,235 +1,234 @@
 "use client";
 
-import React from "react"
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-
 import { Button } from "@/components/ui/button";
 import {
-  Stethoscope,
-  HeartPulse,
-  Home,
-  Activity,
-  Users,
+  Briefcase,
+  Palette,
+  Ruler,
+  Shield,
+  Bot,
+  Car,
+  CheckCircle,
   ArrowRight,
 } from "lucide-react";
 
 const services = [
   {
     id: "01",
-    icon: Stethoscope,
-    title: "HealthCare Staffing",
-    slug: "healthcare-staffing",
+    icon: Briefcase,
+    title: "Business & Productivity Solutions",
+    image: "/images/services/windows.png",
     description:
-      "We recruit professional workers, nurses, support staff, domestic staff, cleaning professionals, supplying them to a wide range of clients within the health, social care, and cleaning industries.",
+      "Office Suites, Accounting & Payroll Systems, CRM & ERP Platforms, Team Collaboration Tools, Cloud Storage & Email Solutions",
+    features: ["Office Suites (Home & Business) ", "Accounting & Payroll Systems ", "CRM & ERP Platforms", "Team Collaboration Tools ", "Cloud Storage & Email Solutions"],
   },
   {
     id: "02",
-    icon: HeartPulse,
-    title: "Consultancy",
-    slug: "consultancy",
+    icon: Palette,
+    title: "Creative & Design Software",
+    image: "/images/services/adobe.png",
     description:
-      "We help healthcare professionals and suppliers to discover opportunities and deliver system transformation",
+      "Adobe Creative Applications, Graphic Design & Video Editing Tools, AI-Powered Creative Tools, Stock Media & Cloud Assets",
+    features: ["Adobe Creative Applications", "Graphic Design & Video Editing Tools", "AI-Powered Creative Tools", "Stock Media & Cloud Assets"],
   },
-  // {
-  //   id: "03",
-  //   icon: Home,
-  //   title: "Care Homes",
-  //   slug: "residential",
-  //   description:
-  //     "Our dedicated team delivers personalized care, 24/7 supervision, and medical support tailored to you.",
-  // },
+  {
+    id: "03",
+    icon: Ruler,
+    title: "Engineering & CAD Software",
+    image: "/images/services/cad.jpeg",
+    description:
+      "AutoCAD & 3D Modeling Tools, Architecture & Civil Engineering Suites, Mechanical & Industrial Design Software, Professional Rendering Solutions",
+    features: ["AutoCAD & 3D Modeling Tools", "Architecture & Civil Engineering Suites", "Mechanical & Industrial Design Software", "Professional Rendering Solutions "],
+  },
   {
     id: "04",
-    icon: Activity,
-    title: "Client & Relationship Management",
-    slug: "client-relationship-manager",
+    icon: Shield,
+    title: "Operating Systems & Security",
+    image: "/images/services/hadsul.png",
     description:
-      "Experience modern CRM efficiency from Automated Workflows, Dashboards to Payments and much more features empowering agencies.",
+      "Windows & Enterprise OS Licenses, Device Management Solutions, Endpoint Protection & Security Tools",
+    features: ["Windows & Enterprise OS Licenses", "Device Management Solutions ", "Endpoint Protection & Security Tools"],
   },
   {
     id: "05",
-    icon: Users,
-    title: "Companionship Services",
-    slug: "companionship-services",
+    icon: Bot,
+    title: "AI & Automation Tools",
+    image: "/images/services/auto.png",
     description:
-      "Our solutions for Saving time, Improve workflow efficiency, Gain real-time visibility, solutions are configured to your unique needs. ",
+      "AI Writing & Coding Assistants, Image & Video Generation Tools, Business Automation Software, Usage-Based AI Credit Licensing",
+    features: ["AI Writing & Coding Assistants", "Image & Video Generation Tools", "Business Automation Software", "Usage-Based AI Credit Licensing"],
+  },
+  {
+    id: "06",
+    icon: Car,
+    title: "Automotive & Technical Software",
+    image: "/images/services/vehi.png",
+    description:
+      "Vehicle Diagnostics Tools, ECU Programming Software, Fleet Management Systems, Workshop & Repair Management Platforms",
+    features: ["Vehicle Diagnostics Tools", "ECU Programming Software", "Fleet Management Systems", "Workshop & Repair Management Platforms"],
+  },
+  {
+    id: "07",
+    icon: Shield,
+    title: "Flexible Licensing Options",
+    image: "/images/services/office.png",
+    description:
+      "One-Time Licenses, Monthly & Annual Subscriptions, Enterprise Contracts, Volume & Reseller Licensing, Centralized License Management",
+    features: ["One-Time Licenses", "Monthly & Annual Subscriptions", "Enterprise Contracts", "Volume & Reseller Licensing", "Centralized License Management"],
   },
 ];
 
 export function Services() {
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-secondary/30 relative overflow-hidden">
-      {/* Background Animation Elements */}
-      {/* <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-10 right-20 w-32 h-32 bg-emerald rounded-full animate-pulse"></div>
-        <div className="absolute bottom-20 left-10 w-24 h-24 bg-emerald rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
-      </div> */}
-
       <div className="max-w-7xl mx-auto relative">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            {/* <Sparkles className="w-4 h-4 text-emerald" /> */}
-            {/* <span className="text-emerald text-sm font-medium tracking-wider uppercase animate-fade-in">
-              Our Services
-            </span> */}
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-balance animate-slide-up">
-            Comprehensive Services
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-balance">
+            Software & Licensing Solutions
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto animate-slide-up animate-delay-200">
-            We provide a full range of services designed to meet the unique needs with compassion and professionalism.
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Power your business with the right tools — licensed the right way. Genuine software, instant delivery, flexible plans.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
-          {/* Left Column - Additional Info */}
-          <div className="lg:col-span-1 animate-slide-in-left">
-            {/* Heading */}
-            <h3 className="text-2xl font-bold text-foreground mb-6 text-balance">
-               Quality isn't a luxury, it's a right.
-            </h3>
-
-            {/* Description */}
-            <p className="text-muted-foreground mb-8 leading-relaxed">
-              We know the value of serving, and we’re here to support you every step of the way. 
-            </p>
-
-            {/* Enhanced CTA Section */}
-            <div className="space-y-4">
-              <Link href="/services">
-                <Button className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-8 py-4 w-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 group">
-                  VIEW ALL SERVICES
-                  {/* <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" /> */}
-                </Button>
-              </Link>
-              
-              {/* <Link href="/contact">
-                <Button variant="outline" className="border-emerald text-emerald hover:bg-emerald hover:text-white rounded-full px-8 py-4 w-full font-semibold transition-all duration-300">
-                  Get Free Consultation
-                </Button>
-              </Link> */}
-            </div>
-
-            {/* Trust Indicators */}
-            <div className="mt-8 p-6 bg-white/50 rounded-2xl border border-emerald/10">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-lg flex items-center justify-center">
-                  <Users className="w-6 h-6 text-emerald" />
-                </div>
-                <div>
-                  <p className="text-2xl font-bold text-emerald">500+</p>
-                  <p className="text-sm text-muted-foreground">Satisfied Clients</p>
-                </div>
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+          {services.map((service, index) => (
+            <div
+              key={service.id}
+              className="group bg-card border border-border rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:border-emerald/30"
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              {/* Image on Top */}
+              <div className="relative w-full h-48 overflow-hidden">
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               </div>
-              <p className="text-sm text-muted-foreground">
-                Trusted across the UK for exceptional services
-              </p>
-            </div>
-          </div>
 
-          {/* Right Column - Service Cards Grid */}
-          <div className="lg:col-span-2 animate-slide-in-right">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {services.map((service, index) => (
-                <ServiceCard key={service.id} service={service} index={index} />
-              ))}
+              {/* Content */}
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-emerald transition-colors">
+                  {service.title}
+                </h3>
+
+                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                  {service.description}
+                </p>
+
+                {/* Features List */}
+                <ul className="space-y-2 mb-4">
+                  {service.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <CheckCircle className="w-4 h-4 text-emerald flex-shrink-0" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+
+                {/* Learn More Link */}
+                <Link
+                  href="/products"
+                  className="inline-flex items-center gap-2 text-emerald hover:text-emerald-dark font-medium text-sm transition-colors"
+                >
+                  Learn More
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
 
-        {/* Bottom CTA Section */}
-        <div className="mt-20 relative">
-          <div className="text-center bg-gradient-to-r from-emerald/10 to-emerald/5 rounded-3xl p-12 animate-slide-up relative overflow-visible">
-            {/* Left Image - Slightly elevated and pointing out */}
-            <div className="absolute -left-8 top-1/2 -translate-y-1/2 w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 hidden md:block animate-float">
-              <Image
-                src="/images/services/bump.avif"
-                alt="Healthcare Service"
-                fill
-                className="object-contain drop-shadow-2xl"
-              />
-            </div>
-
-            {/* Right Image - Slightly elevated and pointing out */}
-            <div className="absolute -right-8 top-1/2 -translate-y-1/2 w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 hidden md:block animate-float" style={{ animationDelay: '1s' }}>
-              <Image
-                src="/images/services/gooof.avif"
-                alt="Healthcare Service"
-                fill
-                className="object-contain drop-shadow-2xl"
-              />
-            </div>
-
+        {/* Why Choose Us Section */}
+        <div className="bg-gradient-to-r from-emerald/10 to-emerald/5 rounded-3xl p-8 md:p-12">
+          <div className="text-center mb-8">
             <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-              Ready to Experience Quality ?
+              Why Choose Us?
             </h3>
-            <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Join hundreds of trustees. Contact us today for a personalized consultation.
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Verified software with flexible licensing options to suit your business needs
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact">
-                <Button className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-8 py-3 font-semibold shadow-lg hover:shadow-xl transition-all">
-                  Start Your Journey
-                </Button>
-              </Link>
-              <Link href="/story">
-                <Button variant="outline" className="border-emerald text-emerald hover:bg-emerald hover:text-white rounded-full px-8 py-3 font-semibold">
-                  Learn About Us
-                </Button>
-              </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div className="text-center">
+              <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                <CheckCircle className="w-6 h-6 text-emerald" />
+              </div>
+              <h4 className="font-semibold text-foreground mb-1">Genuine & Verified</h4>
+              <p className="text-sm text-muted-foreground">100% authentic licenses</p>
             </div>
+
+            <div className="text-center">
+              <div className="w-12 h-12 rounded-full  flex items-center justify-center mx-auto mb-3">
+                <CheckCircle className="w-6 h-6 text-emerald" />
+              </div>
+              <h4 className="font-semibold text-foreground mb-1">Instant Delivery</h4>
+              <p className="text-sm text-muted-foreground">Get started immediately</p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                <CheckCircle className="w-6 h-6 text-emerald" />
+              </div>
+              <h4 className="font-semibold text-foreground mb-1">Flexible Plans</h4>
+              <p className="text-sm text-muted-foreground">One-time or subscription</p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                <CheckCircle className="w-6 h-6 text-emerald" />
+              </div>
+              <h4 className="font-semibold text-foreground mb-1">Enterprise Support</h4>
+              <p className="text-sm text-muted-foreground">Dedicated assistance</p>
+            </div>
+          </div>
+
+          {/* Licensing Options */}
+          <div className="text-center mb-8">
+            <h4 className="font-semibold text-foreground mb-4">Flexible Licensing Options</h4>
+            <div className="flex flex-wrap justify-center gap-3">
+              <span className="px-4 py-2 bg-white/50 rounded-full text-sm font-medium text-foreground">
+                One-Time Licenses
+              </span>
+              <span className="px-4 py-2 bg-white/50 rounded-full text-sm font-medium text-foreground">
+                Monthly Subscriptions
+              </span>
+              <span className="px-4 py-2 bg-white/50 rounded-full text-sm font-medium text-foreground">
+                Annual Plans
+              </span>
+              <span className="px-4 py-2 bg-white/50 rounded-full text-sm font-medium text-foreground">
+                Enterprise Contracts
+              </span>
+              <span className="px-4 py-2 bg-white/50 rounded-full text-sm font-medium text-foreground">
+                Volume Licensing
+              </span>
+            </div>
+          </div>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/products">
+              <Button className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-8 py-3 font-semibold shadow-lg hover:shadow-xl transition-all">
+                Buy Now
+              </Button>
+            </Link>
+            <Link href="/contact">
+              <Button variant="outline" className="border-emerald text-emerald hover:bg-emerald hover:text-white rounded-full px-8 py-3 font-semibold">
+                Have A Qn?
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
     </section>
-  );
-}
-
-interface Service {
-  id: string;
-  icon: React.ComponentType<{ className?: string }>;
-  title: string;
-  slug: string;
-  description: string;
-}
-
-function ServiceCard({ service, index }: { service: Service; index: number }) {
-  return (
-    <Link href={`/services/${service.slug}`} className="block group">
-      <div 
-        className="border border-border rounded-lg p-6 hover:shadow-lg transition-all duration-300 bg-card hover:border-emerald/30 hover-lift animate-slide-up text-center"
-        style={{ animationDelay: `${index * 0.1}s` }}
-      >
-        {/* Centered Image */}
-        <div className="flex justify-center mb-6">
-          <div className="relative w-20 h-20 rounded-lg overflow-hidden group-hover:scale-110 transition-transform duration-300">
-            <Image
-              src="/images/services/consult.webp"
-              alt={service.title}
-              fill
-              className="object-cover"
-            />
-          </div>
-        </div>
-
-        {/* Title */}
-        <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-emerald transition-colors">
-          {service.title}
-        </h3>
-
-        {/* Description */}
-        <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-          {service.description}
-        </p>
-
-        {/* Arrow Link */}
-        <span className="inline-flex items-center justify-center gap-2 text-muted-foreground group-hover:text-emerald transition-colors">
-          <span className="text-sm font-medium">Read More</span>
-          <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-        </span>
-      </div>
-    </Link>
   );
 }

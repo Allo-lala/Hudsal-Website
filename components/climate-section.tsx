@@ -9,25 +9,25 @@ const climateImages = [
   {
     id: 1,
     src: "/images/climate/time.jpg",
-    title: "Renewable energy transition",
+    title: "Sustainability ",
     description: " "
   },
   {
     id: 2,
     src: "/images/climate/coott.jpg",
-    title: "Sustainable Lifestyles",
+    title: "Water",
     description: " "
   },
   {
     id: 3,
     src: "/images/climate/planet.jpg",
-    title: "Reforestation Projects",
+    title: "Waste Management ",
     description: " "
   },
   {
     id: 4,
     src: "/images/climate/climate.jpg",
-    title: "Proper Waste Management",
+    title: "Wildlife ",
     description: " "
   },
   {
@@ -39,7 +39,7 @@ const climateImages = [
   {
     id: 6,
     src: "/images/climate/change.jpg",
-    title: "Wildlife Conservation",
+    title: "",
     description: " "
   }
 ];
@@ -127,10 +127,7 @@ export function ClimateSection() {
               <div className="text-3xl md:text-4xl font-bold text-emerald mb-2">75%</div>
               <div className="text-white/80 text-sm">Waste Reduction</div>
             </div>
-            {/* <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-emerald mb-2">100%</div>
-              <div className="text-white/80 text-sm">Renewable Energy</div>
-            </div> */}
+           
             <div className="text-center">
               <div className="text-3xl md:text-4xl font-bold text-emerald mb-2">£ 1M</div>
               <div className="text-white/80 text-sm">Grants through Donations</div>
@@ -143,16 +140,14 @@ export function ClimateSection() {
               href="/donate"
               className="inline-block"
             >
-              <button className="bg-emerald hover:bg-emerald-dark text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                Donate
-              </button>
+             
             </a>
-            <button
+            {/* <button
               onClick={() => setIsGrantModalOpen(true)}
               className="bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white font-semibold px-8 py-4 rounded-full border-2 border-white/50 hover:border-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
               Request for a Grant
-            </button>
+            </button> */}
           </div>
         </div>
       </div>

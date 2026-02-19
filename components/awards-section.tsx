@@ -105,7 +105,7 @@ export function AwardsSection() {
             className="inline-block"
           > */}
             <button className="bg-white hover:bg-gray-100 text-emerald font-semibold px-10 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-              Our Awards
+              Our Partners
             </button>
           {/* </a> */}
         </div>

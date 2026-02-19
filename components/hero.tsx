@@ -46,6 +46,30 @@ const slides: Slide[] = [
     subtitle:" Download E-books, order hard copies, get notified about new webinars, and catch up on our latest episodes, all in one place.",
     buttonText: "Get Started",
     href: "/#books-podcasts"
+  },
+  {
+    id: 5,
+    image: "/images/hero-care.jpg",
+    title: "Finance Consultancy",
+    subtitle: "Expert financial guidance to help your healthcare business thrive. From budgeting to financial planning, we provide comprehensive consultancy services.",
+    buttonText: "Learn More",
+    href: "/services/consultancy"
+  },
+  {
+    id: 6,
+    image: "/images/hero-care.jpeg",
+    title: "IT Solutions",
+    subtitle: "Innovative technology solutions designed to improve efficiency and enhance care quality. Transform your healthcare operations with our cutting-edge IT systems.",
+    buttonText: "Explore Solutions",
+    href: "/services/it-solutions"
+  },
+  {
+    id: 7,
+    image: "/images/realestate.jpg",
+    title: "Imagine, Believe, Find",
+    subtitle: "Discover premium real estate opportunities with Hadsul. Quality properties and professional service for your investment needs.",
+    buttonText: "View Properties",
+    href: "https://hadsul.com"
   }
 ];
 
