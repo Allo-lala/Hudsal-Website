@@ -1,24 +1,16 @@
 "use client";
 
-import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
-  Briefcase,
-  Palette,
-  Ruler,
-  Shield,
-  Bot,
-  Car,
   CheckCircle,
-  ArrowRight,
+  ShoppingCart,
 } from "lucide-react";
 
 const services = [
   {
     id: "01",
-    icon: Briefcase,
     title: "Business & Productivity Solutions",
     image: "/images/services/windows.png",
     description:
@@ -27,7 +19,6 @@ const services = [
   },
   {
     id: "02",
-    icon: Palette,
     title: "Creative & Design Software",
     image: "/images/services/adobe.png",
     description:
@@ -36,7 +27,6 @@ const services = [
   },
   {
     id: "03",
-    icon: Ruler,
     title: "Engineering & CAD Software",
     image: "/images/services/cad.jpeg",
     description:
@@ -45,7 +35,6 @@ const services = [
   },
   {
     id: "04",
-    icon: Shield,
     title: "Operating Systems & Security",
     image: "/images/services/hadsul.png",
     description:
@@ -54,7 +43,6 @@ const services = [
   },
   {
     id: "05",
-    icon: Bot,
     title: "AI & Automation Tools",
     image: "/images/services/auto.png",
     description:
@@ -63,7 +51,6 @@ const services = [
   },
   {
     id: "06",
-    icon: Car,
     title: "Automotive & Technical Software",
     image: "/images/services/vehi.png",
     description:
@@ -72,7 +59,6 @@ const services = [
   },
   {
     id: "07",
-    icon: Shield,
     title: "Flexible Licensing Options",
     image: "/images/services/office.png",
     description:
@@ -125,7 +111,7 @@ export function Services() {
                 </p>
 
                 {/* Features List */}
-                <ul className="space-y-2 mb-4">
+                <ul className="space-y-2 mb-6">
                   {service.features.map((feature, idx) => (
                     <li key={idx} className="flex items-center gap-2 text-sm text-muted-foreground">
                       <CheckCircle className="w-4 h-4 text-emerald flex-shrink-0" />
@@ -134,13 +120,15 @@ export function Services() {
                   ))}
                 </ul>
 
-                {/* Learn More Link */}
+                {/* Buy Now Button */}
                 <Link
-                  href="/products"
-                  className="inline-flex items-center gap-2 text-emerald hover:text-emerald-dark font-medium text-sm transition-colors"
+                  href="#"
+                  className="inline-block w-full"
                 >
-                  Learn More
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <Button className="bg-[#25D366] hover:bg-[#20bd5a] text-white w-full rounded-full shadow-lg hover:shadow-xl transition-all">
+                    <ShoppingCart className="w-5 h-5 mr-2" />
+                    BUY NOW
+                  </Button>
                 </Link>
               </div>
             </div>
@@ -180,7 +168,10 @@ export function Services() {
                 <CheckCircle className="w-6 h-6 text-emerald" />
               </div>
               <h4 className="font-semibold text-foreground mb-1">Flexible Plans</h4>
-              <p className="text-sm text-muted-foreground">One-time or subscription</p>
+              <p className="text-sm text-muted-foreground">One-time</p>
+               <p className="text-sm text-muted-foreground">Monthly</p>
+                <p className="text-sm text-muted-foreground">Annual </p>
+                 {/* <p className="text-sm text-muted-foreground">One-time or subscription</p> */}
             </div>
 
             <div className="text-center">
@@ -193,37 +184,18 @@ export function Services() {
           </div>
 
           {/* Licensing Options */}
-          <div className="text-center mb-8">
-            <h4 className="font-semibold text-foreground mb-4">Flexible Licensing Options</h4>
-            <div className="flex flex-wrap justify-center gap-3">
-              <span className="px-4 py-2 bg-white/50 rounded-full text-sm font-medium text-foreground">
-                One-Time Licenses
-              </span>
-              <span className="px-4 py-2 bg-white/50 rounded-full text-sm font-medium text-foreground">
-                Monthly Subscriptions
-              </span>
-              <span className="px-4 py-2 bg-white/50 rounded-full text-sm font-medium text-foreground">
-                Annual Plans
-              </span>
-              <span className="px-4 py-2 bg-white/50 rounded-full text-sm font-medium text-foreground">
-                Enterprise Contracts
-              </span>
-              <span className="px-4 py-2 bg-white/50 rounded-full text-sm font-medium text-foreground">
-                Volume Licensing
-              </span>
-            </div>
-          </div>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/products">
-              <Button className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-8 py-3 font-semibold shadow-lg hover:shadow-xl transition-all">
-                Buy Now
+            <Link href="#">
+              <Button className="bg-emerald hover:bg-[#20bd5a] text-white rounded-full px-8 py-3 font-semibold shadow-lg hover:shadow-xl transition-all">
+                <ShoppingCart className="w-5 h-5 mr-2" />
+                Order Now
               </Button>
             </Link>
             <Link href="/contact">
-              <Button variant="outline" className="border-emerald text-emerald hover:bg-emerald hover:text-white rounded-full px-8 py-3 font-semibold">
-                Have A Qn?
+              <Button variant="outline" className="border-[#20bd5a] hover:bg-[#20bd5a] text-black hover:text-white rounded-full px-8 py-3 font-semibold">
+                Enquire
               </Button>
             </Link>
           </div>

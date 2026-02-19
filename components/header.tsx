@@ -15,9 +15,9 @@ const navItems = [
   { name: "OUR INSIGHTS", href: "/", hasDropdown: false },
   { name: "ABOUT HADSUL", href: "/story", hasDropdown: false },
   { name: "WHAT WE DO", href: "/services", hasDropdown: false },
-  { name: "CAREERS", href: "/careers", hasDropdown: false },
+  { name: "INDUSTRIES", href: "/industries", hasDropdown: false },
+  // { name: "CAREERS", href: "/careers", hasDropdown: false },
   { name: " OUR PRODUCTS", href: "/products", hasDropdown: false },
-  // { name: "INDUSTRIES", href: "/industries", hasDropdown: false },
   { 
     name: "THE HADSUL HOUSE", 
     href: "#", 
@@ -27,6 +27,7 @@ const navItems = [
       { name: "Books", href: "/#books-podcasts" },
       { name: "Webinars", href: "/#books-podcasts" },
       { name: "Podcasts", href: "/#books-podcasts" },
+      { name: "Careers", href: "/careers" },
       { name: "Testimonials", href: "/testimonials" },
       { name: "Events", href: "/events" },
     ]

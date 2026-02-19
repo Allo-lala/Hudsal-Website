@@ -18,7 +18,7 @@ const slides: Slide[] = [
   {
     id: 1,
     image: "/images/hero-care.jpeg",
-    title: "Join Hadsul House",
+    title: "Join The Hadsul House",
     subtitle: "With flexible schedules and positions available across the UK, you can find a job that fits your lifestyle.",
     buttonText: "Apply Now",
     href: "https://forms.gle/wf62ZWLCipTd5FsV6"
@@ -50,7 +50,7 @@ const slides: Slide[] = [
   {
     id: 5,
     image: "/images/hero-care.jpg",
-    title: "Finance Consultancy",
+    title: "Finance Consultancy Services",
     subtitle: "Expert financial guidance to help your healthcare business thrive. From budgeting to financial planning, we provide comprehensive consultancy services.",
     buttonText: "Learn More",
     href: "/services/consultancy"
@@ -58,7 +58,7 @@ const slides: Slide[] = [
   {
     id: 6,
     image: "/images/hero-care.jpeg",
-    title: "IT Solutions",
+    title: "IT Solutions for Healthcare",
     subtitle: "Innovative technology solutions designed to improve efficiency and enhance care quality. Transform your healthcare operations with our cutting-edge IT systems.",
     buttonText: "Explore Solutions",
     href: "/services/it-solutions"
@@ -66,7 +66,7 @@ const slides: Slide[] = [
   {
     id: 7,
     image: "/images/realestate.jpg",
-    title: "Imagine, Believe, Find",
+    title: "Real Estate Opportunities",
     subtitle: "Discover premium real estate opportunities with Hadsul. Quality properties and professional service for your investment needs.",
     buttonText: "View Properties",
     href: "https://hadsul.com"

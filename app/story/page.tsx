@@ -322,23 +322,23 @@ export default function StoryPage() {
                  We benefit better •
               </span> */}
               <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mx-4 sm:mx-6 lg:mx-8">
-                We learnt from Mistakes
+                 Clarity
               </span>
               <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-script italic text-beige mx-4 sm:mx-6 lg:mx-8">
-                So you don't Have to! 
+                Engineered
               </span>
               <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mx-4 sm:mx-6 lg:mx-8">
-                Push from
+                Before You do anything
               </span>
               <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-script italic text-beige mx-4 sm:mx-6 lg:mx-8">
-                the right route 
+                First Understand Everything
               </span>
-              <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mx-4 sm:mx-6 lg:mx-8">
+              {/* <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mx-4 sm:mx-6 lg:mx-8">
                 Transform
               </span>
               <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-script italic text-beige mx-4 sm:mx-6 lg:mx-8">
                 Forever
-              </span>
+              </span> */}
             </div>
           ))}
         </div>

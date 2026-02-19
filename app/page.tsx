@@ -34,16 +34,16 @@ export default function Home() {
           {[...Array(4)].map((_, i) => (
             <div key={i} className="flex items-center">
               <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mx-4 sm:mx-6 md:mx-8">
-                Learn
+                Clarity
               </span>
               <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-script italic text-beige mx-4 sm:mx-6 md:mx-8">
-                from the Best!
+                Engineered
               </span>
               <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mx-4 sm:mx-6 md:mx-8">
-                Experience
+                Before You do anything
               </span>
               <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-script italic text-beige mx-4 sm:mx-6 md:mx-8">
-                Success
+                First Understand Everything
               </span>
               {/* <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mx-4 sm:mx-6 md:mx-8">
                 Scale
@@ -51,12 +51,12 @@ export default function Home() {
               <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-script italic text-beige mx-4 sm:mx-6 md:mx-8">
                 Your Empire
               </span> */}
-              <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mx-4 sm:mx-6 md:mx-8">
-                Transform
+              {/* <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mx-4 sm:mx-6 md:mx-8">
+                Most Care Home Are Not Broken
               </span>
               <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-script italic text-beige mx-4 sm:mx-6 md:mx-8">
-                Forever
-              </span>
+                Just Miss-Diagnosied
+              </span> */}
             </div>
           ))}
         </div>

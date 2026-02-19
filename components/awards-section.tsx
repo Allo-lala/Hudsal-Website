@@ -66,13 +66,13 @@ export function AwardsSection() {
   const duplicatedAwards = [...awards, ...awards, ...awards];
 
   return (
-    <section className="py-8 bg-emerald overflow-hidden">
+    <section className="py-12 bg-[#1a2e1a] overflow-hidden">
       <div className="max-w-full">
         {/* Infinite Scrolling Awards - Full Width */}
         <div className="relative mb-6">
           {/* Gradient Overlays for smooth edges */}
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-emerald to-transparent z-10 pointer-events-none"></div>
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-emerald to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#1a2e1a] to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#1a2e1a] to-transparent z-10 pointer-events-none"></div>
           
           {/* Scrolling Container - Full Screen Width */}
           <div className="overflow-hidden py-4">
@@ -100,14 +100,9 @@ export function AwardsSection() {
 
         {/* Our Awards Button */}
         <div className="text-center">
-          {/* <a
-            href="#"
-            className="inline-block"
-          > */}
-            <button className="bg-white hover:bg-gray-100 text-emerald font-semibold px-10 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <button className="bg-white hover:bg-gray-100 text-[#1a2e1a] font-semibold px-10 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
               Our Partners
             </button>
-          {/* </a> */}
         </div>
       </div>
 
