@@ -55,33 +55,20 @@ export function BecomeClientModal({ isOpen, onClose }: BecomeClientModalProps) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-fade-in">
       <div className="relative bg-card border border-border rounded-2xl overflow-hidden max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl animate-slide-up">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/become.webp"
-            alt="Become a client"
-            fill
-            className="object-cover"
-            priority
-          />
-          {/* Overlay for readability */}
-          <div className="absolute inset-0 bg-black/50" />
-        </div>
-
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors backdrop-blur-sm"
+          className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center transition-colors"
         >
-          <X className="w-6 h-6 text-white" />
+          <X className="w-6 h-6 text-gray-700" />
         </button>
 
         {/* Form Content */}
         <div className="relative z-10 p-8 md:p-12">
-          <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 text-center">
+          <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
             Hire the experts your business needs
           </h3>
-          <p className="text-white/90 mb-8 text-center">
+          <p className="text-muted-foreground mb-8 text-center">
             Access skilled professionals ready to help you build and scale – without the full-time commitment
           </p>
           
@@ -94,7 +81,7 @@ export function BecomeClientModal({ isOpen, onClose }: BecomeClientModalProps) {
                   value={clientFormData.name}
                   onChange={(e) => setClientFormData({...clientFormData, name: e.target.value})}
                   required
-                  className="w-full px-4 py-3 border border-white/20 rounded-lg bg-white/10 backdrop-blur-md text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-emerald"
+                  className="w-full px-4 py-3 border border-input rounded-lg bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-emerald"
                 />
               </div>
               
@@ -105,7 +92,7 @@ export function BecomeClientModal({ isOpen, onClose }: BecomeClientModalProps) {
                   value={clientFormData.email}
                   onChange={(e) => setClientFormData({...clientFormData, email: e.target.value})}
                   required
-                  className="w-full px-4 py-3 border border-white/20 rounded-lg bg-white/10 backdrop-blur-md text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-emerald"
+                  className="w-full px-4 py-3 border border-input rounded-lg bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-emerald"
                 />
               </div>
             </div>
@@ -118,7 +105,7 @@ export function BecomeClientModal({ isOpen, onClose }: BecomeClientModalProps) {
                   value={clientFormData.address}
                   onChange={(e) => setClientFormData({...clientFormData, address: e.target.value})}
                   required
-                  className="w-full px-4 py-3 border border-white/20 rounded-lg bg-white/10 backdrop-blur-md text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-emerald"
+                  className="w-full px-4 py-3 border border-input rounded-lg bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-emerald"
                 />
               </div>
               
@@ -129,7 +116,7 @@ export function BecomeClientModal({ isOpen, onClose }: BecomeClientModalProps) {
                   value={clientFormData.companyName}
                   onChange={(e) => setClientFormData({...clientFormData, companyName: e.target.value})}
                   required
-                  className="w-full px-4 py-3 border border-white/20 rounded-lg bg-white/10 backdrop-blur-md text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-emerald"
+                  className="w-full px-4 py-3 border border-input rounded-lg bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-emerald"
                 />
               </div>
             </div>
@@ -142,7 +129,7 @@ export function BecomeClientModal({ isOpen, onClose }: BecomeClientModalProps) {
                   value={clientFormData.phone}
                   onChange={(e) => setClientFormData({...clientFormData, phone: e.target.value})}
                   required
-                  className="w-full px-4 py-3 border border-white/20 rounded-lg bg-white/10 backdrop-blur-md text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-emerald"
+                  className="w-full px-4 py-3 border border-input rounded-lg bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-emerald"
                 />
               </div>
               
@@ -151,14 +138,14 @@ export function BecomeClientModal({ isOpen, onClose }: BecomeClientModalProps) {
                   value={clientFormData.service}
                   onChange={(e) => setClientFormData({...clientFormData, service: e.target.value})}
                   required
-                  className="w-full px-4 py-3 border border-white/20 rounded-lg bg-white/10 backdrop-blur-md text-white focus:outline-none focus:ring-2 focus:ring-emerald"
+                  className="w-full px-4 py-3 border border-input rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-emerald"
                 >
-                  <option value="" disabled hidden className="bg-gray-800">Select Service</option>
-                  <option value="Healthcare Staffing" className="bg-gray-800">Healthcare Staffing</option>
-                  <option value="Consultancy" className="bg-gray-800">Consultancy</option>
-                  <option value="IT Solutions" className="bg-gray-800">IT Solutions</option>
-                  <option value="Software Licensing" className="bg-gray-800">Software Licensing</option>
-                  <option value="Other" className="bg-gray-800">Other</option>
+                  <option value="" disabled hidden>Select Service</option>
+                  <option value="Healthcare Staffing">Healthcare Staffing</option>
+                  <option value="Consultancy">Consultancy</option>
+                  <option value="IT Solutions">IT Solutions</option>
+                  <option value="Software Licensing">Software Licensing</option>
+                  <option value="Other">Other</option>
                 </select>
               </div>
             </div>
@@ -170,7 +157,7 @@ export function BecomeClientModal({ isOpen, onClose }: BecomeClientModalProps) {
                 onChange={(e) => setClientFormData({...clientFormData, description: e.target.value})}
                 required
                 rows={4}
-                className="w-full px-4 py-3 border border-white/20 rounded-lg bg-white/10 backdrop-blur-md text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-emerald resize-none"
+                className="w-full px-4 py-3 border border-input rounded-lg bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-emerald resize-none"
               />
             </div>
             

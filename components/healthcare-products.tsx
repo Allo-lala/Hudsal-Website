@@ -75,8 +75,25 @@ export function HealthcareProducts() {
   const [hoveredProduct, setHoveredProduct] = useState<number | null>(null);
   const [direction, setDirection] = useState<"right" | "left">("right");
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [itemsPerView, setItemsPerView] = useState(4);
 
-  const itemsPerView = 4;
+  // Update items per view based on screen size
+  useEffect(() => {
+    const updateItemsPerView = () => {
+      if (window.innerWidth < 640) {
+        setItemsPerView(1); // Mobile
+      } else if (window.innerWidth < 1024) {
+        setItemsPerView(2); // Tablet
+      } else {
+        setItemsPerView(4); // Desktop
+      }
+    };
+
+    updateItemsPerView();
+    window.addEventListener('resize', updateItemsPerView);
+    return () => window.removeEventListener('resize', updateItemsPerView);
+  }, []);
+
   const maxIndex = Math.max(0, products.length - itemsPerView);
 
   // Auto-slide effect
@@ -143,7 +160,7 @@ export function HealthcareProducts() {
               setIsAutoPlaying(false);
             }}
             disabled={currentIndex === 0}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-10 h-10 bg-emerald hover:bg-emerald-dark rounded-full shadow-lg flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+            className="absolute left-0 sm:left-0 top-1/2 -translate-y-1/2 -translate-x-2 sm:-translate-x-4 z-10 w-10 h-10 bg-emerald hover:bg-emerald-dark rounded-full shadow-lg flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed transition-all"
           >
             <ChevronLeft className="w-6 h-6 text-white" />
           </button>
@@ -154,15 +171,15 @@ export function HealthcareProducts() {
               setIsAutoPlaying(false);
             }}
             disabled={currentIndex >= maxIndex}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-10 h-10 bg-emerald hover:bg-emerald-dark rounded-full shadow-lg flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+            className="absolute right-0 sm:right-0 top-1/2 -translate-y-1/2 translate-x-2 sm:translate-x-4 z-10 w-10 h-10 bg-emerald hover:bg-emerald-dark rounded-full shadow-lg flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed transition-all"
           >
             <ChevronRight className="w-6 h-6 text-white" />
           </button>
 
           {/* Products Container */}
-          <div className="overflow-hidden">
+          <div className="overflow-hidden px-2 sm:px-0">
             <div
-              className="flex gap-4 transition-transform duration-500 ease-in-out"
+              className="flex gap-2 sm:gap-4 transition-transform duration-500 ease-in-out"
               style={{
                 transform: `translateX(-${currentIndex * (100 / itemsPerView)}%)`,
               }}
@@ -171,7 +188,13 @@ export function HealthcareProducts() {
                 <div
                   key={product.id}
                   className="flex-shrink-0"
-                  style={{ width: `calc(${100 / itemsPerView}% - 12.8px)` }}
+                  style={{ 
+                    width: itemsPerView === 1 
+                      ? 'calc(100% - 8px)' 
+                      : itemsPerView === 2 
+                      ? 'calc(50% - 8px)' 
+                      : 'calc(25% - 12.8px)' 
+                  }}
                   onMouseEnter={() => setHoveredProduct(product.id)}
                   onMouseLeave={() => setHoveredProduct(null)}
                 >

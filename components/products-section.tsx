@@ -173,7 +173,7 @@ export function ProductsSection() {
                 onClick={() => setIsClientModalOpen(true)}
                 className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-8 lg:px-12 py-4 lg:py-6 text-lg lg:text-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 group animate-pulse-glow cursor-pointer"
               >
-                Become a Client
+                Get Started
               </Button>
             </div>
           </div>
