@@ -51,7 +51,7 @@ export function PhilanthropySection() {
         onMouseEnter={() => setShowControls(true)}
         onMouseLeave={() => setShowControls(false)}
       >
-        <source src="/images/video.mp4" type="video/mp4" />
+        <source src="/images/sponsored.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
@@ -98,42 +98,7 @@ export function PhilanthropySection() {
         </div>
       </div>
 
-      {/* Video Controls */}
-      <div 
-        className={`absolute bottom-8 left-8 right-8 transition-opacity duration-300 ${
-          showControls ? 'opacity-100' : 'opacity-0'
-        }`}
-        onMouseEnter={() => setShowControls(true)}
-      >
-        <div className="bg-black/50 backdrop-blur-sm rounded-lg p-4 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <button
-              onClick={handlePlayPause}
-              className="w-12 h-12 bg-emerald hover:bg-emerald-dark rounded-full flex items-center justify-center text-white transition-all hover:scale-110"
-            >
-              {isPlaying ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6 ml-1" />}
-            </button>
-            
-            <button
-              onClick={handleMuteToggle}
-              className="w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white transition-all"
-            >
-              {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
-            </button>
-          </div>
 
-          {/* <div className="text-white text-sm font-medium">
-            Raising hands towards basic need were its urgent
-          </div> */}
-
-          <button
-            onClick={handleFullscreen}
-            className="w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white transition-all"
-          >
-            <Maximize className="w-5 h-5" />
-          </button>
-        </div>
-      </div>
 
       {/* Play Button Overlay (when paused) */}
       {!isPlaying && (

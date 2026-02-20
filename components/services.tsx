@@ -65,6 +65,14 @@ const services = [
       "One-Time Licenses, Monthly & Annual Subscriptions, Enterprise Contracts, Volume & Reseller Licensing, Centralized License Management",
     features: ["One-Time Licenses", "Monthly & Annual Subscriptions", "Enterprise Contracts", "Volume & Reseller Licensing", "Centralized License Management"],
   },
+  {
+    id: "08",
+    title: "Staff Trainings",
+    image: "/images/services/office.png",
+    description:
+      "One-Time Licenses, Monthly & Annual Subscriptions, Enterprise Contracts, Volume & Reseller Licensing, Centralized License Management",
+    features: ["One-Time Licenses", "Monthly & Annual Subscriptions", "Enterprise Contracts", "Volume & Reseller Licensing", "Centralized License Management"],
+  },
 ];
 
 export function Services() {
@@ -74,7 +82,7 @@ export function Services() {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-balance">
-            Software & Licensing Solutions
+            Software, Licensing Solutions & Staff Trainings
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Power your business with the right tools — licensed the right way. Genuine software, instant delivery, flexible plans.

@@ -231,7 +231,7 @@ export default function ContactPage() {
                         onChange={handleChange}
                         className="w-full h-10 px-3 rounded-md border border-input bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-ring"
                       >
-                        <option value="">Select a subject</option>
+                        <option value="" disabled hidden>Select a subject</option>
                         <option value="general">General Inquiry</option>
                         <option value="services">Services Information</option>
                         <option value="staffing">Healthcare Staffing</option>
