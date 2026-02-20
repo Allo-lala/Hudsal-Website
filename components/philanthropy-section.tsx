@@ -1,59 +1,18 @@
 "use client";
 
-import { useState, useRef } from "react";
-import { Play, Pause, Volume2, VolumeX, Maximize } from "lucide-react";
-
 export function PhilanthropySection() {
-  const [isPlaying, setIsPlaying] = useState(true);
-  const [isMuted, setIsMuted] = useState(true);
-  const [showControls, setShowControls] = useState(true);
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  const handlePlayPause = () => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-      } else {
-        videoRef.current.play();
-      }
-      setIsPlaying(!isPlaying);
-    }
-  };
-
-  const handleMuteToggle = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !isMuted;
-      setIsMuted(!isMuted);
-    }
-  };
-
-  const handleFullscreen = () => {
-    if (videoRef.current) {
-      if (videoRef.current.requestFullscreen) {
-        videoRef.current.requestFullscreen();
-      }
-    }
-  };
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
       {/* Full-width Background Video */}
-      <video
-        ref={videoRef}
+      <iframe
+        src="https://streamable.com/e/s70uv8?autoplay=1&nocontrols=1&loop=1&muted=1"
         className="absolute inset-0 w-full h-full object-cover"
-        poster="/images/philanthropy/video-poster.jpg"
-        autoPlay
-        muted={isMuted}
-        loop
-        playsInline
-        onPlay={() => setIsPlaying(true)}
-        onPause={() => setIsPlaying(false)}
-        onMouseEnter={() => setShowControls(true)}
-        onMouseLeave={() => setShowControls(false)}
-      >
-        <source src="/images/sponsored.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+        frameBorder="0"
+        allow="autoplay; fullscreen"
+        allowFullScreen
+        style={{ pointerEvents: 'none' }}
+      />
 
       {/* Content Overlay */}
       <div className="absolute inset-0 flex items-center justify-center">
@@ -97,20 +56,6 @@ export function PhilanthropySection() {
           </div>
         </div>
       </div>
-
-
-
-      {/* Play Button Overlay (when paused) */}
-      {!isPlaying && (
-        <div className="absolute inset-0 flex items-center justify-center">
-          <button
-            onClick={handlePlayPause}
-            className="w-24 h-24 bg-emerald/80 hover:bg-emerald rounded-full flex items-center justify-center shadow-2xl transform hover:scale-110 transition-all duration-300 group"
-          >
-            <Play className="w-12 h-12 text-white ml-2 group-hover:scale-110 transition-transform" />
-          </button>
-        </div>
-      )}
     </section>
   );
 }
