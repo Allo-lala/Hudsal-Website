@@ -1,8 +1,10 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { BecomeClientModal } from "@/components/become-client-modal";
 import { ArrowRight } from "lucide-react";
 
 const products = [
@@ -34,6 +36,8 @@ const products = [
 ];
 
 export function ProductsSection() {
+  const [isClientModalOpen, setIsClientModalOpen] = useState(false);
+
   return (
     <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden min-h-[700px] bg-beige">
       <div className="max-w-7xl mx-auto relative z-10 h-full">
@@ -165,15 +169,21 @@ export function ProductsSection() {
 
             {/* CTA Button - Responsive sizing */}
             <div className="flex justify-center">
-              <Link href="/products">
-                <Button className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-8 lg:px-12 py-4 lg:py-6 text-lg lg:text-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 group animate-pulse-glow">
-                  Learn More
-                </Button>
-              </Link>
+              <Button 
+                onClick={() => setIsClientModalOpen(true)}
+                className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-8 lg:px-12 py-4 lg:py-6 text-lg lg:text-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 group animate-pulse-glow cursor-pointer"
+              >
+                Become a Client
+              </Button>
             </div>
           </div>
         </div>
       </div>
+
+      <BecomeClientModal 
+        isOpen={isClientModalOpen} 
+        onClose={() => setIsClientModalOpen(false)} 
+      />
     </section>
   );
 }

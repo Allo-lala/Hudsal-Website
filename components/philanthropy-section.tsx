@@ -30,7 +30,7 @@ export function PhilanthropySection() {
           </p>
           
           {/* Stats Overlay */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 animate-slide-up animate-delay-300">
+          {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 animate-slide-up animate-delay-300">
             <div className="text-center">
               <div className="text-3xl md:text-4xl font-bold text-emerald mb-2">10,000+</div>
               <div className="text-white/80">Lives Impacted</div>
@@ -43,7 +43,7 @@ export function PhilanthropySection() {
               <div className="text-3xl md:text-4xl font-bold text-emerald mb-2">158</div>
               <div className="text-white/80">Communities</div>
             </div>
-          </div>
+          </div> */}
 
           {/* Donate Button */}
           <div className="animate-slide-up animate-delay-400">
