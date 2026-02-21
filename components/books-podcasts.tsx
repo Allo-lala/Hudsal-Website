@@ -82,7 +82,7 @@ export function BooksAndPodcasts() {
               <div className="w-12 h-12 rounded-lg flex items-center justify-center">
                 <BookOpen className="w-6 h-6 text-emerald" />
               </div>
-              <h3 className="text-2xl font-bold text-foreground">Our Books</h3>
+              <h3 className="text-2xl font-bold text-foreground"> Books</h3>
             </div>
             <p className="text-muted-foreground mb-8">
               Expand your knowledge with our human written books
@@ -135,7 +135,7 @@ export function BooksAndPodcasts() {
               <div className="w-12 h-12 rounded-lg flex items-center justify-center">
                 <Headphones className="w-6 h-6 text-emerald" />
               </div>
-              <h3 className="text-2xl font-bold text-foreground">Our Podcasts</h3>
+              <h3 className="text-2xl font-bold text-foreground">Podcasts</h3>
             </div>
             <p className="text-muted-foreground mb-8">
               Listen to our healthcare podcasts on your favorite platform
@@ -278,7 +278,7 @@ export function BooksAndPodcasts() {
               <div className="w-12 h-12 rounded-lg flex items-center justify-center">
                 <ExternalLink className="w-6 h-6 text-emerald" />
               </div>
-              <h3 className="text-2xl font-bold text-foreground">Live Webinars</h3>
+              <h3 className="text-2xl font-bold text-foreground">Webinars</h3>
             </div>
             <p className="text-muted-foreground mb-8">
               Join our interactive webinars and get notified when we go live

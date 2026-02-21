@@ -1,6 +1,12 @@
 "use client";
 
+import { useState, useRef } from "react";
+
 export function PhilanthropySection() {
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [isMuted, setIsMuted] = useState(true);
+  const [showControls, setShowControls] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   return (
     <section className="bg-background">
@@ -17,14 +23,23 @@ export function PhilanthropySection() {
       </div>
 
       {/* Full-width Background Video */}
-      <div className="relative h-screen w-full overflow-hidden">
-        <iframe
-          src="https://streamable.com/e/s70uv8?autoplay=1&nocontrols=1&loop=1&muted=1"
-          className="absolute inset-0 w-full h-full object-cover"
-          allow="autoplay; fullscreen"
-          allowFullScreen
-          style={{ pointerEvents: 'none' }}
-        />
+      <div className="relative h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-screen w-full overflow-hidden">
+        <video
+          ref={videoRef}
+          className="absolute inset-0 w-full h-full object-cover sm:object-cover"
+          poster="/images/philanthropy/video-poster.jpg"
+          autoPlay
+          muted={isMuted}
+          loop
+          playsInline
+          onPlay={() => setIsPlaying(true)}
+          onPause={() => setIsPlaying(false)}
+          onMouseEnter={() => setShowControls(true)}
+          onMouseLeave={() => setShowControls(false)}
+        >
+          <source src="/images/sponsored.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       </div>
     </section>
   );

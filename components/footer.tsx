@@ -49,6 +49,21 @@ export function Footer() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Load Elfsight script
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://elfsightcdn.com/platform.js';
+    script.async = true;
+    document.head.appendChild(script);
+
+    return () => {
+      // Cleanup script if component unmounts
+      if (document.head.contains(script)) {
+        document.head.removeChild(script);
+      }
+    };
+  }, []);
+
   // Close chat options when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -299,25 +314,16 @@ export function Footer() {
         </div>
       </footer>
 
-      {/* Chatbot Placeholder - Top Right */}
+      {/* Elfsight AI Chatbot */}
       {showBackToTop && (
-        <div className="fixed bottom-32 right-4 sm:right-6 z-50">
-          <div className="bg-emerald hover:bg-emerald-dark text-white rounded-full p-4 shadow-lg shadow-emerald/30 cursor-pointer transition-all hover:scale-110 animate-in fade-in slide-in-from-bottom-4">
-            <Bot className="w-6 h-6" />
-            <div className="absolute -top-2 -right-2 w-4 h-4 bg-red-500 rounded-full flex items-center justify-center">
-              <span className="text-xs text-white font-bold">1</span>
-            </div>
-          </div>
-          {/* Chatbot tooltip */}
-          {/* <div className="absolute right-16 top-1/2 -translate-y-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 hover:opacity-100 transition-opacity whitespace-nowrap">
-            Hadsul Chat Bot
-          </div> */}
+        <div className="fixed bottom-32 right-4 sm:right-6 z-40">
+          <div className="elfsight-app-134ad41e-ddfb-4f07-b608-6b7216bb23a2" data-elfsight-app-lazy></div>
         </div>
       )}
 
       {/* Floating Chat Widget */}
       {showBackToTop && (
-        <div className="fixed bottom-8 right-4 sm:right-6 z-40 chat-widget">
+        <div className="fixed bottom-32 right-4 sm:right-6 z-50 chat-widget">
           {/* Chat Options Menu */}
           {showChatOptions && (
             <div className="absolute bottom-16 right-0 bg-white rounded-2xl shadow-2xl border border-emerald/20 p-4 min-w-[200px] animate-in fade-in slide-in-from-bottom-2">
