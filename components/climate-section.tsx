@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { Leaf, ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { GrantApplicationModal } from "@/components/grant-application-modal";
 
 const climateImages = [
@@ -55,7 +55,7 @@ export function ClimateSection() {
 
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % climateImages.length);
-    }, 4000); // Change slide every 4 seconds
+    }, 2000); // Change slide every 2 seconds
 
     return () => clearInterval(interval);
   }, [isAutoPlaying]);
@@ -73,82 +73,118 @@ export function ClimateSection() {
   };
 
   return (
-    <section className="relative h-screen w-full overflow-hidden">
-      {/* Image Slider */}
-      <div className="relative w-full h-full">
-        {climateImages.map((image, index) => (
-          <div
-            key={image.id}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              index === currentSlide ? 'opacity-100' : 'opacity-0'
-            }`}
-          >
-            <Image
-              src={image.src}
-              alt={image.title}
-              fill
-              className="object-cover"
-              priority={index === 0}
-            />
-          </div>
-        ))}
-      </div>
-
-      {/* Content Overlay */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="text-center text-white max-w-4xl mx-auto px-4">
-          {/* <div className="mb-6">
-            <Leaf className="w-8 h-8 text-emerald mx-auto mb-4 animate-pulse" />
-            <span className="text-emerald text-sm font-medium tracking-wider uppercase animate-fade-in">
-              Climate Action
-            </span>
-          </div> */}
-          <h2 className="text-4xl md:text-6xl font-bold mb-6 animate-slide-up">
-             Speak the Planet's Green Language
-          </h2>
-          <p className="text-xl md:text-2xl text-white/90 mb-8 animate-slide-up animate-delay-200">
-            {climateImages[currentSlide].description}
-          </p>
+    <section className="relative min-h-screen w-full bg-background py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
           
-          {/* Current Image Title */}
-          <div className="mb-8 animate-slide-up animate-delay-300">
-            <h3 className="text-2xl md:text-3xl font-semibold text-emerald mb-2">
-              {climateImages[currentSlide].title}
-            </h3>
+          {/* Content Side */}
+          <div className="order-2 lg:order-1 space-y-8">
+            <div>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 animate-slide-up">
+                Speak the Planet's Green Language
+              </h2>
+              <p className="text-xl md:text-2xl text-muted-foreground mb-8 animate-slide-up animate-delay-200">
+                Join us in creating a sustainable future through innovative climate solutions and community action.
+              </p>
+            </div>
+
+            {/* Current Image Title */}
+            <div className="animate-slide-up animate-delay-300">
+              <h3 className="text-2xl md:text-3xl font-semibold text-emerald mb-4">
+                {climateImages[currentSlide].title}
+              </h3>
+              <p className="text-muted-foreground">
+                {climateImages[currentSlide].description || "Making a positive impact on our environment through dedicated action and community involvement."}
+              </p>
+            </div>
+
+            {/* Stats */}
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-6 animate-slide-up animate-delay-400">
+              <div className="text-center lg:text-left">
+                <div className="text-3xl md:text-4xl font-bold text-emerald mb-2">50K+</div>
+                <div className="text-muted-foreground text-sm">Trees Planted</div>
+              </div>
+              <div className="text-center lg:text-left">
+                <div className="text-3xl md:text-4xl font-bold text-emerald mb-2">75%</div>
+                <div className="text-muted-foreground text-sm">Waste Reduction</div>
+              </div>
+              <div className="text-center lg:text-left">
+                <div className="text-3xl md:text-4xl font-bold text-emerald mb-2">£1M</div>
+                <div className="text-muted-foreground text-sm">Grants through Donations</div>
+              </div>
+            </div>
+
+            {/* Navigation Controls */}
+            <div className="flex items-center gap-4 animate-slide-up animate-delay-500">
+              {/* Previous Button */}
+              <button
+                onClick={prevSlide}
+                onMouseEnter={() => setIsAutoPlaying(false)}
+                onMouseLeave={() => setIsAutoPlaying(true)}
+                className="w-12 h-12 bg-emerald/10 hover:bg-emerald rounded-full flex items-center justify-center text-emerald hover:text-white transition-all hover:scale-110"
+              >
+                <ChevronLeft className="w-6 h-6" />
+              </button>
+
+              {/* Dots Indicator */}
+              <div className="flex gap-2">
+                {climateImages.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => goToSlide(index)}
+                    onMouseEnter={() => setIsAutoPlaying(false)}
+                    onMouseLeave={() => setIsAutoPlaying(true)}
+                    className={`w-3 h-3 rounded-full transition-all ${
+                      index === currentSlide 
+                        ? 'bg-emerald scale-125' 
+                        : 'bg-emerald/30 hover:bg-emerald/50'
+                    }`}
+                  />
+                ))}
+              </div>
+
+              {/* Next Button */}
+              <button
+                onClick={nextSlide}
+                onMouseEnter={() => setIsAutoPlaying(false)}
+                onMouseLeave={() => setIsAutoPlaying(true)}
+                className="w-12 h-12 bg-emerald/10 hover:bg-emerald rounded-full flex items-center justify-center text-emerald hover:text-white transition-all hover:scale-110"
+              >
+                <ChevronRight className="w-6 h-6" />
+              </button>
+            </div>
           </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 animate-slide-up animate-delay-400">
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-emerald mb-2">50K+</div>
-              <div className="text-white/80 text-sm">Trees Planted</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-emerald mb-2">75%</div>
-              <div className="text-white/80 text-sm">Waste Reduction</div>
-            </div>
-           
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-emerald mb-2">£ 1M</div>
-              <div className="text-white/80 text-sm">Grants through Donations</div>
-            </div>
+          {/* Images Side - Stacked with transitions */}
+          <div className="order-1 lg:order-2 relative h-[400px] md:h-[500px] lg:h-[600px]">
+            {climateImages.map((image, index) => (
+              <div
+                key={image.id}
+                className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
+                  index === currentSlide 
+                    ? 'opacity-100 z-10 scale-100' 
+                    : index === (currentSlide - 1 + climateImages.length) % climateImages.length
+                    ? 'opacity-70 z-5 scale-95 translate-x-4 translate-y-4'
+                    : index === (currentSlide - 2 + climateImages.length) % climateImages.length
+                    ? 'opacity-40 z-0 scale-90 translate-x-8 translate-y-8'
+                    : 'opacity-0 z-0 scale-85'
+                }`}
+              >
+                <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl">
+                  <Image
+                    src={image.src}
+                    alt={image.title}
+                    fill
+                    className="object-cover"
+                    priority={index === 0}
+                  />
+                  {/* Gradient overlay for better text readability */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                </div>
+              </div>
+            ))}
           </div>
 
-          {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12 animate-slide-up animate-delay-500">
-            <a
-              href="/donate"
-              className="inline-block"
-            >
-             
-            </a>
-            {/* <button
-              onClick={() => setIsGrantModalOpen(true)}
-              className="bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white font-semibold px-8 py-4 rounded-full border-2 border-white/50 hover:border-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-            >
-              Request for a Grant
-            </button> */}
-          </div>
         </div>
       </div>
 
@@ -157,48 +193,6 @@ export function ClimateSection() {
         isOpen={isGrantModalOpen} 
         onClose={() => setIsGrantModalOpen(false)} 
       />
-
-      {/* Navigation Controls */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-        <div className="flex items-center gap-4 bg-black/50 backdrop-blur-sm rounded-full px-6 py-3">
-          {/* Previous Button */}
-          <button
-            onClick={prevSlide}
-            onMouseEnter={() => setIsAutoPlaying(false)}
-            onMouseLeave={() => setIsAutoPlaying(true)}
-            className="w-10 h-10 bg-white/20 hover:bg-emerald rounded-full flex items-center justify-center text-white transition-all hover:scale-110"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-
-          {/* Dots Indicator */}
-          <div className="flex gap-2">
-            {climateImages.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToSlide(index)}
-                onMouseEnter={() => setIsAutoPlaying(false)}
-                onMouseLeave={() => setIsAutoPlaying(true)}
-                className={`w-3 h-3 rounded-full transition-all ${
-                  index === currentSlide 
-                    ? 'bg-emerald scale-125' 
-                    : 'bg-white/40 hover:bg-white/60'
-                }`}
-              />
-            ))}
-          </div>
-
-          {/* Next Button */}
-          <button
-            onClick={nextSlide}
-            onMouseEnter={() => setIsAutoPlaying(false)}
-            onMouseLeave={() => setIsAutoPlaying(true)}
-            className="w-10 h-10 bg-white/20 hover:bg-emerald rounded-full flex items-center justify-center text-white transition-all hover:scale-110"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
-        </div>
-      </div>
     </section>
   );
 }
