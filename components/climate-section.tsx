@@ -33,7 +33,7 @@ const climateImages = [
   {
     id: 5,
     src: "/images/climate/rubbish.jpg",
-    title: "Clean Water",
+    title: " ",
     description: " "
   },
   {
@@ -55,7 +55,7 @@ export function ClimateSection() {
 
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % climateImages.length);
-    }, 2000); // Change slide every 2 seconds
+    }, 5000); // Change slide every 5 seconds
 
     return () => clearInterval(interval);
   }, [isAutoPlaying]);
@@ -105,26 +105,26 @@ export function ClimateSection() {
                 <div className="text-muted-foreground text-sm">Trees Planted</div>
               </div>
               <div className="text-center lg:text-left">
-                <div className="text-3xl md:text-4xl font-bold text-emerald mb-2">75%</div>
-                <div className="text-muted-foreground text-sm">Waste Reduction</div>
+                <div className="text-3xl md:text-4xl font-bold text-emerald mb-2">75K+</div>
+                <div className="text-muted-foreground text-sm">Waste Recycled</div>
               </div>
               <div className="text-center lg:text-left">
                 <div className="text-3xl md:text-4xl font-bold text-emerald mb-2">£1M</div>
-                <div className="text-muted-foreground text-sm">Grants through Donations</div>
+                <div className="text-muted-foreground text-sm">Donations</div>
               </div>
             </div>
 
             {/* Navigation Controls */}
             <div className="flex items-center gap-4 animate-slide-up animate-delay-500">
               {/* Previous Button */}
-              <button
+              {/* <button
                 onClick={prevSlide}
                 onMouseEnter={() => setIsAutoPlaying(false)}
                 onMouseLeave={() => setIsAutoPlaying(true)}
                 className="w-12 h-12 bg-emerald/10 hover:bg-emerald rounded-full flex items-center justify-center text-emerald hover:text-white transition-all hover:scale-110"
               >
                 <ChevronLeft className="w-6 h-6" />
-              </button>
+              </button> */}
 
               {/* Dots Indicator */}
               <div className="flex gap-2">
@@ -144,29 +144,33 @@ export function ClimateSection() {
               </div>
 
               {/* Next Button */}
-              <button
+              {/* <button
                 onClick={nextSlide}
                 onMouseEnter={() => setIsAutoPlaying(false)}
                 onMouseLeave={() => setIsAutoPlaying(true)}
                 className="w-12 h-12 bg-emerald/10 hover:bg-emerald rounded-full flex items-center justify-center text-emerald hover:text-white transition-all hover:scale-110"
               >
                 <ChevronRight className="w-6 h-6" />
-              </button>
+              </button> */}
             </div>
           </div>
 
           {/* Images Side - Stacked with transitions */}
-          <div className="order-1 lg:order-2 relative h-[400px] md:h-[500px] lg:h-[600px]">
+          <div className="order-1 lg:order-2 relative h-[400px] md:h-[500px] lg:h-[600px] w-full">
             {climateImages.map((image, index) => (
               <div
                 key={image.id}
-                className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
+                className={`absolute transition-all duration-1000 ease-in-out ${
                   index === currentSlide 
-                    ? 'opacity-100 z-10 scale-100' 
+                    ? 'opacity-100 z-10 scale-100 inset-0' 
                     : index === (currentSlide - 1 + climateImages.length) % climateImages.length
-                    ? 'opacity-70 z-5 scale-95 translate-x-4 translate-y-4'
+                    ? 'opacity-80 z-5 scale-95 top-4 left-4 right-0 bottom-0 blur-sm'
                     : index === (currentSlide - 2 + climateImages.length) % climateImages.length
-                    ? 'opacity-40 z-0 scale-90 translate-x-8 translate-y-8'
+                    ? 'opacity-60 z-0 scale-90 top-8 left-8 right-0 bottom-0 blur-md'
+                    : index === (currentSlide + 1) % climateImages.length
+                    ? 'opacity-80 z-5 scale-95 top-4 right-4 left-0 bottom-0 blur-sm'
+                    : index === (currentSlide + 2) % climateImages.length
+                    ? 'opacity-60 z-0 scale-90 top-8 right-8 left-0 bottom-0 blur-md'
                     : 'opacity-0 z-0 scale-85'
                 }`}
               >
@@ -179,7 +183,7 @@ export function ClimateSection() {
                     priority={index === 0}
                   />
                   {/* Gradient overlay for better text readability */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                 </div>
               </div>
             ))}

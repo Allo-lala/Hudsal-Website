@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import {
   ChevronDown,
@@ -34,11 +34,44 @@ const navItems = [
   },
 ];
 
-export function Header() {
+interface HeaderProps {
+  variant?: 'light' | 'dark' | 'auto';
+}
+
+export function Header({ variant = 'auto' }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
+  const pathname = usePathname();
+
+  // Check if we're on a page that needs dark header styling
+  const autoDarkHeader = pathname?.includes('/contact') || 
+                        pathname?.includes('/about') ||
+                        pathname?.includes('/services') ||
+                        pathname?.includes('/products') ||
+                        pathname?.includes('/industries') ||
+                        pathname?.includes('/careers') ||
+                        pathname?.includes('/team') ||
+                        pathname?.includes('/testimonials') ||
+                        pathname?.includes('/events') ||
+                        pathname?.includes('/story') ||
+                        pathname?.includes('/privacy') ||
+                        pathname?.includes('/terms') ||
+                        pathname?.includes('/faq');
+
+  const isDarkHeader = variant === 'dark' || (variant === 'auto' && autoDarkHeader);
+
+  const navLinkClass = isDarkHeader 
+    ? 'text-gray-800 hover:text-emerald-600' 
+    : 'text-white/90 hover:text-white';
+  
+  const mobileNavLinkClass = isDarkHeader 
+    ? 'text-gray-800 hover:text-emerald-600' 
+    : 'text-white/90 hover:text-white';
+    
+  const mobileMenuBg = isDarkHeader ? 'bg-white/95 border border-gray-200' : 'bg-hero-dark/95';
+  const hamburgerColor = isDarkHeader ? 'text-gray-800' : 'text-white';
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -74,7 +107,7 @@ export function Header() {
                     <button
                       type="button"
                       onClick={() => setOpenDropdown(openDropdown === item.name ? null : item.name)}
-                      className="flex items-center gap-1 text-white/90 hover:text-white text-sm font-medium transition-colors"
+                      className={`flex items-center gap-1 ${navLinkClass} text-sm font-medium transition-colors`}
                     >
                       {item.name}
                       <ChevronDown className={`w-4 h-4 transition-transform ${openDropdown === item.name ? "rotate-180" : ""}`} />
@@ -97,7 +130,7 @@ export function Header() {
                 ) : (
                   <Link
                     href={item.href}
-                    className="flex items-center gap-1 text-white/90 hover:text-white text-sm font-medium transition-colors"
+                    className={`flex items-center gap-1 ${navLinkClass} text-sm font-medium transition-colors`}
                   >
                     {item.name}
                   </Link>
@@ -107,7 +140,7 @@ export function Header() {
             
             {/* Contact Us Button integrated into navigation */}
             <Link href="/contact">
-              <Button className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-6 py-2 flex items-center gap-2 ml-4">
+              <Button className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-full px-6 py-2 flex items-center gap-2 ml-4">
                 CONTACT US
               </Button>
             </Link>
@@ -116,7 +149,7 @@ export function Header() {
           {/* Mobile Menu Button */}
           <button
             type="button"
-            className="lg:hidden text-white ml-auto"
+            className={`lg:hidden ${hamburgerColor} ml-auto`}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -130,7 +163,7 @@ export function Header() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden bg-hero-dark/95 rounded-lg p-4 mb-4">
+          <div className={`lg:hidden ${mobileMenuBg} rounded-lg p-4 mb-4`}>
             <nav className="flex flex-col gap-2">
               {navItems.map((item) => (
                 <div key={item.name}>
@@ -139,7 +172,7 @@ export function Header() {
                       <button
                         type="button"
                         onClick={() => setOpenDropdown(openDropdown === item.name ? null : item.name)}
-                        className="flex items-center justify-between w-full text-white/90 hover:text-white text-sm font-medium transition-colors py-2"
+                        className={`flex items-center justify-between w-full ${mobileNavLinkClass} text-sm font-medium transition-colors py-2`}
                       >
                         {item.name}
                         <ChevronDown className={`w-4 h-4 transition-transform ${openDropdown === item.name ? "rotate-180" : ""}`} />
@@ -167,7 +200,7 @@ export function Header() {
                                   router.push(dropdownItem.href);
                                 }, 100);
                               }}
-                              className="block w-full text-left text-white/70 hover:text-emerald text-sm py-1 rounded transition-colors cursor-pointer"
+                              className={`block w-full text-left ${isDarkHeader ? 'text-gray-600 hover:text-emerald-600' : 'text-white/70 hover:text-emerald'} text-sm py-1 rounded transition-colors cursor-pointer`}
                               // style={{ minHeight: '20px', touchAction: 'manipulation', pointerEvents: 'auto' }}
                             >
                               {dropdownItem.name}
@@ -179,7 +212,7 @@ export function Header() {
                   ) : (
                     <Link
                       href={item.href}
-                      className="flex items-center justify-between text-white/90 hover:text-white text-sm font-medium transition-colors py-2"
+                      className={`flex items-center justify-between ${mobileNavLinkClass} text-sm font-medium transition-colors py-2`}
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {item.name}
@@ -188,7 +221,7 @@ export function Header() {
                 </div>
               ))}
               <Link href="/contact">
-                <Button className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-6 py-2 w-full mt-4">
+                <Button className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-full px-6 py-2 w-full mt-4">
                   CONTACT US
                 </Button>
               </Link>

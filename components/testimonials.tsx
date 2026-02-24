@@ -182,7 +182,7 @@ export function Testimonials() {
           {/* Navigation Controls */}
           <div className="flex items-center justify-center gap-4 mt-12">
             {/* Previous Button */}
-            <button
+            {/* <button
               onClick={prevSlide}
               onMouseEnter={() => setIsAutoPlaying(false)}
               onMouseLeave={() => setIsAutoPlaying(true)}
@@ -190,7 +190,7 @@ export function Testimonials() {
               disabled={totalSlides <= 1}
             >
               <ChevronLeft className="w-6 h-6" />
-            </button>
+            </button> */}
 
             {/* Dots Indicator */}
             <div className="flex gap-2">
@@ -211,7 +211,7 @@ export function Testimonials() {
             </div>
 
             {/* Next Button */}
-            <button
+            {/* <button
               onClick={nextSlide}
               onMouseEnter={() => setIsAutoPlaying(false)}
               onMouseLeave={() => setIsAutoPlaying(true)}
@@ -219,7 +219,7 @@ export function Testimonials() {
               disabled={totalSlides <= 1}
             >
               <ChevronRight className="w-6 h-6" />
-            </button>
+            </button> */}
           </div>
         </div>
 
