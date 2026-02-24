@@ -168,7 +168,7 @@ export default function BusinessXrayPage() {
   const handleDownloadReport = async () => {
     try {
       // Generate a reference ID if not already available
-      const referenceId = `XR-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+      const referenceId = `HADSUL-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
       
       // Determine risk level
       const overallScore = getOverallScore();
@@ -259,7 +259,7 @@ export default function BusinessXrayPage() {
       <main>
         <Header variant="light" />
         <PageHeader 
-          badge="EXECUTIVE DIAGNOSTIC" 
+          badge="  " 
           title="Executive X-Ray™"
           description="A structured organisational diagnostic designed to identify blind spots, risk exposure, and strategic misalignment before they become operational failures."
         />
@@ -268,7 +268,7 @@ export default function BusinessXrayPage() {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-foreground mb-6">
-                Website-Integrated Diagnostic System
+                Executive Integrated Diagnostic System
               </h2>
               <p className="text-muted-foreground text-lg mb-8">
                 This assessment is designed for established organisations seeking strategic clarity and operational excellence.
@@ -277,7 +277,7 @@ export default function BusinessXrayPage() {
 
             <div className="grid md:grid-cols-2 gap-8 mb-12">
               <div className="bg-card border border-border rounded-lg p-6">
-                <h3 className="font-semibold text-foreground mb-4">What This Is:</h3>
+                <h3 className="font-semibold text-foreground mb-4"> This Is:</h3>
                 <ul className="space-y-2 text-muted-foreground">
                   <li>• A structured organisational diagnostic</li>
                   <li>• A qualification filter</li>
@@ -287,7 +287,7 @@ export default function BusinessXrayPage() {
               </div>
               
               <div className="bg-card border border-border rounded-lg p-6">
-                <h3 className="font-semibold text-foreground mb-4">What This Is NOT:</h3>
+                <h3 className="font-semibold text-foreground mb-4"> This Is NOT:</h3>
                 <ul className="space-y-2 text-muted-foreground">
                   <li>• A free quiz</li>
                   <li>• A lead magnet</li>
@@ -317,7 +317,7 @@ export default function BusinessXrayPage() {
   if (currentStep === 'qualification') {
     return (
       <main>
-        <Header variant="dark" />
+        <Header isAssessmentMode={true} />
         <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-background min-h-screen">
           <div className="max-w-2xl mx-auto">
             <div className="text-center mb-12">
@@ -452,7 +452,7 @@ export default function BusinessXrayPage() {
     
     return (
       <main>
-        <Header variant="dark" />
+        <Header isAssessmentMode={true} />
         <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-background min-h-screen">
           <div className="max-w-3xl mx-auto">
             <div className="mb-8">
@@ -549,7 +549,7 @@ export default function BusinessXrayPage() {
     
     return (
       <main>
-        <Header variant="dark" />
+        <Header isAssessmentMode={true} />
         <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-background">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
@@ -620,7 +620,7 @@ export default function BusinessXrayPage() {
                 className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3"
               >
                 <Download className="w-4 h-4 mr-2" />
-                Download Detailed Report
+                Download Report
               </Button>
               
               <Button 

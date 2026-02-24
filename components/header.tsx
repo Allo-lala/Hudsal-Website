@@ -36,42 +36,42 @@ const navItems = [
 
 interface HeaderProps {
   variant?: 'light' | 'dark' | 'auto';
+  isAssessmentMode?: boolean;
 }
 
-export function Header({ variant = 'auto' }: HeaderProps) {
+export function Header({ variant = 'auto', isAssessmentMode = false }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const pathname = usePathname();
 
-  // Check if we're on a page that needs dark header styling
-  const autoDarkHeader = pathname?.includes('/contact') || 
-                        pathname?.includes('/about') ||
-                        pathname?.includes('/services') ||
-                        pathname?.includes('/products') ||
-                        pathname?.includes('/industries') ||
-                        pathname?.includes('/careers') ||
-                        pathname?.includes('/team') ||
-                        pathname?.includes('/testimonials') ||
-                        pathname?.includes('/events') ||
-                        pathname?.includes('/story') ||
-                        pathname?.includes('/privacy') ||
-                        pathname?.includes('/terms') ||
-                        pathname?.includes('/faq');
+  // Check if we're on other pages that need header background
+  const needsHeaderBackground = pathname?.includes('/contact') || 
+                               pathname?.includes('/about') ||
+                               pathname?.includes('/services') ||
+                               pathname?.includes('/products') ||
+                               pathname?.includes('/industries') ||
+                               pathname?.includes('/careers') ||
+                               pathname?.includes('/team') ||
+                               pathname?.includes('/testimonials') ||
+                               pathname?.includes('/events') ||
+                               pathname?.includes('/story') ||
+                               pathname?.includes('/privacy') ||
+                               pathname?.includes('/terms') ||
+                               pathname?.includes('/faq');
 
-  const isDarkHeader = variant === 'dark' || (variant === 'auto' && autoDarkHeader);
-
-  const navLinkClass = isDarkHeader 
-    ? 'text-gray-800 hover:text-emerald-600' 
-    : 'text-white/90 hover:text-white';
+  // For all pages, use consistent white text styling
+  const navLinkClass = 'text-white/90 hover:text-white';
   
-  const mobileNavLinkClass = isDarkHeader 
-    ? 'text-gray-800 hover:text-emerald-600' 
-    : 'text-white/90 hover:text-white';
+  const mobileNavLinkClass = 'text-white/90 hover:text-white';
     
-  const mobileMenuBg = isDarkHeader ? 'bg-white/95 border border-gray-200' : 'bg-hero-dark/95';
-  const hamburgerColor = isDarkHeader ? 'text-gray-800' : 'text-white';
+  const mobileMenuBg = 'bg-hero-dark/95';
+    
+  const hamburgerColor = 'text-white';
+    
+  // Add background for assessment steps and other content pages
+  const headerBgClass = (isAssessmentMode || needsHeaderBackground) ? 'bg-[#1a2e1a]' : '';
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -84,7 +84,7 @@ export function Header({ variant = 'auto' }: HeaderProps) {
   }, []);
 
   return (
-    <header className="absolute top-0 left-0 right-0 z-50">
+    <header className={`absolute top-0 left-0 right-0 z-50 ${headerBgClass}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between py-6">
           {/* Logo - centered positioning */}
@@ -200,7 +200,7 @@ export function Header({ variant = 'auto' }: HeaderProps) {
                                   router.push(dropdownItem.href);
                                 }, 100);
                               }}
-                              className={`block w-full text-left ${isDarkHeader ? 'text-gray-600 hover:text-emerald-600' : 'text-white/70 hover:text-emerald'} text-sm py-1 rounded transition-colors cursor-pointer`}
+                              className="block w-full text-left text-white/70 hover:text-emerald text-sm py-1 rounded transition-colors cursor-pointer"
                               // style={{ minHeight: '20px', touchAction: 'manipulation', pointerEvents: 'auto' }}
                             >
                               {dropdownItem.name}
