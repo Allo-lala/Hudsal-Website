@@ -24,7 +24,7 @@ export async function POST(request: NextRequest) {
       overallScore,
       pillarScores,
       riskLevel,
-      referenceId: referenceId || `XR-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+      referenceId: referenceId || `HADSUL-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
       completionDate: new Date().toLocaleDateString('en-GB'),
     };
 

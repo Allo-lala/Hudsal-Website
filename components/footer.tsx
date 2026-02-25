@@ -147,7 +147,7 @@ export function Footer() {
               
               <p className="text-white/70 text-sm leading-relaxed mb-6">
                 We provide exceptional healthcare staffing, care home services, and
-                IT solutions for healthcare providers across the UK.
+                IT solutions across the UK.
               </p>
               
               {/* Social Links - New Icons */}

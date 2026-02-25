@@ -9,7 +9,17 @@ import {
   ChevronDown,
   Menu,
   X,
+  Calendar,
 } from "lucide-react";
+
+// Declare Calendly type
+declare global {
+  interface Window {
+    Calendly?: {
+      initPopupWidget: (options: { url: string }) => void;
+    };
+  }
+}
 
 const navItems = [
   { name: "OUR INSIGHTS", href: "/", hasDropdown: false },
@@ -30,6 +40,7 @@ const navItems = [
       { name: "Careers", href: "/careers" },
       { name: "Testimonials", href: "/testimonials" },
       { name: "Events", href: "/events" },
+      { name: "Contact Us", href: "/contact" },
     ]
   },
 ];
@@ -42,9 +53,87 @@ interface HeaderProps {
 export function Header({ variant = 'auto', isAssessmentMode = false }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const pathname = usePathname();
+
+  // Load Calendly widget script and styles only once
+  useEffect(() => {
+    // Check if Calendly is already loaded
+    if (document.querySelector('script[src*="calendly"]')) {
+      return;
+    }
+
+    // Add Calendly CSS only if not already present
+    if (!document.querySelector('link[href*="calendly"]')) {
+      const link = document.createElement('link');
+      link.href = 'https://assets.calendly.com/assets/external/widget.css';
+      link.rel = 'stylesheet';
+      document.head.appendChild(link);
+    }
+
+    // Add Calendly JS only if not already present
+    const script = document.createElement('script');
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.async = true;
+    document.body.appendChild(script);
+
+    // Add custom styles to ensure only one popup appears
+    const style = document.createElement('style');
+    style.textContent = `
+      .calendly-badge-widget,
+      .calendly-badge-content {
+        display: none !important;
+      }
+      /* Ensure only one overlay appears */
+      .calendly-overlay:not(:last-of-type) {
+        display: none !important;
+      }
+      /* Hide duplicate spinners */
+      .calendly-spinner-container:not(:last-of-type) {
+        display: none !important;
+      }
+    `;
+    document.head.appendChild(style);
+  }, []);
+
+  const openCalendly = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    // Prevent multiple popups
+    if (isCalendlyOpen) {
+      console.log('Calendly already open, ignoring click');
+      return;
+    }
+    
+    if (typeof window !== 'undefined' && window.Calendly) {
+      console.log('Opening Calendly popup');
+      setIsCalendlyOpen(true);
+      
+      // Remove ALL existing Calendly elements
+      const existingOverlays = document.querySelectorAll('.calendly-overlay, .calendly-popup-content, .calendly-popup-close');
+      console.log('Removing existing overlays:', existingOverlays.length);
+      existingOverlays.forEach(overlay => overlay.remove());
+      
+      // Small delay to ensure cleanup is complete
+      setTimeout(() => {
+        window.Calendly?.initPopupWidget({
+          url: 'https://calendly.com/musokeakisam16/30min?back=1&month=2026-02'
+        });
+      }, 100);
+      
+      // Reset flag after popup is closed (longer timeout)
+      setTimeout(() => {
+        setIsCalendlyOpen(false);
+      }, 2000);
+    } else {
+      console.log('Calendly not loaded, opening in new tab');
+      // Fallback: open in new tab if widget not loaded
+      window.open('https://calendly.com/musokeakisam16/30min?back=1&month=2026-02', '_blank');
+    }
+  };
 
   // Check if we're on other pages that need header background
   const needsHeaderBackground = pathname?.includes('/contact') || 
@@ -138,12 +227,14 @@ export function Header({ variant = 'auto', isAssessmentMode = false }: HeaderPro
               </div>
             ))}
             
-            {/* Contact Us Button integrated into navigation */}
-            <Link href="/contact">
-              <Button className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-full px-6 py-2 flex items-center gap-2 ml-4">
-                CONTACT US
-              </Button>
-            </Link>
+            {/* Book a Call Button integrated into calendly */}
+            <Button 
+              onClick={openCalendly}
+              className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-full px-6 py-2 flex items-center gap-2 ml-4"
+            >
+              {/* <Calendar className="w-4 h-4" /> */}
+              BOOK A CALL
+            </Button>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -220,11 +311,13 @@ export function Header({ variant = 'auto', isAssessmentMode = false }: HeaderPro
                   )}
                 </div>
               ))}
-              <Link href="/contact">
-                <Button className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-full px-6 py-2 w-full mt-4">
-                  CONTACT US
-                </Button>
-              </Link>
+              <Button 
+                onClick={openCalendly}
+                className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-full px-6 py-2 w-full mt-4 flex items-center justify-center gap-2"
+              >
+                <Calendar className="w-4 h-4" />
+                BOOK A CALL
+              </Button>
             </nav>
           </div>
         )}

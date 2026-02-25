@@ -7,6 +7,7 @@ import {
   CheckCircle,
   ShoppingCart,
 } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 const services = [
   {
@@ -74,6 +75,58 @@ const services = [
     features: ["One-Time Licenses", "Monthly & Annual Subscriptions", "Enterprise Contracts", "Volume & Reseller Licensing", "Centralized License Management"],
   },
 ];
+
+// Counter component for animated numbers
+function Counter({ end, suffix = "", duration = 2000 }: { end: number; suffix?: string; duration?: number }) {
+  const [count, setCount] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const counterRef = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (counterRef.current) {
+      observer.observe(counterRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
+    let startTime: number;
+    let animationFrame: number;
+
+    const animate = (currentTime: number) => {
+      if (!startTime) startTime = currentTime;
+      const progress = Math.min((currentTime - startTime) / duration, 1);
+
+      setCount(Math.floor(progress * end));
+
+      if (progress < 1) {
+        animationFrame = requestAnimationFrame(animate);
+      }
+    };
+
+    animationFrame = requestAnimationFrame(animate);
+
+    return () => cancelAnimationFrame(animationFrame);
+  }, [isVisible, end, duration]);
+
+  return (
+    <span ref={counterRef}>
+      {count}{suffix}
+    </span>
+  );
+}
 
 export function Services() {
   return (
@@ -145,7 +198,7 @@ export function Services() {
 
         {/* Why Choose Us Section */}
         <div className="bg-gradient-to-r from-emerald/10 to-emerald/5 rounded-3xl p-8 md:p-12">
-          <div className="text-center mb-8">
+          <div className="text-center mb-12">
             <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
               Why Choose Us?
             </h3>
@@ -154,51 +207,60 @@ export function Services() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            <div className="text-center">
-              <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
-                <CheckCircle className="w-6 h-6 text-emerald" />
+          {/* Stats in Single Row */}
+          <div className="flex flex-nowrap justify-center items-center gap-6 md:gap-8 lg:gap-12 mb-12 overflow-x-auto">
+            <div className="text-center flex-shrink-0">
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <h4 className="text-2xl md:text-3xl font-bold text-emerald whitespace-nowrap">
+                  £<Counter end={1} />Bn
+                </h4>
               </div>
-              <h4 className="font-semibold text-foreground mb-1">Genuine & Verified</h4>
-              <p className="text-sm text-muted-foreground">100% authentic licenses</p>
+              <p className="text-xs md:text-sm text-muted-foreground whitespace-nowrap">Managed spend</p>
             </div>
 
-            <div className="text-center">
-              <div className="w-12 h-12 rounded-full  flex items-center justify-center mx-auto mb-3">
-                <CheckCircle className="w-6 h-6 text-emerald" />
+            <div className="text-center flex-shrink-0">
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <h4 className="text-2xl md:text-3xl font-bold text-emerald whitespace-nowrap">
+                  £<Counter end={160} />m
+                </h4>
               </div>
-              <h4 className="font-semibold text-foreground mb-1">Instant Delivery</h4>
-              <p className="text-sm text-muted-foreground">Get started immediately</p>
+              <p className="text-xs md:text-sm text-muted-foreground whitespace-nowrap">Cost saving</p>
             </div>
 
-            <div className="text-center">
-              <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
-                <CheckCircle className="w-6 h-6 text-emerald" />
+            <div className="text-center flex-shrink-0">
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <h4 className="text-2xl md:text-3xl font-bold text-emerald whitespace-nowrap">
+                  <Counter end={58} />m
+                </h4>
               </div>
-              <h4 className="font-semibold text-foreground mb-1">Flexible Plans</h4>
-              <p className="text-sm text-muted-foreground">One-time</p>
-               <p className="text-sm text-muted-foreground">Monthly</p>
-                <p className="text-sm text-muted-foreground">Annual </p>
-                 {/* <p className="text-sm text-muted-foreground">One-time or subscription</p> */}
+              <p className="text-xs md:text-sm text-muted-foreground whitespace-nowrap">Managed hours</p>
             </div>
 
-            <div className="text-center">
-              <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
-                <CheckCircle className="w-6 h-6 text-emerald" />
+            <div className="text-center flex-shrink-0">
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <h4 className="text-2xl md:text-3xl font-bold text-emerald whitespace-nowrap">
+                  <Counter end={99.9} suffix="%" />
+                </h4>
               </div>
-              <h4 className="font-semibold text-foreground mb-1">Enterprise Support</h4>
-              <p className="text-sm text-muted-foreground">Dedicated assistance</p>
+              <p className="text-xs md:text-sm text-muted-foreground whitespace-nowrap">Fulfilment</p>
+            </div>
+
+            <div className="text-center flex-shrink-0">
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <h4 className="text-2xl md:text-3xl font-bold text-emerald whitespace-nowrap">
+                  <Counter end={100} />%
+                </h4>
+              </div>
+              <p className="text-xs md:text-sm text-muted-foreground whitespace-nowrap">Compliance</p>
             </div>
           </div>
-
           {/* Licensing Options */}
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="#">
+            <Link href="/business-x-ray">
               <Button className="bg-emerald hover:bg-[#20bd5a] text-white rounded-full px-8 py-3 font-semibold shadow-lg hover:shadow-xl transition-all">
-                <ShoppingCart className="w-5 h-5 mr-2" />
-                Order Now
+                Business X-Ray
               </Button>
             </Link>
             <Link href="/contact">

@@ -295,6 +295,64 @@ Whether you need a complete care management system, digital transformation suppo
 
 Our commitment is to provide technology that empowers healthcare professionals, improves patient outcomes, and streamlines operations. We believe that the right technology should make your work easier, not harder, and we're dedicated to delivering solutions that truly make a difference.`,
   },
+  "staff-training": {
+    title: "Staff Training",
+    description: "Comprehensive training programs for healthcare professionals",
+    icon: Activity,
+    image: "/images/services/recipite.jpg",
+    shortContent: "We provide comprehensive training programs for healthcare professionals, offering professional development opportunities, certification programs, and ongoing support to enhance skills and ensure quality care delivery.",
+    fullContent: `We provide comprehensive training programs for healthcare professionals, offering professional development opportunities, certification programs, and ongoing support to enhance skills and ensure quality care delivery.
+
+Our staff training services include:
+
+- Professional Development programs tailored to healthcare roles
+- Certification Programs for HCAs, MHAs, Support Workers, and Nurses
+- Compliance Training covering CQC standards, safeguarding, and health & safety
+- Clinical Skills Training for medication management, wound care, and infection control
+- Soft Skills Development including communication, empathy, and teamwork
+- Ongoing Support with refresher courses and continuous learning opportunities
+- Quality Assurance monitoring to ensure training effectiveness
+- Customized Training Plans designed for your organization's specific needs
+
+We understand that well-trained staff are the foundation of quality healthcare delivery. Our training programs are designed to equip healthcare professionals with the knowledge, skills, and confidence they need to provide exceptional care while meeting regulatory requirements.
+
+Our training team consists of experienced healthcare educators, clinical specialists, and industry experts who bring real-world experience to every session. We use a combination of theoretical learning, practical demonstrations, and hands-on practice to ensure effective skill development.
+
+The training journey begins with a needs assessment to identify skill gaps and training requirements. We develop a customized training plan that addresses your organization's specific needs, deliver engaging training sessions using proven teaching methods, and provide ongoing support with regular assessments and refresher courses.
+
+Our commitment to quality assurance means we continuously monitor training effectiveness and update our programs to reflect current best practices and regulatory changes. We believe that investing in staff training is investing in better care outcomes.
+
+Whether you need initial training for new staff, compliance updates for existing teams, or specialized skills development, our training programs are designed to support your workforce and enhance the quality of care you provide.`,
+  },
+  "software-licensing-solutions": {
+    title: "Software, Licensing Solutions",
+    description: "Complete software licensing and management solutions",
+    icon: Activity,
+    image: "/images/services/solutions.avif",
+    shortContent: "We provide complete software licensing and management solutions tailored for healthcare organizations and businesses, ensuring compliance, cost-effectiveness, and seamless software procurement and deployment.",
+    fullContent: `We provide complete software licensing and management solutions tailored for healthcare organizations and businesses, ensuring compliance, cost-effectiveness, and seamless software procurement and deployment.
+
+Our software licensing solutions include:
+
+- License Management for tracking, renewal, and optimization of software licenses
+- Software Procurement assistance with vendor selection and negotiation
+- Compliance Support ensuring adherence to licensing agreements and regulations
+- Technical Assistance with installation, configuration, and troubleshooting
+- Cost Optimization strategies to reduce software expenses
+- Volume Licensing Programs for organizations with multiple users
+- Cloud-Based Solutions for flexible, scalable software access
+- License Auditing to ensure compliance and identify cost savings
+
+We understand that managing software licenses can be complex and time-consuming, especially for healthcare organizations that must balance cost control with regulatory compliance. Our solutions simplify license management while ensuring you have the right software tools to support your operations.
+
+Our licensing specialists have extensive experience working with major software vendors and understand the unique requirements of healthcare organizations. We help you navigate complex licensing agreements, optimize your software portfolio, and ensure compliance with both vendor terms and healthcare regulations.
+
+The licensing journey begins with a comprehensive audit of your current software assets and licensing agreements. We identify opportunities for cost savings and compliance improvements, develop a strategic licensing plan that aligns with your organizational needs, and provide ongoing management and support to ensure continued compliance and optimization.
+
+Our commitment is to provide transparent, cost-effective licensing solutions that give you peace of mind. We handle the complexity of license management so you can focus on your core business operations.
+
+Whether you need help with Microsoft 365, healthcare-specific software, or enterprise applications, our software licensing solutions are designed to save you time, reduce costs, and ensure compliance with all licensing requirements.`,
+  },
 };
 
 export default function ServiceDetailPage() {

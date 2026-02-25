@@ -41,15 +41,6 @@ const services = [
     image: "/images/services/consult.jpg",
   },
   {
-    id: "03",
-    icon: Home,
-    title: "Home Care",
-    description: "Our residential care homes offer a safe, comfortable, and nurturing environment for seniors requiring long-term care and support across the UK with a wide including but not limited to...",
-    features: ["west sussex ", "East sussex ", " East Grin", "Chichester"],
-    href: "/services/homecare",
-    image: "/images/services/homecare.jpg",
-  },
-  {
     id: "04",
     icon: Activity,
     title: "Client Relationship Management (CRM)",
@@ -57,15 +48,6 @@ const services = [
     features: ["Personal Care", "Medication Support", "Companionship", "Household Tasks"],
     href: "/services/client-relationship-manager",
     image: "/images/services/crm.webp",
-  },
-  {
-    id: "05",
-    icon: Users,
-    title: "Companionship Services",
-    description: "Our systems offers a full range of services including medical assistance, personal care, and daily living support for residents icluding.....",
-    features: ["CQC Compliant Staff", "24/7 Availability", "Thorough Vetting", "Ongoing Training"],
-    href: "/services/companionship-services",
-    image: "/images/services/companion.jpg",
   },
   {
     id: "06",
@@ -77,32 +59,24 @@ const services = [
     image: "/images/services/solutions.avif",
   },
   {
-    id: "07",
-    icon: GraduationCap,
-    title: "Palliative Care at Home",
-    description: "Accredited training courses for healthcare professionals to enhance skills and maintain compliance with regulations.",
-    features: ["NVQ Qualifications", "Mandatory Training", "CPD Courses", "Leadership Programs"],
-    href: "/services/palliative-care-at-home",
-    image: "/images/services/Palliative.jpg",
-  },
-  {
     id: "08",
-    icon: HeartPulse,
-    title: "Respite Care",
-    description: "Temporary relief care services for family caregivers, providing professional support while you take a well-deserved break.",
-    features: ["Short-term Care", "Flexible Scheduling", "Professional Caregivers", "Peace of Mind"],
-    href: "/services/respite-care",
+    icon: GraduationCap,
+    title: "Staff Training",
+    description: "Comprehensive training programs for healthcare professionals, providing professional development and skill enhancement opportunities.",
+    features: ["Professional Development", "Certification Programs", "Ongoing Support", "Quality Assurance"],
+    href: "/services/staff-training",
     image: "/images/services/recipite.jpg",
   },
   {
     id: "09",
-    icon: Home,
-    title: "Private Care",
-    description: "Personalized one-on-one care services tailored to your specific needs, providing dedicated support in the comfort of your home.",
-    features: ["One-on-One Care", "Personalized Plans", "Flexible Hours", "Dedicated Caregiver"],
-    href: "/services/private-care",
-    image: "/images/services/private.jpg",
+    icon: Laptop,
+    title: "Software, Licensing Solutions",
+    description: "Complete software licensing and management solutions tailored for healthcare organizations and businesses.",
+    features: ["License Management", "Software Procurement", "Compliance Support", "Technical Assistance"],
+    href: "/services/software-licensing-solutions",
+    image: "/images/services/solutions.avif",
   },
+  
 ];
 
 export default function ServicesPage() {
@@ -111,8 +85,8 @@ export default function ServicesPage() {
       <Header />
       <PageHeader 
         badge=" " 
-        title="Healthcare Services"
-        description="Comprehensive healthcare solutions tailored to meet the diverse needs of individuals, families, and care providers."
+        title=" Services"
+        description="Comprehensive solutions tailored to meet the diverse needs of individuals, families & Agencies."
       />
 
       {/* Services Grid */}
@@ -129,7 +103,7 @@ export default function ServicesPage() {
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               From healthcare to Consultancy and IT solutions, we provide end-to-end  
-              services to support the healthcare sector.
+              services to support your sector.
             </p>
           </div>
 
@@ -185,15 +159,15 @@ export default function ServicesPage() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#1a2e1a] dark:bg-[#0f1a0f]">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 text-balance">
-            Ready to Experience Quality Healthcare?
+            Ready to Experience Quality ?
           </h2>
           <p className="text-white/70 mb-8 text-lg">
-            Contact us today to discuss your healthcare needs and discover how Hadsul can support you.
+            Contact us today to discuss your needs and discover how Hadsul can support you.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/products">
+            <Link href="/business-xray">
               <Button className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-8 py-3">
-                Get Started
+                Business X-ray
               </Button>
             </Link>
             <Link href="/contact">

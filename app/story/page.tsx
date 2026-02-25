@@ -152,9 +152,9 @@ export default function StoryPage() {
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 mt-8">
-                <a href="/products" className="inline-block">
+                <a href="/business-xray" className="inline-block">
                   <button className="bg-emerald hover:bg-emerald-dark text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 w-full sm:w-auto">
-                    Subscribe
+                    Business X-ray
                   </button>
                 </a>
                 <a href="#" className="inline-block">
@@ -179,7 +179,7 @@ export default function StoryPage() {
         <div className="max-w-7xl mx-auto text-center mb-20 px-4">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
             <span className="text-foreground">THE HADSUL </span>
-            <span className="italic text-emerald">Timeline</span>
+            <span className="text-emerald">Timeline</span>
           </h2>
         </div>
 

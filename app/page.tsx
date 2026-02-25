@@ -13,7 +13,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Welcome | Hadsul',
-  description: 'We are based & operate in the UK Providing exceptional healthcare services. CQC registered and NHS compliant.',
+  description: 'We are based & operate in the UK Providing exceptional services. CQC registered and NHS compliant.',
 };
 
 export default function Home() {

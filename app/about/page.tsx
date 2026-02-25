@@ -268,7 +268,7 @@ export default function AboutPage() {
               </span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground text-balance">
-              Comprehensive Healthcare Solutions
+              Comprehensive Solutions
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
               We provide a full range of healthcare services, consultancy, and IT solutions to meet diverse needs across the healthcare sector.

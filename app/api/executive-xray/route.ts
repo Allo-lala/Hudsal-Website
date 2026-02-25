@@ -9,7 +9,7 @@ export async function POST(request: NextRequest) {
     const { qualificationData, responses, pillarScores, overallScore } = body;
 
     // Generate unique reference ID
-    const referenceId = `XR-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+    const referenceId = `HADSUL-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
     
     // Calculate completion percentage
     const totalQuestions = 25; // 5 pillars × 5 questions each
@@ -98,7 +98,7 @@ export async function POST(request: NextRequest) {
         </div>
         
         <p>Best regards,<br>
-        The Hadsul Strategic Team</p>
+        The Hadsul Team</p>
         
         <hr style="margin: 30px 0; border: none; border-top: 1px solid #e5e7eb;">
         <p style="color: #6b7280; font-size: 12px;">
