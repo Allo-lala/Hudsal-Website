@@ -123,8 +123,8 @@ const productsData: Record<string, {
   },
   "emerald-global": {
     name: "Emerald Global",
-    tagline: "Comprehensive Global Healthcare Solutions",
-    description: "Our most comprehensive solution for healthcare organizations seeking excellence in care delivery and operational efficiency on a global scale. Emerald Global combines all our premium services with expanded international support.",
+    tagline: "Comprehensive Global Solutions",
+    description: "Our most comprehensive solution for organizations seeking excellence in clear delivery and operational efficiency.",
     icon: Gem,
     color: "from-emerald-600 to-emerald-600",
     bgColor: "bg-emerald",
@@ -361,7 +361,7 @@ export default function ProductDetailPage() {
             Ready to Get Started with {product.name}?
           </h2>
           <p className="text-white/70 mb-8 text-lg">
-            Subscribe today and transform your healthcare organization's operations.
+            Subscribe today and transform your organization's operations.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 

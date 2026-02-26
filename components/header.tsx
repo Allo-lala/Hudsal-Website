@@ -25,7 +25,7 @@ const navItems = [
   { name: "OUR INSIGHTS", href: "/", hasDropdown: false },
   { name: "ABOUT HADSUL", href: "/story", hasDropdown: false },
   { name: "WHAT WE DO", href: "/services", hasDropdown: false },
-  { name: "INDUSTRIES", href: "/industries", hasDropdown: false },
+  // { name: "INDUSTRIES", href: "/industries", hasDropdown: false },
   // { name: "CAREERS", href: "/careers", hasDropdown: false },
   { name: " OUR PRODUCTS", href: "/products", hasDropdown: false },
   { 

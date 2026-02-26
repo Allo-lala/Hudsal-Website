@@ -26,6 +26,7 @@ const products = [
     color: "from-amber-600 to-amber-600",
     bgColor: "bg-amber-500",
     description: "Flexible support when you need it most. Operate without restrictive long-term commitments while getting expert oversight and staffing support.",
+    subscriptionDescription: "With Gold On Demand, we do it for you. Get expert support and staffing solutions without long-term commitments, allowing you to focus on what matters most.",
     highlights: [
       "Free Business Health Check",
       "Free Workforce & Rota Stress Index",
@@ -47,6 +48,7 @@ const products = [
     color: "from-slate-500 to-slate-500",
     bgColor: "bg-slate-400",
     description: "Leadership demands more than effort. Get your external strategic intelligence unit with continuous insight and proactive governance.",
+    subscriptionDescription: "With Platinum Selection, we do it with you. Partner with our strategic intelligence unit for continuous insight, proactive governance, and collaborative excellence.",
     highlights: [
       "All Gold On Demand Features",
       // "Free Leadership Pressure Tracking",
@@ -70,7 +72,8 @@ const products = [
     image: "/images/below/emerald.png",
     color: "from-emerald-600 to-emerald-600",
     bgColor: "bg-emerald",
-    description: "Our comprehensive global solution for healthcare organizations seeking excellence in care delivery and operational efficiency.",
+    description: "Our comprehensive global solution for organizations seeking excellence and clear delivery and operational efficiency.",
+    subscriptionDescription: "With Emerald Global, we do it for you. Experience our comprehensive global solution with complete operational excellence and efficiency delivered by our expert team.",
     highlights: [
       "All Platinum Selection Features",
       "This is pending",
@@ -84,7 +87,8 @@ const products = [
     image: "/images/below/hadsul.png",
     color: "from-emerald-800 to-emerald-800",
     bgColor: "bg-emerald-dark",
-    description: "The ultimate partnership for healthcare facilities seeking complete operational transformation and long-term success.",
+    description: "The ultimate partnership for Organizations seeking complete operational transformation and long-term success.",
+    subscriptionDescription: "With Hadsul House, we deliver something even better. The ultimate partnership for complete operational transformation, long-term success, and unparalleled excellence.",
     highlights: [
       "All Hadsul Features",
       "On-site Support Available",
@@ -148,7 +152,7 @@ export default function ProductsPage() {
           {/* Products Grid - Spotify-style cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {products.map((product, index) => {
-              const isRecommended = index === 2; // Emerald Global as recommended
+              const isRecommended = index === 2; // Emerald Global recommended
               return (
                 <div 
                   key={product.id}
@@ -158,7 +162,7 @@ export default function ProductsPage() {
                 >
                   {/* Product Name Badge at Top */}
                   <div className={`absolute top-0 left-0 right-0 text-white text-center py-2 text-sm font-medium z-10 ${
-                    index === 0 ? 'bg-[#facc15]' : // color for God on demand, I need to change it to gold from yellow
+                    index === 0 ? 'bg-[#d9b85d]' : // color for God on demand, I need to change it to gold from yellow
                     index === 1 ? 'bg-slate-500' : 
                     index === 2 ? 'bg-emerald' : 
                     'bg-emerald-800'
@@ -206,7 +210,7 @@ export default function ProductsPage() {
 
                     {/* CTA */}
                     <Button 
-                      onClick={() => handleSubscribeClick(product.name, product.description)}
+                      onClick={() => handleSubscribeClick(product.name, product.subscriptionDescription)}
                       className={`w-full rounded-full transition-all ${
                         isRecommended 
                           ? 'bg-emerald hover:bg-emerald-dark text-white shadow-lg' 
@@ -257,7 +261,7 @@ export default function ProductsPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { title: "Expert Oversight", description: "Get professional support and guidance from healthcare industry experts." },
+              { title: "Expert Oversight", description: "Get professional support and guidance from industry experts." },
               { title: "Flexible Commitment", description: "Choose plans that work for you, with no restrictive long-term contracts." },
               { title: "Continuous Support", description: "Round-the-clock assistance when operational pressure requires expert help." },
             ].map((item) => (
