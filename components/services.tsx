@@ -258,11 +258,11 @@ export function Services() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/business-x-ray">
+            <a href="/business-xray">
               <Button className="bg-emerald hover:bg-[#20bd5a] text-white rounded-full px-8 py-3 font-semibold shadow-lg hover:shadow-xl transition-all">
                 Business X-Ray
               </Button>
-            </Link>
+            </a>
             <Link href="/contact">
               <Button variant="outline" className="border-[#20bd5a] hover:bg-[#20bd5a] text-black hover:text-white rounded-full px-8 py-3 font-semibold">
                 Enquire

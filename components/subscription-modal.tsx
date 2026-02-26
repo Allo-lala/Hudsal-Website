@@ -20,6 +20,8 @@ interface SubscriptionModalProps {
 export function SubscriptionModal({ isOpen, onClose, productName, productDescription }: SubscriptionModalProps) {
   const [step, setStep] = useState<"info" | "form" | "success">("info");
   const [acceptedTerms, setAcceptedTerms] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -40,9 +42,37 @@ export function SubscriptionModal({ isOpen, onClose, productName, productDescrip
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setStep("success");
+    setIsSubmitting(true);
+    setErrorMessage("");
+
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          productName,
+          productDescription,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setStep("success");
+      } else {
+        setErrorMessage(data.message || 'Failed to submit subscription. Please try again.');
+      }
+    } catch (error) {
+      console.error('Subscription error:', error);
+      setErrorMessage('An error occurred. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleClose = () => {
@@ -117,7 +147,7 @@ export function SubscriptionModal({ isOpen, onClose, productName, productDescrip
                   <Link href="/privacy" className="text-emerald hover:underline" target="_blank">
                     Privacy Policy
                   </Link>{" "}
-                  for Hudsal.
+                  for Hadsul.
                 </Label>
               </div>
             </div>
@@ -145,6 +175,12 @@ export function SubscriptionModal({ isOpen, onClose, productName, productDescrip
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
+              {errorMessage && (
+                <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
+                  {errorMessage}
+                </div>
+              )}
+
               <div>
                 <Label htmlFor="name">Full Name *</Label>
                 <Input
@@ -226,9 +262,10 @@ export function SubscriptionModal({ isOpen, onClose, productName, productDescrip
 
               <Button 
                 type="submit"
-                className="w-full bg-emerald hover:bg-emerald-dark text-white rounded-full mt-6"
+                disabled={isSubmitting}
+                className="w-full bg-emerald hover:bg-emerald-dark text-white rounded-full mt-6 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Submit Subscription
+                {isSubmitting ? 'Submitting...' : 'Submit Subscription'}
               </Button>
             </form>
           </div>
@@ -243,7 +280,7 @@ export function SubscriptionModal({ isOpen, onClose, productName, productDescrip
               Subscription Submitted!
             </h2>
             <p className="text-muted-foreground mb-6">
-              Thank you for subscribing to {productName}. Our team will review your application and contact you shortly.
+              Thank you for subscribing to {productName}. We will review your application and contact you shortly.
             </p>
             <Button 
               onClick={handleClose}

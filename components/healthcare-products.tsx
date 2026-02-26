@@ -65,8 +65,8 @@ const products = [
     category: " ",
     // price: "£22.99",
     reference: "FS001",
-    image: "/images/products/face-shield.jpeg",
-    hoverImage: "/images/products/face-shield-detail.jpeg",
+    image: "/images/products/face-shield.png",
+    hoverImage: "/images/products/face-shield-detail.png",
   },
   {
     id: 8,
@@ -75,7 +75,7 @@ const products = [
     // price: "£18.99",
     reference: "WI001",
     image: "/images/products/wipes.png",
-    hoverImage: "/images/products/aprons-detail.jpeg",
+    hoverImage: "/images/products/wipes-detail.png",
   },
   {
     id: 9,

@@ -1,10 +1,13 @@
-import Link from "next/link";
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { PageHeader } from "@/components/page-header";
 import { Button } from "@/components/ui/button";
+import { SubscriptionModal } from "@/components/subscription-modal";
 import { 
-  // Sparkles, 
   ArrowRight, 
   Crown, 
   Diamond, 
@@ -14,16 +17,12 @@ import {
   Phone,
 } from "lucide-react";
 
-export const metadata = {
-  title: "Products",
-  // description: "Explore our subscription products: Gold On Demand, Platinum Selection, Emerald Global, and Hudsal House.",
-};
-
 const products = [
   {
     id: "gold-on-demand",
     name: "Gold On Demand",
     icon: Crown,
+    image: "/images/below/gold.png",
     color: "from-amber-600 to-amber-600",
     bgColor: "bg-amber-500",
     description: "Flexible support when you need it most. Operate without restrictive long-term commitments while getting expert oversight and staffing support.",
@@ -44,6 +43,7 @@ const products = [
     id: "platinum-selection",
     name: "Platinum Selection",
     icon: Diamond,
+    image: "/images/below/platinum.png",
     color: "from-slate-500 to-slate-500",
     bgColor: "bg-slate-400",
     description: "Leadership demands more than effort. Get your external strategic intelligence unit with continuous insight and proactive governance.",
@@ -67,6 +67,7 @@ const products = [
     id: "emerald-global",
     name: "Emerald Global",
     icon: Gem,
+    image: "/images/below/emerald.png",
     color: "from-emerald-600 to-emerald-600",
     bgColor: "bg-emerald",
     description: "Our comprehensive global solution for healthcare organizations seeking excellence in care delivery and operational efficiency.",
@@ -80,6 +81,7 @@ const products = [
     id: "hudsal-house",
     name: "Hadsul House",
     icon: Home,
+    image: "/images/below/hadsul.png",
     color: "from-emerald-800 to-emerald-800",
     bgColor: "bg-emerald-dark",
     description: "The ultimate partnership for healthcare facilities seeking complete operational transformation and long-term success.",
@@ -92,14 +94,38 @@ const products = [
 ];
 
 export default function ProductsPage() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState<{
+    name: string;
+    description: string;
+  } | null>(null);
+
+  const handleSubscribeClick = (productName: string, productDescription: string) => {
+    setSelectedProduct({ name: productName, description: productDescription });
+    setIsModalOpen(true);
+  };
+
   return (
     <main>
       <Header />
       <PageHeader 
         badge="  " 
         title="Subscription Products"
-        description="Choose the perfect subscription plan for your healthcare organization. Flexible solutions designed to meet your operational needs."
+        description="Choose the perfect subscription plan for your organization. Flexible solutions for a Return On Investments."
       />
+
+      {/* Subscription Modal */}
+      {selectedProduct && (
+        <SubscriptionModal
+          isOpen={isModalOpen}
+          onClose={() => {
+            setIsModalOpen(false);
+            setSelectedProduct(null);
+          }}
+          productName={selectedProduct.name}
+          productDescription={selectedProduct.description}
+        />
+      )}
 
       {/* Products Section - Spotify-style single screen layout */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
@@ -122,36 +148,42 @@ export default function ProductsPage() {
           {/* Products Grid - Spotify-style cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {products.map((product, index) => {
-              const Icon = product.icon;
               const isRecommended = index === 2; // Emerald Global as recommended
               return (
                 <div 
                   key={product.id}
-                  className={`relative bg-card border rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 ${
+                  className={`group relative bg-card border rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 ${
                     isRecommended ? 'border-emerald shadow-emerald/20 scale-105' : 'border-border hover:border-emerald/30'
                   }`}
                 >
-                  {isRecommended && (
-                    <div className="absolute top-0 left-0 right-0 bg-emerald text-white text-center py-2 text-sm font-medium">
-                      Most Popular
-                    </div>
-                  )}
+                  {/* Product Name Badge at Top */}
+                  <div className={`absolute top-0 left-0 right-0 text-white text-center py-2 text-sm font-medium z-10 ${
+                    index === 0 ? 'bg-[#facc15]' : // color for God on demand, I need to change it to gold from yellow
+                    index === 1 ? 'bg-slate-500' : 
+                    index === 2 ? 'bg-emerald' : 
+                    'bg-emerald-800'
+                  }`}>
+                    {product.name}
+                  </div>
                   
-                  {/* Header */}
-                  <div className={`bg-gradient-to-r ${product.color} p-6 ${isRecommended ? 'pt-12' : ''}`}>
-                    <div className="text-center">
-                      <div className="w-16 h-16 rounded-full backdrop-blur flex items-center justify-center mx-auto mb-4">
-                        <Icon className="w-8 h-8 text-white" />
-                      </div>
-                      <h3 className="text-xl font-bold text-white mb-2">
-                        {product.name}
-                      </h3>
-                      <div className="text-white/90 text-sm">
+                  {/* Image Header */}
+                  <div className="relative h-48 overflow-hidden mt-10">
+                    <Image
+                      src={product.image}
+                      alt={product.name}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    
+                    {/* Price Overlay - Slides in on hover */}
+                    <div className="absolute bottom-0 left-0 right-0 p-4 text-center translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                      <div className="text-white/90 text-xs">
                         Starting from
                       </div>
-                      <div className="text-3xl font-bold text-white">
+                      <div className="text-2xl font-bold text-white">
                         £{index === 0 ? '99' : index === 1 ? '199' : index === 2 ? '299' : '499'}
-                        <span className="text-lg font-normal">/month</span>
+                        <span className="text-sm font-normal">/month</span>
                       </div>
                     </div>
                   </div>
@@ -173,18 +205,17 @@ export default function ProductsPage() {
                     </ul>
 
                     {/* CTA */}
-                    <Link href={`/products/${product.id}`}>
-                      <Button 
-                        className={`w-full rounded-full transition-all ${
-                          isRecommended 
-                            ? 'bg-emerald hover:bg-emerald-dark text-white shadow-lg' 
-                            : 'bg-emerald/10 hover:bg-emerald hover:text-white text-emerald border border-emerald/20'
-                        }`}
-                      >
-                        {isRecommended ? 'Get Started' : 'Learn More'}
-                        <ArrowRight className="w-4 h-4 ml-2" />
-                      </Button>
-                    </Link>
+                    <Button 
+                      onClick={() => handleSubscribeClick(product.name, product.description)}
+                      className={`w-full rounded-full transition-all ${
+                        isRecommended 
+                          ? 'bg-emerald hover:bg-emerald-dark text-white shadow-lg' 
+                          : 'bg-emerald/10 hover:bg-emerald hover:text-white text-emerald border border-emerald/20'
+                      }`}
+                    >
+                      Subscribe
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </Button>
                   </div>
                 </div>
               );
@@ -251,10 +282,12 @@ export default function ProductsPage() {
           <p className="text-white/70 mb-8 text-lg">
             Our team is here to help you choose the perfect subscription for your organization.
           </p>
-          <Button className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-8 py-3">
-            <Phone className="w-5 h-5 mr-2" />
-            Contact Our Team
+          <a href="/business-xray" className="inline-block">
+          <Button  className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-8 py-3">
+            {/* <Phone className="w-5 h-5 mr-2" /> */}
+            Take Assesement
           </Button>
+          </a>
         </div>
       </section>
 

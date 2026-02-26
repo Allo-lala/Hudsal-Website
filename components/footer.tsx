@@ -333,6 +333,7 @@ export function Footer() {
                   href="https://wa.me/447399483885"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => setShowChatOptions(false)}
                   className="flex items-center gap-3 p-3 rounded-lg hover:bg-emerald/10 transition-all group"
                 >
                   <div className="w-10 h-10 bg-[#25D366] rounded-full flex items-center justify-center">
@@ -348,6 +349,7 @@ export function Footer() {
                 {/* Email Option */}
                 <a
                   href="mailto:info@hadsul.co.uk"
+                  onClick={() => setShowChatOptions(false)}
                   className="flex items-center gap-3 p-3 rounded-lg hover:bg-emerald/10 transition-all group"
                 >
                   <div className="w-10 h-10 bg-emerald rounded-full flex items-center justify-center">
@@ -363,6 +365,7 @@ export function Footer() {
                   href="https://www.linkedin.com/company/hadsul"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => setShowChatOptions(false)}
                   className="flex items-center gap-3 p-3 rounded-lg hover:bg-emerald/10 transition-all group"
                 >
                   <div className="w-10 h-10 bg-[#0A66C2] rounded-full flex items-center justify-center">
@@ -380,6 +383,7 @@ export function Footer() {
                   href="https://www.instagram.com/hadsulltd"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => setShowChatOptions(false)}
                   className="flex items-center gap-3 p-3 rounded-lg hover:bg-emerald/10 transition-all group"
                 >
                   <div className="w-10 h-10 bg-gradient-to-br from-[#833AB4] via-[#FD1D1D] to-[#F77737] rounded-full flex items-center justify-center">
@@ -397,6 +401,7 @@ export function Footer() {
                   href="https://x.com/hadsulltd"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => setShowChatOptions(false)}
                   className="flex items-center gap-3 p-3 rounded-lg hover:bg-emerald/10 transition-all group"
                 >
                   <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center">
@@ -414,6 +419,7 @@ export function Footer() {
                   href="https://www.facebook.com/hadsulltd"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => setShowChatOptions(false)}
                   className="flex items-center gap-3 p-3 rounded-lg hover:bg-emerald/10 transition-all group"
                 >
                   <div className="w-10 h-10 bg-[#1877F2] rounded-full flex items-center justify-center">
@@ -428,7 +434,10 @@ export function Footer() {
 
                 {/* Back to Top Option */}
                 <button
-                  onClick={scrollToTop}
+                  onClick={() => {
+                    scrollToTop();
+                    setShowChatOptions(false);
+                  }}
                   className="flex items-center gap-3 p-3 rounded-lg hover:bg-emerald/10 transition-all group w-full text-left"
                 >
                   <div className="w-10 h-10 bg-emerald rounded-full flex items-center justify-center">

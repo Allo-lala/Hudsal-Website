@@ -66,64 +66,72 @@ export function AwardsSection() {
   const duplicatedAwards = [...awards, ...awards, ...awards];
 
   return (
-    <section className="py-12 bg-[#1a2e1a] overflow-hidden">
-      <div className="max-w-full">
-        {/* Infinite Scrolling Awards - Full Width */}
-        <div className="relative mb-6">
-          {/* Gradient Overlays for smooth edges */}
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#1a2e1a] to-transparent z-10 pointer-events-none"></div>
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#1a2e1a] to-transparent z-10 pointer-events-none"></div>
-          
-          {/* Scrolling Container - Full Screen Width */}
-          <div className="overflow-hidden py-4">
-            <div className="flex animate-scroll-left items-center whitespace-nowrap">
-              {duplicatedAwards.map((award, index) => (
-                <div
-                  key={`${award.id}-${index}`}
-                  className="flex-shrink-0 mx-8 group"
-                >
-                  <div className="flex items-center justify-center hover:scale-110 transition-all duration-300">
-                    {/* Award Logo */}
-                    <Image
-                      src={award.logo}
-                      alt={`${award.organization} award`}
-                      width={80}
-                      height={80}
-                      className="object-contain filter brightness-0 invert"
-                    />
+    <>
+      {/* Section Title - Outside dark background */}
+      <section className="py-12 bg-background px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-7xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            Our Partners
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto px-4">
+            Trusted by leading organizations in healthcare and beyond
+          </p>
+        </div>
+      </section>
+
+      {/* Partners Slider - Dark background */}
+      <section className="py-12 bg-[#1a2e1a] overflow-hidden">
+        <div className="max-w-full">
+          {/* Infinite Scrolling Awards - Full Width */}
+          <div className="relative">
+            {/* Gradient Overlays for smooth edges */}
+            <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#1a2e1a] to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#1a2e1a] to-transparent z-10 pointer-events-none"></div>
+            
+            {/* Scrolling Container - Full Screen Width */}
+            <div className="overflow-hidden py-4">
+              <div className="flex animate-scroll-left items-center whitespace-nowrap">
+                {duplicatedAwards.map((award, index) => (
+                  <div
+                    key={`${award.id}-${index}`}
+                    className="flex-shrink-0 mx-8 group"
+                  >
+                    <div className="flex items-center justify-center hover:scale-110 transition-all duration-300">
+                      {/* Award Logo */}
+                      <Image
+                        src={award.logo}
+                        alt={`${award.organization} award`}
+                        width={80}
+                        height={80}
+                        className="object-contain filter brightness-0 invert"
+                      />
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Our Awards Button */}
-        <div className="text-center">
-            <button className="bg-white hover:bg-gray-100 text-[#1a2e1a] font-semibold px-10 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-              Our Partners
-            </button>
-        </div>
-      </div>
-
-      <style jsx>{`
-        @keyframes scroll-left {
-          0% {
-            transform: translateX(0);
+        <style jsx>{`
+          @keyframes scroll-left {
+            0% {
+              transform: translateX(0);
+            }
+            100% {
+              transform: translateX(-33.333%);
+            }
           }
-          100% {
-            transform: translateX(-33.333%);
+          
+          .animate-scroll-left {
+            animation: scroll-left 15s linear infinite;
           }
-        }
-        
-        .animate-scroll-left {
-          animation: scroll-left 15s linear infinite;
-        }
-        
-        .animate-scroll-left:hover {
-          animation-play-state: paused;
-        }
-      `}</style>
-    </section>
+          
+          .animate-scroll-left:hover {
+            animation-play-state: paused;
+          }
+        `}</style>
+      </section>
+    </>
   );
 }

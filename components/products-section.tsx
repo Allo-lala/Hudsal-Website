@@ -11,25 +11,25 @@ const products = [
   {
     id: 1,
     name: "Gold on Demand",
-    image: "/images/below/two.avif",
+    image: "/images/below/gold.png",
     position: "top-left"
   },
   {
     id: 2,
     name: "Platinum Selection",
-    image: "/images/below/four.avif",
+    image: "/images/below/platinum.png",
     position: "top-right"
   },
   {
     id: 3,
     name: "Emerald Global",
-    image: "/images/below/two.avif",
+    image: "/images/below/emerald.png",
     position: "bottom-left"
   },
   {
     id: 4,
     name: "Hadsul House",
-    image: "/images/below/four.avif",
+    image: "/images/below/hadsul.png",
     position: "bottom-right",
     hasCrown: true
   }
