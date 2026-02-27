@@ -49,7 +49,7 @@ export function ProductsSection() {
               className={`absolute w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 cursor-pointer ${
                 product.position === "top-left" ? "top-0 left-0" :
                 product.position === "top-right" ? "top-0 right-0" :
-                product.position === "bottom-left" ? "bottom-0 left-0" :
+                product.position === "bottom-left" ? "-bottom-12 left-0" :
                 "bottom-0 right-0"
               }`}
             >
