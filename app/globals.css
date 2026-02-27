@@ -289,12 +289,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #10b981;
+  background: #00422c;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #059669;
+  background: #005339;
 }
 /* Awards Section Infinite Scroll Animation */
 @keyframes scroll-left {

@@ -8,16 +8,17 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
-import { X, ArrowRight, CheckCircle } from "lucide-react";
+import { X, ArrowRight, CheckCircle, Crown, Diamond, Gem, Home } from "lucide-react";
 
 interface SubscriptionModalProps {
   isOpen: boolean;
   onClose: () => void;
   productName: string;
   productDescription: string;
+  productIcon?: React.ComponentType<{ className?: string }>;
 }
 
-export function SubscriptionModal({ isOpen, onClose, productName, productDescription }: SubscriptionModalProps) {
+export function SubscriptionModal({ isOpen, onClose, productName, productDescription, productIcon }: SubscriptionModalProps) {
   const [step, setStep] = useState<"info" | "form" | "success">("info");
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -30,6 +31,9 @@ export function SubscriptionModal({ isOpen, onClose, productName, productDescrip
     designation: "",
     registrationNumber: "",
   });
+
+  // Get the appropriate icon
+  const IconComponent = productIcon || CheckCircle;
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -114,7 +118,7 @@ export function SubscriptionModal({ isOpen, onClose, productName, productDescrip
           <div className="p-8">
             <div className="text-center mb-6">
               <div className="w-16 h-16 rounded-full bg-emerald/10 flex items-center justify-center mx-auto mb-4">
-                <CheckCircle className="w-8 h-8 text-emerald" />
+                <IconComponent className="w-8 h-8 text-emerald" />
               </div>
               <h2 className="text-2xl font-bold text-foreground mb-2">
                 Subscribe to {productName}
@@ -274,7 +278,7 @@ export function SubscriptionModal({ isOpen, onClose, productName, productDescrip
         {step === "success" && (
           <div className="p-8 text-center">
             <div className="w-20 h-20 rounded-full bg-emerald/10 flex items-center justify-center mx-auto mb-6">
-              <CheckCircle className="w-10 h-10 text-emerald" />
+              <IconComponent className="w-10 h-10 text-emerald" />
             </div>
             <h2 className="text-2xl font-bold text-foreground mb-2">
               Subscription Submitted!

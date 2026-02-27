@@ -22,7 +22,7 @@ const products = [
     id: "gold-on-demand",
     name: "Gold On Demand",
     icon: Crown,
-    image: "/images/below/gold.png",
+    image: "/images/below/goldpro.png",
     color: "from-amber-600 to-amber-600",
     bgColor: "bg-amber-500",
     description: "Flexible support when you need it most. Operate without restrictive long-term commitments while getting expert oversight and staffing support.",
@@ -44,7 +44,7 @@ const products = [
     id: "platinum-selection",
     name: "Platinum Selection",
     icon: Diamond,
-    image: "/images/below/platinum.png",
+    image: "/images/below/platinumpro.png",
     color: "from-slate-500 to-slate-500",
     bgColor: "bg-slate-400",
     description: "Leadership demands more than effort. Get your external strategic intelligence unit with continuous insight and proactive governance.",
@@ -69,7 +69,7 @@ const products = [
     id: "emerald-global",
     name: "Emerald Global",
     icon: Gem,
-    image: "/images/below/emerald.png",
+    image: "/images/below/emeraldpro.png",
     color: "from-emerald-600 to-emerald-600",
     bgColor: "bg-emerald",
     description: "Our comprehensive global solution for organizations seeking excellence and clear delivery and operational efficiency.",
@@ -84,7 +84,7 @@ const products = [
     id: "hudsal-house",
     name: "Hadsul House",
     icon: Home,
-    image: "/images/below/hadsul.png",
+    image: "/images/below/hadsulpro.png",
     color: "from-emerald-800 to-emerald-800",
     bgColor: "bg-emerald-dark",
     description: "The ultimate partnership for Organizations seeking complete operational transformation and long-term success.",
@@ -102,10 +102,11 @@ export default function ProductsPage() {
   const [selectedProduct, setSelectedProduct] = useState<{
     name: string;
     description: string;
+    icon: React.ComponentType<{ className?: string }>;
   } | null>(null);
 
-  const handleSubscribeClick = (productName: string, productDescription: string) => {
-    setSelectedProduct({ name: productName, description: productDescription });
+  const handleSubscribeClick = (productName: string, productDescription: string, productIcon: React.ComponentType<{ className?: string }>) => {
+    setSelectedProduct({ name: productName, description: productDescription, icon: productIcon });
     setIsModalOpen(true);
   };
 
@@ -128,6 +129,7 @@ export default function ProductsPage() {
           }}
           productName={selectedProduct.name}
           productDescription={selectedProduct.description}
+          productIcon={selectedProduct.icon}
         />
       )}
 
@@ -171,12 +173,12 @@ export default function ProductsPage() {
                   </div>
                   
                   {/* Image Header */}
-                  <div className="relative h-48 overflow-hidden mt-10">
+                  <div className="relative h-48 overflow-hidden mt-10 bg-gray-100">
                     <Image
                       src={product.image}
                       alt={product.name}
                       fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      className="object-contain transition-transform duration-500 group-hover:scale-105 p-4"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                     
@@ -210,7 +212,7 @@ export default function ProductsPage() {
 
                     {/* CTA */}
                     <Button 
-                      onClick={() => handleSubscribeClick(product.name, product.subscriptionDescription)}
+                      onClick={() => handleSubscribeClick(product.name, product.subscriptionDescription, product.icon)}
                       className={`w-full rounded-full transition-all ${
                         isRecommended 
                           ? 'bg-emerald hover:bg-emerald-dark text-white shadow-lg' 

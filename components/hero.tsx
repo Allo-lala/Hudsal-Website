@@ -37,29 +37,29 @@ const slides: Slide[] = [
     title: "Streamline Operations with  Our free CRM ",
     subtitle:"Experience efficiency from AI-driven Insights, In-Built Automated Workflows, AI Features, Dashboards to Payments and much more empowering agencies.",
     buttonText: "CRM Log In",
-    href: "/contact"
+    href: "/products"
   },
   {
     id: 4,
     image: "/images/podcast.jpeg",
-    title: "Explore Books, Podcasts & Webinars",
-    subtitle:" Download E-books, order hard copies, get notified about new webinars, and catch up on our latest episodes, all in one place.",
+    title: " Books, Podcasts & Webinars",
+    subtitle:"Download E-books, order hard copies, get notified about new webinars, and catch up on our latest episodes, all in one place.",
     buttonText: "Get Started",
     href: "/#books-podcasts"
   },
   {
     id: 5,
     image: "/images/hero-care.jpg",
-    title: "Finance Consultancy Services",
-    subtitle: "Expert financial guidance to help your healthcare business thrive. From budgeting to financial planning, we provide comprehensive consultancy services.",
+    title: "Finance Consultancy",
+    subtitle: "Expert financial guidance to help your business thrive. From budgeting to financial planning, we provide comprehensive consultancy services.",
     buttonText: "Learn More",
     href: "/services/consultancy"
   },
   {
     id: 6,
     image: "/images/hero-care.jpeg",
-    title: "IT Solutions for Healthcare",
-    subtitle: "Innovative technology solutions designed to improve efficiency and enhance care quality. Transform your healthcare operations with our cutting-edge IT systems.",
+    title: "IT Solutions",
+    subtitle: "Innovative technology solutions designed to improve efficiency and enhance care quality. Transform your operations with our Streamlined systems.",
     buttonText: "Explore Solutions",
     href: "/services/it-solutions"
   },

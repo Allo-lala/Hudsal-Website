@@ -35,7 +35,7 @@ const documents = [
     description: "Ensuring safe working environments for all"
   },
   {
-    title: "Modern Slavery Statement",
+    title: "Modern Slavery Statement 2025",
     filename: "MODERN_SLAVERY_Statement.pdf",
     description: "Our stance against modern slavery and human trafficking"
   },
@@ -127,7 +127,7 @@ export default function ComplianceQualityPage() {
               Questions About Our Policies?
             </h3>
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-              If you have any questions about our compliance documents or quality standards, our team is here to help.
+              If you have any questions about our compliance documents or quality standards, we are here to help.
             </p>
             <a
               href="/contact"

@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { BecomeClientModal } from "@/components/become-client-modal";
-import { ArrowRight } from "lucide-react";
 
 const products = [
   {
@@ -132,11 +131,11 @@ export function ProductsSection() {
             {/* Main Heading */}
             <div className="mb-6 lg:mb-8">
               <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-4">
-                <span className="text-emerald">YOU'VE! And,</span>
+                <span className="text-emerald">YOU'VE DREAMS!,</span>
                 <br />
                 <span className="text-emerald">WE'VE GOT</span>
                 <br />
-                <span className="text-foreground italic text-4xl sm:text-4xl lg:text-7xl">
+                <span className="text-foreground text-4xl sm:text-4xl lg:text-7xl">
                    Vision &  Path
                   {/* <br />
                   the path */}

@@ -15,7 +15,7 @@ const climateImages = [
   {
     id: 2,
     src: "/images/climate/coott.jpg",
-    title: "Water",
+    title: "Clean Water",
     description: " "
   },
   {
@@ -27,19 +27,19 @@ const climateImages = [
   {
     id: 4,
     src: "/images/climate/climate.jpg",
-    title: "Wildlife ",
+    title: "Sustainability ",
     description: " "
   },
   {
     id: 5,
     src: "/images/climate/rubbish.jpg",
-    title: " ",
+    title: "Clean Water",
     description: " "
   },
   {
     id: 6,
     src: "/images/climate/change.jpg",
-    title: "",
+    title: "Waste Management ",
     description: " "
   }
 ];

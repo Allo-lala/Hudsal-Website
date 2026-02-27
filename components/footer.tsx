@@ -5,7 +5,7 @@ import React from "react"
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUp, Send, MessageCircle, Mail, Bot } from "lucide-react";
+import { ArrowUp, Send, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { SuccessToast } from "@/components/success-toast";
@@ -467,11 +467,6 @@ export function Footer() {
               height={56}
               className="w-14 h-14 relative z-10"
             />
-            
-            {/* Notification dot */}
-            <div className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 rounded-full flex items-center justify-center animate-pulse z-20">
-              <span className="text-xs text-white font-bold">7</span>
-            </div>
           </div>
         </div>
       )}
