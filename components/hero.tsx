@@ -36,7 +36,7 @@ const slides: Slide[] = [
     image: "/images/hero-care.jpg",
     title: "Streamline Operations with  Our free CRM ",
     subtitle:"Experience efficiency from AI-driven Insights, In-Built Automated Workflows, AI Features, Dashboards to Payments and much more empowering agencies.",
-    buttonText: "CRM Log In",
+    buttonText: "Log In",
     href: "/products"
   },
   {

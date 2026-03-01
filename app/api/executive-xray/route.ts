@@ -66,7 +66,7 @@ export async function POST(request: NextRequest) {
 
     await resend.emails.send({
       from: 'Executive X-Ray™ <noreply@hadsul.co.uk>',
-      to: ['allankyagulanyi8@gmail.com'],
+      to: ['info@hadsul.co.uk'],
       subject: `Executive X-Ray™ Assessment: ${qualificationData.organisationName} - ${getRiskLevel(overallScore)}`,
       html: adminEmailHtml,
     });

@@ -183,7 +183,7 @@ export default function ProductsPage() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                     
                     {/* Price Overlay - Slides in on hover */}
-                    <div className="absolute bottom-0 left-0 right-0 p-4 text-center translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                    {/* <div className="absolute bottom-0 left-0 right-0 p-4 text-center translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                       <div className="text-white/90 text-xs">
                         Starting from
                       </div>
@@ -191,7 +191,7 @@ export default function ProductsPage() {
                         £{index === 0 ? '99' : index === 1 ? '199' : index === 2 ? '299' : '499'}
                         <span className="text-sm font-normal">/month</span>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
 
                   {/* Content */}

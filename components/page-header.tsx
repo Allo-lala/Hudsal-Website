@@ -12,9 +12,9 @@ export function PageHeader({ badge, title, description }: PageHeaderProps) {
   return (
     <section className="relative bg-[#1a2e1a] dark:bg-[#0f1a0f] pt-32 pb-20 overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
+      {/* <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,#25D366_0%,transparent_50%)]" />
-      </div>
+      </div> */}
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Badge */}
