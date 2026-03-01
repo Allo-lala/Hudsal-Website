@@ -5,6 +5,7 @@ import { Analytics } from '@vercel/analytics/next'
 import { LoadingProvider } from '@/components/loading-provider'
 import './globals.css'
 
+
 const poppins = localFont({
   src: [
     {

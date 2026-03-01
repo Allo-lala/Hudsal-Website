@@ -154,23 +154,36 @@ export default function ProductsPage() {
           {/* Products Grid - Spotify-style cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {products.map((product, index) => {
-              const isRecommended = index === 2; // Emerald Global recommended
+              const isRecommended = index === 3; // Hadsul House recommended (index 3)
               return (
-                <div 
-                  key={product.id}
-                  className={`group relative bg-card border rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 ${
-                    isRecommended ? 'border-emerald shadow-emerald/20 scale-105' : 'border-border hover:border-emerald/30'
-                  }`}
-                >
-                  {/* Product Name Badge at Top */}
-                  <div className={`absolute top-0 left-0 right-0 text-white text-center py-2 text-sm font-medium z-10 ${
-                    index === 0 ? 'bg-[#d9b85d]' : // color for God on demand, I need to change it to gold from yellow
-                    index === 1 ? 'bg-slate-500' : 
-                    index === 2 ? 'bg-emerald' : 
-                    'bg-emerald-800'
-                  }`}>
-                    {product.name}
-                  </div>
+                <div key={product.id} className="relative">
+                  {/* Crown for Hadsul House - positioned relative to the container, not the card */}
+                  {index === 3 && (
+                    <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 z-30">
+                      <Image
+                        src="/images/below/crown.avif"
+                        alt="Crown"
+                        width={50}
+                        height={50}
+                        className="object-contain animate-pulse"
+                      />
+                    </div>
+                  )}
+
+                  <div 
+                    className={`group relative bg-card border rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 ${
+                      isRecommended ? 'border-emerald shadow-emerald/20 scale-105 mt-8' : 'border-border hover:border-emerald/30'
+                    }`}
+                  >
+                    {/* Product Name Badge at Top */}
+                    <div className={`absolute top-0 left-0 right-0 text-white text-center py-2 text-sm font-medium z-10 ${
+                      index === 0 ? 'bg-[#d9b85d]' : // color for God on demand, I need to change it to gold from yellow
+                      index === 1 ? 'bg-slate-500' : 
+                      index === 2 ? 'bg-emerald' : 
+                      'bg-emerald-800'
+                    }`}>
+                      {product.name}
+                    </div>
                   
                   {/* Image Header */}
                   <div className="relative h-48 overflow-hidden mt-10 bg-gray-100">
@@ -223,6 +236,7 @@ export default function ProductsPage() {
                       <ArrowRight className="w-4 h-4 ml-2" />
                     </Button>
                   </div>
+                </div>
                 </div>
               );
             })}
