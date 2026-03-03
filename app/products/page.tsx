@@ -26,8 +26,8 @@ const products = [
     image: "/images/below/goldpro.png",
     color: "from-amber-600 to-amber-600",
     bgColor: "bg-amber-500",
-    description: "Flexible support when you need it most. Operate without restrictive long-term commitments while getting expert oversight and staffing support.",
-    subscriptionDescription: "With Gold On Demand, we do it for you. Get expert support and staffing solutions without long-term commitments, allowing you to focus on what matters most.",
+    description: "Operate without restrictive long-term commitments",
+    subscriptionDescription: "Gold On Demand is a Do-It-Yourself (DIY) package for those with full control but need expert support on standby. Operate as you wish and only use Hadsul when needed. Zero contracts, free pressure mapping, with last-minute support.",
     highlights: [
       "Free Business Health Check",
       "Free Workforce & Rota Stress Index",
@@ -48,8 +48,8 @@ const products = [
     image: "/images/below/platinumpro.png",
     color: "from-slate-500 to-slate-500",
     bgColor: "bg-slate-400",
-    description: "Leadership demands more than effort. Get your external strategic intelligence unit with continuous insight and proactive governance.",
-    subscriptionDescription: "With Platinum Selection, we do it with you. Partner with our strategic intelligence unit for continuous insight, proactive governance, and collaborative excellence.",
+    description: "Get external strategic intelligence with continuous insights.",
+    subscriptionDescription: "With Platinum Selection, we Do It With You (DWY). You work side-by-side with Hadsul’s strategic intelligence unit, gaining continuous insight, proactive governance, and guided operational support. Together, we elevate with collaborative precision and ongoing expert oversight.",
     highlights: [
       "All Gold On Demand Features",
       // "Free Leadership Pressure Tracking",
@@ -73,8 +73,8 @@ const products = [
     image: "/images/below/emeraldpro.png",
     color: "from-emerald-600 to-emerald-600",
     bgColor: "bg-emerald",
-    description: "Our comprehensive global solution for organizations seeking excellence and clear delivery and operational efficiency.",
-    subscriptionDescription: "With Emerald Global, we do it for you. Experience our comprehensive global solution with complete operational excellence and efficiency delivered by our expert team.",
+    description: "Get outstanding results completely stress-free",
+    subscriptionDescription: "With Emerald Global, we Do It For You (DFY). Hadsul takes full ownership of operations—delivering a completely stress-free experience engineered for outstanding results without you lifting a finger.",
     highlights: [
       "All Platinum Selection Features",
       "This is pending",
@@ -88,10 +88,10 @@ const products = [
     image: "/images/below/hadsulpro.png",
     color: "from-emerald-800 to-emerald-800",
     bgColor: "bg-emerald-dark",
-    description: "The ultimate partnership for Organizations seeking complete operational transformation and long-term success.",
-    subscriptionDescription: "With Hadsul House, we deliver something even better. The ultimate partnership for complete operational transformation, long-term success, and unparalleled excellence.",
+    description: "This is a, reserved, private and an invitation-only.",
+    subscriptionDescription: "Hadsul House is a private, invitation-only service reserved for those seeking unmatched precision and operational mastery. Our senior experts take full command, delivering elite stewardship and flawless execution at every level.",
     highlights: [
-      "All Hadsul Features",
+      "All Emerald Global Features",
       "On-site Support Available",
       "This is pending",
     ],
@@ -146,11 +146,11 @@ export default function ProductsPage() {
               </span> */}
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-balance">
-              Subscription Plans for Every Need
+              Subscription Plans
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            {/* <p className="text-muted-foreground max-w-2xl mx-auto">
               From flexible on-demand support to comprehensive partnership solutions, we have the right plan for your organization.
-            </p>
+            </p> */}
           </div>
 
           {/* Products Grid - Spotify-style cards */}
@@ -234,7 +234,7 @@ export default function ProductsPage() {
                           : 'bg-emerald/10 hover:bg-emerald hover:text-white text-emerald border border-emerald/20'
                       }`}
                     >
-                      Subscribe
+                      {index === 3 ? 'Invite Only' : 'Subscribe'}
                       <ArrowRight className="w-4 h-4 ml-2" />
                     </Button>
                   </div>
@@ -281,7 +281,7 @@ export default function ProductsPage() {
             {[
               { title: "Expert Oversight", description: "Get professional support and guidance from industry experts." },
               { title: "Flexible Commitment", description: "Choose plans that work for you, with no restrictive long-term contracts." },
-              { title: "Continuous Support", description: "Round-the-clock assistance when operational pressure requires expert help." },
+              { title: "Continuous Support", description: "Rapid responses & assistance when pressure requires expert help." },
             ].map((item) => (
               <div key={item.title} className="text-center">
                 <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">

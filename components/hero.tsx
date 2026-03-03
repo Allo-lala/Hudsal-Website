@@ -41,7 +41,7 @@ const slides: Slide[] = [
   },
   {
     id: 4,
-    image: "/images/hero-care.jpeg",
+    image: "/images/podcast-books.png",
     title: " Books, Podcasts & Webinars",
     subtitle:"Download E-books, order hard copies, get notified about new webinars, and catch up on our latest episodes, all in one place.",
     buttonText: "Get Started",
