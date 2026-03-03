@@ -2,6 +2,8 @@ import Image from "next/image";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { PageHeader } from "@/components/page-header";
+import { Breadcrumbs } from "@/components/breadcrumbs";
+import { ServiceSchema } from "@/components/service-schema";
 import { Button } from "@/components/ui/button";
 import { 
   Stethoscope, 
@@ -17,8 +19,18 @@ import {
 import Link from "next/link";
 
 export const metadata = {
-  title: "Our Services ",
-  // description: "Explore Hadsul Healthcare services including healthcare staffing, residential care, nursing care, IT solutions, and professional training programs.",
+  title: "Our Services",
+  description: "Comprehensive solutions including healthcare staffing, Software & Licensing Solutions, personal protective equipment, consultancy, CRM, IT solutions, and staff training. CQC registered and NHS compliant services across the UK.",
+  keywords: ['healthcare staffing', 'healthcare consultancy', 'CRM healthcare', 'IT solutions healthcare', 'staff training', 'software licensing'],
+  alternates: {
+    canonical: 'https://hadsul.co.uk/services',
+  },
+  openGraph: {
+    title: 'Healthcare Services | Hadsul',
+    description: 'Comprehensive healthcare solutions tailored to meet diverse needs of individuals, families & agencies',
+    url: 'https://hadsul.co.uk/services',
+    images: ['/images/logo.png'],
+  },
 };
 
 const services = [
@@ -29,7 +41,7 @@ const services = [
     description: "Our experienced healthcare professionals provide routine screenings and comprehensive health assessments to ensure early detection.",
     features: ["HCA/MHA/Support Worker", "Nurses ", "Cleaners", "Team Leaders", "Kitchen Assistants "],
     href: "/services/healthcare-staffing",
-    image: "/images/services/staffing.jpg",
+    image: "/images/services/staffing.png",
   },
   {
     id: "02",
@@ -47,7 +59,7 @@ const services = [
     description: "From routine health monitoring and medication management to chronic disease support and post-hospital care services.",
     features: ["Personal Care", "Medication Support", "Companionship", "Household Tasks"],
     href: "/services/client-relationship-manager",
-    image: "/images/services/crm.webp",
+    image: "/images/services/crm.png",
   },
   {
     id: "06",
@@ -56,7 +68,7 @@ const services = [
     description: "Innovative technology solutions designed specifically for healthcare providers to improve efficiency and care quality.",
     features: ["Care Management Systems", "Digital Records", "Staff Scheduling", "Compliance Tools"],
     href: "/services/it-solutions",
-    image: "/images/services/solutions.avif",
+    image: "/images/services/it-solutions.png",
   },
   {
     id: "08",
@@ -65,7 +77,7 @@ const services = [
     description: "Comprehensive training programs for healthcare professionals, providing professional development and skill enhancement opportunities.",
     features: ["Professional Development", "Certification Programs", "Ongoing Support", "Quality Assurance"],
     href: "/services/staff-training",
-    image: "/images/services/recipite.jpg",
+    image: "/images/services/staff-training.png",
   },
   {
     id: "09",
@@ -82,12 +94,14 @@ const services = [
 export default function ServicesPage() {
   return (
     <main>
+      <ServiceSchema />
       <Header />
       <PageHeader 
         badge=" " 
         title=" Services"
         description="Comprehensive solutions tailored to meet the diverse needs of individuals, families & Agencies."
       />
+      <Breadcrumbs />
 
       {/* Services Grid */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-background">

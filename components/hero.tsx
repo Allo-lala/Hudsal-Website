@@ -17,7 +17,7 @@ interface Slide {
 const slides: Slide[] = [
   {
     id: 1,
-    image: "/images/hero-care.jpeg",
+    image: "/images/podcast.jpeg",
     title: "Join The Hadsul House",
     subtitle: "With flexible schedules and positions available across the UK, you can find a job that fits your lifestyle.",
     buttonText: "Apply Now",
@@ -33,7 +33,7 @@ const slides: Slide[] = [
   },
   {
     id: 3,
-    image: "/images/hero-care.jpg",
+    image: "/images/hero-care.png",
     title: "Streamline Operations with  Our free CRM ",
     subtitle:"Experience efficiency from AI-driven Insights, In-Built Automated Workflows, AI Features, Dashboards to Payments and much more empowering agencies.",
     buttonText: "Log In",
@@ -41,7 +41,7 @@ const slides: Slide[] = [
   },
   {
     id: 4,
-    image: "/images/podcast.jpeg",
+    image: "/images/hero-care.jpeg",
     title: " Books, Podcasts & Webinars",
     subtitle:"Download E-books, order hard copies, get notified about new webinars, and catch up on our latest episodes, all in one place.",
     buttonText: "Get Started",
@@ -49,7 +49,7 @@ const slides: Slide[] = [
   },
   {
     id: 5,
-    image: "/images/hero-care.jpg",
+    image: "/images/finance.png",
     title: "Finance Consultancy",
     subtitle: "Expert financial guidance to help your business thrive. From budgeting to financial planning, we provide comprehensive consultancy services.",
     buttonText: "Learn More",
@@ -57,7 +57,7 @@ const slides: Slide[] = [
   },
   {
     id: 6,
-    image: "/images/hero-care.jpeg",
+    image: "/images/it-solutions.png",
     title: "IT Solutions",
     subtitle: "Innovative technology solutions designed to improve efficiency and enhance care quality. Transform your operations with our Streamlined systems.",
     buttonText: "Explore Solutions",

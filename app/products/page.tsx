@@ -5,6 +5,8 @@ import Image from "next/image";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { PageHeader } from "@/components/page-header";
+import { Breadcrumbs } from "@/components/breadcrumbs";
+import { ProductSchema } from "@/components/product-schema";
 import { Button } from "@/components/ui/button";
 import { SubscriptionModal } from "@/components/subscription-modal";
 import { 
@@ -112,12 +114,14 @@ export default function ProductsPage() {
 
   return (
     <main>
+      <ProductSchema />
       <Header />
       <PageHeader 
         badge="  " 
         title="Subscription Products"
         description="Choose the perfect subscription plan for your organization. Flexible solutions for a Return On Investments."
       />
+      <Breadcrumbs />
 
       {/* Subscription Modal */}
       {selectedProduct && (
