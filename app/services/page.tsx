@@ -2,7 +2,6 @@ import Image from "next/image";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { PageHeader } from "@/components/page-header";
-import { Breadcrumbs } from "@/components/breadcrumbs";
 import { ServiceSchema } from "@/components/service-schema";
 import { Button } from "@/components/ui/button";
 import { 
@@ -101,9 +100,7 @@ export default function ServicesPage() {
         title=" Services"
         description="Comprehensive solutions tailored to meet the diverse needs of individuals, families & Agencies."
       />
-      <Breadcrumbs />
 
-      {/* Services Grid */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
