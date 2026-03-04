@@ -37,7 +37,7 @@ const services = [
     id: "01",
     icon: Stethoscope,
     title: "Healthcare Staffing",
-    description: "Our experienced healthcare professionals provide routine screenings and comprehensive health assessments to ensure early detection.",
+    description: "We supply experienced and fully vetted healthcare professionals across the United Kingdom, including but not limited to:",
     features: ["HCA/MHA/Support Worker", "Nurses ", "Cleaners", "Team Leaders", "Kitchen Assistants "],
     href: "/services/healthcare-staffing",
     image: "/images/services/staffing.png",
@@ -46,7 +46,7 @@ const services = [
     id: "02",
     icon: HeartPulse,
     title: "Consultancy",
-    description: "Professional nursing services delivered by registered nurses, providing clinical care for complex medical needs with compassion.",
+    description: "We provide expert guidance that strengthens operations, improves efficiency with ROI. Our consultancy spans key areas, including:",
     features: ["IT Consultancy ", "Financial Consultancy", "Health Care Consultancy"],
     href: "/services/consultancy",
     image: "/images/services/consult.jpg",
@@ -55,14 +55,14 @@ const services = [
     id: "04",
     icon: Activity,
     title: "Client Relationship Management (CRM)",
-    description: "From routine health monitoring and medication management to chronic disease support and post-hospital care services.",
-    features: ["Personal Care", "Medication Support", "Companionship", "Household Tasks"],
+    description: "Get a free, all-in-one CRM & simplify operations with full simple control over workflows. Centralise staff management, automate routa, streamline payments with real-time reports. A one-size-fits-all free solution built for modern care homes.",
+    features: [],
     href: "/services/client-relationship-manager",
     image: "/images/services/crm.png",
   },
   {
     id: "06",
-    icon: Laptop,
+    icon: Laptop, 
     title: "IT Solutions",
     description: "Innovative technology solutions designed specifically for healthcare providers to improve efficiency and care quality.",
     features: ["Care Management Systems", "Digital Records", "Staff Scheduling", "Compliance Tools"],
@@ -73,8 +73,8 @@ const services = [
     id: "08",
     icon: GraduationCap,
     title: "Staff Training",
-    description: "Comprehensive training programs for healthcare professionals, providing professional development and skill enhancement opportunities.",
-    features: ["Professional Development", "Certification Programs", "Ongoing Support", "Quality Assurance"],
+    description: "We provide hands-on training for new carers and professionals renewing their certificates. Whether you attained theoretical knowledge or completely new to care, we equip you with core essential skills, manual handling & workplace inductions.",
+    features: [],
     href: "/services/staff-training",
     image: "/images/services/staff-training.png",
   },
@@ -82,8 +82,8 @@ const services = [
     id: "09",
     icon: Laptop,
     title: "Software, Licensing Solutions",
-    description: "Complete software licensing and management solutions tailored for healthcare organizations and businesses.",
-    features: ["License Management", "Software Procurement", "Compliance Support", "Technical Assistance"],
+    description: "Get genuine operating systems, security tools, engineering, automotive and productivity software. Receive the right products, properly licensed, fully compliant and customer support.",
+    features: [ ],
     href: "/services/software-licensing-solutions",
     image: "/images/services/solutions.avif",
   },
@@ -113,7 +113,7 @@ export default function ServicesPage() {
               Comprehensive Solutions
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              From healthcare to Consultancy and IT solutions, we provide end-to-end  
+              From healthcare staffing to Consultancy and IT solutions, we provide end-to-end  
               services to support your sector.
             </p>
           </div>

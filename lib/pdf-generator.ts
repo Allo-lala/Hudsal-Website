@@ -251,7 +251,7 @@ export async function generateAssessmentReport(data: AssessmentData): Promise<Ui
     
     const observations = [
       'This assessment provides a structured view of your organisation\'s',
-      'governance maturity across five critical pillars.',
+      'governance maturity across the five critical pillars.',
       '',
       'Based on your results, targeted interventions may strengthen',
       'operational resilience and strategic alignment.',

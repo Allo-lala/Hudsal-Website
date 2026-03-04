@@ -48,7 +48,7 @@ const products = [
     image: "/images/below/platinumpro.png",
     color: "from-slate-500 to-slate-500",
     bgColor: "bg-slate-400",
-    description: "Get external strategic intelligence with continuous insights.",
+    description: "Get external strategic intelligence with continuous insights",
     subscriptionDescription: "With Platinum Selection, we Do It With You (DWY). You work side-by-side with Hadsul’s strategic intelligence unit, gaining continuous insight, proactive governance, and guided operational support. Together, we elevate with collaborative precision and ongoing expert oversight.",
     highlights: [
       "All Gold On Demand Features",
@@ -88,7 +88,7 @@ const products = [
     image: "/images/below/hadsulpro.png",
     color: "from-emerald-800 to-emerald-800",
     bgColor: "bg-emerald-dark",
-    description: "This is a, reserved, private and an invitation-only.",
+    description: "This is a, reserved, private and an invitation-only",
     subscriptionDescription: "Hadsul House is a private, invitation-only service reserved for those seeking unmatched precision and operational mastery. Our senior experts take full command, delivering elite stewardship and flawless execution at every level.",
     highlights: [
       "All Emerald Global Features",
