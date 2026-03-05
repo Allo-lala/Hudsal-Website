@@ -37,7 +37,7 @@ const services = [
     id: "01",
     icon: Stethoscope,
     title: "Healthcare Staffing",
-    description: "We supply experienced and fully vetted healthcare professionals across the United Kingdom, including but not limited to:",
+    description: "Experienced and fully vetted healthcare professionals across the United Kingdom, including but not limited to:",
     features: ["HCA/MHA/Support Worker", "Nurses ", "Cleaners", "Team Leaders", "Kitchen Assistants "],
     href: "/services/healthcare-staffing",
     image: "/images/services/staffing.png",
@@ -46,7 +46,7 @@ const services = [
     id: "02",
     icon: HeartPulse,
     title: "Consultancy",
-    description: "We provide expert guidance that strengthens operations, improves efficiency with ROI. Our consultancy spans key areas, including:",
+    description: "Expert guidance that strengthens operations, improves efficiency with ROI. Our consultancy spans key areas, including:",
     features: ["IT Consultancy ", "Financial Consultancy", "Health Care Consultancy"],
     href: "/services/consultancy",
     image: "/images/services/consult.jpg",
@@ -55,7 +55,7 @@ const services = [
     id: "04",
     icon: Activity,
     title: "Client Relationship Management (CRM)",
-    description: "Get a free, all-in-one CRM & simplify operations with full simple control over workflows. Centralise staff management, automate routa, streamline payments with real-time reports. A one-size-fits-all free solution built for modern care homes.",
+    description: "Free, all-in-one CRM & simplify operations with full simple control over workflows. Centralise staff management, automate Rota, streamline payments with real-time reports. A one-size-fits-all free solution built for modern care homes.",
     features: [],
     href: "/services/client-relationship-manager",
     image: "/images/services/crm.png",
@@ -64,8 +64,8 @@ const services = [
     id: "06",
     icon: Laptop, 
     title: "IT Solutions",
-    description: "Innovative technology solutions designed specifically for healthcare providers to improve efficiency and care quality.",
-    features: ["Care Management Systems", "Digital Records", "Staff Scheduling", "Compliance Tools"],
+    description: "Innovative solutions that operate smarter, faster and efficiently. From CRM systems and workflow automation to specialised diagnostic and technical software. ",
+    features: [],
     href: "/services/it-solutions",
     image: "/images/services/it-solutions.png",
   },
@@ -73,16 +73,16 @@ const services = [
     id: "08",
     icon: GraduationCap,
     title: "Staff Training",
-    description: "We provide hands-on training for new carers and professionals renewing their certificates. Whether you attained theoretical knowledge or completely new to care, we equip you with core essential skills, manual handling & workplace inductions.",
+    description: "Hands-on training for new carers and professionals renewing their certificates. Whether you attained theoretical knowledge or completely new to care, we equip you with core essential skills, manual handling & workplace inductions.",
     features: [],
     href: "/services/staff-training",
-    image: "/images/services/staff-training.png",
+    image: "/images/services/training.png",
   },
   {
     id: "09",
     icon: Laptop,
-    title: "Software, Licensing Solutions",
-    description: "Get genuine operating systems, security tools, engineering, automotive and productivity software. Receive the right products, properly licensed, fully compliant and customer support.",
+    title: "Software & Licensing Solutions",
+    description: "Genuine operating systems, security tools, engineering, automotive and productivity software. Receive the right products, properly licensed, fully compliant and customer support.",
     features: [ ],
     href: "/services/software-licensing-solutions",
     image: "/images/services/solutions.avif",
@@ -113,8 +113,8 @@ export default function ServicesPage() {
               Comprehensive Solutions
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              From healthcare staffing to Consultancy and IT solutions, we provide end-to-end  
-              services to support your sector.
+              From Healthcare staffing, Staff training to Consultancy and IT solutions. We provide end-to-end  
+              services for efficiency, compliance and growth.
             </p>
           </div>
 

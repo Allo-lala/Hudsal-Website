@@ -10,9 +10,7 @@ import Link from "next/link";
 import {
   Stethoscope,
   HeartPulse,
-  Home,
   Activity,
-  Users,
   ArrowLeft,
   ChevronDown,
   ChevronUp,
@@ -25,6 +23,8 @@ const servicesData: Record<string, {
   image: string;
   shortContent: string;
   fullContent: string;
+  ctaContent: string;
+  sidebarContent: string;
 }> = {
   "healthcare-staffing": {
     title: "Healthcare Staffing",
@@ -32,6 +32,8 @@ const servicesData: Record<string, {
     icon: Stethoscope,
     image: "/images/services/staffing.png",
     shortContent: "At Hadsul, we specialise in providing trusted, high-quality healthcare staffing solutions to organisations across the UK. We supply fully vetted & trained HCAs, MHAs, Support Workers, Nurses, Cleaners, Team Leaders, and Kitchen Assistants to care homes, supported living services, hospitals, and community-based settings.   ",
+    ctaContent: "Connect with our staffing team to discuss your specific requirements. We'll match you with qualified healthcare professionals who meet your exact needs.",
+    sidebarContent: "Professional healthcare staffing solutions tailored to your organisation's needs",
     fullContent: `At Hadsul, we specialise in providing trusted, high-quality healthcare staffing solutions to organisations across the UK. We supply fully trained HCAs, MHAs, Support Workers, Nurses, Cleaners, Team Leaders, and Kitchen Assistants to care homes, supported living services, hospitals, and community-based settings.
     
 Our commitment is simple: reliable people, exceptional care, and staffing you can trust—every time.
@@ -45,7 +47,7 @@ Compassionate and skilled staff supporting daily living, mental health needs, mo
 Registered Nurses delivering clinical excellence with professionalism, accuracy, and empathy.
 
 • Cleaners
-Hygiene specialists helping maintain safe, infection-free environments for residents, patients, and staff.
+Hygiene specialists that maintain safe, infection-free environments for residents, patients, and staff.
 
 • Team Leaders
 Experienced leaders who ensure smooth operations, quality care, and confident decision-making during every shift.
@@ -63,25 +65,25 @@ We value staff's work and support their growth. We offer competitive pay rates, 
     description: "Professional Consultancy services with Expertise",
     icon: HeartPulse,
     image: "/images/services/consult.jpg",
-    shortContent: "Every care plan is personalized to meet the unique health needs of each resident with compassion and professionalism from our registered nurses. We provide 24/7 registered nurse availability, medication management, wound care, and post-operative care.",
+    shortContent: "We provide expert consultancy services & strengthen operations, improve efficiency, and experience measurable returns on investment. Our approach focuses on making informed decisions, optimise systems, and build sustainable growth strategies. By combining leading industry insights with practical implementation. We guide through complex operational challenges with clarity and confidence.",
+    ctaContent: "Schedule a consultation with our expert advisors to explore how we can help transform your operations and drive sustainable growth.",
+    sidebarContent: "Expert guidance for IT, financial, and healthcare operational excellence",
     fullContent: `Every care plan is personalized to meet the unique health needs of each resident with compassion and professionalism from our registered nurses.
 
-Our nursing care services include:
+Our consultancy spans key areas, including:
 
-- 24/7 registered nurse availability for round-the-clock support
-- Medication management to ensure proper dosing and timing
-- Wound care and dressing with sterile techniques
-- Post-operative care for recovery after surgery
-- Chronic disease management for long-term conditions
-- End of life care support with dignity and compassion
+• IT consultancy
+For organisations implementing reliable technology systems, improving digital infrastructure, and automating operational workflows.
 
-Our nursing team consists of qualified registered nurses with extensive experience in various healthcare settings. Each nurse undergoes rigorous training and continuous professional development to stay current with best practices.
+• Financial consultancy 
+We support budgeting, financial planning, compliance, and sustainable business growth strategies.
 
-The nursing care process starts with a comprehensive assessment of your care needs. We then develop a personalized nursing care plan tailored to your specific requirements. Our nurses deliver professional care services according to the plan, and we conduct regular reviews to make adjustments as needed.
+• Healthcare consultancy 
+We guide healthcare providers in improving service delivery, regulatory compliance, and operational governance.  
 
-We believe in personalized care that respects individual needs and preferences. Our continuous monitoring ensures round-the-clock health support, while our family support services keep loved ones informed and involved in care decisions.
+Effective consultancy goes beyond recommendations—it requires collaboration, insight & ongoing support for strategies translate into real operational improvements and measurable results.
 
-Whether you need short-term nursing care during recovery or long-term support for chronic conditions, our team provides compassionate, professional care that makes a difference.`,
+Whether you require guidance on technology transformation, financial planning, or healthcare service optimisation, we provide the expertise needed to strengthen your organisation and support long-term success.`,
   },
   
   
@@ -90,25 +92,35 @@ Whether you need short-term nursing care during recovery or long-term support fo
     description: "Comprehensive health management services",
     icon: Activity,
     image: "/images/services/crm.png",
-    shortContent: "From routine health monitoring and medication management to chronic disease support and post-hospital care, we provide comprehensive health services. Our integrated approach coordinates all aspects of your health management.",
+    shortContent: "The platform has easy-to-use dashboards plus essential operational tools—staff coordination, financial management, reporting, and customer support—into one integrated environment. By reducing manual administration and improving real-time oversight, organisations can focus more on delivering quality services while maintaining efficient internal processes. ",
+    ctaContent: "Request a demo of our CRM platform and discover how it can streamline your operations with integrated tools and real-time insights.",
+    sidebarContent: "Integrated platform for staff management, reporting, and operational efficiency",
     fullContent: `From routine health monitoring and medication management to chronic disease support and post-hospital care, we provide comprehensive health services.
 
-Our health and medical care services encompass:
+Our CRM platform includes:
 
-- Chronic disease management for conditions like diabetes, heart disease, and COPD
-- Medication administration ensuring proper dosage and timing
-- Health monitoring with regular assessments and tracking
-- Rehabilitation support to help you regain strength and mobility
-- Post-hospital recovery care for smooth transition from hospital to home
-- Specialist coordination to ensure all your healthcare providers work together
+• Staff shift tracking and workforce management
 
-We take an integrated approach to health management, coordinating all aspects of your care for the best outcomes. Our expert team manages complex health conditions while providing comprehensive support during recovery periods.
+• Automated task management
 
-The process begins with a comprehensive health assessment to evaluate your current status. We then coordinate with your healthcare providers and specialists to develop a unified care approach. Treatment plans are implemented according to your specific needs, with ongoing management and monitoring to adjust care as required.
+• Integrated worker payments
 
-Our focus is always on maintaining and improving your quality of life. We understand that managing health conditions can be challenging, and our team is here to provide the support and expertise you need.
+• Real-time dashboards 
 
-Whether you are recovering from surgery, managing a chronic condition, or need ongoing health support, our health and medical care services are designed to help you live your best life.`,
+• Downloadable reports
+
+• 24/7 customer support
+
+• Secure data management & protection compliant with GDPR 
+
+• Workflow automation 
+
+• Centralised communication tools
+
+Our CRM supports care homes of different sizes, from growing to established care homes. With its modern interface, the platform adapts to operational needs while maintaining simplicity and reliability.
+
+Offload the burden of expensive monthly subscription fees with our straightforward onboarding process allowing to quickly configure staff management, workflows, and reporting structures. Once operational, the system provides real-time insights that support smarter decision-making and improved service coordination through out.`,
+
   },
   
   "it-solutions": {
@@ -117,6 +129,8 @@ Whether you are recovering from surgery, managing a chronic condition, or need o
     icon: Activity,
     image: "/images/services/it-solutions.png",
     shortContent: "We provide innovative technology solutions designed specifically for healthcare providers to improve efficiency, enhance care quality, and streamline operations across your organization.",
+    ctaContent: "Get in touch with our IT specialists to discuss custom technology solutions that will enhance your healthcare operations and improve patient care.",
+    sidebarContent: "Cutting-edge technology solutions designed for modern healthcare delivery",
     fullContent: `We provide innovative technology solutions designed specifically for healthcare providers to improve efficiency, enhance care quality, and streamline operations across your organization.
 
 Our IT solutions include:
@@ -146,6 +160,8 @@ Our commitment is to provide technology that empowers healthcare professionals, 
     icon: Activity,
     image: "/images/services/staff-training.png",
     shortContent: "We provide comprehensive training programs for healthcare professionals, offering professional development opportunities, certification programs, and ongoing support to enhance skills and ensure quality care delivery.",
+    ctaContent: "Invest in your team's development with our comprehensive training programs. Contact us to create a customized training plan for your staff.",
+    sidebarContent: "Professional development and certification programs for healthcare excellence",
     fullContent: `We provide comprehensive training programs for healthcare professionals, offering professional development opportunities, certification programs, and ongoing support to enhance skills and ensure quality care delivery.
 
 Our staff training services include:
@@ -175,6 +191,8 @@ Whether you need initial training for new staff, compliance updates for existing
     icon: Activity,
     image: "/images/services/solutions.avif",
     shortContent: "We provide complete software licensing and management solutions tailored for healthcare organizations and businesses, ensuring compliance, cost-effectiveness, and seamless software procurement and deployment.",
+    ctaContent: "Let our licensing specialists help you optimize your software portfolio and ensure compliance. Reach out for a comprehensive license audit.",
+    sidebarContent: "Cost-effective software licensing and management for healthcare organizations",
     fullContent: `We provide complete software licensing and management solutions tailored for healthcare organizations and businesses, ensuring compliance, cost-effectiveness, and seamless software procurement and deployment.
 
 Our software licensing solutions include:
@@ -301,11 +319,11 @@ export default function ServiceDetailPage() {
                   Interested in {service.title}?
                 </h3>
                 <p className="text-muted-foreground mb-4">
-                  Contact us today to learn more about how we can help you.
+                  {service.ctaContent}
                 </p>
                 <Link href="/contact">
                   <Button className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-6">
-                    Contact Us
+                    Hire Now
                   </Button>
                 </Link>
               </div>
@@ -331,7 +349,7 @@ export default function ServiceDetailPage() {
                     </div>
                     <div>
                       <h3 className="font-semibold text-foreground">{service.title}</h3>
-                      <p className="text-sm text-muted-foreground">{service.description}</p>
+                      <p className="text-sm text-muted-foreground">{service.sidebarContent}</p>
                     </div>
                   </div>
                   <Link href="/services">

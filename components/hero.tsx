@@ -17,9 +17,9 @@ interface Slide {
 const slides: Slide[] = [
   {
     id: 1,
-    image: "/images/podcast.jpeg",
+    image: "/images/hadsul-house.png",
     title: "Join The Hadsul House",
-    subtitle: "With flexible schedules and positions available across the UK, you can find a job that fits your lifestyle.",
+    subtitle: "An exclusive network for elite professionals with exceptional opportunities and unparalleled support",
     buttonText: "Apply Now",
     href: "https://forms.gle/wf62ZWLCipTd5FsV6"
   },
@@ -49,7 +49,7 @@ const slides: Slide[] = [
   },
   {
     id: 5,
-    image: "/images/finance.png",
+    image: "/images/financee.png",
     title: "Finance Consultancy",
     subtitle: "Expert financial guidance to help your business thrive. From budgeting to financial planning, we provide comprehensive consultancy services.",
     buttonText: "Learn More",
