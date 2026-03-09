@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
     console.log('Attempting to send email via Resend...');
     const { data, error } = await resend.emails.send({
       from: 'Hadsul Reviews <onboarding@resend.dev>',
-      to: ['info@hadsul.co.uk'],
+      to: ['admin@hadsul.co.uk'],
       subject: `New Review Submission - ${reviewData.rating} Stars`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">

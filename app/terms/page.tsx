@@ -12,7 +12,7 @@ export default function TermsPage() {
     <main>
       <Header />
       <PageHeader 
-        badge="Legal" 
+        badge=" " 
         title="Terms & Conditions"
         description="Please read these terms carefully before using our services."
       />
@@ -100,8 +100,8 @@ export default function TermsPage() {
               <p>6 Pelling Way</p>
               <p>Horsham, West Sussex</p>
               <p>England, RH12 3GW</p>
-              <p className="mt-4">Email: info@hadsul.co.uk</p>
-              <p>Phone: +44 (0) 73 9948 38858</p>
+              <p className="mt-4">Email: admin@hadsul.co.uk</p>
+              <p>Phone: +44 (0) 73 9948 3885 (Freephone)</p>
               <p>Phone: +44 (0) 20 7123 6616</p>
             </div>
           </div>

@@ -19,12 +19,12 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Phone Numbers",
-    details: ["+44 (0) 20 7123 6616", "+44 (0) 73 9948 38858 (Freephone)"],
+    details: ["+44 (0) 20 7123 6616", "+44 (0) 73 9948 3885 (Freephone)"],
   },
   {
     icon: Mail,
     title: "Email Address",
-    details: ["info@hadsul.co.uk"],
+    details: ["admin@hadsul.co.uk"],
   },
   {
     icon: Clock,

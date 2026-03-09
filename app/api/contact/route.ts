@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
     // Send email to admin with contact form details
     const { data, error } = await resend.emails.send({
       from: 'Hadsul Contact Form <onboarding@resend.dev>',
-      to: ['info@hadsul.co.uk'],
+      to: ['admin@hadsul.co.uk'],
       replyTo: email,
       subject: `New Contact Form: ${subject}`,
       html: `

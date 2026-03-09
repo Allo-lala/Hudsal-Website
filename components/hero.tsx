@@ -24,6 +24,30 @@ const slides: Slide[] = [
     href: "https://forms.gle/wf62ZWLCipTd5FsV6"
   },
   {
+    id: 6,
+    image: "/images/it-solutions.png",
+    title: "IT Solutions",
+    subtitle: "Innovative technology solutions designed to improve efficiency and enhance care quality. Transform your operations with our Streamlined systems.",
+    buttonText: "Explore Solutions",
+    href: "/services/it-solutions"
+  },
+  {
+    id: 5,
+    image: "/images/financee.png",
+    title: "Finance Consultancy",
+    subtitle: "Expert financial guidance to help your business thrive. From budgeting to financial planning, we provide comprehensive consultancy services.",
+    buttonText: "Learn More",
+    href: "/services/consultancy"
+  },
+   {
+    id: 8,
+    image: "/images/services/staffing.png",
+    title: " Health Care ",
+    subtitle:"Download E-books, order hard copies, get notified about new webinars, and catch up on our latest episodes, all in one place.",
+    buttonText: "Get Started",
+    href: "/#books-podcasts"
+  },
+  {
     id: 2,
     image: "/images/products.jpeg",
     title: "Get in-store experience and human connection online ",
@@ -39,30 +63,15 @@ const slides: Slide[] = [
     buttonText: "Log In",
     href: "/products"
   },
-  {
-    id: 4,
-    image: "/images/podcast-books.png",
-    title: " Books, Podcasts & Webinars",
-    subtitle:"Download E-books, order hard copies, get notified about new webinars, and catch up on our latest episodes, all in one place.",
-    buttonText: "Get Started",
-    href: "/#books-podcasts"
-  },
-  {
-    id: 5,
-    image: "/images/financee.png",
-    title: "Finance Consultancy",
-    subtitle: "Expert financial guidance to help your business thrive. From budgeting to financial planning, we provide comprehensive consultancy services.",
-    buttonText: "Learn More",
-    href: "/services/consultancy"
-  },
-  {
-    id: 6,
-    image: "/images/it-solutions.png",
-    title: "IT Solutions",
-    subtitle: "Innovative technology solutions designed to improve efficiency and enhance care quality. Transform your operations with our Streamlined systems.",
-    buttonText: "Explore Solutions",
-    href: "/services/it-solutions"
-  },
+  // {
+  //   id: 4,
+  //   image: "/images/podcast-books.png",
+  //   title: " Books, Podcasts & Webinars",
+  //   subtitle:"Download E-books, order hard copies, get notified about new webinars, and catch up on our latest episodes, all in one place.",
+  //   buttonText: "Get Started",
+  //   href: "/#books-podcasts"
+  // },
+  
   {
     id: 7,
     image: "/images/realestate.jpg",

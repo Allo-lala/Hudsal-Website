@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
     // Send email to admin with subscription details
     const { data, error } = await resend.emails.send({
       from: 'Hadsul Subscriptions <onboarding@resend.dev>',
-      to: ['info@hadsul.co.uk'],
+      to: ['admin@hadsul.co.uk'],
       replyTo: email,
       subject: `New Subscription: ${productName}`,
       html: `
@@ -160,7 +160,7 @@ export async function POST(request: NextRequest) {
             <p style="color: #374151; font-size: 14px; margin: 0 0 10px 0;">
               <strong>Need immediate assistance?</strong>
             </p>
-            <a href="mailto:info@hadsul.co.uk" style="display: inline-block; background-color: #059669; color: white; padding: 10px 20px; text-decoration: none; border-radius: 6px; font-size: 14px;">Contact Us</a>
+            <a href="mailto:admin@hadsul.co.uk" style="display: inline-block; background-color: #059669; color: white; padding: 10px 20px; text-decoration: none; border-radius: 6px; font-size: 14px;">Contact Us</a>
           </div>
 
           <hr style="border: none; border-top: 1px solid #e5e7eb; margin: 30px 0;">

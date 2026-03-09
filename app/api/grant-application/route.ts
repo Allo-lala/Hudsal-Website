@@ -100,7 +100,7 @@ export async function POST(request: NextRequest) {
     // Send email using Resend
     const emailResponse = await resend.emails.send({
       from: 'Hadsul Website <noreply@hadsul.co.uk>',
-      to: ['info@hadsul.co.uk'],
+      to: ['admin@hadsul.co.uk'],
       subject: `New Grant Application from ${name} - ${organizationName}`,
       html: htmlContent,
     });

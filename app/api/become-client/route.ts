@@ -10,7 +10,7 @@ export async function POST(request: Request) {
 
     const { data, error } = await resend.emails.send({
       from: 'Hadsul Website <onboarding@resend.dev>',
-      to: ['info@hadsul.co.uk'],
+      to: ['admin@hadsul.co.uk'],
       subject: 'New Client Request from Website',
       html: `
         <h2>New Client Request</h2>

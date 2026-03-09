@@ -50,7 +50,7 @@ export async function POST(request: NextRequest) {
           
           <p style="color: #6b7280; font-size: 14px; text-align: center; margin: 0;">
             <em>You're receiving this because you subscribed to Hadsul Newsletter</em><br>
-            <a href="mailto:info@hadsul.co.uk" style="color: #059669;">Contact us</a> if you have any questions
+            <a href="mailto:admin@hadsul.co.uk" style="color: #059669;">Contact us</a> if you have any questions
           </p>
         </div>
       `,
@@ -59,7 +59,7 @@ export async function POST(request: NextRequest) {
     // Send notification to admin
     const { data: notificationData, error: notificationError } = await resend.emails.send({
       from: 'Hadsul Newsletter <onboarding@resend.dev>',
-      to: ['info@hadsul.co.uk'],
+      to: ['admin@hadsul.co.uk'],
       subject: 'New Newsletter Subscription',
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
