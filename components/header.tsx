@@ -24,10 +24,11 @@ declare global {
 const navItems = [
   { name: "OUR INSIGHTS", href: "/", hasDropdown: false },
   { name: "ABOUT HADSUL", href: "/story", hasDropdown: false },
-  { name: "WHAT WE DO", href: "/services", hasDropdown: false },
+  { name: "WHAT WE DO", href: "/what-we-do", hasDropdown: false },
   // { name: "INDUSTRIES", href: "/industries", hasDropdown: false },
   // { name: "CAREERS", href: "/careers", hasDropdown: false },
-  { name: " OUR PRODUCTS", href: "/products", hasDropdown: false },
+  { name: "OUR SERVICES", href: "/services", hasDropdown: false },
+  { name: "OUR PRODUCTS", href: "/products", hasDropdown: false },
   { 
     name: "THE HADSUL HOUSE", 
     href: "#", 
@@ -138,6 +139,7 @@ export function Header({ variant = 'auto', isAssessmentMode = false }: HeaderPro
   // Check if we're on other pages that need header background
   const needsHeaderBackground = pathname?.includes('/contact') || 
                                pathname?.includes('/about') ||
+                               pathname?.includes('/what-we-do') ||
                                pathname?.includes('/services') ||
                                pathname?.includes('/products') ||
                                pathname?.includes('/industries') ||

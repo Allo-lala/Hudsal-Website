@@ -58,22 +58,7 @@ const services = [
       "Vehicle Diagnostics Tools, ECU Programming Software, Fleet Management Systems, Workshop & Repair Management Platforms",
     features: ["Vehicle Diagnostics Tools", "ECU Programming Software", "Fleet Management Systems", "Workshop & Repair Management Platforms"],
   },
-  {
-    id: "07",
-    title: "Flexible Licensing Options",
-    image: "/images/services/office.png",
-    description:
-      "One-Time Licenses, Monthly & Annual Subscriptions, Enterprise Contracts, Volume & Reseller Licensing, Centralized License Management",
-    features: ["One-Time Licenses", "Monthly & Annual Subscriptions", "Enterprise Contracts", "Volume & Reseller Licensing", "Centralized License Management"],
-  },
-  {
-    id: "08",
-    title: "Staff Trainings",
-    image: "/images/services/office.png",
-    description:
-      "One-Time Licenses, Monthly & Annual Subscriptions, Enterprise Contracts, Volume & Reseller Licensing, Centralized License Management",
-    features: ["One-Time Licenses", "Monthly & Annual Subscriptions", "Enterprise Contracts", "Volume & Reseller Licensing", "Centralized License Management"],
-  },
+ 
 ];
 
 // Counter component for animated numbers

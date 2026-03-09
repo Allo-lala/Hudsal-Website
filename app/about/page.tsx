@@ -250,7 +250,7 @@ export default function AboutPage() {
                 ))}
               </div>
               <Button className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-8 py-3">
-                Our Products
+                Our Services
               </Button>
             </div>
           </div>
@@ -264,7 +264,7 @@ export default function AboutPage() {
             <div className="flex items-center justify-center gap-2 mb-4">
               {/* <Sparkles className="w-4 h-4 text-emerald" /> */}
               <span className="text-emerald text-sm font-medium tracking-wider uppercase">
-                Our Services
+                What We Do
               </span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground text-balance">

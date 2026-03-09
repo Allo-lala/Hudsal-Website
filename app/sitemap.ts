@@ -13,13 +13,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: `${baseUrl}/services`,
+      url: `${baseUrl}/what-we-do`,
       lastModified: currentDate,
       changeFrequency: 'weekly' as const,
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/products`,
+      url: `${baseUrl}/services`,
       lastModified: currentDate,
       changeFrequency: 'monthly' as const,
       priority: 0.9,
@@ -103,7 +103,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ]
 
   const serviceRoutes = services.map(service => ({
-    url: `${baseUrl}/services/${service}`,
+    url: `${baseUrl}/what-we-do/${service}`,
     lastModified: currentDate,
     changeFrequency: 'monthly' as const,
     priority: 0.8,

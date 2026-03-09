@@ -45,7 +45,7 @@ export function ProductsSection() {
           {products.map((product) => (
             <Link
               key={product.id}
-              href="/products"
+              href="/services"
               className={`absolute w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 cursor-pointer ${
                 product.position === "top-left" ? "top-0 left-0" :
                 product.position === "top-right" ? "top-0 right-0" :
@@ -90,7 +90,7 @@ export function ProductsSection() {
         <div className="lg:hidden mb-12">
           <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
             {products.map((product) => (
-              <Link key={product.id} href="/products" className="relative cursor-pointer">
+              <Link key={product.id} href="/services" className="relative cursor-pointer">
                 {/* Crown for Hadsul House */}
                 {product.hasCrown && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-20">

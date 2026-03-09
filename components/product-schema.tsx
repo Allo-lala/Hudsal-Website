@@ -17,7 +17,7 @@ export function ProductSchema() {
           "price": "99",
           "priceCurrency": "GBP",
           "availability": "https://schema.org/InStock",
-          "url": "https://hadsul.co.uk/products"
+          "url": "https://hadsul.co.uk/services"
         }
       },
       {
@@ -30,7 +30,7 @@ export function ProductSchema() {
           "price": "199",
           "priceCurrency": "GBP",
           "availability": "https://schema.org/InStock",
-          "url": "https://hadsul.co.uk/products"
+          "url": "https://hadsul.co.uk/services"
         }
       },
       {
@@ -43,7 +43,7 @@ export function ProductSchema() {
           "price": "299",
           "priceCurrency": "GBP",
           "availability": "https://schema.org/InStock",
-          "url": "https://hadsul.co.uk/products"
+          "url": "https://hadsul.co.uk/services"
         }
       },
       {
@@ -56,7 +56,7 @@ export function ProductSchema() {
           "price": "499",
           "priceCurrency": "GBP",
           "availability": "https://schema.org/InStock",
-          "url": "https://hadsul.co.uk/products"
+          "url": "https://hadsul.co.uk/services"
         }
       }
     ]

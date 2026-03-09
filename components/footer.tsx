@@ -13,17 +13,17 @@ import { SuccessToast } from "@/components/success-toast";
 const quickLinks = [
   { name: "Business Xray", href: "/business-xray" },
   // { name: "Emergency Cover", href: "/about" },
-  { name: "Our Services", href: "/services" },
+  { name: "What We Do", href: "/what-we-do" },
   { name: "Compliance & Quality", href: "/compliance-quality" },
-  { name: "Products", href: "/products" },
+  { name: "Our Services", href: "/services" },
   { name: "Register as a Carer", href: "https://docs.google.com/forms/d/e/1FAIpQLSd7rFyu2Qwuc70Nv1j6FVgNAey3Ri03CAR8n6vtelqGD9C1_g/viewform" },
   { name: "Contact Us", href: "/contact" },
 ];
 
 const services = [
-  { name: "Healthcare Staffing", href: "/services" },
-  { name: "Consultancy", href: "/services" },
-  { name: "IT Solutions", href: "/services" },
+  { name: "Healthcare Staffing", href: "/what-we-do" },
+  { name: "Consultancy", href: "/what-we-do" },
+  { name: "IT Solutions", href: "/what-we-do" },
 ];
 
 const legal = [
@@ -228,9 +228,9 @@ export function Footer() {
               </ul>
             </div>
 
-            {/* Services */}
+            {/* What We Do */}
             <div>
-              <h3 className="text-lg font-semibold mb-6">Our Services</h3>
+              <h3 className="text-lg font-semibold mb-6">What We Do</h3>
               <ul className="space-y-3">
                 {services.map((service) => (
                   <li key={service.name}>

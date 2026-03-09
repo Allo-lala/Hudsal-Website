@@ -29,7 +29,7 @@ const slides: Slide[] = [
     title: "IT Solutions",
     subtitle: "Innovative technology solutions designed to improve efficiency and enhance care quality. Transform your operations with our Streamlined systems.",
     buttonText: "Explore Solutions",
-    href: "/services/it-solutions"
+    href: "/what-we-do/it-solutions"
   },
   {
     id: 5,
@@ -37,7 +37,7 @@ const slides: Slide[] = [
     title: "Finance Consultancy",
     subtitle: "Expert financial guidance to help your business thrive. From budgeting to financial planning, we provide comprehensive consultancy services.",
     buttonText: "Learn More",
-    href: "/services/consultancy"
+    href: "/what-we-do/consultancy"
   },
    {
     id: 8,
@@ -61,7 +61,7 @@ const slides: Slide[] = [
     title: "Streamline Operations with  Our free CRM ",
     subtitle:"Experience efficiency from AI-driven Insights, In-Built Automated Workflows, AI Features, Dashboards to Payments and much more empowering agencies.",
     buttonText: "Log In",
-    href: "/products"
+    href: "/services"
   },
   // {
   //   id: 4,

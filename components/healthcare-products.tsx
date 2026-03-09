@@ -270,7 +270,7 @@ export function HealthcareProducts() {
             asChild
             className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-8 py-3"
           >
-            <a href="/products">View All Products</a>
+            <a href="/services">View All Products</a>
           </Button>
         </div>
       </div>
