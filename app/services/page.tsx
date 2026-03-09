@@ -49,7 +49,7 @@ const services = [
     description: "Expert guidance that strengthens operations, improves efficiency with ROI. Our consultancy spans key areas, including:",
     features: ["IT Consultancy ", "Financial Consultancy", "Health Care Consultancy"],
     href: "/services/consultancy",
-    image: "/images/services/consult.jpg",
+    image: "/images/services/it-solutions.png",
   },
   {
     id: "04",
@@ -63,8 +63,8 @@ const services = [
   {
     id: "06",
     icon: Laptop, 
-    title: "IT Solutions",
-    description: "Innovative solutions that operate smarter, faster and efficiently. From CRM systems and workflow automation to specialised diagnostic and technical software. ",
+    title: "Free Inspection & Compliance Foresight",
+    description: "Continuous analysis of regulatory landscapes and your operational data to predict and prepare for inspection focus areas, moving from reactive compliance to proactive readiness. ",
     features: [],
     href: "/services/it-solutions",
     image: "/images/services/it-solutions.png",
@@ -72,7 +72,7 @@ const services = [
   {
     id: "08",
     icon: GraduationCap,
-    title: "Staff Training",
+    title: "Career Training & Coaching",
     description: "Hands-on training for new carers and professionals renewing their certificates. Whether you attained theoretical knowledge or completely new to care, we equip you with core essential skills, manual handling & workplace inductions.",
     features: [],
     href: "/services/staff-training",
@@ -81,8 +81,8 @@ const services = [
   {
     id: "09",
     icon: Laptop,
-    title: "Software & Licensing Solutions",
-    description: "Genuine operating systems, security tools, engineering, automotive and productivity software. Receive the right products, properly licensed, fully compliant and customer support.",
+    title: "Free External Perspective & Governance Support ",
+    description: "An objective, experienced viewpoint on your operations and governance structures, challenging assumptions and ensuring robust decision-making frameworks are in place. ",
     features: [ ],
     href: "/services/software-licensing-solutions",
     image: "/images/services/solutions.avif",
