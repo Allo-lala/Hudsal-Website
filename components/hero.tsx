@@ -76,7 +76,7 @@ const slides: Slide[] = [
     id: 7,
     image: "/images/realestate.jpg",
     title: "Real Estate Opportunities",
-    subtitle: "Discover premium real estate opportunities with Hadsul. Quality properties and professional service for your investment needs.",
+    subtitle: "Premium real estate opportunities with Hadsul. Quality properties and professional service for your investment needs.",
     buttonText: "View Properties",
     href: "https://hadsul.com"
   }

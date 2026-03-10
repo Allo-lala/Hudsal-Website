@@ -71,7 +71,7 @@ export function BooksAndPodcasts() {
             The Hadsul House
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            A shortcut to clarity in a noisy world, The Hadsul content dives into the ideas, issues, and innovations reshaping business, the economy, and society. Tune in to hear from experts and thought leaders about the latest in AI breakthroughs, leadership, and more.
+            It's no secret that 90% of new business ventures in the UK don't make it past their first year. But that's where we come in. Hadsul is built on real-world experience, hard-earned lessons, & the belief that you deserve more than just inspiration — you deserve a <b> "Tried & Tested" </b> path forward.
           </p>
         </div>
 

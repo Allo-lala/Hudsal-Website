@@ -13,24 +13,27 @@ const products = [
     tagline: "Operate without restrictive long-term commitments",
     description: "Gold On Demand is a Do-It-Yourself (DIY) package for those with full control but need expert support on standby. Operate as you wish and only use Hadsul when needed. Zero contracts, free pressure mapping, with last-minute support.",
     image: "/images/below/gold.png",
+    proBadgeImage: "/images/below/goldpro.png",
     color: "from-amber-500 to-amber-600",
     level: "Level 1"
   },
   {
     id: 2,
     name: "Platinum Selection",
-    tagline: "Get external strategic intelligence with continuous insights",
-    description: "With Platinum Selection, we Do It With You (DWY). You work side-by-side with Hadsul’s strategic intelligence unit, gaining continuous insight, proactive governance, and guided operational support. Together, we elevate with collaborative precision and ongoing expert oversight.   ",
+    tagline: "External strategic intelligence with continuous insights",
+    description: "With Platinum Selection, we Do It With You (DWY). You work side-by-side with Hadsul’s strategic intelligence unit, gaining continuous insight, proactive governance, and guided operational support.",
     image: "/images/below/platinum.png",
+    proBadgeImage: "/images/below/platinumpro.png",
     color: "from-slate-400 to-slate-500",
     level: "Level 2"
   },
   {
     id: 3,
     name: "Emerald Global",
-    tagline: "Get outstanding results completely stress-free ",
+    tagline: "Outstanding results completely stress-free ",
     description: "With Emerald Global, we Do It For You (DFY). Hadsul takes full ownership of operations—delivering a completely stress-free experience engineered for outstanding results without you lifting a finger. ",
     image: "/images/below/emerald.png",
+    proBadgeImage: "/images/below/emeraldpro.png",
     color: "from-emerald-500 to-emerald-600",
     level: "Level 3"
   },
@@ -38,8 +41,9 @@ const products = [
     id: 4,
     name: "Hadsul House",
     tagline: "This is a, reserved, private and an invitation-only ",
-    description: "The Hadsul House is a private, invitation-only service reserved for those seeking unmatched precision and operational mastery. Our senior experts take full command, delivering elite stewardship and flawless execution at every level.",
+    description: "The Hadsul House is a private, invitation-only service reserved for those seeking unmatched precision and operational mastery.",
     image: "/images/below/hadsul.png",
+    proBadgeImage: "/images/below/hadsulpro.png",
     color: "from-emerald-700 to-emerald-900",
     level: "Level 4 - Premium",
     hasCrown: true
@@ -56,6 +60,7 @@ export function ProductsSection() {
     name: string;
     tagline: string;
     image: string;
+    proBadgeImage: string;
   } | null>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
   const touchStartY = useRef(0);
@@ -79,24 +84,43 @@ export function ProductsSection() {
       name: currentProduct.name,
       tagline: currentProduct.tagline,
       image: currentProduct.image,
+      proBadgeImage: currentProduct.proBadgeImage,
     });
     setIsModalOpen(true);
   };
 
-  // Auto-transition after 4 seconds - STOP when modal is open or hovering
+  // Check if section is in viewport
+  const [isInViewport, setIsInViewport] = useState(false);
+
   useEffect(() => {
-    if (isModalOpen || isHovering) return; // Don't auto-transition when modal is open or hovering
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInViewport(entry.isIntersecting);
+      },
+      { threshold: 0.5 } // Trigger when 50% of section is visible
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  // Auto-transition after 4 seconds - ONLY when in viewport and not hovering/modal open
+  useEffect(() => {
+    if (!isInViewport || isModalOpen || isHovering) return;
 
     const timer = setTimeout(() => {
       if (currentIndex < products.length - 1) {
         setDirection('next');
         setCurrentIndex(prev => prev + 1);
       }
-    }, 4000);
+    }, 5000);
 
     return () => clearTimeout(timer);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentIndex, isModalOpen, isHovering]);
+  }, [currentIndex, isModalOpen, isHovering, isInViewport]);
 
   // Handle wheel scroll - STRICT lock within section
   useEffect(() => {
@@ -167,12 +191,37 @@ export function ProductsSection() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  // Handle touch events for mobile
+  // Handle touch events for mobile - BLOCK scrolling, only navigate products
   const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartY.current = e.touches[0].clientY;
+    if (!sectionRef.current) return;
+    
+    const rect = sectionRef.current.getBoundingClientRect();
+    const isInView = rect.top < window.innerHeight && rect.bottom > 0;
+    
+    if (isInView) {
+      touchStartY.current = e.touches[0].clientY;
+    }
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!sectionRef.current) return;
+    
+    const rect = sectionRef.current.getBoundingClientRect();
+    const isInView = rect.top < window.innerHeight && rect.bottom > 0;
+    
+    if (isInView) {
+      e.preventDefault(); // Prevent scrolling
+    }
   };
 
   const handleTouchEnd = (e: React.TouchEvent) => {
+    if (!sectionRef.current) return;
+    
+    const rect = sectionRef.current.getBoundingClientRect();
+    const isInView = rect.top < window.innerHeight && rect.bottom > 0;
+    
+    if (!isInView) return;
+
     const touchEndY = e.changedTouches[0].clientY;
     const diff = touchStartY.current - touchEndY;
 
@@ -185,6 +234,12 @@ export function ProductsSection() {
         setIsScrolling(true);
         scrollToPrev();
         setTimeout(() => setIsScrolling(false), 1000);
+      } else if (diff > 0 && currentIndex === products.length - 1) {
+        // On last product, allow exit
+        window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+      } else if (diff < 0 && currentIndex === 0) {
+        // On first product, allow exit
+        window.scrollBy({ top: -window.innerHeight, behavior: 'smooth' });
       }
     }
   };
@@ -196,6 +251,7 @@ export function ProductsSection() {
       ref={sectionRef}
       className="relative min-h-screen bg-beige overflow-hidden"
       onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
@@ -313,8 +369,8 @@ export function ProductsSection() {
                 </p>
               </div>
 
-              {/* CTA Button */}
-              <div className="pt-4">
+              {/* CTA Button - Hidden on mobile */}
+              <div className="pt-4 hidden md:block">
                 <button 
                   onClick={handleSubscribeClick}
                   className="bg-emerald hover:bg-emerald-dark text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 cursor-pointer"
@@ -488,16 +544,7 @@ export function ProductsSection() {
           }}
           productName={selectedProduct.name}
           productDescription={selectedProduct.tagline}
-          productIcon={() => (
-            <div className="relative w-16 h-16">
-              <Image
-                src={selectedProduct.image}
-                alt={selectedProduct.name}
-                fill
-                className="object-contain"
-              />
-            </div>
-          )}
+          productImage={selectedProduct.proBadgeImage}
         />
       )}
     </section>

@@ -4,6 +4,7 @@ import React from "react"
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -16,9 +17,10 @@ interface SubscriptionModalProps {
   productName: string;
   productDescription: string;
   productIcon?: React.ComponentType<{ className?: string }>;
+  productImage?: string;
 }
 
-export function SubscriptionModal({ isOpen, onClose, productName, productDescription, productIcon }: SubscriptionModalProps) {
+export function SubscriptionModal({ isOpen, onClose, productName, productDescription, productIcon, productImage }: SubscriptionModalProps) {
   const [step, setStep] = useState<"info" | "form" | "success">("info");
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -34,6 +36,23 @@ export function SubscriptionModal({ isOpen, onClose, productName, productDescrip
 
   // Get the appropriate icon
   const IconComponent = productIcon || CheckCircle;
+
+  // Render icon or image
+  const renderIcon = (className: string = "w-8 h-8 text-emerald") => {
+    if (productImage) {
+      return (
+        <div className="relative w-16 h-16">
+          <Image
+            src={productImage}
+            alt={productName}
+            fill
+            className="object-contain"
+          />
+        </div>
+      );
+    }
+    return <IconComponent className={className} />;
+  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -117,8 +136,8 @@ export function SubscriptionModal({ isOpen, onClose, productName, productDescrip
         {step === "info" && (
           <div className="p-8">
             <div className="text-center mb-6">
-              <div className="w-16 h-16 rounded-full bg-emerald/10 flex items-center justify-center mx-auto mb-4">
-                <IconComponent className="w-8 h-8 text-emerald" />
+              <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                {renderIcon()}
               </div>
               <h2 className="text-2xl font-bold text-foreground mb-2">
                 Subscribe to {productName}
@@ -278,7 +297,7 @@ export function SubscriptionModal({ isOpen, onClose, productName, productDescrip
         {step === "success" && (
           <div className="p-8 text-center">
             <div className="w-20 h-20 rounded-full bg-emerald/10 flex items-center justify-center mx-auto mb-6">
-              <IconComponent className="w-10 h-10 text-emerald" />
+              {renderIcon("w-10 h-10 text-emerald")}
             </div>
             <h2 className="text-2xl font-bold text-foreground mb-2">
               Subscription Submitted!
