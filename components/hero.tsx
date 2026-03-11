@@ -43,7 +43,7 @@ const slides: Slide[] = [
     id: 8,
     image: "/images/services/staffing.png",
     title: " Health Care ",
-    subtitle:"Download E-books, order hard copies, get notified about new webinars, and catch up on our latest episodes, all in one place.",
+    subtitle:"Staff with the right professionals. Hire permanent staff for long-term roles, temporary and contract staff for short-term or specialised needs to cover shift gaps and changing workload demands. ",
     buttonText: "Get Started",
     href: "/#books-podcasts"
   },

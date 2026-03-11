@@ -116,7 +116,7 @@ export function ProductsSection() {
         setDirection('next');
         setCurrentIndex(prev => prev + 1);
       }
-    }, 5000);
+    }, 4000);
 
     return () => clearTimeout(timer);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -310,7 +310,7 @@ export function ProductsSection() {
                   </div>
                 )}
                 
-                {/* Product Image with slide and zoom animation */}
+                {/* Product Image with slide and zoom animation for the products */}
                 <div 
                   key={`product-${currentIndex}`}
                   className={`relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 group-hover:scale-105 ${
