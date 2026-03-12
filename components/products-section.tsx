@@ -128,10 +128,19 @@ export function ProductsSection() {
       if (!sectionRef.current) return;
       
       const rect = sectionRef.current.getBoundingClientRect();
-      // Check if section is in viewport
-      const isInView = rect.top < window.innerHeight && rect.bottom > 0;
+      const viewportHeight = window.innerHeight;
       
-      if (!isInView) return;
+      // Calculate how much of the section is visible
+      const visibleTop = Math.max(0, rect.top);
+      const visibleBottom = Math.min(viewportHeight, rect.bottom);
+      const visibleHeight = visibleBottom - visibleTop;
+      const sectionHeight = rect.height;
+      const visibilityPercentage = (visibleHeight / sectionHeight) * 100;
+      
+      // Only lock when at least 80% of section is visible
+      const shouldLock = visibilityPercentage >= 80;
+      
+      if (!shouldLock) return;
 
       // ALWAYS prevent default when in section (strict lock)
       e.preventDefault();
@@ -177,9 +186,19 @@ export function ProductsSection() {
       if (!sectionRef.current) return;
       
       const rect = sectionRef.current.getBoundingClientRect();
-      const isInView = rect.top < window.innerHeight && rect.bottom > 0;
+      const viewportHeight = window.innerHeight;
       
-      if (!isInView) return;
+      // Calculate how much of the section is visible
+      const visibleTop = Math.max(0, rect.top);
+      const visibleBottom = Math.min(viewportHeight, rect.bottom);
+      const visibleHeight = visibleBottom - visibleTop;
+      const sectionHeight = rect.height;
+      const visibilityPercentage = (visibleHeight / sectionHeight) * 100;
+      
+      // Only lock when at least 80% of section is visible
+      const shouldLock = visibilityPercentage >= 80;
+      
+      if (!shouldLock) return;
 
       // Prevent keyboard scroll keys
       if (['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Space', ' '].includes(e.key)) {
@@ -196,9 +215,19 @@ export function ProductsSection() {
     if (!sectionRef.current) return;
     
     const rect = sectionRef.current.getBoundingClientRect();
-    const isInView = rect.top < window.innerHeight && rect.bottom > 0;
+    const viewportHeight = window.innerHeight;
     
-    if (isInView) {
+    // Calculate how much of the section is visible
+    const visibleTop = Math.max(0, rect.top);
+    const visibleBottom = Math.min(viewportHeight, rect.bottom);
+    const visibleHeight = visibleBottom - visibleTop;
+    const sectionHeight = rect.height;
+    const visibilityPercentage = (visibleHeight / sectionHeight) * 100;
+    
+    // Only lock when at least 80% of section is visible
+    const shouldLock = visibilityPercentage >= 80;
+    
+    if (shouldLock) {
       touchStartY.current = e.touches[0].clientY;
     }
   };
@@ -207,9 +236,19 @@ export function ProductsSection() {
     if (!sectionRef.current) return;
     
     const rect = sectionRef.current.getBoundingClientRect();
-    const isInView = rect.top < window.innerHeight && rect.bottom > 0;
+    const viewportHeight = window.innerHeight;
     
-    if (isInView) {
+    // Calculate how much of the section is visible
+    const visibleTop = Math.max(0, rect.top);
+    const visibleBottom = Math.min(viewportHeight, rect.bottom);
+    const visibleHeight = visibleBottom - visibleTop;
+    const sectionHeight = rect.height;
+    const visibilityPercentage = (visibleHeight / sectionHeight) * 100;
+    
+    // Only lock when at least 80% of section is visible
+    const shouldLock = visibilityPercentage >= 80;
+    
+    if (shouldLock) {
       e.preventDefault(); // Prevent scrolling
     }
   };
@@ -218,9 +257,19 @@ export function ProductsSection() {
     if (!sectionRef.current) return;
     
     const rect = sectionRef.current.getBoundingClientRect();
-    const isInView = rect.top < window.innerHeight && rect.bottom > 0;
+    const viewportHeight = window.innerHeight;
     
-    if (!isInView) return;
+    // Calculate how much of the section is visible
+    const visibleTop = Math.max(0, rect.top);
+    const visibleBottom = Math.min(viewportHeight, rect.bottom);
+    const visibleHeight = visibleBottom - visibleTop;
+    const sectionHeight = rect.height;
+    const visibilityPercentage = (visibleHeight / sectionHeight) * 100;
+    
+    // Only lock when at least 80% of section is visible
+    const shouldLock = visibilityPercentage >= 80;
+    
+    if (!shouldLock) return;
 
     const touchEndY = e.changedTouches[0].clientY;
     const diff = touchStartY.current - touchEndY;

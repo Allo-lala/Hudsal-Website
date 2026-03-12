@@ -20,7 +20,7 @@ const slides: Slide[] = [
     image: "/images/hadsul-house.png",
     title: "Become",
     subtitle: "We help people Start, Grow & Scale the business of their dreams through expert Business Coaching",
-    buttonText: "Apply Now",
+    buttonText: "Start Now",
     href: "/events"
   },
   {
