@@ -18,10 +18,10 @@ const slides: Slide[] = [
   {
     id: 1,
     image: "/images/hadsul-house.png",
-    title: "Join The Hadsul House",
-    subtitle: "An exclusive network for elite professionals with exceptional opportunities and unparalleled support",
+    title: "Become",
+    subtitle: "We help people Start, Grow & Scale the business of their dreams through expert Business Coaching",
     buttonText: "Apply Now",
-    href: "https://forms.gle/wf62ZWLCipTd5FsV6"
+    href: "/events"
   },
   {
     id: 6,
@@ -159,11 +159,29 @@ export function Hero() {
 
             {/* Main Heading - Dynamic based on current slide */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              {slides[currentSlide].title.split(' ').map((word, index) => (
-                <span key={index} className={index % 2 === 0 ? "text-white" : "text-emerald"}>
-                  {word}{' '}
-                </span>
-              ))}
+              {currentSlide === 0 ? (
+                // First slide: "Become" + GIF + "In Business & in Life" - all inline, breaks naturally fragment, Let it break
+                <>
+                  <span className="text-white">Become </span>
+                  <span className="inline-block relative w-40 h-16 md:w-52 md:h-20 lg:w-64 lg:h-24 align-middle">
+                    <Image
+                      src="/images/hero.gif"
+                      alt="gif"
+                      fill
+                      className="object-contain"
+                      unoptimized
+                    />
+                  </span>
+                  <span className="text-white"> In Business & in Life</span>
+                </>
+              ) : (
+                // Other slides: alternate word colors
+                slides[currentSlide].title.split(' ').map((word, index) => (
+                  <span key={index} className={index % 2 === 0 ? "text-white" : "text-emerald"}>
+                    {word}{' '}
+                  </span>
+                ))
+              )}
             </h1>
 
             {/* Subtitle - Only show if slide has subtitle */}
