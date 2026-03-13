@@ -66,7 +66,7 @@ const services = [
     title: "Free Inspection & Compliance Foresight",
     description: "Continuous analysis of regulatory landscapes and your operational data to predict and prepare for inspection focus areas, moving from reactive compliance to proactive readiness. ",
     features: [],
-    href: "/what-we-do/it-solutions",
+    href: "/what-we-do/free-inspection-compliance-foresight",
     image: "/images/services/it-solutions.png",
   },
   {
@@ -75,7 +75,7 @@ const services = [
     title: "Career Training & Coaching",
     description: "Hands-on training for trainees and professionals renewing their certificates. Whether you attained theoretical knowledge or completely new to care, we equip you with core essential skills, manual handling & workplace inductions.",
     features: [],
-    href: "/what-we-do/staff-training",
+    href: "/what-we-do/career-training-coaching",
     image: "/images/services/training.png",
   },
   {
@@ -84,7 +84,7 @@ const services = [
     title: "Free External Perspective & Governance Support",
     description: "An objective, experienced viewpoint on your operations and governance structures, challenging assumptions and ensuring robust decision-making frameworks are in place.",
     features: [ ],
-    href: "/what-we-do/software-licensing-solutions",
+    href: "/what-we-do/free-external-perspective-governance-support",
     image: "/images/services/solutions.avif",
   },
   

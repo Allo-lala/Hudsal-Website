@@ -296,6 +296,93 @@ In a sector facing constant change and increasing complexity, the organisations 
 
 Let us help you build the robust frameworks that support sustainable, high-quality care delivery across the UK.`,
   },
+  "free-inspection-compliance-foresight": {
+    title: "Free Inspection & Compliance Foresight",
+    description: "Proactive compliance monitoring and inspection preparation",
+    icon: Activity,
+    image: "/images/services/it-solutions.png",
+    shortContent: "Continuous analysis of regulatory landscapes and your operational data to predict and prepare for inspection focus areas, moving from reactive compliance to proactive readiness.",
+    ctaContent: "Get in touch with our compliance specialists to discuss how we can help you stay ahead of inspections and maintain regulatory excellence.",
+    sidebarContent: "Proactive compliance monitoring and inspection preparation for healthcare excellence",
+    fullContent: `Continuous analysis of regulatory landscapes and your operational data to predict and prepare for inspection focus areas, moving from reactive compliance to proactive readiness.
+
+Our Free Inspection & Compliance Foresight includes:
+
+- Regulatory Landscape Analysis to track changing compliance requirements
+- Operational Data Review to identify potential inspection focus areas
+- Proactive Preparation strategies for upcoming inspections
+- Compliance Gap Analysis to address issues before they become problems
+- Real-time Compliance Monitoring and alerts
+- Documentation Review to ensure all records meet standards
+- Staff Readiness Training for inspection scenarios
+- Post-Inspection Support and action planning
+
+Healthcare organizations face constant regulatory scrutiny. Foresight services transform compliance from a reactive burden into a proactive advantage, helping you stay ahead of inspections and maintain consistently high standards.
+
+We analyze your operations through the lens of regulatory expectations, identifying areas that may attract inspector attention and address them proactively.
+
+Our commitment is to provide peace of mind through proactive compliance management. Move from reactive firefighting to confident readiness, ensuring your organization consistently meets and exceeds regulatory standards.
+
+Whether you're preparing for an upcoming inspection, recovering from previous findings, or simply want to maintain excellence, our Free Inspection & Compliance Foresight service provides the strategic advantage you need.`,
+  },
+  "career-training-coaching": {
+    title: "Career Training & Coaching",
+    description: "Comprehensive career development and coaching programs",
+    icon: Activity,
+    image: "/images/services/staff-training.png",
+    shortContent: "Hands-on training for new carers and professionals renewing their certificates. Whether you attained theoretical knowledge or completely new to care, we equip you with core essential skills, manual handling & workplace inductions.",
+    ctaContent: "Invest in your team's development with our comprehensive career training and coaching programs. Contact us to create a customized development plan for your staff.",
+    sidebarContent: "Professional career development and coaching programs for excellence",
+    fullContent: `Hands-on training for new trainees and professionals renewing their certificates. Whether you attained theoretical knowledge or completely new to care, we equip you with core essential skills, manual handling & workplace inductions.
+
+Our Career Training & Coaching services include:
+
+- Professional Development programs
+- Certification Programs for HCAs, MHAs, Support Workers, and Nurses
+- Compliance Training covering CQC standards, safeguarding, and health & safety
+- Clinical Skills Training for medication management, wound care, and infection control
+- Soft Skills Development including communication, empathy, and teamwork
+- Career Coaching for professional growth and advancement
+- Leadership Development for aspiring team leaders and managers
+- Ongoing Support with refresher courses and continuous learning opportunities
+- Quality Assurance monitoring 
+- Customized Training Plans
+
+Well-trained staff are the foundation of quality delivery. Our training and coaching programs are designed to equip professionals with the knowledge, skills, and confidence they need to provide exceptional results while advancing their careers.
+
+We use a combination of theoretical learning, practical demonstrations, hands-on practice, and personalized coaching to ensure effective skill development and career progression.
+
+We continuously monitor training effectiveness and update our programs to reflect current best practices and regulatory changes.
+
+Whether you need initial training for new staff, compliance updates for existing teams, specialized skills development, or career coaching for professional advancement, our programs are designed to support your workforce and enhance the quality of care you provide.`,
+  },
+  "free-external-perspective-governance-support": {
+    title: "Free External Perspective & Governance Support",
+    description: "Objective, experienced viewpoint on operations and governance structures",
+    icon: Activity,
+    image: "/images/services/solutions.avif",
+    shortContent: "An objective, experienced viewpoint on your operations and governance structures, challenging assumptions and ensuring robust decision-making frameworks are in place.",
+    ctaContent: "Connect with our governance specialists to gain fresh perspectives on your operations and strengthen your decision-making frameworks.",
+    sidebarContent: "Independent governance review and strategic operational insights",
+    fullContent: `An objective, experienced viewpoint on your operations and governance structures, challenging assumptions and ensuring robust decision-making frameworks are in place.
+
+In the complex landscape of UK healthcare and social care, organisations often operate within their own established patterns and assumptions. While internal expertise is invaluable, an external perspective brings fresh insights, identifies blind spots, and challenges thinking in ways that drive meaningful improvement.
+
+Our Free External Perspective & Governance Support service provides exactly this—a professional, independent review of your operational and governance structures, delivered by experienced consultants who understand the UK regulatory environment, CQC standards, and the practical realities of running care services.
+
+What We Provide:
+
+• Independent Operational Review
+• Governance Structure Assessment
+• Risk Identification & Mitigation
+• Decision-Making Framework Review
+• Regulatory Compliance Perspective
+• Strategic Challenge & Questioning
+• Best Practice Benchmarking
+
+
+`,
+  },
 };
 
 export default function ServiceDetailPage() {
