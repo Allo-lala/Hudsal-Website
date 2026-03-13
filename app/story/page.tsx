@@ -10,7 +10,7 @@ const timelineEvents = [
     year: "2016",
     title: "The Beginning",
     description: "Hadsul Healthcare was founded with a vision to transform healthcare delivery in the UK. Started with a small team of passionate healthcare professionals.",
-    image: "/images/timeline/story.png",
+    image: "/images/timeline/begining.png",
     side: "left"
   },
   {
@@ -31,14 +31,14 @@ const timelineEvents = [
     year: "2019",
     title: "Technology Integration",
     description: "Introduced IT solutions division, developing care management systems and digital platforms to modernize healthcare operations.",
-    image: "/images/timeline/two.avif",
+    image: "/images/timeline/tech-intergration.png",
     side: "right"
   },
   {
     year: "2020",
     title: "Pandemic Response",
     description: "Played a crucial role during COVID-19, providing essential healthcare staff and support to overwhelmed care facilities across the UK.",
-    image: "/images/timeline/one.avif",
+    image: "/images/timeline/pandemic.png",
     side: "left"
   },
   {
@@ -52,7 +52,7 @@ const timelineEvents = [
     year: "2022",
     title: "Global Philanthropy",
     description: "Launched philanthropic initiatives in Africa, establishing healthcare centers and supporting communities in 8 countries.",
-    image: "/images/timeline/one.avif",
+    image: "/images/timeline/philanthropy.png",
     side: "left"
   },
   {
@@ -66,14 +66,14 @@ const timelineEvents = [
     year: "2024",
     title: "Digital Transformation",
     description: "Launched comprehensive digital platforms including books, podcasts, and webinars to share healthcare knowledge and expertise.",
-    image: "/images/timeline/one.avif",
+    image: "/images/timeline/digital-transformation.png",
     side: "left"
   },
   {
     year: "2025",
     title: "The Future",
     description: "Continuing to innovate and expand, with plans to reach 1000+ healthcare professionals and impact 50,000+ lives across the UK and beyond.",
-    image: "/images/timeline/two.avif",
+    image: "/images/timeline/future.png",
     side: "right"
   }
 ];
