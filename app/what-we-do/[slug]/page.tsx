@@ -205,7 +205,7 @@ Whether you're preparing for an upcoming inspection, recovering from previous fi
     icon: Activity,
     image: "/images/services/staff-training.png",
     shortContent: "Hands-on training for new carers and professionals renewing their certificates. Whether you attained theoretical knowledge or completely new to care, we equip you with core essential skills, manual handling & workplace inductions.",
-    ctaContent: "Invest in your team's development with our comprehensive career training and coaching programs. Contact us to create a customized development plan for your staff.",
+    ctaContent: "Invest in your development with our career training and coaching programs. ",
     sidebarContent: "Professional career development and coaching programs for excellence",
     fullContent: `Hands-on training for new trainees and professionals renewing their certificates. Whether you attained theoretical knowledge or completely new to care, we equip you with core essential skills, manual handling & workplace inductions.
 
@@ -282,10 +282,35 @@ export default function ServiceDetailPage() {
         text: "Apply Now",
         onClick: () => setIsTrainingModalOpen(true),
       };
+    } else if (slug === "healthcare-staffing") {
+      return {
+        text: "Hire Now",
+        onClick: () => setIsClientModalOpen(true),
+        preselectedService: "Healthcare Staffing",
+      };
+    } else if (slug === "consultancy") {
+      return {
+        text: "Hire Now",
+        onClick: () => setIsClientModalOpen(true),
+        preselectedService: "Consultancy",
+      };
+    } else if (slug === "free-inspection-compliance-foresight") {
+      return {
+        text: "Hire Now",
+        onClick: () => setIsClientModalOpen(true),
+        preselectedService: "Free Inspection & Compliance Foresight",
+      };
+    } else if (slug === "free-external-perspective-governance-support") {
+      return {
+        text: "Hire Now",
+        onClick: () => setIsClientModalOpen(true),
+        preselectedService: "External Perspective & Governance Support",
+      };
     } else {
       return {
         text: "Hire Now",
         onClick: () => setIsClientModalOpen(true),
+        preselectedService: undefined,
       };
     }
   };
@@ -437,6 +462,7 @@ export default function ServiceDetailPage() {
       <BecomeClientModal 
         isOpen={isClientModalOpen}
         onClose={() => setIsClientModalOpen(false)}
+        preselectedService={buttonConfig.preselectedService}
       />
       <CRMRequestModal 
         isOpen={isCRMModalOpen}

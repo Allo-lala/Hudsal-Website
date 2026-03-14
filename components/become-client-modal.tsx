@@ -67,10 +67,10 @@ export function BecomeClientModal({ isOpen, onClose, preselectedService }: Becom
         {/* Form Content */}
         <div className="relative z-10 p-8 md:p-12">
           <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
-            Hire Experts 
+            Hadsul Limited 
           </h3>
           <p className="text-muted-foreground mb-8 text-center">
-            Access skilled professionals ready to build and scale – without the full-time commitment
+            Access skilled professionals ready to build and scale – without Your full-time commitment
           </p>
           
           <form onSubmit={handleClientFormSubmit} className="space-y-4">
@@ -135,20 +135,28 @@ export function BecomeClientModal({ isOpen, onClose, preselectedService }: Becom
               </div>
               
               <div>
-                <select
-                  value={clientFormData.service}
-                  onChange={(e) => setClientFormData({...clientFormData, service: e.target.value})}
-                  required
-                  disabled={!!preselectedService}
-                  className="w-full px-4 py-3 border border-input rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-emerald disabled:opacity-70 disabled:cursor-not-allowed"
-                >
-                  <option value="" disabled hidden>Select Service</option>
-                  <option value="Healthcare Staffing">Healthcare Staffing</option>
-                  <option value="Consultancy">Consultancy</option>
-                  <option value="IT Solutions">IT Solutions</option>
-                  <option value="Software Licensing">Software Licensing</option>
-                  <option value="Other">Other</option>
-                </select>
+                {preselectedService ? (
+                  <input
+                    type="text"
+                    value={preselectedService}
+                    readOnly
+                    className="w-full px-4 py-3 border border-input rounded-lg bg-background text-foreground opacity-70 cursor-not-allowed"
+                  />
+                ) : (
+                  <select
+                    value={clientFormData.service}
+                    onChange={(e) => setClientFormData({...clientFormData, service: e.target.value})}
+                    required
+                    className="w-full px-4 py-3 border border-input rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-emerald"
+                  >
+                    <option value="" disabled hidden>Select Service</option>
+                    <option value="Healthcare Staffing">Healthcare Staffing</option>
+                    <option value="Consultancy">Consultancy</option>
+                    <option value="Free Inspection & Compliance Foresight">Free Inspection &amp; Compliance Foresight</option>
+                    <option value="Free External Perspective & Governance Support">Free External Perspective &amp; Governance Support</option>
+                    <option value="Other">Other</option>
+                  </select>
+                )}
               </div>
             </div>
             

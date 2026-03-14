@@ -98,7 +98,7 @@ export default function ServicesPage() {
       <PageHeader 
         badge=" " 
         title="What We Do"
-        description="Comprehensive solutions tailored to meet the diverse needs of individuals, families & Agencies."
+        description="Comprehensive solutions that meet the diverse needs of Businesses, Individuals, Care Homes, Residents & Agencies."
       />
 
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
@@ -173,7 +173,7 @@ export default function ServicesPage() {
             Ready to Experience Quality ?
           </h2>
           <p className="text-white/70 mb-8 text-lg">
-            Contact us today to discuss your needs and discover how Hadsul can support you.
+            Contact us today to discuss your needs and know how Hadsul can support you.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/business-xray">
