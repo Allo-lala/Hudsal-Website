@@ -8,16 +8,17 @@ import Image from "next/image";
 interface BecomeClientModalProps {
   isOpen: boolean;
   onClose: () => void;
+  preselectedService?: string;
 }
 
-export function BecomeClientModal({ isOpen, onClose }: BecomeClientModalProps) {
+export function BecomeClientModal({ isOpen, onClose, preselectedService }: BecomeClientModalProps) {
   const [clientFormData, setClientFormData] = useState({
     name: "",
     email: "",
     address: "",
     companyName: "",
     phone: "",
-    service: "",
+    service: preselectedService || "",
     description: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -37,7 +38,7 @@ export function BecomeClientModal({ isOpen, onClose }: BecomeClientModalProps) {
 
       if (response.ok) {
         alert('Thank you! We will contact you soon.');
-        setClientFormData({ name: "", email: "", address: "", companyName: "", phone: "", service: "", description: "" });
+        setClientFormData({ name: "", email: "", address: "", companyName: "", phone: "", service: preselectedService || "", description: "" });
         onClose();
       } else {
         alert('Failed to submit. Please try again.');
@@ -138,7 +139,8 @@ export function BecomeClientModal({ isOpen, onClose }: BecomeClientModalProps) {
                   value={clientFormData.service}
                   onChange={(e) => setClientFormData({...clientFormData, service: e.target.value})}
                   required
-                  className="w-full px-4 py-3 border border-input rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-emerald"
+                  disabled={!!preselectedService}
+                  className="w-full px-4 py-3 border border-input rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-emerald disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                   <option value="" disabled hidden>Select Service</option>
                   <option value="Healthcare Staffing">Healthcare Staffing</option>

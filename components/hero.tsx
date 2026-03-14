@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { BecomeClientModal } from "@/components/become-client-modal";
 
 interface Slide {
   id: number;
@@ -42,7 +43,7 @@ const slides: Slide[] = [
    {
     id: 8,
     image: "/images/services/staffing.png",
-    title: " Health Care ",
+    title: " Healthcare Staffing ",
     subtitle:"Staff with the right professionals at the right time. Choose from permanent hires, temporary staff, trusted agency placements, or a reliable bank of pre-approved professionals ready to step in when demand changes.",
     buttonText: "Hire Now",
     href: "/#books-podcasts"
@@ -85,6 +86,7 @@ const slides: Slide[] = [
 export function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [isHireModalOpen, setIsHireModalOpen] = useState(false);
 
   // Auto-slide functionality
   useEffect(() => {
@@ -193,16 +195,25 @@ export function Hero() {
 
             {/* WhatsApp-colored Pill Button */}
             <div className="mb-12 flex justify-center lg:justify-start">
-              <Link
-                href={slides[currentSlide].href}
-                className="bg-[#25D366] hover:bg-[#20b858] text-white font-medium px-8 py-4 rounded-full transition-colors duration-300 shadow-lg hover:shadow-xl inline-block"
-                {...(slides[currentSlide].href.startsWith('http') && {
-                  target: "_blank",
-                  rel: "noopener noreferrer"
-                })}
-              >
-                {slides[currentSlide].buttonText}
-              </Link>
+              {slides[currentSlide].id === 8 ? (
+                <button
+                  onClick={() => setIsHireModalOpen(true)}
+                  className="bg-[#25D366] hover:bg-[#20b858] text-white font-medium px-8 py-4 rounded-full transition-colors duration-300 shadow-lg hover:shadow-xl"
+                >
+                  {slides[currentSlide].buttonText}
+                </button>
+              ) : (
+                <Link
+                  href={slides[currentSlide].href}
+                  className="bg-[#25D366] hover:bg-[#20b858] text-white font-medium px-8 py-4 rounded-full transition-colors duration-300 shadow-lg hover:shadow-xl inline-block"
+                  {...(slides[currentSlide].href.startsWith('http') && {
+                    target: "_blank",
+                    rel: "noopener noreferrer"
+                  })}
+                >
+                  {slides[currentSlide].buttonText}
+                </Link>
+              )}
             </div>
 
             {/* Navigation Arrows */}
@@ -284,6 +295,13 @@ export function Hero() {
           </div>
         {/* </div> */}
       </div>
+
+      {/* Become Client Modal - Healthcare Staffing preselected */}
+      <BecomeClientModal
+        isOpen={isHireModalOpen}
+        onClose={() => setIsHireModalOpen(false)}
+        preselectedService="Healthcare Staffing"
+      />
     </section>
   );
 }
