@@ -85,11 +85,16 @@ export async function POST(request: NextRequest) {
       `,
     });
 
-    if (confirmationError || notificationError) {
-      console.error('Email errors:', { confirmationError, notificationError });
+    if (confirmationError) {
+      console.error('Confirmation email error (domain likely not verified):', confirmationError);
+      // Don't fail — admin notification may still have succeeded
+    }
+
+    if (notificationError) {
+      console.error('Admin notification email error:', notificationError);
       return NextResponse.json({ 
         success: false, 
-        message: 'Failed to send confirmation email' 
+        message: 'Failed to process subscription. Please try again.' 
       }, { status: 500 });
     }
 

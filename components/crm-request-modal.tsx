@@ -184,7 +184,7 @@ export function CRMRequestModal({ isOpen, onClose }: CRMRequestModalProps) {
                   type="tel"
                   value={formData.phoneNumber}
                   onChange={handleInputChange}
-                  placeholder="+44 7XXX XXXXXX"
+                  placeholder="+44 7123 456 789"
                   required
                   className="mt-1"
                 />
@@ -275,7 +275,7 @@ export function CRMRequestModal({ isOpen, onClose }: CRMRequestModalProps) {
                 disabled={isSubmitting}
                 className="w-full bg-emerald hover:bg-emerald-dark text-white rounded-full mt-6 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {isSubmitting ? 'Submitting...' : 'Request Demo'}
+                {isSubmitting ? 'Submitting...' : 'Request CRM'}
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </form>
