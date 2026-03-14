@@ -15,6 +15,9 @@ import {
   ChevronDown,
   ChevronUp,
 } from "lucide-react";
+import { BecomeClientModal } from "@/components/become-client-modal";
+import { CRMRequestModal } from "@/components/crm-request-modal";
+import { TrainingApplicationModal } from "@/components/training-application-modal";
 
 const servicesData: Record<string, {
   title: string;
@@ -166,136 +169,7 @@ We continuously monitor training effectiveness and update our programs to reflec
 
 Whether you need initial training for new staff, compliance updates for existing teams, specialized skills development, or career coaching for professional advancement, our programs are designed to support your workforce and enhance the quality of care you provide.`,
   },
-  "software-licensing-solutions": {
-    title: "Free External Perspective & Governance Support",
-    description: "Objective, experienced viewpoint on operations and governance structures",
-    icon: Activity,
-    image: "/images/services/solutions.avif",
-    shortContent: "An objective, experienced viewpoint on your operations and governance structures, challenging assumptions and ensuring robust decision-making frameworks are in place.",
-    ctaContent: "Connect with our governance specialists to gain fresh perspectives on your operations and strengthen your decision-making frameworks.",
-    sidebarContent: "Independent governance review and strategic operational insights",
-    fullContent: `An objective, experienced viewpoint on your operations and governance structures, challenging assumptions and ensuring robust decision-making frameworks are in place.
-
-In the complex landscape of UK healthcare and social care, organisations often operate within their own established patterns and assumptions. While internal expertise is invaluable, an external perspective brings fresh insights, identifies blind spots, and challenges thinking in ways that drive meaningful improvement.
-
-Our Free External Perspective & Governance Support service provides exactly this—a professional, independent review of your operational and governance structures, delivered by experienced consultants who understand the UK regulatory environment, CQC standards, and the practical realities of running care services.
-
-What We Provide:
-
-• Independent Operational Review
-We examine your day-to-day operations with fresh eyes, identifying inefficiencies, risks, and opportunities that internal teams may overlook. Our review covers staffing patterns, workflow processes, resource allocation, and service delivery models.
-
-• Governance Structure Assessment
-We evaluate your governance frameworks, board effectiveness, decision-making processes, and accountability structures. Strong governance is the foundation of sustainable, high-quality care provision.
-
-• Risk Identification & Mitigation
-Through our external lens, we identify operational and governance risks before they become problems. We assess compliance risks, financial vulnerabilities, reputational concerns, and strategic threats.
-
-• Decision-Making Framework Review
-We examine how decisions are made within your organisation—who makes them, what information informs them, and how they're implemented. Robust decision-making processes are critical for effective leadership.
-
-• Regulatory Compliance Perspective
-With deep knowledge of CQC requirements, safeguarding standards, and UK healthcare regulations, we provide insights on how your governance and operations align with regulatory expectations.
-
-• Strategic Challenge & Questioning
-Sometimes the most valuable service is asking the difficult questions. We challenge assumptions, test strategic thinking, and ensure your leadership team has considered all angles before making significant decisions.
-
-• Best Practice Benchmarking
-We compare your governance and operational approaches against sector best practices, highlighting where you excel and where improvements could strengthen your organisation.
-
-• Stakeholder Perspective Analysis
-We consider how your operations and governance appear to external stakeholders—regulators, commissioners, families, and staff—providing insights on perception gaps and communication opportunities.
-
-Why External Perspective Matters:
-
-Healthcare organisations can become insular, with established ways of working that go unquestioned. An external perspective breaks this pattern, bringing:
-
-- Objectivity: We have no internal politics or preconceptions
-- Experience: We've seen what works (and what doesn't) across multiple organisations
-- Fresh thinking: We challenge the "we've always done it this way" mindset
-- Regulatory insight: We understand what inspectors and commissioners look for
-- Strategic clarity: We help leadership teams see the bigger picture
-
-Our approach is collaborative, not confrontational. We work alongside your leadership team, respecting your expertise while offering our independent insights. The goal is not to criticise but to strengthen—helping you build more robust operations and governance structures that support sustainable, high-quality care.
-
-The UK Care Sector Context:
-
-The UK care sector faces unprecedented challenges—workforce shortages, funding pressures, increasing regulatory scrutiny, and rising service user complexity. In this environment, strong governance and efficient operations aren't optional—they're essential for survival and success.
-
-CQC inspections increasingly focus on governance and leadership, recognising that operational quality flows from effective oversight and decision-making. Organisations with weak governance structures, unclear accountability, or inefficient operations face regulatory action, regardless of their good intentions.
-
-Our Free External Perspective service helps you stay ahead of these challenges, ensuring your governance and operations meet not just minimum standards but represent genuine best practice.
-
-Who Benefits:
-
-This service is particularly valuable for:
-
-- Care homes preparing for CQC inspections
-- Organisations recovering from previous regulatory concerns
-- Leadership teams facing strategic decisions
-- Services experiencing operational challenges
-- Boards seeking to strengthen governance
-- Growing organisations needing to scale governance structures
-- Services undergoing significant change or transition
-
-The Process:
-
-Our engagement typically involves:
-
-1. Initial Consultation: Understanding your organisation, current challenges, and specific areas where external perspective would be valuable
-
-2. Documentation Review: Examining governance documents, policies, operational data, and previous inspection reports
-
-3. Stakeholder Interviews: Speaking with board members, senior leaders, managers, and frontline staff to understand different perspectives
-
-4. Operational Observation: Spending time in your service to observe operations firsthand
-
-5. Analysis & Insight Development: Synthesising our findings into clear, actionable insights
-
-6. Presentation & Discussion: Sharing our perspective with your leadership team, facilitating discussion and strategic thinking
-
-7. Recommendations Report: Providing written recommendations for governance and operational improvements
-
-8. Follow-up Support: Offering ongoing consultation as you implement changes
-
-Why "Free"?
-
-We believe that access to external governance perspective shouldn't be limited to organisations with large consultancy budgets. Strong governance benefits the entire sector—improving care quality, protecting vulnerable people, and supporting workforce wellbeing.
-
-By offering this service free of charge, we're investing in sector improvement and building relationships with organisations committed to excellence. It's our contribution to raising standards across UK healthcare and social care.
-
-The Value of Challenge:
-
-The best leaders welcome challenge and questioning. They understand that their thinking is strengthened when tested by experienced external perspectives. Our service provides this challenge in a supportive, constructive environment.
-
-We ask questions like:
-- Have you considered alternative approaches?
-- What evidence supports this decision?
-- How does this align with your strategic objectives?
-- What could go wrong, and how would you respond?
-- Are your governance structures fit for your current scale and complexity?
-- Does your board have the right skills and information to provide effective oversight?
-
-These questions aren't criticisms—they're tools for strengthening thinking and ensuring robust decision-making.
-
-Long-term Partnership:
-
-While our initial perspective service is free, many organisations choose to develop ongoing relationships with us, engaging our consultancy services for implementation support, regular governance reviews, or strategic planning assistance.
-
-We're interested in long-term sector improvement, not quick transactions. Our free external perspective service is the beginning of a relationship built on trust, expertise, and shared commitment to excellence.
-
-Get Started:
-
-If your organisation would benefit from an independent, experienced perspective on your operations and governance, we'd welcome the opportunity to work with you.
-
-Contact our governance specialists to arrange an initial conversation. We'll discuss your current situation, explore where external perspective could add value, and outline how our service works.
-
-There's no obligation, no hidden costs, and no pressure—just a genuine offer of professional insight from experienced consultants who care about sector improvement and organisational excellence.
-
-In a sector facing constant change and increasing complexity, the organisations that thrive are those willing to challenge their own thinking, welcome external perspectives, and continuously strengthen their governance and operations.
-
-Let us help you build the robust frameworks that support sustainable, high-quality care delivery across the UK.`,
-  },
+  
   "free-inspection-compliance-foresight": {
     title: "Free Inspection & Compliance Foresight",
     description: "Proactive compliance monitoring and inspection preparation",
@@ -390,6 +264,31 @@ export default function ServiceDetailPage() {
   const slug = params.slug as string;
   const service = servicesData[slug];
   const [expanded, setExpanded] = useState(false);
+  const [isClientModalOpen, setIsClientModalOpen] = useState(false);
+  const [isCRMModalOpen, setIsCRMModalOpen] = useState(false);
+  const [isTrainingModalOpen, setIsTrainingModalOpen] = useState(false);
+
+  // Determine which button and modal to show based on slug
+  const getButtonConfig = () => {
+    if (slug === "client-relationship-manager") {
+      return {
+        text: "Request CRM",
+        onClick: () => setIsCRMModalOpen(true),
+      };
+    } else if (slug === "career-training-coaching") {
+      return {
+        text: "Apply Now",
+        onClick: () => setIsTrainingModalOpen(true),
+      };
+    } else {
+      return {
+        text: "Hire Now",
+        onClick: () => setIsClientModalOpen(true),
+      };
+    }
+  };
+
+  const buttonConfig = getButtonConfig();
 
   if (!service) {
     return (
@@ -488,11 +387,12 @@ export default function ServiceDetailPage() {
                 <p className="text-muted-foreground mb-4">
                   {service.ctaContent}
                 </p>
-                <Link href="/contact">
-                  <Button className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-6">
-                    Hire Now
-                  </Button>
-                </Link>
+                <Button 
+                  onClick={buttonConfig.onClick}
+                  className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-6"
+                >
+                  {buttonConfig.text}
+                </Button>
               </div>
             </div>
 
@@ -530,6 +430,20 @@ export default function ServiceDetailPage() {
           </div>
         </div>
       </section>
+
+      {/* Modals */}
+      <BecomeClientModal 
+        isOpen={isClientModalOpen}
+        onClose={() => setIsClientModalOpen(false)}
+      />
+      <CRMRequestModal 
+        isOpen={isCRMModalOpen}
+        onClose={() => setIsCRMModalOpen(false)}
+      />
+      <TrainingApplicationModal 
+        isOpen={isTrainingModalOpen}
+        onClose={() => setIsTrainingModalOpen(false)}
+      />
 
       <Footer />
     </main>
