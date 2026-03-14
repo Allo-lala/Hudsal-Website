@@ -27,7 +27,7 @@ const slides: Slide[] = [
     id: 6,
     image: "/images/it-solutions.png",
     title: "IT Solutions",
-    subtitle: "Innovative technology solutions designed to improve efficiency and enhance care quality. Transform your operations with our Streamlined systems.",
+    subtitle: "Integrate modern technology designed to simplify processes, automate tasks, and improve performance. Our IT solutions help you work smarter and operate with clarity and effortless control in a digital-first world.",
     buttonText: "Explore Solutions",
     href: "/what-we-do/it-solutions"
   },
@@ -35,7 +35,7 @@ const slides: Slide[] = [
     id: 5,
     image: "/images/financee.png",
     title: "Finance Consultancy",
-    subtitle: "Expert financial guidance to help your business thrive. From budgeting to financial planning, we provide comprehensive consultancy services.",
+    subtitle: "Practical financial insight and support to help boards make smarter, confident decisions, navigate challenges, identify opportunities, and build a stronger financial future.",
     buttonText: "Learn More",
     href: "/what-we-do/consultancy"
   },
@@ -43,15 +43,15 @@ const slides: Slide[] = [
     id: 8,
     image: "/images/services/staffing.png",
     title: " Health Care ",
-    subtitle:"Staff with the right professionals. Hire permanent staff for long-term roles, temporary and contract staff for short-term or specialised needs to cover shift gaps and changing workload demands. ",
-    buttonText: "Get Started",
+    subtitle:"Staff with the right professionals at the right time. Choose from permanent hires, temporary staff, trusted agency placements, or a reliable bank of pre-approved professionals ready to step in when demand changes.",
+    buttonText: "Hire Now",
     href: "/#books-podcasts"
   },
   {
     id: 2,
     image: "/images/products.jpeg",
-    title: "Get in-store experience and human connection online ",
-    subtitle:"Better for you. Better for the planet. Join the thousands of people in the Hadsul community today... ",
+    title: "Get in-store experience online ",
+    subtitle:"Fully equip with high-quality PPE. Easily order for masks, gloves, face shields, sanitisers and more. Enjoy fast dependable same day delivery without delays.",
     buttonText: "Order Now",
     href: "#"
   },

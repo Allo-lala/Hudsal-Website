@@ -235,16 +235,18 @@ Whether you need initial training for new staff, compliance updates for existing
     description: "Objective, experienced viewpoint on operations and governance structures",
     icon: Activity,
     image: "/images/services/solutions.avif",
-    shortContent: "An objective, experienced viewpoint on your operations and governance structures, challenging assumptions and ensuring robust decision-making frameworks are in place.",
+    shortContent: "Running a successful organisation requires more than day-to-day management—it requires clear oversight, strong governance, and the ability to adapt to evolving regulations.   ",
     ctaContent: "Connect with our governance specialists to gain fresh perspectives on your operations and strengthen your decision-making frameworks.",
     sidebarContent: "Independent governance review and strategic operational insights",
-    fullContent: `An objective, experienced viewpoint on your operations and governance structures, challenging assumptions and ensuring robust decision-making frameworks are in place.
+    fullContent: `Our Free External Perspective & Governance Support provides organisations with an objective, experienced review of their operations, helping leadership teams see their business from a fresh, independent viewpoint. By examining how your organisation operates, who you work with, and how decisions are made, we identify areas for improvement and strengthen the frameworks that support responsible and effective management.
 
-In the complex landscape of UK healthcare and social care, organisations often operate within their own established patterns and assumptions. While internal expertise is invaluable, an external perspective brings fresh insights, identifies blind spots, and challenges thinking in ways that drive meaningful improvement.
+Our Free External Perspective & Governance Support provides organisations with an objective, experienced review of their operations, helping leadership teams see their business from a fresh, independent viewpoint. By examining how your organisation operates, who you work with, and how decisions are made, we identify areas for improvement and strengthen the frameworks that support responsible and effective management.
 
-Our Free External Perspective & Governance Support service provides exactly this—a professional, independent review of your operational and governance structures, delivered by experienced consultants who understand the UK regulatory environment, CQC standards, and the practical realities of running care services.
+Organisations operate in line with current regulatory expectations and best practices in the UK. Clients understand governance responsibilities, review operational processes, and ensure that compliance requirements are clearly understood and implemented.
 
-What We Provide:
+In addition to reviewing existing systems, we also keep organisations informed about policy developments, regulatory discussions, and new standards that may affect their sector. Staying aware of these changes helps businesses avoid compliance risks, unexpected penalties, or operational disruptions that can arise from regulatory changes.
+
+We Provide:
 
 • Independent Operational Review
 • Governance Structure Assessment

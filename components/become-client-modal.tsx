@@ -66,10 +66,10 @@ export function BecomeClientModal({ isOpen, onClose }: BecomeClientModalProps) {
         {/* Form Content */}
         <div className="relative z-10 p-8 md:p-12">
           <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
-            Hire the experts your business needs
+            Hire Experts 
           </h3>
           <p className="text-muted-foreground mb-8 text-center">
-            Access skilled professionals ready to help you build and scale – without the full-time commitment
+            Access skilled professionals ready to build and scale – without the full-time commitment
           </p>
           
           <form onSubmit={handleClientFormSubmit} className="space-y-4">

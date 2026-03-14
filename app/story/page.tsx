@@ -59,7 +59,7 @@ const timelineEvents = [
     year: "2023",
     title: "Climate Action",
     description: "Committed to sustainability with 100% renewable energy transition, planted 50,000+ trees, and achieved 75% waste reduction.",
-    image: "/images/timeline/two.avif",
+    image: "/images/timeline/climate-timeline.png",
     side: "right"
   },
   {

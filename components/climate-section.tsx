@@ -8,7 +8,7 @@ import { GrantApplicationModal } from "@/components/grant-application-modal";
 const climateImages = [
   {
     id: 1,
-    src: "/images/climate/time.jpg",
+    src: "/images/climate/climate.png",
     title: "Sustainability ",
     description: " "
   },
