@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
+import { Star, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ReviewModal } from "@/components/review-modal";
 
@@ -61,57 +61,49 @@ export function Testimonials() {
   const [isReviewModalOpen, setIsReviewModalOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-  
-  const testimonialsPerPage = 3;
-  const totalSlides = Math.ceil(testimonials.length / testimonialsPerPage);
+  const [isMobile, setIsMobile] = useState(false);
 
-  // Auto-slide functionality
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
+  const perPage = isMobile ? 1 : 3;
+  const totalSlides = Math.ceil(testimonials.length / perPage);
+
+  // Reset to first slide when layout changes
+  useEffect(() => {
+    setCurrentSlide(0);
+  }, [perPage]);
+
+  // Auto-play
   useEffect(() => {
     if (!isAutoPlaying || totalSlides <= 1) return;
-
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % totalSlides);
-    }, 2000); // Change slide every 2 seconds
-
+    }, 2000);
     return () => clearInterval(interval);
   }, [isAutoPlaying, totalSlides]);
 
-  // Pause auto-play when modal opens
+  // Pause when modal opens
   useEffect(() => {
-    if (isReviewModalOpen) {
-      setIsAutoPlaying(false);
-    } else {
-      setIsAutoPlaying(true);
-    }
+    setIsAutoPlaying(!isReviewModalOpen);
   }, [isReviewModalOpen]);
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % totalSlides);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
-  };
-
-  const goToSlide = (index: number) => {
-    setCurrentSlide(index);
-  };
-
-  const visibleTestimonials = testimonials.slice(
-    currentSlide * testimonialsPerPage,
-    (currentSlide + 1) * testimonialsPerPage
+  const slides = Array.from({ length: totalSlides }, (_, i) =>
+    testimonials.slice(i * perPage, (i + 1) * perPage)
   );
 
   return (
-    <section id="testimonials-section" className="py-20 bg-gradient-to-b from-background to-emerald/5 relative overflow-hidden">
+    <section
+      id="testimonials-section"
+      className="py-20 bg-gradient-to-b from-background to-emerald/5 relative overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            {/* <span className="text-emerald text-sm font-medium tracking-wider uppercase animate-fade-in">
-              Testimonials
-            </span> */}
-          </div>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground text-balance animate-slide-up">
             What Our Clients Say
           </h2>
@@ -121,105 +113,87 @@ export function Testimonials() {
           </p>
         </div>
 
-        {/* Testimonials Slider */}
-        <div 
+        {/* Slider */}
+        <div
           className="relative mb-16"
           onMouseEnter={() => setIsAutoPlaying(false)}
           onMouseLeave={() => setIsAutoPlaying(true)}
         >
-          {/* Testimonials Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-500">
-            {visibleTestimonials.map((testimonial, index) => (
+          <div className="overflow-hidden">
+            <div
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+            >
+              {slides.map((group, slideIndex) => (
                 <div
-                  key={testimonial.id}
-                  className="bg-card border border-border rounded-2xl p-8 relative group hover:shadow-2xl transition-all duration-500 hover-lift animate-slide-up"
-                  style={{ animationDelay: `${index * 0.2}s` }}
+                  key={slideIndex}
+                  className="w-full flex-shrink-0"
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: `repeat(${perPage}, minmax(0, 1fr))`,
+                    gap: "2rem",
+                  }}
                 >
-                  {/* Quote Icon */}
-                  <div className="absolute top-6 right-6 text-emerald/20 group-hover:text-emerald/40 transition-colors">
-                    <Quote className="w-12 h-12" />
-                  </div>
-
-                  {/* Rating */}
-                  <div className="flex gap-1 mb-6">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className="w-5 h-5 fill-emerald text-emerald group-hover:scale-110 transition-transform"
-                        style={{ transitionDelay: `${i * 0.1}s` }}
-                      />
-                    ))}
-                  </div>
-
-                  {/* Text */}
-                  <p className="text-foreground/80 leading-relaxed mb-8 group-hover:text-foreground transition-colors">
-                    {`"${testimonial.text}"`}
-                  </p>
-
-                  {/* Author */}
-                  <div className="flex items-center gap-4">
-                    <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-emerald group-hover:border-emerald-dark transition-colors">
-                      <Image
-                        src={testimonial.image || "/placeholder.svg"}
-                        alt={testimonial.name}
-                        fill
-                        className="object-cover group-hover:scale-110 transition-transform duration-300"
-                      />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-foreground group-hover:text-emerald transition-colors">
-                        {testimonial.name}
-                      </h4>
-                      <p className="text-sm text-muted-foreground">
-                        {testimonial.role}
+                  {group.map((testimonial) => (
+                    <div
+                      key={testimonial.id}
+                      className="bg-card border border-border rounded-2xl p-8 relative group hover:shadow-2xl transition-all duration-500"
+                    >
+                      <div className="absolute top-6 right-6 text-emerald/20 group-hover:text-emerald/40 transition-colors">
+                        <Quote className="w-12 h-12" />
+                      </div>
+                      <div className="flex gap-1 mb-6">
+                        {Array.from({ length: testimonial.rating }).map((_, i) => (
+                          <Star
+                            key={i}
+                            className="w-5 h-5 fill-emerald text-emerald"
+                          />
+                        ))}
+                      </div>
+                      <p className="text-foreground/80 leading-relaxed mb-8 group-hover:text-foreground transition-colors">
+                        {`"${testimonial.text}"`}
                       </p>
+                      <div className="flex items-center gap-4">
+                        <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-emerald flex-shrink-0">
+                          <Image
+                            src={testimonial.image || "/placeholder.svg"}
+                            alt={testimonial.name}
+                            fill
+                            className="object-cover"
+                          />
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-foreground group-hover:text-emerald transition-colors">
+                            {testimonial.name}
+                          </h4>
+                          <p className="text-sm text-muted-foreground">
+                            {testimonial.role}
+                          </p>
+                        </div>
+                      </div>
                     </div>
-                  </div>
+                  ))}
                 </div>
               ))}
+            </div>
           </div>
 
-          {/* Navigation Controls */}
-          <div className="flex items-center justify-center gap-4 mt-12">
-            {/* Previous Button */}
-            {/* <button
-              onClick={prevSlide}
-              onMouseEnter={() => setIsAutoPlaying(false)}
-              onMouseLeave={() => setIsAutoPlaying(true)}
-              className="w-12 h-12 rounded-full bg-emerald/10 hover:bg-emerald text-emerald hover:text-white flex items-center justify-center transition-all hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
-              disabled={totalSlides <= 1}
-            >
-              <ChevronLeft className="w-6 h-6" />
-            </button> */}
-
-            {/* Dots Indicator */}
-            <div className="flex gap-2">
-              {[...Array(totalSlides)].map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => goToSlide(index)}
-                  onMouseEnter={() => setIsAutoPlaying(false)}
-                  onMouseLeave={() => setIsAutoPlaying(true)}
-                  className={`w-3 h-3 rounded-full transition-all ${
-                    index === currentSlide
-                      ? 'bg-emerald scale-125'
-                      : 'bg-emerald/30 hover:bg-emerald/50'
-                  }`}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
-              ))}
-            </div>
-
-            {/* Next Button */}
-            {/* <button
-              onClick={nextSlide}
-              onMouseEnter={() => setIsAutoPlaying(false)}
-              onMouseLeave={() => setIsAutoPlaying(true)}
-              className="w-12 h-12 rounded-full bg-emerald/10 hover:bg-emerald text-emerald hover:text-white flex items-center justify-center transition-all hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
-              disabled={totalSlides <= 1}
-            >
-              <ChevronRight className="w-6 h-6" />
-            </button> */}
+          {/* Dots */}
+          <div className="flex items-center justify-center gap-2 mt-10">
+            {slides.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                onMouseEnter={() => setIsAutoPlaying(false)}
+                onMouseLeave={() => setIsAutoPlaying(true)}
+                className={`w-3 h-3 rounded-full transition-all ${
+                  index === currentSlide
+                    ? "bg-emerald scale-125"
+                    : "bg-emerald/30 hover:bg-emerald/50"
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
           </div>
         </div>
 
@@ -229,9 +203,10 @@ export function Testimonials() {
             Share Your Experience
           </h3>
           <p className="text-muted-foreground mb-6 max-w-md mx-auto">
-            Have you used our services? We'd love to hear about your experience with Hadsul.
+            Have you used our services? We&apos;d love to hear about your
+            experience with Hadsul.
           </p>
-          <Button 
+          <Button
             className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-8 py-3"
             onClick={() => setIsReviewModalOpen(true)}
           >
@@ -240,9 +215,9 @@ export function Testimonials() {
         </div>
       </div>
 
-      <ReviewModal 
-        isOpen={isReviewModalOpen} 
-        onClose={() => setIsReviewModalOpen(false)} 
+      <ReviewModal
+        isOpen={isReviewModalOpen}
+        onClose={() => setIsReviewModalOpen(false)}
       />
     </section>
   );
