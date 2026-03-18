@@ -9,6 +9,7 @@ import { ArrowUp, Send, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { SuccessToast } from "@/components/success-toast";
+import { FireworksOverlay } from "@/components/fireworks-overlay";
 
 const quickLinks = [
   { name: "Business Xray", href: "/business-xray" },
@@ -126,6 +127,7 @@ export function Footer() {
         title="Successfully Subscribed!"
         message="Welcome to Hadsul Newsletter! Check your email for a confirmation message."
       />
+      {showSuccessToast && <FireworksOverlay />}
 
       <footer className="bg-[#1a2e1a] dark:bg-[#0f1a0f] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">

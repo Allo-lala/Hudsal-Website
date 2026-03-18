@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { X } from "lucide-react";
+import { X, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { FireworksOverlay } from "@/components/fireworks-overlay";
 
 interface BecomeClientModalProps {
   isOpen: boolean;
@@ -22,6 +23,7 @@ export function BecomeClientModal({ isOpen, onClose, preselectedService }: Becom
     description: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const handleClientFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -37,9 +39,8 @@ export function BecomeClientModal({ isOpen, onClose, preselectedService }: Becom
       });
 
       if (response.ok) {
-        alert('Thank you! We will contact you soon.');
+        setSubmitted(true);
         setClientFormData({ name: "", email: "", address: "", companyName: "", phone: "", service: preselectedService || "", description: "" });
-        onClose();
       } else {
         alert('Failed to submit. Please try again.');
       }
@@ -66,6 +67,22 @@ export function BecomeClientModal({ isOpen, onClose, preselectedService }: Becom
 
         {/* Form Content */}
         <div className="relative z-10 p-8 md:p-12">
+          {submitted ? (
+            <>
+              <FireworksOverlay />
+              <div className="flex flex-col items-center justify-center py-8 text-center gap-4">
+                <CheckCircle className="w-16 h-16 text-emerald-500" />
+                <h3 className="text-2xl font-bold text-foreground">Request Submitted!</h3>
+                <p className="text-muted-foreground max-w-sm">
+                  Thank you! We will review your request and contact you soon.
+                </p>
+                <Button onClick={onClose} className="mt-2 bg-emerald hover:bg-emerald-dark text-white rounded-full px-8">
+                  Done
+                </Button>
+              </div>
+            </>
+          ) : (
+          <>
           <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
             Hadsul Limited 
           </h3>
@@ -181,6 +198,8 @@ export function BecomeClientModal({ isOpen, onClose, preselectedService }: Becom
               </Button>
             </div>
           </form>
+          </>
+          )}
         </div>
       </div>
     </div>

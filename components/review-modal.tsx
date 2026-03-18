@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Star, X, Upload, MapPin, User, Briefcase } from "lucide-react";
 import { SuccessToast } from "@/components/success-toast";
+import { FireworksOverlay } from "@/components/fireworks-overlay";
 
 interface ReviewModalProps {
   isOpen: boolean;
@@ -129,6 +130,7 @@ export function ReviewModal({ isOpen, onClose }: ReviewModalProps) {
 
         {submitted ? (
           <div className="p-8 text-center">
+            <FireworksOverlay />
             <div className="w-16 h-16 bg-emerald/10 rounded-full flex items-center justify-center mx-auto mb-4">
               <Star className="w-8 h-8 text-emerald fill-emerald" />
             </div>

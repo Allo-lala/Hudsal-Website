@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { X, ArrowRight, CheckCircle } from "lucide-react";
+import { FireworksOverlay } from "@/components/fireworks-overlay";
 
 interface CRMRequestModalProps {
   isOpen: boolean;
@@ -284,6 +285,7 @@ export function CRMRequestModal({ isOpen, onClose }: CRMRequestModalProps) {
 
         {step === "success" && (
           <div className="p-8 text-center">
+            <FireworksOverlay />
             <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
               <CheckCircle className="w-10 h-10 text-emerald" />
             </div>

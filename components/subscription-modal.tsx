@@ -10,6 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { X, ArrowRight, CheckCircle, Crown, Diamond, Gem, Home } from "lucide-react";
+import { FireworksOverlay } from "@/components/fireworks-overlay";
 
 interface SubscriptionModalProps {
   isOpen: boolean;
@@ -296,6 +297,7 @@ export function SubscriptionModal({ isOpen, onClose, productName, productDescrip
 
         {step === "success" && (
           <div className="p-8 text-center">
+            <FireworksOverlay />
             <div className="w-20 h-20 rounded-full bg-emerald/10 flex items-center justify-center mx-auto mb-6">
               {renderIcon("w-10 h-10 text-emerald")}
             </div>

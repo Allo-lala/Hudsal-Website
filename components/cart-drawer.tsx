@@ -92,7 +92,7 @@ export function CartDrawer({ onCheckout }: CartDrawerProps) {
                     )}
                     <p className="text-sm font-semibold text-emerald-600 mt-0.5">{item.price} <span className="text-xs text-gray-400 font-normal">/ {item.unit}</span></p>
                     <p className="text-xs text-gray-500 mt-0.5">
-                      Line total: £{(parseFloat(item.price.replace(/[^0-9.]/g, "")) * item.quantity).toFixed(2)}
+                       Total: £{(parseFloat(item.price.replace(/[^0-9.]/g, "")) * item.quantity).toFixed(2)}
                     </p>
                     <div className="flex items-center gap-2 mt-3">
                       <button
