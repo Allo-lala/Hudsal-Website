@@ -36,9 +36,9 @@ const navItems = [
     dropdownItems: [
       { name: "Community", href: "/#books-podcasts" },
       { name: "Dinners", href: "/events" },
-      { name: "Hotseats", href: "/#books-podcasts" },
-      { name: "Webinars", href: "/#books-podcasts" },
-      { name: "Books", href: "#books-podcasts" },
+      { name: "Hotseats", href: "/#podcasts-section" },
+      { name: "Webinars", href: "/#webinars-section" },
+      { name: "Books", href: "/#books-podcasts" },
       { name: "Testimonials", href: "/testimonials" },
       { name: "Events", href: "/events" },
       { name: "Contact Us", href: "/contact" },

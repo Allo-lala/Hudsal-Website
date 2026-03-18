@@ -130,7 +130,7 @@ export function BooksAndPodcasts() {
           </div>
 
           {/* Podcasts Section */}
-          <div className="flex flex-col">
+          <div id="podcasts-section" className="flex flex-col">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-12 h-12 rounded-lg flex items-center justify-center">
                 <Headphones className="w-6 h-6 text-emerald" />
@@ -273,7 +273,7 @@ export function BooksAndPodcasts() {
           </div>
 
           {/* Webinars Section */}
-          <div className="flex flex-col">
+          <div id="webinars-section" className="flex flex-col">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-12 h-12 rounded-lg flex items-center justify-center">
                 <ExternalLink className="w-6 h-6 text-emerald" />

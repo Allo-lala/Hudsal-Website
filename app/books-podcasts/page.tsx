@@ -168,6 +168,63 @@ const podcasts = [
 const categories = ["All", "Leadership", "Staffing", "Technology", "Care Management", "Innovation", "Patient Care"];
 const podcastCategories = ["All", "Industry News", "Recruitment", "Care Homes", "Technology", "Leadership", "Patient Experience"];
 
+const webinars = [
+  {
+    id: 1,
+    title: "Future of Healthcare Staffing",
+    host: "Dr. Sarah Johnson",
+    description: "A deep dive into recruitment trends, workforce planning, and how technology is reshaping healthcare staffing in the UK.",
+    date: "15 April 2025",
+    time: "6:00 PM GMT",
+    duration: "60 min",
+    image: "/images/webinar-1.jpg",
+    category: "Staffing",
+    status: "upcoming",
+    attendees: 320,
+  },
+  {
+    id: 2,
+    title: "Leadership & Culture in Care Homes",
+    host: "Michael Thompson",
+    description: "Practical strategies for building strong leadership and positive culture in care home environments.",
+    date: "22 April 2025",
+    time: "5:30 PM GMT",
+    duration: "45 min",
+    image: "/images/webinar-2.jpg",
+    category: "Leadership",
+    status: "upcoming",
+    attendees: 210,
+  },
+  {
+    id: 3,
+    title: "Digital Health & AI in Patient Care",
+    host: "Emma Wilson",
+    description: "How AI and digital tools are transforming patient outcomes and what healthcare professionals need to know.",
+    date: "10 March 2025",
+    time: "6:00 PM GMT",
+    duration: "50 min",
+    image: "/images/webinar-3.jpg",
+    category: "Technology",
+    status: "past",
+    attendees: 540,
+  },
+  {
+    id: 4,
+    title: "Compliance & Quality in Healthcare",
+    host: "Dr. James Mitchell",
+    description: "Navigating CQC standards, compliance frameworks, and quality improvement in modern healthcare settings.",
+    date: "18 February 2025",
+    time: "5:00 PM GMT",
+    duration: "55 min",
+    image: "/images/webinar-4.jpg",
+    category: "Compliance",
+    status: "past",
+    attendees: 415,
+  },
+];
+
+const webinarCategories = ["All", "Staffing", "Leadership", "Technology", "Compliance"];
+
 export default function BooksAndPodcastsPage() {
   useEffect(() => {
     document.title = "Books & Podcasts | Hudsal";
@@ -177,6 +234,15 @@ export default function BooksAndPodcastsPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedPodcastCategory, setSelectedPodcastCategory] = useState("All");
+  const [selectedWebinarCategory, setSelectedWebinarCategory] = useState("All");
+
+  // Read hash on mount and activate correct tab
+  useEffect(() => {
+    const hash = window.location.hash.replace("#", "");
+    if (hash === "podcasts" || hash === "webinars" || hash === "books") {
+      setActiveTab(hash);
+    }
+  }, []);
 
   const filteredBooks = books.filter(book => {
     const matchesSearch = book.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -189,6 +255,13 @@ export default function BooksAndPodcastsPage() {
     const matchesSearch = podcast.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          podcast.description.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = selectedPodcastCategory === "All" || podcast.category === selectedPodcastCategory;
+    return matchesSearch && matchesCategory;
+  });
+
+  const filteredWebinars = webinars.filter(webinar => {
+    const matchesSearch = webinar.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         webinar.description.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesCategory = selectedWebinarCategory === "All" || webinar.category === selectedWebinarCategory;
     return matchesSearch && matchesCategory;
   });
 
@@ -206,8 +279,9 @@ export default function BooksAndPodcastsPage() {
         <div className="max-w-7xl mx-auto">
           {/* Tab Navigation */}
           <div className="flex justify-center mb-12">
-            <div className="bg-secondary/30 p-1 rounded-lg">
+            <div className="bg-secondary/30 p-1 rounded-lg flex flex-wrap justify-center gap-1">
               <button
+                id="books"
                 onClick={() => setActiveTab("books")}
                 className={`px-6 py-3 rounded-md font-medium transition-colors ${
                   activeTab === "books"
@@ -219,6 +293,7 @@ export default function BooksAndPodcastsPage() {
                 Books
               </button>
               <button
+                id="podcasts"
                 onClick={() => setActiveTab("podcasts")}
                 className={`px-6 py-3 rounded-md font-medium transition-colors ${
                   activeTab === "podcasts"
@@ -228,6 +303,18 @@ export default function BooksAndPodcastsPage() {
               >
                 <Headphones className="w-4 h-4 mr-2 inline" />
                 Podcasts
+              </button>
+              <button
+                id="webinars"
+                onClick={() => setActiveTab("webinars")}
+                className={`px-6 py-3 rounded-md font-medium transition-colors ${
+                  activeTab === "webinars"
+                    ? "bg-emerald text-white"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                <Play className="w-4 h-4 mr-2 inline" />
+                Webinars
               </button>
             </div>
           </div>
@@ -246,14 +333,16 @@ export default function BooksAndPodcastsPage() {
             <div className="flex items-center gap-2">
               <Filter className="w-4 h-4 text-muted-foreground" />
               <select
-                value={activeTab === "books" ? selectedCategory : selectedPodcastCategory}
-                onChange={(e) => activeTab === "books" ? setSelectedCategory(e.target.value) : setSelectedPodcastCategory(e.target.value)}
+                value={activeTab === "books" ? selectedCategory : activeTab === "podcasts" ? selectedPodcastCategory : selectedWebinarCategory}
+                onChange={(e) => {
+                  if (activeTab === "books") setSelectedCategory(e.target.value);
+                  else if (activeTab === "podcasts") setSelectedPodcastCategory(e.target.value);
+                  else setSelectedWebinarCategory(e.target.value);
+                }}
                 className="px-3 py-2 rounded-md border border-input bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-ring"
               >
-                {(activeTab === "books" ? categories : podcastCategories).map((category) => (
-                  <option key={category} value={category}>
-                    {category}
-                  </option>
+                {(activeTab === "books" ? categories : activeTab === "podcasts" ? podcastCategories : webinarCategories).map((category) => (
+                  <option key={category} value={category}>{category}</option>
                 ))}
               </select>
             </div>
@@ -363,15 +452,52 @@ export default function BooksAndPodcastsPage() {
             </div>
           )}
 
+          {/* Webinars Section */}
+          {activeTab === "webinars" && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {filteredWebinars.map((webinar) => (
+                <div key={webinar.id} className="bg-card border border-border rounded-xl overflow-hidden hover:shadow-lg transition-shadow">
+                  <div className="h-40 bg-gradient-to-br from-emerald/20 to-emerald/5 flex items-center justify-center relative">
+                    <Play className="w-14 h-14 text-emerald" />
+                    <span className={`absolute top-4 right-4 text-xs px-3 py-1 rounded-full font-medium ${webinar.status === "upcoming" ? "bg-emerald text-white" : "bg-secondary text-muted-foreground"}`}>
+                      {webinar.status === "upcoming" ? "Upcoming" : "Past"}
+                    </span>
+                  </div>
+                  <div className="p-6">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-xs bg-emerald/10 text-emerald px-2 py-1 rounded-full">{webinar.category}</span>
+                      <span className="text-xs text-muted-foreground">{webinar.duration}</span>
+                    </div>
+                    <h3 className="font-bold text-foreground mb-1">{webinar.title}</h3>
+                    <p className="text-sm text-muted-foreground mb-1">Hosted by {webinar.host}</p>
+                    <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{webinar.description}</p>
+                    <div className="flex items-center justify-between">
+                      <div className="text-sm text-muted-foreground">
+                        <span>{webinar.date} • {webinar.time}</span>
+                        <span className="ml-3">{webinar.attendees} attendees</span>
+                      </div>
+                      <Button className="bg-emerald hover:bg-emerald-dark text-white text-sm">
+                        {webinar.status === "upcoming" ? "Register" : "Watch"}
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+
           {/* No Results */}
-          {((activeTab === "books" && filteredBooks.length === 0) || 
-            (activeTab === "podcasts" && filteredPodcasts.length === 0)) && (
+          {((activeTab === "books" && filteredBooks.length === 0) ||
+            (activeTab === "podcasts" && filteredPodcasts.length === 0) ||
+            (activeTab === "webinars" && filteredWebinars.length === 0)) && (
             <div className="text-center py-12">
               <div className="w-16 h-16 bg-secondary/30 rounded-full flex items-center justify-center mx-auto mb-4">
                 {activeTab === "books" ? (
                   <BookOpen className="w-8 h-8 text-muted-foreground" />
-                ) : (
+                ) : activeTab === "podcasts" ? (
                   <Headphones className="w-8 h-8 text-muted-foreground" />
+                ) : (
+                  <Play className="w-8 h-8 text-muted-foreground" />
                 )}
               </div>
               <h3 className="text-lg font-semibold text-foreground mb-2">
