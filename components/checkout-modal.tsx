@@ -250,11 +250,11 @@ function DetailsForm({
             <input required type="tel" value={form.phone} onChange={(e) => set("phone", e.target.value)}
               className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0071E3]" />
           </div>
-          <div className="col-span-2">
-            <label className="text-xs text-gray-500 mb-1 block">Company / Organisation</label>
+          {/* <div className="col-span-2">
+            <label className="text-xs text-gray-500 mb-1 block">Company / Care Home</label>
             <input value={form.company} onChange={(e) => set("company", e.target.value)}
               className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0071E3]" />
-          </div>
+          </div> */}
         </div>
       </div>
 
@@ -289,7 +289,7 @@ function DetailsForm({
             <div className="relative">
               <select required value={form.county} onChange={(e) => set("county", e.target.value)}
                 className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0071E3] appearance-none bg-white">
-                <option value="">Select county</option>
+                <option value=""disabled hidden>Select county</option>
                 {UK_COUNTIES.map((c) => <option key={c} value={c}>{c}</option>)}
               </select>
               <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />

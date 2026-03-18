@@ -27,7 +27,7 @@ export function PhilanthropySection() {
         <video
           ref={videoRef}
           className="absolute inset-0 w-full h-full object-cover sm:object-cover"
-          poster="/images/philanthropy/video-poster.jpg"
+          // poster="/images/philanthropy/video-poster.jpg"
           autoPlay
           muted={isMuted}
           loop

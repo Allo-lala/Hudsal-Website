@@ -30,7 +30,7 @@ const slides: Slide[] = [
     title: "IT Solutions",
     subtitle: "Integrate modern technology designed to simplify processes, automate tasks, and improve performance. Our IT solutions help you work smarter and operate with clarity and effortless control in a digital-first world.",
     buttonText: "Explore Solutions",
-    href: "/what-we-do/it-solutions"
+    href: "/services"
   },
   {
     id: 5,
@@ -46,7 +46,7 @@ const slides: Slide[] = [
     title: " Healthcare Staffing ",
     subtitle:"Staff with the right professionals at the right time. Choose from permanent hires, temporary staff, trusted agency placements, or a reliable bank of pre-approved professionals ready to step in when demand changes.",
     buttonText: "Hire Now",
-    href: "/#books-podcasts"
+    href: "/what-we-do/healthcare-staffing"
   },
   {
     id: 2,
@@ -54,15 +54,15 @@ const slides: Slide[] = [
     title: "Get in-store experience online ",
     subtitle:"Fully equip with high-quality PPE. Easily order for masks, gloves, face shields, sanitisers and more. Enjoy fast dependable same day delivery without delays.",
     buttonText: "Order Now",
-    href: "#"
+    href: "/products"
   },
   {
     id: 3,
     image: "/images/hero-care.png",
     title: "Streamline Operations with  Our free CRM ",
     subtitle:"Experience efficiency from AI-driven Insights, In-Built Automated Workflows, AI Features, Dashboards to Payments and much more empowering agencies.",
-    buttonText: "Log In",
-    href: "/services"
+    buttonText: "Request CRM",
+    href: "/what-we-do/client-relationship-manager"
   },
   // {
   //   id: 4,

@@ -108,7 +108,7 @@ export function CRMRequestModal({ isOpen, onClose }: CRMRequestModalProps) {
           <div className="p-8">
             <div className="text-center mb-6">
               <h2 className="text-2xl font-bold text-foreground mb-2">
-                Request CRM Demo
+                Request CRM
               </h2>
               <p className="text-muted-foreground">
                 Fill out the form below and we'll get back to you shortly

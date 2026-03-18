@@ -307,7 +307,7 @@ export function BooksAndPodcasts() {
                   {/* Buttons */}
                   <div className="space-y-3 w-full max-w-52">
                     <a
-                      href="https://hadsul.co.uk/webinar-notifications"
+                      href="https://www.youtube.com/hadsulltd"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block"
@@ -318,7 +318,7 @@ export function BooksAndPodcasts() {
                     </a>
                     
                     <a
-                      href="/webinars/recordings"
+                      href="https://www.youtube.com/hadsulltd"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block"
