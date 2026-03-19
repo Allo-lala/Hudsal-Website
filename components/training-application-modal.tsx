@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { X, ArrowRight, CheckCircle } from "lucide-react";
 import { FireworksOverlay } from "@/components/fireworks-overlay";
+import { validateEmail, validatePhone } from "@/lib/validation";
 
 interface TrainingApplicationModalProps {
   isOpen: boolean;
@@ -17,46 +18,43 @@ export function TrainingApplicationModal({ isOpen, onClose }: TrainingApplicatio
   const [step, setStep] = useState<"form" | "success">("form");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [fieldErrors, setFieldErrors] = useState<{ email?: string; phone?: string }>({});
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    address: "",
-    qualification: "",
-    experience: "",
-    trainingInterest: "",
-    additionalInfo: "",
+    name: "", email: "", phone: "", address: "",
+    qualification: "", experience: "", trainingInterest: "", additionalInfo: "",
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    if (name === "email") setFieldErrors((fe) => ({ ...fe, email: "" }));
+    if (name === "phone") setFieldErrors((fe) => ({ ...fe, phone: "" }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const emailErr = validateEmail(formData.email);
+    const phoneErr = validatePhone(formData.phone);
+    if (emailErr || phoneErr) {
+      setFieldErrors({ email: emailErr, phone: phoneErr });
+      return;
+    }
     setIsSubmitting(true);
     setErrorMessage("");
-
     try {
-      const response = await fetch('/api/training-application', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+      const response = await fetch("/api/training-application", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-
       const data = await response.json();
-
       if (data.success) {
         setStep("success");
       } else {
-        setErrorMessage(data.message || 'Failed to submit application. Please try again.');
+        setErrorMessage(data.message || "Failed to submit application. Please try again.");
       }
-    } catch (error) {
-      console.error('Training application error:', error);
-      setErrorMessage('An error occurred. Please try again later.');
+    } catch {
+      setErrorMessage("An error occurred. Please try again later.");
     } finally {
       setIsSubmitting(false);
     }
@@ -64,16 +62,8 @@ export function TrainingApplicationModal({ isOpen, onClose }: TrainingApplicatio
 
   const handleClose = () => {
     setStep("form");
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      address: "",
-      qualification: "",
-      experience: "",
-      trainingInterest: "",
-      additionalInfo: "",
-    });
+    setFieldErrors({});
+    setFormData({ name: "", email: "", phone: "", address: "", qualification: "", experience: "", trainingInterest: "", additionalInfo: "" });
     onClose();
   };
 
@@ -81,154 +71,58 @@ export function TrainingApplicationModal({ isOpen, onClose }: TrainingApplicatio
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center">
-      {/* Backdrop */}
-      <div 
-        className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-        onClick={handleClose}
-      />
-      
-      {/* Modal */}
+      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={handleClose} />
       <div className="relative bg-card border border-border rounded-2xl w-full max-w-2xl mx-4 max-h-[90vh] overflow-y-auto shadow-2xl">
-        {/* Close Button */}
-        <button
-          onClick={handleClose}
-          className="absolute top-4 right-4 text-muted-foreground hover:text-foreground transition-colors z-10"
-          aria-label="Close modal"
-        >
+        <button onClick={handleClose} className="absolute top-4 right-4 text-muted-foreground hover:text-foreground transition-colors z-10" aria-label="Close modal">
           <X className="w-5 h-5" />
         </button>
 
         {step === "form" && (
           <div className="p-8">
             <div className="text-center mb-6">
-              <h2 className="text-2xl font-bold text-foreground mb-2">
-                Apply for Training
-              </h2>
-              <p className="text-muted-foreground">
-                Complete the form below to apply for our Career Training & Coaching program
-              </p>
+              <h2 className="text-2xl font-bold text-foreground mb-2">Apply for Training</h2>
+              <p className="text-muted-foreground">Complete the form below to apply for our Career Training &amp; Coaching program</p>
             </div>
-
             <form onSubmit={handleSubmit} className="space-y-4">
               {errorMessage && (
-                <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
-                  {errorMessage}
-                </div>
+                <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">{errorMessage}</div>
               )}
-
               <div>
                 <Label htmlFor="name">Full Name *</Label>
-                <Input
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  placeholder="Enter your full name"
-                  required
-                  className="mt-1"
-                />
+                <Input id="name" name="name" value={formData.name} onChange={handleInputChange} placeholder="Enter your full name" required className="mt-1" />
               </div>
-
               <div>
                 <Label htmlFor="email">Email Address *</Label>
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  placeholder="Enter your email"
-                  required
-                  className="mt-1"
-                />
+                <Input id="email" name="email" type="email" value={formData.email} onChange={handleInputChange} placeholder="Enter your email" required className="mt-1" />
+                {fieldErrors.email && <p className="text-red-500 text-xs mt-1">{fieldErrors.email}</p>}
               </div>
-
               <div>
                 <Label htmlFor="phone">Phone Number *</Label>
-                <Input
-                  id="phone"
-                  name="phone"
-                  type="tel"
-                  value={formData.phone}
-                  onChange={handleInputChange}
-                  placeholder="Enter your phone number"
-                  required
-                  className="mt-1"
-                />
+                <Input id="phone" name="phone" type="tel" value={formData.phone} onChange={handleInputChange} placeholder="+44 7123 456 789" required className="mt-1" />
+                {fieldErrors.phone && <p className="text-red-500 text-xs mt-1">{fieldErrors.phone}</p>}
               </div>
-
               <div>
                 <Label htmlFor="address">Address *</Label>
-                <Input
-                  id="address"
-                  name="address"
-                  value={formData.address}
-                  onChange={handleInputChange}
-                  placeholder="Enter your address"
-                  required
-                  className="mt-1"
-                />
+                <Input id="address" name="address" value={formData.address} onChange={handleInputChange} placeholder="Enter your address" required className="mt-1" />
               </div>
-
               <div>
                 <Label htmlFor="qualification">Current Qualifications *</Label>
-                <Input
-                  id="qualification"
-                  name="qualification"
-                  value={formData.qualification}
-                  onChange={handleInputChange}
-                  placeholder="e.g., NVQ Level 2, Diploma in Health & Social Care"
-                  required
-                  className="mt-1"
-                />
+                <Input id="qualification" name="qualification" value={formData.qualification} onChange={handleInputChange} placeholder="e.g., NVQ Level 2, Diploma in Health & Social Care" required className="mt-1" />
               </div>
-
               <div>
                 <Label htmlFor="experience">Relevant Experience *</Label>
-                <Textarea
-                  id="experience"
-                  name="experience"
-                  value={formData.experience}
-                  onChange={handleInputChange}
-                  placeholder="Describe your relevant experience in healthcare or care work"
-                  rows={3}
-                  required
-                  className="mt-1"
-                />
+                <Textarea id="experience" name="experience" value={formData.experience} onChange={handleInputChange} placeholder="Describe your relevant experience" rows={3} required className="mt-1" />
               </div>
-
               <div>
                 <Label htmlFor="trainingInterest">Training Program Interest *</Label>
-                <Input
-                  id="trainingInterest"
-                  name="trainingInterest"
-                  value={formData.trainingInterest}
-                  onChange={handleInputChange}
-                  placeholder="e.g., HCA Training, Medication Management, Leadership Development"
-                  required
-                  className="mt-1"
-                />
+                <Input id="trainingInterest" name="trainingInterest" value={formData.trainingInterest} onChange={handleInputChange} placeholder="e.g., HCA Training, Medication Management" required className="mt-1" />
               </div>
-
               <div>
                 <Label htmlFor="additionalInfo">Additional Information</Label>
-                <Textarea
-                  id="additionalInfo"
-                  name="additionalInfo"
-                  value={formData.additionalInfo}
-                  onChange={handleInputChange}
-                  placeholder="Any additional information you'd like to share"
-                  rows={3}
-                  className="mt-1"
-                />
+                <Textarea id="additionalInfo" name="additionalInfo" value={formData.additionalInfo} onChange={handleInputChange} placeholder="Any additional information you'd like to share" rows={3} className="mt-1" />
               </div>
-
-              <Button 
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-emerald hover:bg-emerald-dark text-white rounded-full mt-6 disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {isSubmitting ? 'Submitting...' : 'Submit Application'}
+              <Button type="submit" disabled={isSubmitting} className="w-full bg-emerald hover:bg-emerald-dark text-white rounded-full mt-6 disabled:opacity-50 disabled:cursor-not-allowed">
+                {isSubmitting ? "Submitting..." : "Submit Application"}
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </form>
@@ -241,18 +135,11 @@ export function TrainingApplicationModal({ isOpen, onClose }: TrainingApplicatio
             <div className="w-20 h-20 rounded-full bg-emerald/10 flex items-center justify-center mx-auto mb-6">
               <CheckCircle className="w-10 h-10 text-emerald" />
             </div>
-            <h2 className="text-2xl font-bold text-foreground mb-2">
-              Application Submitted!
-            </h2>
+            <h2 className="text-2xl font-bold text-foreground mb-2">Application Submitted!</h2>
             <p className="text-muted-foreground mb-6">
-              Thank you for applying to our Career Training & Coaching program. We'll review your application and contact you shortly.
+              Thank you for applying. We&apos;ll review your application and contact you shortly.
             </p>
-            <Button 
-              onClick={handleClose}
-              className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-8"
-            >
-              Close
-            </Button>
+            <Button onClick={handleClose} className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-8">Close</Button>
           </div>
         )}
       </div>

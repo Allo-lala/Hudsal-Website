@@ -4,6 +4,7 @@ import { useState } from "react";
 import { X, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FireworksOverlay } from "@/components/fireworks-overlay";
+import { validateEmail, validatePhone } from "@/lib/validation";
 
 interface BecomeClientModalProps {
   isOpen: boolean;
@@ -27,12 +28,22 @@ export function BecomeClientModal({ isOpen, onClose, preselectedService }: Becom
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [errors, setErrors] = useState<{ email?: string; phone?: string }>({});
 
-  const set = (field: string, value: string) =>
+  const set = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
+    if (field === "email") setErrors((e) => ({ ...e, email: "" }));
+    if (field === "phone") setErrors((e) => ({ ...e, phone: "" }));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const emailErr = validateEmail(formData.email);
+    const phoneErr = validatePhone(formData.phone);
+    if (emailErr || phoneErr) {
+      setErrors({ email: emailErr, phone: phoneErr });
+      return;
+    }
     setIsSubmitting(true);
     try {
       const response = await fetch("/api/become-client", {
@@ -126,6 +137,7 @@ export function BecomeClientModal({ isOpen, onClose, preselectedService }: Becom
                     required
                     className={inputClass}
                   />
+                  {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
                 </div>
 
                 {/* Phone */}
@@ -139,6 +151,7 @@ export function BecomeClientModal({ isOpen, onClose, preselectedService }: Becom
                     required
                     className={inputClass}
                   />
+                  {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
                 </div>
 
                 {/* Company */}

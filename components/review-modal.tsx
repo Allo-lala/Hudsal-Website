@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Star, X, Upload, MapPin, User, Briefcase } from "lucide-react";
 import { SuccessToast } from "@/components/success-toast";
 import { FireworksOverlay } from "@/components/fireworks-overlay";
+import { validateEmail } from "@/lib/validation";
 
 interface ReviewModalProps {
   isOpen: boolean;

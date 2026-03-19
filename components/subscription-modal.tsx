@@ -12,6 +12,8 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { X, ArrowRight, CheckCircle, Crown, Diamond, Gem, Home } from "lucide-react";
 import { FireworksOverlay } from "@/components/fireworks-overlay";
 
+import { validateEmail } from "@/lib/validation";
+
 interface SubscriptionModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -26,6 +28,7 @@ export function SubscriptionModal({ isOpen, onClose, productName, productDescrip
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [emailError, setEmailError] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -58,6 +61,7 @@ export function SubscriptionModal({ isOpen, onClose, productName, productDescrip
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    if (name === "email") setEmailError("");
   };
 
   const handleContinue = () => {
@@ -68,6 +72,8 @@ export function SubscriptionModal({ isOpen, onClose, productName, productDescrip
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const err = validateEmail(formData.email);
+    if (err) { setEmailError(err); return; }
     setIsSubmitting(true);
     setErrorMessage("");
 
@@ -230,6 +236,7 @@ export function SubscriptionModal({ isOpen, onClose, productName, productDescrip
                   required
                   className="mt-1"
                 />
+                {emailError && <p className="text-red-500 text-xs mt-1">{emailError}</p>}
               </div>
 
               <div>

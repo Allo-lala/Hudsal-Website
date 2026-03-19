@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
 import { SuccessToast } from "@/components/success-toast";
+import { validateEmail, validatePhone } from "@/lib/validation";
 
 const contactInfo = [
   {
@@ -49,9 +50,23 @@ export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState("");
   const [showSuccessToast, setShowSuccessToast] = useState(false);
+  const [fieldErrors, setFieldErrors] = useState<{ email?: string; phone?: string }>({});
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+    if (name === "email") setFieldErrors((fe) => ({ ...fe, email: "" }));
+    if (name === "phone") setFieldErrors((fe) => ({ ...fe, phone: "" }));
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const emailErr = validateEmail(formData.email);
+    const phoneErr = formData.phone ? validatePhone(formData.phone) : "";
+    if (emailErr || phoneErr) {
+      setFieldErrors({ email: emailErr, phone: phoneErr });
+      return;
+    }
     setIsSubmitting(true);
     setSubmitMessage("");
 
@@ -82,9 +97,8 @@ export default function ContactPage() {
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+
+
 
   return (
     <main>
@@ -201,6 +215,7 @@ export default function ContactPage() {
                         placeholder="your@email.com"
                         className="w-full"
                       />
+                      {fieldErrors.email && <p className="text-red-500 text-xs mt-1">{fieldErrors.email}</p>}
                     </div>
                   </div>
 
@@ -218,6 +233,7 @@ export default function ContactPage() {
                         placeholder="+44 20 1234 5678"
                         className="w-full"
                       />
+                      {fieldErrors.phone && <p className="text-red-500 text-xs mt-1">{fieldErrors.phone}</p>}
                     </div>
                     <div>
                       <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-2">
