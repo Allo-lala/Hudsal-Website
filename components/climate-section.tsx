@@ -8,7 +8,7 @@ import { GrantApplicationModal } from "@/components/grant-application-modal";
 const climateImages = [
   {
     id: 1,
-    src: "/images/climate/climate.png",
+    src: "/images/climate/climate-talks.jpeg",
     title: "Sustainability ",
     description: " "
   },
@@ -84,7 +84,7 @@ export function ClimateSection() {
                 Speak the Planet's Green Language
               </h2>
               <p className="text-xl md:text-2xl text-muted-foreground mb-8 animate-slide-up animate-delay-200">
-                Join us in creating a sustainable future through innovative climate solutions and community action.
+                Be part of creating a sustainable future through innovative climate solutions and community action.
               </p>
             </div>
 

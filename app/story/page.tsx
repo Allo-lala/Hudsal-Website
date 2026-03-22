@@ -17,14 +17,14 @@ const timelineEvents = [
     year: "2017",
     title: "First Care Home Partnership",
     description: "Established partnerships with 5 care homes across London, providing quality healthcare staffing solutions and setting new standards in care delivery.",
-    image: "/images/timeline/two.avif",
+    image: "/images/timeline/partnership.png",
     side: "right"
   },
   {
     year: "2018",
     title: "Expansion & Growth",
     description: "Expanded operations to cover 15+ care facilities. Launched our consultancy division to help healthcare organizations optimize their operations.",
-    image: "/images/timeline/one.avif",
+    image: "/images/timeline/expansion.png",
     side: "left"
   },
   {
@@ -66,7 +66,7 @@ const timelineEvents = [
     year: "2024",
     title: "Digital Transformation",
     description: "Launched comprehensive digital platforms including books, podcasts, and webinars to share healthcare knowledge and expertise.",
-    image: "/images/timeline/digital-transformation.png",
+    image: "/images/timeline/digitalTransformation.png",
     side: "left"
   },
   {
@@ -157,7 +157,7 @@ export default function StoryPage() {
                     Business X-ray
                   </button>
                 </a>
-                <a href="#" className="inline-block">
+                <a href="/products" className="inline-block">
                   <button className="bg-transparent hover:bg-white/10 text-white font-semibold px-8 py-4 rounded-full border-2 border-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 w-full sm:w-auto">
                     Our-Products
                   </button>
@@ -375,7 +375,7 @@ export default function StoryPage() {
                 <p className="text-base text-muted-foreground mb-8">
                   The Hadsul team has your back - get in touch & we'll take all the guesswork out of it!
                 </p>
-                <a href="/contact" className="inline-block">
+                <a href="/business-xray" className="inline-block">
                   <button className="bg-[#1a2e1a] hover:bg-emerald text-white font-bold px-10 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-lg">
                     LET'S GO
                   </button>

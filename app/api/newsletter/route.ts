@@ -44,7 +44,7 @@ export async function POST(request: NextRequest) {
             </td>
           </tr>
         </table>
-      `, `${process.env.NEXT_PUBLIC_SITE_URL || 'https://hadsul.co.uk'}/unnamed.jpg`),
+      `, `${process.env.NEXT_PUBLIC_SITE_URL || 'https://hadsul.co.uk'}/unnamed.png`),
     });
 
     if (confirmationError) {
