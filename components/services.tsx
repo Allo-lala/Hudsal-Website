@@ -3,11 +3,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import {
-  CheckCircle,
-  ShoppingCart,
-} from "lucide-react";
+import { CheckCircle } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { SoftwareOrderModal } from "@/components/software-order-modal";
 
 const services = [
   {
@@ -114,13 +112,22 @@ function Counter({ end, suffix = "", duration = 2000 }: { end: number; suffix?: 
 }
 
 export function Services() {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [activeCategory, setActiveCategory] = useState("");
+
+  const openOrder = (category: string) => {
+    setActiveCategory(category);
+    setModalOpen(true);
+  };
+
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-secondary/30 relative overflow-hidden">
+      <SoftwareOrderModal isOpen={modalOpen} onClose={() => setModalOpen(false)} category={activeCategory} />
       <div className="max-w-7xl mx-auto relative">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-balance">
-            Software, Licensing Solutions & Staff Trainings
+            Software & Licensing Solutions
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Power your business with the right tools — licensed the right way. Genuine software, instant delivery, flexible plans.
@@ -166,16 +173,13 @@ export function Services() {
                   ))}
                 </ul>
 
-                {/* Buy Now Button */}
-                <Link
-                  href="#"
-                  className="inline-block w-full"
+                {/* Order Now Button */}
+                <Button
+                  onClick={() => openOrder(service.title)}
+                  className="bg-[#0071E3] hover:bg-[#0077ED] text-white w-full rounded-full shadow-lg hover:shadow-xl transition-all"
                 >
-                  <Button className="bg-[#25D366] hover:bg-[#20bd5a] text-white w-full rounded-full shadow-lg hover:shadow-xl transition-all">
-                    <ShoppingCart className="w-5 h-5 mr-2" />
-                    BUY NOW
-                  </Button>
-                </Link>
+                  ORDER NOW
+                </Button>
               </div>
             </div>
           ))}
