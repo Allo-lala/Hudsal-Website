@@ -20,40 +20,41 @@ type Product = {
   platforms?: string[];
   type?: string;
   note?: string;
+  logo?: string;
 };
 
 const BUSINESS_PRODUCTS: Product[] = [
-  { name: "Microsoft Office 365", variants: ["Personal (1 user)", "Home (6 users)", "Business Basic", "Business Standard", "Business Premium"], prices: ["£59.99/yr", "£79.99/yr", "£4.99/mo", "£9.99/mo", "£17.99/mo"], type: "subscription" },
-  { name: "Microsoft Office 2024", variants: ["Home & Student", "Home & Business", "Professional"], prices: ["£119.99", "£249.99", "£389.99"], type: "perpetual", note: "Permanent product key — one-time activation" },
-  { name: "Windows Product Key", variants: ["Windows 10 Home", "Windows 10 Pro", "Windows 11 Home", "Windows 11 Pro", "Windows 11 Pro for Workstations"], prices: ["£89.99", "£149.99", "£99.99", "£159.99", "£249.99"], type: "key", note: "Genuine digital licence key — instant delivery" },
-  { name: "QuickBooks", variants: ["Simple Start", "Essentials", "Plus", "Advanced"], prices: ["£12/mo", "£22/mo", "£32/mo", "£90/mo"], type: "subscription" },
-  { name: "Sage Accounting", variants: ["Sage Accounting Start", "Sage Accounting", "Sage 50cloud"], prices: ["£12/mo", "£24/mo", "£58/mo"], type: "subscription" },
+  { name: "Microsoft Office 365", variants: ["Personal (1 user)", "Home (6 users)", "Business Basic", "Business Standard", "Business Premium"], prices: ["£59.99/yr", "£79.99/yr", "£4.99/mo", "£9.99/mo", "£17.99/mo"], type: "subscription", logo: "/Microsoft_365.png" },
+  { name: "Microsoft Office 2024", variants: ["Home & Student", "Home & Business", "Professional"], prices: ["£119.99", "£249.99", "£389.99"], type: "perpetual", note: "Permanent product key — one-time activation", logo: "/Office_2024.png" },
+  { name: "Windows Product Key", variants: ["Windows 10 Home", "Windows 10 Pro", "Windows 11 Home", "Windows 11 Pro", "Windows 11 Pro for Workstations"], prices: ["£89.99", "£149.99", "£99.99", "£159.99", "£249.99"], type: "key", note: "Genuine digital licence key — instant delivery", logo: "/windows11.png" },
+  { name: "QuickBooks", variants: ["Simple Start", "Essentials", "Plus", "Advanced"], prices: ["£12/mo", "£22/mo", "£32/mo", "£90/mo"], type: "subscription", logo: "/quickbooks.jpeg" },
+  { name: "Sage Accounting", variants: ["Sage Accounting Start", "Sage Accounting", "Sage 50cloud"], prices: ["£12/mo", "£24/mo", "£58/mo"], type: "subscription", logo: "/sage.png" },
 ];
 
 const CREATIVE_PRODUCTS: Product[] = [
-  { name: "Adobe Creative Cloud — All Apps", variants: ["Individual", "Business", "Students & Teachers"], prices: ["£54.98/mo", "£69.98/mo", "£19.97/mo"], platforms: ["windows", "mac"], type: "subscription" },
-  { name: "Adobe Photoshop 2025", variants: ["Single App"], prices: ["£19.97/mo"], platforms: ["windows", "mac"], type: "subscription" },
-  { name: "Adobe Premiere Pro 2025", variants: ["Single App"], prices: ["£19.97/mo"], platforms: ["windows", "mac"], type: "subscription" },
-  { name: "Adobe Illustrator 2025", variants: ["Single App"], prices: ["£19.97/mo"], platforms: ["windows", "mac"], type: "subscription" },
-  { name: "CorelDRAW Graphics Suite 2024", variants: ["Annual Subscription", "Perpetual Licence"], prices: ["£299/yr", "£649"], platforms: ["windows", "mac"], type: "both" },
-  // { name: "CorelDRAW Essentials 2024", variants: ["Perpetual Licence"], prices: ["£199"], platforms: ["windows"], type: "perpetual" },
+  { name: "Adobe Creative Cloud — All Apps", variants: ["Individual", "Business", "Students & Teachers"], prices: ["£54.98/mo", "£69.98/mo", "£19.97/mo"], platforms: ["windows", "mac"], type: "subscription", logo: "/adobe-creative-cloud.png" },
+  { name: "Adobe Photoshop 2025", variants: ["Single App"], prices: ["£19.97/mo"], platforms: ["windows", "mac"], type: "subscription", logo: "/adobe-photoshop-logo.png" },
+  { name: "Adobe Premiere Pro 2025", variants: ["Single App"], prices: ["£19.97/mo"], platforms: ["windows", "mac"], type: "subscription", logo: "/adobe-premiere-pro.png" },
+  { name: "Adobe Illustrator 2025", variants: ["Single App"], prices: ["£19.97/mo"], platforms: ["windows", "mac"], type: "subscription", logo: "/adobe-illustrator.png" },
+  { name: "CorelDRAW Graphics Suite 2024", variants: ["Annual Subscription", "Perpetual Licence"], prices: ["£299/yr", "£649"], platforms: ["windows", "mac"], type: "both", logo: "/coreldraw.png" },
+  { name: "CorelDRAW Essentials 2024", variants: ["Perpetual Licence"], prices: ["£199"], platforms: ["windows"], type: "perpetual", logo: "/coreldraw.png" },
 ];
 
 const CAD_PRODUCTS: Product[] = [
-  { name: "AutoCAD 2025", variants: ["Annual Subscription", "3-Year Subscription"], prices: ["£1,865/yr", "£1,680/yr"], platforms: ["windows", "mac"], type: "subscription" },
-  { name: "AutoCAD LT 2025", variants: ["Annual Subscription"], prices: ["£395/yr"], platforms: ["windows", "mac"], type: "subscription" },
-  { name: "ArchiCAD 28", variants: ["Full Licence", "Annual Subscription"], prices: ["£3,499", "£1,199/yr"], platforms: ["windows", "mac"], type: "both" },
-  { name: "SketchUp Pro 2025", variants: ["Annual Subscription"], prices: ["£299/yr"], platforms: ["windows", "mac"], type: "subscription" },
-  { name: "SolidWorks 2025", variants: ["Standard", "Professional", "Premium"], prices: ["£3,995", "£5,490", "£7,995"], platforms: ["windows"], type: "perpetual" },
+  { name: "AutoCAD 2025", variants: ["Annual Subscription", "3-Year Subscription"], prices: ["£1,865/yr", "£1,680/yr"], platforms: ["windows", "mac"], type: "subscription", logo: "/autocad.png" },
+  { name: "AutoCAD LT 2025", variants: ["Annual Subscription"], prices: ["£395/yr"], platforms: ["windows", "mac"], type: "subscription", logo: "/autocad_lt.png" },
+  { name: "ArchiCAD 28", variants: ["Full Licence", "Annual Subscription"], prices: ["£3,499", "£1,199/yr"], platforms: ["windows", "mac"], type: "both", logo: "/archicad.png" },
+  { name: "SketchUp Pro 2025", variants: ["Annual Subscription"], prices: ["£299/yr"], platforms: ["windows", "mac"], type: "subscription", logo: "/sketch_up.png" },
+  { name: "SolidWorks 2025", variants: ["Standard", "Professional", "Premium"], prices: ["£3,995", "£5,490", "£7,995"], platforms: ["windows"], type: "perpetual", logo: "/solidworks.png" },
 ];
 
 const OS_PRODUCTS: Product[] = [
-  { name: "Windows 11 Home", variants: ["Digital Key"], prices: ["£99.99"], platforms: ["windows"], type: "key", note: "Genuine Microsoft licence key — instant delivery" },
-  { name: "Windows 11 Pro", variants: ["Digital Key"], prices: ["£159.99"], platforms: ["windows"], type: "key", note: "Genuine Microsoft licence key — instant delivery" },
-  { name: "Windows Server 2025", variants: ["Standard", "Datacenter"], prices: ["£599", "£1,299"], platforms: ["windows"], type: "key" },
-  { name: "macOS Upgrade Assistance", variants: ["Ventura", "Sonoma", "Sequoia"], prices: ["£29.99", "£29.99", "£29.99"], platforms: ["mac"], type: "service", note: "Guided installation & setup service" },
-  { name: "Norton 360", variants: ["Standard (1 device)", "Deluxe (5 devices)", "Premium (10 devices)"], prices: ["£19.99/yr", "£34.99/yr", "£44.99/yr"], platforms: ["windows", "mac"], type: "subscription" },
-  { name: "Bitdefender Total Security", variants: ["1 device", "3 devices", "5 devices"], prices: ["£24.99/yr", "£34.99/yr", "£44.99/yr"], platforms: ["windows", "mac"], type: "subscription" },
+  { name: "Windows 11 Home", variants: ["Digital Key"], prices: ["£99.99"], platforms: ["windows"], type: "key", note: "Genuine Microsoft licence key — instant delivery", logo: "/windows11.png" },
+  { name: "Windows 11 Pro", variants: ["Digital Key"], prices: ["£159.99"], platforms: ["windows"], type: "key", note: "Genuine Microsoft licence key — instant delivery", logo: "/windows11.png" },
+  { name: "Windows Server 2025", variants: ["Standard", "Datacenter"], prices: ["£599", "£1,299"], platforms: ["windows"], type: "key", logo: "/windows11.png" },
+  { name: "macOS Upgrade Assistance", variants: ["Ventura", "Sonoma", "Sequoia"], prices: ["£29.99", "£29.99", "£29.99"], platforms: ["mac"], type: "service", note: "Guided installation & setup service", logo: "/apple.png" },
+  { name: "Norton 360", variants: ["Standard (1 device)", "Deluxe (5 devices)", "Premium (10 devices)"], prices: ["£19.99/yr", "£34.99/yr", "£44.99/yr"], platforms: ["windows", "mac"], type: "subscription", logo: "/norton.png" },
+  { name: "Bitdefender Total Security", variants: ["1 device", "3 devices", "5 devices"], prices: ["£24.99/yr", "£34.99/yr", "£44.99/yr"], platforms: ["windows", "mac"], type: "subscription", logo: "/bitdefender.png" },
 ];
 
 const AUTOMOTIVE_PRODUCTS: Product[] = [
@@ -171,10 +172,15 @@ export function SoftwareOrderModal({ isOpen, onClose, category }: SoftwareOrderM
               {catalogue.map((p) => (
                 <button key={p.name} onClick={() => handleSelectProduct(p)}
                   className="w-full text-left p-4 rounded-xl border border-border hover:border-emerald/50 hover:bg-emerald/5 transition-all flex items-center justify-between group">
-                  <div>
-                    <p className="font-semibold text-foreground group-hover:text-emerald transition-colors">{p.name}</p>
-                    {p.note && <p className="text-xs text-muted-foreground mt-0.5">{p.note}</p>}
-                    <p className="text-xs text-emerald mt-1">from {p.prices[0]}</p>
+                  <div className="flex items-center gap-3">
+                    {p.logo && (
+                      <Image src={p.logo} alt={p.name} width={36} height={36} className="object-contain flex-shrink-0" />
+                    )}
+                    <div>
+                      <p className="font-semibold text-foreground group-hover:text-emerald transition-colors">{p.name}</p>
+                      {p.note && <p className="text-xs text-muted-foreground mt-0.5">{p.note}</p>}
+                      <p className="text-xs text-emerald mt-1">from {p.prices[0]}</p>
+                    </div>
                   </div>
                   <ChevronRight className="w-5 h-5 text-muted-foreground group-hover:text-emerald flex-shrink-0" />
                 </button>
