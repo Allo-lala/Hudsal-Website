@@ -37,7 +37,7 @@ const CREATIVE_PRODUCTS: Product[] = [
   { name: "Adobe Premiere Pro 2025", variants: ["Single App"], prices: ["£19.97/mo"], platforms: ["windows", "mac"], type: "subscription", logo: "/adobe-premiere-pro.png" },
   { name: "Adobe Illustrator 2025", variants: ["Single App"], prices: ["£19.97/mo"], platforms: ["windows", "mac"], type: "subscription", logo: "/adobe-illustrator.png" },
   { name: "CorelDRAW Graphics Suite 2024", variants: ["Annual Subscription", "Perpetual Licence"], prices: ["£299/yr", "£649"], platforms: ["windows", "mac"], type: "both", logo: "/coreldraw.png" },
-  { name: "CorelDRAW Essentials 2024", variants: ["Perpetual Licence"], prices: ["£199"], platforms: ["windows"], type: "perpetual", logo: "/coreldraw.png" },
+  // { name: "CorelDRAW Essentials 2024", variants: ["Perpetual Licence"], prices: ["£199"], platforms: ["windows"], type: "perpetual", logo: "/coreldraw.png" },
 ];
 
 const CAD_PRODUCTS: Product[] = [
@@ -94,8 +94,29 @@ export function SoftwareOrderModal({ isOpen, onClose, category }: SoftwareOrderM
 
   // Lock background scroll when modal is open
   useEffect(() => {
-    document.body.style.overflow = isOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    if (isOpen) {
+      const scrollY = window.scrollY;
+      document.body.dataset.scrollY = String(scrollY);
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = "100%";
+      document.body.style.overflow = "hidden";
+    } else {
+      const scrollY = parseInt(document.body.dataset.scrollY || "0", 10);
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+      document.body.style.overflow = "";
+      window.scrollTo(0, scrollY);
+    }
+    return () => {
+      const scrollY = parseInt(document.body.dataset.scrollY || "0", 10);
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+      document.body.style.overflow = "";
+      window.scrollTo(0, scrollY);
+    };
   }, [isOpen]);
 
   const reset = () => {
