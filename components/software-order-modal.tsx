@@ -107,7 +107,8 @@ export function SoftwareOrderModal({ isOpen, onClose, category }: SoftwareOrderM
       document.body.style.top = "";
       document.body.style.width = "";
       document.body.style.overflow = "";
-      window.scrollTo(0, scrollY);
+      // Wait for styles to apply before restoring scroll
+      requestAnimationFrame(() => window.scrollTo(0, scrollY));
     }
     return () => {
       const scrollY = parseInt(document.body.dataset.scrollY || "0", 10);
@@ -115,7 +116,7 @@ export function SoftwareOrderModal({ isOpen, onClose, category }: SoftwareOrderM
       document.body.style.top = "";
       document.body.style.width = "";
       document.body.style.overflow = "";
-      window.scrollTo(0, scrollY);
+      requestAnimationFrame(() => window.scrollTo(0, scrollY));
     };
   }, [isOpen]);
 
@@ -212,11 +213,11 @@ export function SoftwareOrderModal({ isOpen, onClose, category }: SoftwareOrderM
           {/* AI custom request */}
           {step === "product" && aiMode && (
             <form onSubmit={(e) => { e.preventDefault(); setStep("details"); }} className="space-y-5">
-              <p className="text-muted-foreground text-sm">Tell us what you need — custom chatbots, AI automation workflows, bespoke AI integrations, or anything else. We&apos;ll scope it and get back to you.</p>
+              <p className="text-muted-foreground text-sm">Tell us what you need — custom chatbots, AI automation workflows, AI integrations, or anything else. We&apos;ll scope it and get back to you.</p>
               <div>
                 <label className="block text-sm font-medium text-foreground mb-1">Describe what you need *</label>
                 <textarea value={aiDescription} onChange={(e) => setAiDescription(e.target.value)} required rows={5}
-                  placeholder="e.g. I need a customer service chatbot for my care home website that can answer FAQs and book appointments..."
+                  placeholder="e.g. I need a customer service chatbot for my care home that can answer FAQs and book appointments..."
                   className="w-full px-4 py-3 border border-input rounded-lg bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-emerald resize-none" />
               </div>
               <Button type="submit" disabled={!aiDescription.trim()} className="w-full bg-emerald hover:bg-emerald-dark text-white rounded-full">

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { CheckCircle } from "lucide-react";
+import { Check } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { SoftwareOrderModal } from "@/components/software-order-modal";
 
@@ -22,7 +22,7 @@ const services = [
     image: "/images/services/adobe.png",
     description:
       "Adobe Creative Applications, Graphic Design & Video Editing Tools, AI-Powered Creative Tools, Stock Media & Cloud Assets",
-    features: ["Adobe Creative Applications", "Graphic Design & Video Editing Tools", "AI-Powered Creative Tools", "Stock Media & Cloud Assets"],
+    features: ["Adobe Creative Full Suite", "CorelDRAW"],
   },
   {
     id: "03",
@@ -45,8 +45,8 @@ const services = [
     title: "AI & Automation Tools",
     image: "/images/services/auto.png",
     description:
-      "AI Writing & Coding Assistants, Image & Video Generation Tools, Business Automation Software, Usage-Based AI Credit Licensing",
-    features: ["AI Writing & Coding Assistants", "Image & Video Generation Tools", "Business Automation Software", "Usage-Based AI Credit Licensing"],
+      "AI Writing & Coding Assistants, Image & Video Generation Tools, Business Automation Software, AI Credit Licensing",
+    features: ["Bots", "Image & Video Generation Tools", "Workflow Automation Software", "Virtual Assistants"],
   },
   {
     id: "06",
@@ -167,7 +167,7 @@ export function Services() {
                 <ul className="space-y-2 mb-6">
                   {service.features.map((feature, idx) => (
                     <li key={idx} className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <CheckCircle className="w-4 h-4 text-emerald flex-shrink-0" />
+                      <Check className="w-4 h-4 text-emerald flex-shrink-0" />
                       {feature}
                     </li>
                   ))}

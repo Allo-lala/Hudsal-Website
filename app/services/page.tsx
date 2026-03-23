@@ -14,7 +14,7 @@ import {
   Diamond, 
   Gem, 
   Home,
-  CheckCircle,
+  Check,
   Phone,
 } from "lucide-react";
 
@@ -219,7 +219,7 @@ export default function ProductsPage() {
                     <ul className="space-y-3 mb-6">
                       {product.highlights.map((highlight, highlightIndex) => (
                         <li key={`${product.id}-${highlightIndex}`} className="flex items-start gap-3">
-                          <CheckCircle className="w-4 h-4 text-emerald flex-shrink-0 mt-0.5" />
+                          <Check className="w-4 h-4 text-emerald flex-shrink-0 mt-0.5" />
                           <span className="text-foreground text-sm">{highlight}</span>
                         </li>
                       ))}
@@ -285,7 +285,7 @@ export default function ProductsPage() {
             ].map((item) => (
               <div key={item.title} className="text-center">
                 <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <CheckCircle className="w-8 h-8 text-emerald" />
+                  <Check className="w-8 h-8 text-emerald" />
                 </div>
                 <h3 className="text-xl font-semibold text-foreground mb-2">{item.title}</h3>
                 <p className="text-muted-foreground">{item.description}</p>

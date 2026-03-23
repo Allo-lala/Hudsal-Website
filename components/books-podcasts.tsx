@@ -181,7 +181,7 @@ export function BooksAndPodcasts() {
                 {/* Central Podcast Host Image - Larger */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 sm:w-48 sm:h-48 rounded-full overflow-hidden shadow-2xl animate-pulse" style={{ animationDuration: '3s' }}>
                   <Image
-                    src="/images/podcast/podcast.png"
+                    src="/images/podcast/digital-transformation.png"
                     alt="Podcast Host"
                     width={192}
                     height={192}
