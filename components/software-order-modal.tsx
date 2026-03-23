@@ -58,14 +58,14 @@ const OS_PRODUCTS: Product[] = [
 ];
 
 const AUTOMOTIVE_PRODUCTS: Product[] = [
-  { name: "XENTRY / DAS (Mercedes-Benz)", variants: ["Annual Licence"], prices: ["£299/yr"], note: "Full diagnostic suite for Mercedes-Benz & Smart" },
-  { name: "ISTA (BMW / MINI)", variants: ["Annual Licence"], prices: ["£249/yr"], note: "BMW Group diagnostic & programming software" },
-  { name: "ODIS (VW / Audi / Seat / Skoda)", variants: ["Annual Licence"], prices: ["£249/yr"], note: "Official VAG group diagnostic platform" },
-  { name: "Ford IDS / FDRS", variants: ["Annual Licence"], prices: ["£199/yr"], note: "Ford & Lincoln diagnostic software" },
-  { name: "TechStream (Toyota / Lexus)", variants: ["Annual Licence"], prices: ["£179/yr"], note: "Toyota & Lexus OEM diagnostic tool" },
-  { name: "AutoData", variants: ["Monthly", "Annual"], prices: ["£39.99/mo", "£349/yr"], note: "Technical data for all makes & models" },
-  { name: "Haynes Pro", variants: ["Monthly", "Annual"], prices: ["£29.99/mo", "£249/yr"], note: "Workshop manuals & wiring diagrams" },
-  { name: "Mitchell1 ProDemand", variants: ["Monthly", "Annual"], prices: ["£49.99/mo", "£449/yr"], note: "OEM repair information & diagnostics" },
+  { name: "XENTRY / DAS (Mercedes-Benz)", variants: ["Annual Licence"], prices: ["£299/yr"], note: "Full diagnostic suite for Mercedes-Benz & Smart", logo: "/mercedes-benz.png" },
+  { name: "ISTA (BMW / MINI)", variants: ["Annual Licence"], prices: ["£249/yr"], note: "BMW Group diagnostic & programming software", logo: "/bmw.png" },
+  { name: "ODIS (VW / Audi / Seat / Skoda)", variants: ["Annual Licence"], prices: ["£249/yr"], note: "Official VAG group diagnostic platform", logo: "/audi.png" },
+  { name: "Ford IDS / FDRS", variants: ["Annual Licence"], prices: ["£199/yr"], note: "Ford & Lincoln diagnostic software", logo: "/ford.webp"  },
+  { name: "TechStream (Toyota / Lexus)", variants: ["Annual Licence"], prices: ["£179/yr"], note: "Toyota & Lexus OEM diagnostic tool", logo: "/toyota.webp" },
+  { name: "AutoData", variants: ["Monthly", "Annual"], prices: ["£39.99/mo", "£349/yr"], note: "Technical data for all makes & models", logo: "/autodata.jpeg" },
+  { name: "Haynes Pro", variants: ["Monthly", "Annual"], prices: ["£29.99/mo", "£249/yr"], note: "Workshop manuals & wiring diagrams", logo: "/haynespro.png" },
+  { name: "Mitchell1 ProDemand", variants: ["Monthly", "Annual"], prices: ["£49.99/mo", "£449/yr"], note: "OEM repair information & diagnostics", logo: "/mitchell1.svg" },
 ];
 
 function getCatalogue(category: string): Product[] {
