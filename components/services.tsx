@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Check } from "lucide-react";
+import { Check, ShoppingCart } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { SoftwareOrderModal } from "@/components/software-order-modal";
 
@@ -13,7 +13,7 @@ const services = [
     title: "Business & Productivity Solutions",
     image: "/images/services/business_productivity.png",
     description:
-      "Office Suites, Accounting & Payroll Systems, CRM & ERP Platforms, Team Collaboration Tools, Cloud Storage & Email Solutions",
+      "  ",
     features: ["Office Suites (Home & Business) ", "Accounting & Payroll Systems ", "CRM & ERP Platforms", "Team Collaboration Tools ", "Cloud Storage & Email Solutions"],
   },
   {
@@ -21,7 +21,7 @@ const services = [
     title: "Creative & Design Software",
     image: "/images/services/creative_design.png",
     description:
-      "Adobe Creative Applications, Graphic Design & Video Editing Tools, AI-Powered Creative Tools, Stock Media & Cloud Assets",
+      " ",
     features: ["Adobe Creative Full Suite", "CorelDRAW", "Canva Pro", "Autodesk"],
   },
   {
@@ -29,7 +29,7 @@ const services = [
     title: "Engineering & CAD Software",
     image: "/images/services/engineering.png",
     description:
-      "AutoCAD & 3D Modeling Tools, Architecture & Civil Engineering Suites, Mechanical & Industrial Design Software, Professional Rendering Solutions",
+      " ",
     features: ["AutoCAD & 3D Modeling Tools", "Architecture & Civil Engineering Suites", "Mechanical & Industrial Design Software", "Professional Rendering Solutions "],
   },
   {
@@ -37,7 +37,7 @@ const services = [
     title: "Operating Systems & Security",
     image: "/images/services/operating_systems_security.png",
     description:
-      "Windows & Enterprise OS Licenses, Device Management Solutions, Endpoint Protection & Security Tools",
+      "  ",
     features: ["Windows & Enterprise OS Licenses", "Device Management Solutions ", "Endpoint Protection & Security Tools"],
   },
   {
@@ -45,15 +45,15 @@ const services = [
     title: "AI & Automation Tools",
     image: "/images/services/automation.png",
     description:
-      "AI Writing & Coding Assistants, Image & Video Generation Tools, Business Automation Software, AI Credit Licensing",
-    features: ["Bots", "Image & Video Generation Tools", "Workflow Automation Software", "Virtual Assistants"],
+      " ",
+    features: ["Customized Bots", "AI Credit Licensing ", "Workflow Automation Software", "Virtual Assistants"],
   },
   {
     id: "06",
     title: "Automotive & Technical Software",
     image: "/images/services/automotive.png",
     description:
-      "Vehicle Diagnostics Tools, ECU Programming Software, Fleet Management Systems, Workshop & Repair Management Platforms",
+      " ",
     features: ["Vehicle Diagnostics Tools", "ECU Programming Software", "Fleet Management Systems", "Workshop & Repair Management Platforms"],
   },
  
@@ -127,7 +127,7 @@ export function Services() {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-balance">
-            Software & Licensing Solutions
+            Genuine Software & Licensing Solutions
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Power your business with the right tools — licensed the right way. Genuine software, instant delivery, flexible plans.
@@ -178,7 +178,7 @@ export function Services() {
                   onClick={() => openOrder(service.title)}
                   className="bg-[#0071E3] hover:bg-[#0077ED] text-white w-full rounded-full shadow-lg hover:shadow-xl transition-all"
                 >
-                  ORDER NOW
+                  {service.title.includes("AI") ? "GET STARTED" : <><ShoppingCart className="w-4 h-4 mr-2" />ORDER NOW</>}
                 </Button>
               </div>
             </div>

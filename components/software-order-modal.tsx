@@ -2,10 +2,14 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { X, CheckCircle, ChevronRight, ArrowLeft } from "lucide-react";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements, PaymentElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import { X, ChevronRight, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { validateEmail, validatePhone } from "@/lib/validation";
 import { FireworksOverlay } from "@/components/fireworks-overlay";
+
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 
 interface SoftwareOrderModalProps {
   isOpen: boolean;
@@ -77,8 +81,43 @@ function getCatalogue(category: string): Product[] {
   return [];
 }
 
+// ── Stripe Payment Step ──────────────────────────────────────────────────────
+function PaymentForm({ amount, onSuccess, onBack }: { amount: number; onSuccess: () => void; onBack: () => void }) {
+  const stripe = useStripe();
+  const elements = useElements();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  const handlePay = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!stripe || !elements) return;
+    setLoading(true);
+    setError("");
+    const { error: submitErr } = await elements.submit();
+    if (submitErr) { setError(submitErr.message || "Payment failed"); setLoading(false); return; }
+    const { error: payErr } = await stripe.confirmPayment({
+      elements,
+      confirmParams: { return_url: window.location.href },
+      redirect: "if_required",
+    });
+    if (payErr) { setError(payErr.message || "Payment failed"); setLoading(false); return; }
+    onSuccess();
+  };
+
+  return (
+    <form onSubmit={handlePay} className="space-y-4">
+      <PaymentElement />
+      {error && <p className="text-red-500 text-sm">{error}</p>}
+      <Button type="submit" disabled={loading || !stripe} className="w-full bg-[#0071E3] hover:bg-[#0077ED] text-white rounded-full py-3 font-semibold">
+        {loading ? "Processing..." : `Pay £${(amount / 100).toFixed(2)}`}
+      </Button>
+      <button type="button" onClick={onBack} className="w-full text-sm text-muted-foreground hover:text-foreground text-center">← Back</button>
+    </form>
+  );
+}
+
 export function SoftwareOrderModal({ isOpen, onClose, category }: SoftwareOrderModalProps) {
-  const [step, setStep] = useState<"product" | "platform" | "variant" | "details" | "success">("product");
+  const [step, setStep] = useState<"product" | "platform" | "variant" | "details" | "payment" | "success">("product");
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [selectedPlatform, setSelectedPlatform] = useState<"windows" | "mac" | "">("");
   const [selectedVariant, setSelectedVariant] = useState("");
@@ -87,6 +126,8 @@ export function SoftwareOrderModal({ isOpen, onClose, category }: SoftwareOrderM
   const [form, setForm] = useState({ name: "", email: "", phone: "", company: "", notes: "" });
   const [fieldErrors, setFieldErrors] = useState<{ email?: string; phone?: string }>({});
   const [submitting, setSubmitting] = useState(false);
+  const [clientSecret, setClientSecret] = useState("");
+  const [amountPence, setAmountPence] = useState(0);
 
   const catalogue = getCatalogue(category);
   const aiMode = category.includes("AI");
@@ -123,7 +164,8 @@ export function SoftwareOrderModal({ isOpen, onClose, category }: SoftwareOrderM
   const reset = () => {
     setStep("product"); setSelectedProduct(null); setSelectedPlatform("");
     setSelectedVariant(""); setSelectedPrice(""); setAiDescription("");
-    setForm({ name: "", email: "", phone: "", company: "", notes: "" }); setFieldErrors({});
+    setForm({ name: "", email: "", phone: "", company: "", notes: "" });
+    setFieldErrors({}); setClientSecret(""); setAmountPence(0);
   };
 
   const handleClose = () => { reset(); onClose(); };
@@ -147,15 +189,43 @@ export function SoftwareOrderModal({ isOpen, onClose, category }: SoftwareOrderM
     if (emailErr || phoneErr) { setFieldErrors({ email: emailErr, phone: phoneErr }); return; }
     setSubmitting(true);
     try {
-      await fetch("/api/software-order", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ category, product: selectedProduct?.name || "AI & Automation Service", platform: selectedPlatform, variant: selectedVariant, price: selectedPrice, aiDescription, ...form }),
-      });
-    } catch { /* silent */ } finally {
+      if (aiMode) {
+        // AI: just send email, no payment
+        await fetch("/api/software-order", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ category, product: "AI & Automation Service", aiDescription, ...form }),
+        });
+        setStep("success");
+      } else {
+        // Parse price to pence — strip non-numeric except dot, take first number
+        const priceNum = parseFloat(selectedPrice.replace(/[^0-9.]/g, "")) || 0;
+        const pence = Math.round(priceNum * 100);
+        setAmountPence(pence);
+        const res = await fetch("/api/stripe/create-payment-intent", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ amount: pence, metadata: { product: selectedProduct?.name, variant: selectedVariant, platform: selectedPlatform, customer: form.name, email: form.email } }),
+        });
+        const data = await res.json();
+        setClientSecret(data.clientSecret);
+        setStep("payment");
+      }
+    } catch {
+      setStep("success"); // fallback
+    } finally {
       setSubmitting(false);
-      setStep("success");
     }
+  };
+
+  const handlePaymentSuccess = async () => {
+    // Send confirmation emails after successful payment
+    await fetch("/api/software-order", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ category, product: selectedProduct?.name, platform: selectedPlatform, variant: selectedVariant, price: selectedPrice, ...form }),
+    }).catch(() => {});
+    setStep("success");
   };
 
   if (!isOpen) return null;
@@ -166,7 +236,7 @@ export function SoftwareOrderModal({ isOpen, onClose, category }: SoftwareOrderM
         {/* Header */}
         <div className="sticky top-0 bg-card border-b border-border px-6 py-4 flex items-center justify-between z-10">
           <div className="flex items-center gap-3">
-            {step !== "product" && step !== "success" && (
+            {step !== "product" && step !== "success" && step !== "payment" && (
               <button onClick={handleBack} className="text-muted-foreground hover:text-foreground">
                 <ArrowLeft className="w-5 h-5" />
               </button>
@@ -178,7 +248,8 @@ export function SoftwareOrderModal({ isOpen, onClose, category }: SoftwareOrderM
                 {step === "platform" && `${selectedProduct?.name} — Choose Operating System`}
                 {step === "variant" && `${selectedProduct?.name} — Choose version`}
                 {step === "details" && "Your details"}
-                {step === "success" && "Order received"}
+                {step === "payment" && "Secure payment"}
+                {step === "success" && "Order confirmed"}
               </p>
             </div>
           </div>
@@ -228,15 +299,17 @@ export function SoftwareOrderModal({ isOpen, onClose, category }: SoftwareOrderM
 
           {/* Platform picker */}
           {step === "platform" && (
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-6 py-4">
               {[
                 { key: "windows", label: "Windows", img: "/windows.png" },
                 { key: "mac", label: "macOS", img: "/apple-logo.png" },
               ].map(({ key, label, img }) => (
                 <button key={key} onClick={() => { setSelectedPlatform(key as "windows" | "mac"); setStep("variant"); }}
-                  className="flex flex-col items-center justify-center gap-4 p-10 rounded-xl border-2 border-border hover:border-emerald hover:bg-emerald/5 transition-all group">
-                  <Image src={img} alt={label} width={64} height={64} className="object-contain w-16 h-16" />
-                  <span className="font-semibold text-foreground group-hover:text-emerald">{label}</span>
+                  className="flex flex-col items-center justify-center gap-5 p-10 rounded-2xl border-2 border-border hover:border-emerald hover:bg-emerald/5 transition-all group">
+                  <div className="relative w-20 h-20 flex items-center justify-center">
+                    <Image src={img} alt={label} fill className="object-contain" />
+                  </div>
+                  <span className="text-lg font-semibold text-foreground group-hover:text-emerald">{label}</span>
                 </button>
               ))}
             </div>
@@ -263,11 +336,16 @@ export function SoftwareOrderModal({ isOpen, onClose, category }: SoftwareOrderM
                 {aiMode ? (
                   <p className="text-muted-foreground">AI & Automation — Custom Service</p>
                 ) : (
-                  <>
-                    <p className="text-muted-foreground">{selectedProduct?.name}{selectedPlatform ? ` (${selectedPlatform === "windows" ? "Windows" : "macOS"})` : ""}</p>
-                    <p className="text-muted-foreground">{selectedVariant}</p>
-                    <p className="text-emerald font-bold text-base">{selectedPrice}</p>
-                  </>
+                  <div className="flex items-center gap-3 mt-1">
+                    {selectedProduct?.logo && (
+                      <Image src={selectedProduct.logo} alt={selectedProduct.name} width={48} height={48} className="object-contain flex-shrink-0" />
+                    )}
+                    <div>
+                      <p className="font-medium text-foreground">{selectedProduct?.name}{selectedPlatform ? ` (${selectedPlatform === "windows" ? "Windows" : "macOS"})` : ""}</p>
+                      <p className="text-muted-foreground">{selectedVariant}</p>
+                      <p className="text-emerald font-bold text-base">{selectedPrice}</p>
+                    </div>
+                  </div>
                 )}
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -305,19 +383,47 @@ export function SoftwareOrderModal({ isOpen, onClose, category }: SoftwareOrderM
                   className="w-full px-4 py-2.5 border border-input rounded-lg bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-emerald resize-none" />
               </div>
               <Button type="submit" disabled={submitting} className="w-full bg-[#0071E3] hover:bg-[#0077ED] text-white rounded-full py-3 font-semibold">
-                {submitting ? "Submitting..." : "Place Order"}
+                {submitting ? "Processing..." : aiMode ? "Submit Request" : "Continue to Payment"}
               </Button>
-              <p className="text-xs text-center text-muted-foreground">We&apos;ll confirm your order and send delivery instructions via email.</p>
+              <p className="text-xs text-center text-muted-foreground">
+                {aiMode ? "We'll scope your request and get back to you." : "Secure payment powered by Stripe."}
+              </p>
             </form>
+          )}
+
+          {/* Payment step */}
+          {step === "payment" && clientSecret && (
+            <Elements stripe={stripePromise} options={{ clientSecret, appearance: { theme: "stripe", variables: { colorPrimary: "#0071E3", borderRadius: "8px" } } }}>
+              <div className="mb-4 bg-secondary/40 rounded-xl p-4 text-sm space-y-1">
+                <p className="font-semibold text-foreground">Order Summary</p>
+                <div className="flex items-center gap-3 mt-1">
+                  {selectedProduct?.logo && (
+                    <Image src={selectedProduct.logo} alt={selectedProduct?.name || ""} width={48} height={48} className="object-contain flex-shrink-0" />
+                  )}
+                  <div>
+                    <p className="font-medium text-foreground">{selectedProduct?.name}{selectedPlatform ? ` (${selectedPlatform === "windows" ? "Windows" : "macOS"})` : ""}</p>
+                    <p className="text-muted-foreground">{selectedVariant}</p>
+                    <p className="text-emerald font-bold text-base">{selectedPrice}</p>
+                  </div>
+                </div>
+              </div>
+              <PaymentForm amount={amountPence} onSuccess={handlePaymentSuccess} onBack={() => setStep("details")} />
+            </Elements>
           )}
 
           {/* Success */}
           {step === "success" && (
             <div className="flex flex-col items-center text-center py-8 gap-4">
               <FireworksOverlay />
-              <CheckCircle className="w-16 h-16 text-emerald" />
-              <h3 className="text-2xl font-bold text-foreground">Order Received!</h3>
-              <p className="text-muted-foreground max-w-sm">Thank you! We&apos;ve received your order and will be in touch shortly with delivery details and next steps.</p>
+              <Image src="/success.gif" alt="Success" width={120} height={120} unoptimized />
+              <h3 className="text-2xl font-bold text-foreground">
+                {aiMode ? `Thank you, ${form.name}!` : `Order Confirmed, ${form.name}!`}
+              </h3>
+              <p className="text-muted-foreground max-w-sm">
+                {aiMode
+                  ? `We've received your request and will be in touch at ${form.email} shortly.`
+                  : `Your order is confirmed. We'll send delivery details to ${form.email} shortly.`}
+              </p>
               <Button onClick={handleClose} className="mt-2 bg-emerald hover:bg-emerald-dark text-white rounded-full px-8">Done</Button>
             </div>
           )}
