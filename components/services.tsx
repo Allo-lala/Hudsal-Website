@@ -11,7 +11,7 @@ const services = [
   {
     id: "01",
     title: "Business & Productivity Solutions",
-    image: "/images/services/windows.png",
+    image: "/images/services/business_productivity.png",
     description:
       "Office Suites, Accounting & Payroll Systems, CRM & ERP Platforms, Team Collaboration Tools, Cloud Storage & Email Solutions",
     features: ["Office Suites (Home & Business) ", "Accounting & Payroll Systems ", "CRM & ERP Platforms", "Team Collaboration Tools ", "Cloud Storage & Email Solutions"],
@@ -19,15 +19,15 @@ const services = [
   {
     id: "02",
     title: "Creative & Design Software",
-    image: "/images/services/adobe.png",
+    image: "/images/services/creative_design.png",
     description:
       "Adobe Creative Applications, Graphic Design & Video Editing Tools, AI-Powered Creative Tools, Stock Media & Cloud Assets",
-    features: ["Adobe Creative Full Suite", "CorelDRAW"],
+    features: ["Adobe Creative Full Suite", "CorelDRAW", "Canva Pro", "Autodesk"],
   },
   {
     id: "03",
     title: "Engineering & CAD Software",
-    image: "/images/services/cad.jpeg",
+    image: "/images/services/engineering.png",
     description:
       "AutoCAD & 3D Modeling Tools, Architecture & Civil Engineering Suites, Mechanical & Industrial Design Software, Professional Rendering Solutions",
     features: ["AutoCAD & 3D Modeling Tools", "Architecture & Civil Engineering Suites", "Mechanical & Industrial Design Software", "Professional Rendering Solutions "],
@@ -35,7 +35,7 @@ const services = [
   {
     id: "04",
     title: "Operating Systems & Security",
-    image: "/images/services/hadsul.png",
+    image: "/images/services/operating_systems_security.png",
     description:
       "Windows & Enterprise OS Licenses, Device Management Solutions, Endpoint Protection & Security Tools",
     features: ["Windows & Enterprise OS Licenses", "Device Management Solutions ", "Endpoint Protection & Security Tools"],
@@ -43,7 +43,7 @@ const services = [
   {
     id: "05",
     title: "AI & Automation Tools",
-    image: "/images/services/auto.png",
+    image: "/images/services/automation.png",
     description:
       "AI Writing & Coding Assistants, Image & Video Generation Tools, Business Automation Software, AI Credit Licensing",
     features: ["Bots", "Image & Video Generation Tools", "Workflow Automation Software", "Virtual Assistants"],
@@ -51,7 +51,7 @@ const services = [
   {
     id: "06",
     title: "Automotive & Technical Software",
-    image: "/images/services/vehi.png",
+    image: "/images/services/automotive.png",
     description:
       "Vehicle Diagnostics Tools, ECU Programming Software, Fleet Management Systems, Workshop & Repair Management Platforms",
     features: ["Vehicle Diagnostics Tools", "ECU Programming Software", "Fleet Management Systems", "Workshop & Repair Management Platforms"],

@@ -175,7 +175,7 @@ export function SoftwareOrderModal({ isOpen, onClose, category }: SoftwareOrderM
               <h2 className="text-lg font-bold text-foreground">{category}</h2>
               <p className="text-xs text-muted-foreground">
                 {step === "product" && (aiMode ? "Describe your requirements" : "Select a product")}
-                {step === "platform" && `${selectedProduct?.name} — Choose platform`}
+                {step === "platform" && `${selectedProduct?.name} — Choose Operating System`}
                 {step === "variant" && `${selectedProduct?.name} — Choose version`}
                 {step === "details" && "Your details"}
                 {step === "success" && "Order received"}
