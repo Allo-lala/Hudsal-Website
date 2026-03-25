@@ -50,7 +50,7 @@ const slides: Slide[] = [
   },
   {
     id: 2,
-    image: "/images/products.jpeg",
+    image: "/images/products_ppe.png",
     title: "Get in-store experience online ",
     subtitle:"Fully equip with high-quality PPE. Easily order for masks, gloves, face shields, sanitisers and more. Enjoy fast dependable same day delivery without delays.",
     buttonText: "Order Now",

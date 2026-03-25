@@ -14,7 +14,7 @@ const climateImages = [
   },
   {
     id: 2,
-    src: "/images/climate/coott.jpg",
+    src: "/images/climate/hadsul-climate.jpeg",
     title: "Clean Water",
     description: " "
   },

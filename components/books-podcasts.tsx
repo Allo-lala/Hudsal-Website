@@ -1,64 +1,279 @@
 "use client";
 
-import React from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { BookOpen, Headphones, ExternalLink, ShoppingCart } from "lucide-react";
+import { BookOpen, Headphones, ExternalLink, ShoppingCart, X, ArrowLeft } from "lucide-react";
 import Image from "next/image";
+import Fireworks from "react-canvas-confetti/dist/presets/fireworks";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements, PaymentElement, useStripe, useElements } from "@stripe/react-stripe-js";
 
-const books = [
-  {
-    id: 1,
-    title: "Healthcare Leadership in Modern Times",
-    author: "Dr. Sarah Johnson",
-    description: "A comprehensive guide to leading healthcare teams through challenges and change.",
-    image: "/images/book-1.jpg",
-    price: "£24.99"
-  },
-  {
-    id: 2,
-    title: "The Future of Healthcare Staffing",
-    author: "Michael Thompson",
-    description: "Insights into recruitment strategies and workforce management in healthcare.",
-    image: "/images/book-2.jpg",
-    price: "£19.99"
-  },
-  {
-    id: 3,
-    title: "Digital Health Solutions",
-    author: "Emma Wilson",
-    description: "Exploring technology's role in transforming healthcare delivery.",
-    image: "/images/book-3.jpg",
-    price: "£29.99"
-  }
-];
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 
-const podcasts = [
-  {
-    id: 1,
-    title: "Healthcare Insights Weekly",
-    description: "Weekly discussions on healthcare trends, challenges, and innovations.",
-    episodes: 45,
-    image: "/images/podcast-1.jpg"
-  },
-  {
-    id: 2,
-    title: "Staffing Solutions Podcast",
-    description: "Expert advice on healthcare recruitment and workforce management.",
-    episodes: 32,
-    image: "/images/podcast-2.jpg"
-  },
-  {
-    id: 3,
-    title: "Care Home Chronicles",
-    description: "Stories and insights from care home professionals and residents.",
-    episodes: 28,
-    image: "/images/podcast-3.jpg"
-  }
-];
+const BOOK = {
+  title: "Business Euphoria",
+  price: "£24.99",
+  pence: 2499,
+  image: "/images/books/book.png",
+};
+
+// ── Stripe payment form ──────────────────────────────────────────────────────
+function BookPaymentForm({
+  copies,
+  totalPence,
+  onSuccess,
+  onBack,
+}: {
+  copies: number;
+  totalPence: number;
+  onSuccess: () => void;
+  onBack: () => void;
+}) {
+  const stripe = useStripe();
+  const elements = useElements();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  const handlePay = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!stripe || !elements) return;
+    setLoading(true);
+    setError("");
+    const { error: submitErr } = await elements.submit();
+    if (submitErr) { setError(submitErr.message || "Payment failed"); setLoading(false); return; }
+    const { error: payErr } = await stripe.confirmPayment({
+      elements,
+      confirmParams: { return_url: window.location.href },
+      redirect: "if_required",
+    });
+    if (payErr) { setError(payErr.message || "Payment failed"); setLoading(false); return; }
+    onSuccess();
+  };
+
+  const total = (totalPence / 100).toFixed(2);
+
+  return (
+    <form onSubmit={handlePay} className="space-y-4">
+      <button type="button" onClick={onBack} className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors">
+        <ArrowLeft className="w-4 h-4" /> Back
+      </button>
+      <div className="bg-secondary/40 rounded-xl p-4 flex items-center gap-4">
+        <div className="relative w-14 h-20 flex-shrink-0">
+          <Image src={BOOK.image} alt={BOOK.title} fill className="object-contain" />
+        </div>
+        <div>
+          <p className="font-semibold text-foreground text-sm">{BOOK.title}</p>
+          <p className="text-muted-foreground text-xs">{copies} {copies === 1 ? "copy" : "copies"} × £{(BOOK.pence / 100).toFixed(2)}</p>
+          <p className="text-emerald font-bold text-lg">£{total}</p>
+        </div>
+      </div>
+      <div className="border border-border rounded-xl p-4">
+        <PaymentElement options={{ layout: { type: "tabs", defaultCollapsed: false } }} />
+      </div>
+      {error && <p className="text-red-500 text-sm">{error}</p>}
+      <Button type="submit" disabled={loading || !stripe} className="w-full bg-[#0071E3] hover:bg-[#0077ED] text-white rounded-full py-3 font-semibold">
+        {loading ? "Processing..." : `Pay £${total}`}
+      </Button>
+    </form>
+  );
+}
+
+// ── Book purchase modal ──────────────────────────────────────────────────────
+type BookForm = { name: string; email: string; phone: string; address: string; city: string; postcode: string; copies: number; signed: boolean; notes: string; };
+
+function BookModal({ onClose }: { onClose: () => void }) {
+  const [step, setStep] = useState<"details" | "payment" | "success">("details");
+  const [clientSecret, setClientSecret] = useState("");
+  const [loadingIntent, setLoadingIntent] = useState(false);
+  const [intentError, setIntentError] = useState("");
+  const [form, setForm] = useState<BookForm>({ name: "", email: "", phone: "", address: "", city: "", postcode: "", copies: 1, signed: false, notes: "" });
+
+  const totalPence = BOOK.pence * form.copies;
+  const set = (field: keyof BookForm, value: string | number | boolean) => setForm((f) => ({ ...f, [field]: value }));
+
+  const handleDetailsSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoadingIntent(true);
+    setIntentError("");
+    try {
+      const res = await fetch("/api/stripe/create-payment-intent", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ amount: totalPence, metadata: { product: BOOK.title, copies: form.copies, signed: form.signed } }),
+      });
+      const data = await res.json();
+      if (data.error) throw new Error(data.error);
+      setClientSecret(data.clientSecret);
+      setStep("payment");
+    } catch (err) {
+      setIntentError(err instanceof Error ? err.message : "Could not initialise payment");
+    } finally {
+      setLoadingIntent(false);
+    }
+  };
+
+  const stepLabel = step === "details" ? "Your Details" : step === "payment" ? "Payment" : "Order Confirmed";
+
+  return (
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+      <div className="relative bg-card border border-border rounded-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto shadow-2xl">
+        {/* Header */}
+        <div className="sticky top-0 bg-card border-b border-border px-6 py-4 flex items-center justify-between z-10">
+          <div>
+            <h2 className="text-lg font-bold text-foreground">Purchase Book</h2>
+            <p className="text-xs text-muted-foreground">{stepLabel}</p>
+          </div>
+          <button onClick={onClose} className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center hover:bg-secondary/80">
+            <X className="w-4 h-4" />
+          </button>
+        </div>
+
+        <div className="p-6">
+          {/* ── Step 1: Details ── */}
+          {step === "details" && (
+            <form onSubmit={handleDetailsSubmit} className="space-y-4">
+              {/* Book summary */}
+              <div className="bg-secondary/40 rounded-xl p-4 flex items-center gap-4">
+                <div className="relative w-14 h-20 flex-shrink-0">
+                  <Image src={BOOK.image} alt={BOOK.title} fill className="object-contain" />
+                </div>
+                <div>
+                  <p className="font-semibold text-foreground text-sm">{BOOK.title}</p>
+                  <p className="text-emerald font-bold text-lg">£{(totalPence / 100).toFixed(2)}</p>
+                </div>
+              </div>
+
+              {/* Copies + signed */}
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-foreground mb-1">Number of Copies *</label>
+                  <input
+                    type="number" min={1} max={50} required
+                    value={form.copies}
+                    onChange={(e) => set("copies", Math.max(1, parseInt(e.target.value) || 1))}
+                    className="w-full px-4 py-2.5 border border-input rounded-lg bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-emerald"
+                  />
+                  <p className="text-xs text-muted-foreground mt-1">Total: £{(totalPence / 100).toFixed(2)}</p>
+                </div>
+                <div className="flex flex-col justify-center">
+                  <label className="block text-sm font-medium text-foreground mb-2">Hand Signed?</label>
+                  <label className="flex items-center gap-3 cursor-pointer">
+                    <div
+                      onClick={() => set("signed", !form.signed)}
+                      className={`w-11 h-6 rounded-full transition-colors flex-shrink-0 ${form.signed ? "bg-emerald" : "bg-input"}`}
+                    >
+                      <div className={`w-5 h-5 bg-white rounded-full shadow mt-0.5 transition-transform ${form.signed ? "translate-x-5" : "translate-x-0.5"}`} />
+                    </div>
+                    <span className="text-sm text-muted-foreground">{form.signed ? "Yes please" : "No thanks"}</span>
+                  </label>
+                </div>
+              </div>
+
+              {/* Contact */}
+              <div className="grid grid-cols-2 gap-4">
+                <div className="col-span-2">
+                  <label className="block text-sm font-medium text-foreground mb-1">Full Name *</label>
+                  <input required value={form.name} onChange={(e) => set("name", e.target.value)} placeholder="Your full name"
+                    className="w-full px-4 py-2.5 border border-input rounded-lg bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-emerald" />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-foreground mb-1">Email *</label>
+                  <input required type="email" value={form.email} onChange={(e) => set("email", e.target.value)} placeholder="you@example.com"
+                    className="w-full px-4 py-2.5 border border-input rounded-lg bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-emerald" />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-foreground mb-1">Phone *</label>
+                  <input required type="tel" value={form.phone} onChange={(e) => set("phone", e.target.value)} placeholder="+44 7123 456 789"
+                    className="w-full px-4 py-2.5 border border-input rounded-lg bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-emerald" />
+                </div>
+              </div>
+
+              {/* Address */}
+              <div>
+                <label className="block text-sm font-medium text-foreground mb-1">Delivery Address *</label>
+                <input required value={form.address} onChange={(e) => set("address", e.target.value)} placeholder="Street address"
+                  className="w-full px-4 py-2.5 border border-input rounded-lg bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-emerald" />
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-foreground mb-1">City *</label>
+                  <input required value={form.city} onChange={(e) => set("city", e.target.value)} placeholder="London"
+                    className="w-full px-4 py-2.5 border border-input rounded-lg bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-emerald" />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-foreground mb-1">Postcode *</label>
+                  <input required value={form.postcode} onChange={(e) => set("postcode", e.target.value)} placeholder="SW1A 1AA"
+                    className="w-full px-4 py-2.5 border border-input rounded-lg bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-emerald" />
+                </div>
+              </div>
+
+              {/* Notes */}
+              <div>
+                <label className="block text-sm font-medium text-foreground mb-1">Additional Notes</label>
+                <textarea rows={3} value={form.notes} onChange={(e) => set("notes", e.target.value)}
+                  placeholder="Any special requests, personalisation for the signed copy, delivery instructions..."
+                  className="w-full px-4 py-2.5 border border-input rounded-lg bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-emerald resize-none" />
+              </div>
+
+              {intentError && <p className="text-red-500 text-sm">{intentError}</p>}
+
+              <Button type="submit" disabled={loadingIntent} className="w-full bg-[#0071E3] hover:bg-[#0077ED] text-white rounded-full py-3 font-semibold">
+                {loadingIntent ? "Preparing payment..." : `Continue to Payment — £${(totalPence / 100).toFixed(2)}`}
+              </Button>
+            </form>
+          )}
+
+          {/* ── Step 2: Payment ── */}
+          {step === "payment" && clientSecret && (
+            <Elements stripe={stripePromise} options={{ clientSecret, appearance: { theme: "stripe", variables: { colorPrimary: "#0071E3", borderRadius: "8px" } } }}>
+              <BookPaymentForm copies={form.copies} totalPence={totalPence} onSuccess={() => setStep("success")} onBack={() => setStep("details")} />
+            </Elements>
+          )}
+
+          {/* ── Step 3: Success ── */}
+          {step === "success" && (
+            <div className="flex flex-col items-center text-center gap-4 py-4">
+              <Fireworks autorun={{ speed: 3, duration: 3000 }} style={{ position: "fixed", pointerEvents: "none", width: "100%", height: "100%", top: 0, left: 0, zIndex: 999 }} />
+              <Image src="/success.gif" alt="Success" width={120} height={120} unoptimized />
+              <h3 className="text-xl font-bold text-foreground">Order Confirmed!</h3>
+              <p className="text-muted-foreground text-sm max-w-xs">
+                Thank you, {form.name}! Your {form.copies === 1 ? "copy" : `${form.copies} copies`}{form.signed ? " (hand signed)" : ""} will be delivered to {form.city}. Check {form.email} for confirmation.
+              </p>
+              <Button onClick={onClose} className="mt-2 bg-emerald hover:bg-emerald-dark text-white rounded-full px-8">Done</Button>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export function BooksAndPodcasts() {
+  const [bookModalOpen, setBookModalOpen] = useState(false);
+
+  // Scroll lock
+  useEffect(() => {
+    if (bookModalOpen) {
+      const scrollY = window.scrollY;
+      document.body.dataset.scrollY = String(scrollY);
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = "100%";
+      document.body.style.overflow = "hidden";
+    } else {
+      const scrollY = parseInt(document.body.dataset.scrollY || "0", 10);
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+      document.body.style.overflow = "";
+      requestAnimationFrame(() => window.scrollTo(0, scrollY));
+    }
+  }, [bookModalOpen]);
+
   return (
-    <section id="books-podcasts" className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
+    <>
+      {bookModalOpen && <BookModal onClose={() => setBookModalOpen(false)} />}
+      <section id="books-podcasts" className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -94,7 +309,7 @@ export function BooksAndPodcasts() {
               <div className="flex-shrink-0 mb-6">
                 <div className="relative w-48 h-64 sm:w-52 sm:h-72 rounded-lg overflow-hidden shadow-2xl bg-transparent">
                   <Image
-                    src="/images/books/book.webp"
+                    src="/images/books/book.png"
                     alt="Healthcare Book"
                     fill
                     className="object-contain"
@@ -110,20 +325,20 @@ export function BooksAndPodcasts() {
 
                 <div className="pt-2">
                   <div className="flex items-baseline justify-center gap-1 mb-4">
-                    <span className="text-sm text-muted-foreground">from</span>
+                    {/* <span className="text-sm text-muted-foreground">from</span> */}
                     <p className="text-2xl font-bold text-emerald">£24.99</p>
                   </div>
-                  <a
-                    href="#"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button
+                    onClick={() => setBookModalOpen(true)}
                     className="inline-block w-full"
                   >
-                    <Button className="bg-[#25D366] hover:bg-[#20bd5a] text-white w-full text-base py-4 rounded-full shadow-lg hover:shadow-xl transition-all animate-pulse">
-                      <ShoppingCart className="w-5 h-5 mr-2" />
-                      ORDER NOW
+                    <Button className="bg-[#0071E3] hover:bg-[#0077ED] text-white w-full text-base py-4 rounded-full shadow-lg hover:shadow-xl transition-all" asChild>
+                      <span>
+                        {/* <ShoppingCart className="w-5 h-5 mr-2" /> */}
+                        BUY NOW
+                      </span>
                     </Button>
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>
@@ -341,5 +556,6 @@ export function BooksAndPodcasts() {
         </div>
       </div>
     </section>
+    </>
   );
 }
