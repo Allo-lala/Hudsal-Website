@@ -174,12 +174,14 @@ export function Services() {
                 </ul>
 
                 {/* Order Now Button */}
+                <div className="flex justify-center">
                 <Button
                   onClick={() => openOrder(service.title)}
-                  className="bg-[#0071E3] hover:bg-[#0077ED] text-white w-full rounded-full shadow-lg hover:shadow-xl transition-all"
+                  className="bg-[#0071E3] hover:bg-[#0077ED] text-white w-auto px-6 rounded-full shadow-lg hover:shadow-xl transition-all"
                 >
-                  {service.title.includes("AI") ? "GET STARTED" : <><ShoppingCart className="w-4 h-4 mr-2" />ORDER NOW</>}
+                  {service.title.includes("AI") ? "GET STARTED" : <> BUY NOW</>}
                 </Button>
+                </div>
               </div>
             </div>
           ))}

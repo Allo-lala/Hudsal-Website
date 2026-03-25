@@ -8,7 +8,7 @@ import { GrantApplicationModal } from "@/components/grant-application-modal";
 const climateImages = [
   {
     id: 1,
-    src: "/images/climate/climate-talks.jpeg",
+    src: "/images/climate/climate-talks.png",
     title: "Sustainability ",
     description: " "
   },
@@ -20,19 +20,19 @@ const climateImages = [
   },
   {
     id: 3,
-    src: "/images/climate/planet.jpg",
+    src: "/images/climate/waste.png",
     title: "Waste Management ",
     description: " "
   },
   {
     id: 4,
-    src: "/images/climate/climate.jpg",
+    src: "/images/climate/planet.jpg",
     title: "Sustainability ",
     description: " "
   },
   {
     id: 5,
-    src: "/images/climate/rubbish.jpg",
+    src: "/images/climate/climate.jpg",
     title: "Clean Water",
     description: " "
   },

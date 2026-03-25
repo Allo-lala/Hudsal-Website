@@ -36,7 +36,7 @@ const BUSINESS_PRODUCTS: Product[] = [
 ];
 
 const CREATIVE_PRODUCTS: Product[] = [
-  { name: "Adobe Creative Cloud — All Apps", variants: ["Individual", "Business", "Students & Teachers"], prices: ["£54.98/mo", "£69.98/mo", "£19.97/mo"], platforms: ["windows", "mac"], type: "subscription", logo: "/adobe-creative-cloud.png" },
+  { name: "Adobe Creative Cloud ( Full suite)", variants: ["Individual", "Business", "Students & Teachers"], prices: ["£54.98/mo", "£69.98/mo", "£19.97/mo"], platforms: ["windows", "mac"], type: "subscription", logo: "/adobe-creative-cloud.png" },
   { name: "Adobe Photoshop 2025", variants: ["Single App"], prices: ["£19.97/mo"], platforms: ["windows", "mac"], type: "subscription", logo: "/adobe-photoshop-logo.png" },
   { name: "Adobe Premiere Pro 2025", variants: ["Single App"], prices: ["£19.97/mo"], platforms: ["windows", "mac"], type: "subscription", logo: "/adobe-premiere-pro.png" },
   { name: "Adobe Illustrator 2025", variants: ["Single App"], prices: ["£19.97/mo"], platforms: ["windows", "mac"], type: "subscription", logo: "/adobe-illustrator.png" },
@@ -65,8 +65,8 @@ const AUTOMOTIVE_PRODUCTS: Product[] = [
   { name: "XENTRY / DAS (Mercedes-Benz)", variants: ["Annual Licence"], prices: ["£299/yr"], note: "Full diagnostic suite for Mercedes-Benz & Smart", logo: "/mercedes-benz.png" },
   { name: "ISTA (BMW / MINI)", variants: ["Annual Licence"], prices: ["£249/yr"], note: "BMW Group diagnostic & programming software", logo: "/bmw.png" },
   { name: "ODIS (VW / Audi / Seat / Skoda)", variants: ["Annual Licence"], prices: ["£249/yr"], note: "Official VAG group diagnostic platform", logo: "/audi.png" },
-  { name: "Ford IDS / FDRS", variants: ["Annual Licence"], prices: ["£199/yr"], note: "Ford & Lincoln diagnostic software", logo: "/ford.webp"  },
-  { name: "TechStream (Toyota / Lexus)", variants: ["Annual Licence"], prices: ["£179/yr"], note: "Toyota & Lexus OEM diagnostic tool", logo: "/toyota.webp" },
+  { name: "Ford IDS / FDRS", variants: ["Annual Licence"], prices: ["£199/yr"], note: "Ford & Lincoln diagnostic software", logo: "/ford.png"  },
+  { name: "TechStream (Toyota / Lexus)", variants: ["Annual Licence"], prices: ["£179/yr"], note: "Toyota & Lexus OEM diagnostic tool", logo: "/toyota.png" },
   { name: "AutoData", variants: ["Monthly", "Annual"], prices: ["£39.99/mo", "£349/yr"], note: "Technical data for all makes & models", logo: "/autodata.jpeg" },
   { name: "Haynes Pro", variants: ["Monthly", "Annual"], prices: ["£29.99/mo", "£249/yr"], note: "Workshop manuals & wiring diagrams", logo: "/haynespro.png" },
   { name: "Mitchell1 ProDemand", variants: ["Monthly", "Annual"], prices: ["£49.99/mo", "£449/yr"], note: "OEM repair information & diagnostics", logo: "/mitchell1.svg" },
