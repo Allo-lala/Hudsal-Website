@@ -133,18 +133,22 @@ function PaymentForm({
         </div>
         <ul className="space-y-1">
           {items.map((item) => (
-            <li key={item.id} className="flex justify-between text-sm text-gray-600">
-              <span>
-                {item.name}
-                {item.color && <span className="text-gray-400 ml-1">({item.color})</span>}
-                {" "}<span className="text-gray-400">x{item.quantity}</span>
-              </span>
-              <span className="font-medium">
+            <li key={item.id} className="flex items-center gap-3 py-2 border-b border-gray-100 last:border-0">
+              <div className="relative w-12 h-12 bg-gray-100 rounded-lg overflow-hidden flex-shrink-0">
+                <Image src={item.image} alt={item.name} fill className="object-contain p-1" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-sm font-medium text-gray-800 truncate">
+                  {item.name}{item.color && <span className="text-gray-400 ml-1">({item.color})</span>}
+                </p>
+                <p className="text-xs text-gray-400">x{item.quantity}</p>
+              </div>
+              <span className="text-sm font-semibold text-gray-800 flex-shrink-0">
                 £{(parseFloat(item.price.replace(/[^0-9.]/g, "")) * item.quantity).toFixed(2)}
               </span>
             </li>
           ))}
-          <li className="flex justify-between text-sm font-bold text-gray-900 pt-2 border-t border-gray-200 mt-2">
+          <li className="flex justify-between text-sm font-bold text-gray-900 pt-2 mt-1">
             <span>Total</span>
             <span>£{subtotal}</span>
           </li>
@@ -210,19 +214,24 @@ function DetailsForm({
         </div>
         <ul className="space-y-1">
           {items.map((item) => (
-            <li key={item.id} className="flex justify-between text-sm text-gray-600">
-              <span>
-                {item.name}
-                {item.color && <span className="text-gray-400 ml-1">({item.color})</span>}
-                {" "}<span className="text-gray-400">x{item.quantity}</span>
-              </span>
-              <span className="font-medium">
+            <li key={item.id} className="flex items-center gap-3 py-2 border-b border-gray-100 last:border-0">
+              <div className="relative w-12 h-12 bg-gray-100 rounded-lg overflow-hidden flex-shrink-0">
+                <Image src={item.image} alt={item.name} fill className="object-contain p-1" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-sm font-medium text-gray-800 truncate">
+                  {item.name}{item.color && <span className="text-gray-400 ml-1">({item.color})</span>}
+                </p>
+                <p className="text-xs text-gray-400">x{item.quantity}</p>
+              </div>
+              <span className="text-sm font-semibold text-gray-800 flex-shrink-0">
                 £{(parseFloat(item.price.replace(/[^0-9.]/g, "")) * item.quantity).toFixed(2)}
               </span>
             </li>
           ))}
-          <li className="flex justify-between text-sm font-bold text-gray-900 pt-2 border-t border-gray-200 mt-2">
-            <span>Total</span><span>£{subtotal}</span>
+          <li className="flex justify-between text-sm font-bold text-gray-900 pt-2 mt-1">
+            <span>Total</span>
+            <span>£{subtotal}</span>
           </li>
         </ul>
       </div>
