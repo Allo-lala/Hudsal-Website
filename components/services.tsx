@@ -22,7 +22,7 @@ const services = [
     image: "/images/services/creative_design.png",
     description:
       " ",
-    features: ["Adobe Creative Full Suite", "CorelDRAW", "Canva Pro", "Autodesk"],
+    features: ["Adobe Creative Full Suite", "CorelDRAW", "Adobe Photoshop 2025 Pro", "Adobe Premiere Pro 2025 Pro", "Adobe Illustrator 2025 "],
   },
   {
     id: "03",

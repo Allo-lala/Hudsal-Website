@@ -37,8 +37,8 @@ export function PhilanthropySection() {
           onMouseEnter={() => setShowControls(true)}
           onMouseLeave={() => setShowControls(false)}
         >
-          <source src="/images/sponsored.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
+          <source src="/images/charity.mp4" type="video/mp4" />
+          Your browser does not support the video 
         </video>
       </div>
     </section>

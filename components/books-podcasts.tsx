@@ -14,10 +14,10 @@ const BOOK = {
   title: "Business Euphoria",
   price: "£24.99",
   pence: 2499,
-  image: "/images/books/book.png",
+  image: "/images/books/books.png",
 };
 
-// ── Stripe payment form ──────────────────────────────────────────────────────
+// ── Stripe payment form ──────
 function BookPaymentForm({
   copies,
   totalPence,
@@ -147,12 +147,13 @@ function BookModal({ onClose }: { onClose: () => void }) {
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-1">Number of Copies *</label>
-                  <input
-                    type="number" min={1} max={50} required
-                    value={form.copies}
-                    onChange={(e) => set("copies", Math.max(1, parseInt(e.target.value) || 1))}
-                    className="w-full px-4 py-2.5 border border-input rounded-lg bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-emerald"
-                  />
+                  <div className="flex items-center border border-input rounded-lg overflow-hidden">
+                    <button type="button" onClick={() => set("copies", Math.max(1, form.copies - 1))}
+                      className="px-3 py-2.5 text-foreground hover:bg-secondary transition-colors text-lg font-bold">−</button>
+                    <span className="flex-1 text-center text-sm font-medium text-foreground py-2.5">{form.copies}</span>
+                    <button type="button" onClick={() => set("copies", Math.min(50, form.copies + 1))}
+                      className="px-3 py-2.5 text-foreground hover:bg-secondary transition-colors text-lg font-bold">+</button>
+                  </div>
                   <p className="text-xs text-muted-foreground mt-1">Total: £{(totalPence / 100).toFixed(2)}</p>
                 </div>
                 <div className="flex flex-col justify-center">
@@ -309,7 +310,7 @@ export function BooksAndPodcasts() {
               <div className="flex-shrink-0 mb-6">
                 <div className="relative w-48 h-64 sm:w-52 sm:h-72 rounded-lg overflow-hidden shadow-2xl bg-transparent">
                   <Image
-                    src="/images/books/book.png"
+                    src="/images/books/books.png"
                     alt="Healthcare Book"
                     fill
                     className="object-contain"
