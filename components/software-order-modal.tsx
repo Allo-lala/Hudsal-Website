@@ -81,7 +81,7 @@ function getCatalogue(category: string): Product[] {
   return [];
 }
 
-// ── Stripe Payment Step ──────────────────────────────────────────────────────
+// ── Stripe Payment Step ───
 function PaymentForm({ amount, onSuccess, onBack }: { amount: number; onSuccess: () => void; onBack: () => void }) {
   const stripe = useStripe();
   const elements = useElements();

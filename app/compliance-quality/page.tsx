@@ -1,7 +1,8 @@
+import Image from "next/image";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { PageHeader } from "@/components/page-header";
-import { Download, FileText, Shield } from "lucide-react";
+import { Download } from "lucide-react";
 
 export const metadata = {
   title: "Compliance & Quality",
@@ -94,8 +95,10 @@ export default function ComplianceQualityPage() {
                 className="group bg-card border border-border rounded-2xl p-6 hover:shadow-xl transition-all duration-300 hover:border-emerald/30 flex flex-col"
               >
                 {/* Icon */}
-                <div className="w-14 h-14 rounded-lg flex items-center justify-center mb-4 group-hover:bg-emerald/20 transition-colors">
-                  <FileText className="w-7 h-7 text-emerald" />
+                <div className="flex justify-center mb-4">
+                  <div className="relative w-16 h-16">
+                    <Image src="/compliance.png" alt="Compliance document" fill className="object-contain" />
+                  </div>
                 </div>
 
                 {/* Title */}

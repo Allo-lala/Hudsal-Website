@@ -14,12 +14,12 @@ export async function POST(request: NextRequest) {
 
     const BASE = process.env.NEXT_PUBLIC_SITE_URL || 'https://hadsul.co.uk';
     const productBannerMap: Record<string, string> = {
-      'Gold on Demand': `${BASE}/images/below/gold.png`,
-      'Platinum on Demand': `${BASE}/images/below/platinum.png`,
-      'Emerald on Demand': `${BASE}/images/below/emerald.png`,
-      'Hadsul House': `${BASE}/images/below/hadsul.png`,
+      'Gold on Demand': `${BASE}/images/below/gold_subscription.png`,
+      'Platinum on Demand': `${BASE}/images/below/platinum_subscription.png`,
+      'Emerald on Demand': `${BASE}/images/below/emerald_subscription.png`,
+      'Hadsul House': `${BASE}/images/below/hadsul_subscription.png`,
     };
-    const bannerUrl = productBannerMap[productName] || `${BASE}/unnamed.jpg`;
+    const bannerUrl = productBannerMap[productName] || `${BASE}/unnamed.png`;
 
     // Admin notification
     const { error } = await resend.emails.send({
@@ -88,9 +88,9 @@ export async function POST(request: NextRequest) {
         <div style="background:#ffffff; border:1px solid #e5e7eb; border-radius:8px; padding:20px; margin:0 0 24px 0;">
           <p style="font-weight:bold; color:#374151; margin:0 0 10px 0; font-size:15px;">What Happens Next?</p>
           <ul style="color:#374151; line-height:1.9; padding-left:20px; margin:0; font-size:14px;">
-            <li>Our team will review your subscription request</li>
+            <li>We will review your subscription request</li>
             <li>We'll contact you within 24–48 hours</li>
-            <li>You'll receive detailed information about your plan</li>
+            <li>You'll receive detailed information about your subscription</li>
             <li>We'll guide you through the onboarding process</li>
           </ul>
         </div>

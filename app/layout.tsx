@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import { Analytics } from '@vercel/analytics/next'
 import { LoadingProvider } from '@/components/loading-provider'
+import { ScrollToTop } from '@/components/scroll-to-top'
 import './globals.css'
 
 
@@ -249,6 +250,7 @@ export default function RootLayout({
       </head>
       <body className={`${poppins.variable} font-sans antialiased`} suppressHydrationWarning>
         <LoadingProvider>
+          <ScrollToTop />
           {children}
         </LoadingProvider>
         <Analytics />
