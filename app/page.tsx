@@ -1,5 +1,6 @@
 import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
+import { CrmSection } from "@/components/crm-section";
 import { ProductsSection } from "@/components/products-section";
 import { Services } from "@/components/services";
 import { HealthcareProducts } from "@/components/healthcare-products";
@@ -41,6 +42,7 @@ export default function Home() {
     <main className="overflow-x-hidden">
       <Header />
       <Hero />
+      <CrmSection />
       <ProductsSection />
       <Services />
       <HealthcareProducts />
