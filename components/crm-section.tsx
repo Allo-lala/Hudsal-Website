@@ -17,9 +17,9 @@ export function CrmSection() {
           {/* Left — copy */}
           <div className="space-y-6">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm font-medium" style={{ backgroundColor: "#faf7f1", color: "#174731" }}>
+            <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm font-medium" style={{ backgroundColor: "#fff3db", color: "#174731" }}>
               <span className="h-2 w-2 rounded-full animate-pulse" style={{ backgroundColor: "#f10808" }} />
-              <span className="text-emerald text-sm font-medium">Free 100% AI-powered care home CRM</span>
+              <span className="text-emerald text-sm font-medium">100% Free AI-powered CRM</span>
             </div>
 
             {/* Headline */}
@@ -31,7 +31,7 @@ export function CrmSection() {
 
             {/* Description */}
             <p className="text-gray-500 text-lg leading-relaxed max-w-lg">
-              One AI-powered care home platform for all your care home needs — Manage enquiries, capture leads, schedule tours, schedule staff, compliance, payroll, care planning and more effortlessly & efficiently with ease. 
+              All-in-one AI-powered care home platform to manage enquiries, capture leads, schedule staff and tours, handle compliance, payroll, care planning, and more — efficiently and effortlessly.
             </p>
 
             {/* CTAs */}

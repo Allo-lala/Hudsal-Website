@@ -66,7 +66,7 @@ const products: Product[] = [
     id: 4,
     name: "Respirator Face Mask",
     price: "£24.99",
-    unit: "each",
+    unit: "item",
     image: "/images/products/respirator.png",
     hoverImage: "/images/products/respirator-detail.png",
     description: "FFP2/FFP3 respirator masks for high-risk environments.",
