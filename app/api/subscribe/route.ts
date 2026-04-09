@@ -19,7 +19,7 @@ export async function POST(request: NextRequest) {
       'Emerald on Demand': `${BASE}/images/below/emerald_subscription.png`,
       'Hadsul House': `${BASE}/images/below/hadsul_subscription.png`,
     };
-    const bannerUrl = productBannerMap[productName] || `${BASE}/unnamed.png`;
+    const bannerUrl = productBannerMap[productName] || `${BASE}/thankyou.png`;
 
     // Admin notification
     const { error } = await resend.emails.send({
