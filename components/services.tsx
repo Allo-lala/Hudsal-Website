@@ -45,8 +45,8 @@ const services = [
     title: "AI & Automation Tools",
     image: "/images/services/automation.png",
     description:
-      " ",
-    features: ["Customized Bots", "AI Credit Licensing ", "Workflow Automation Software", "Virtual Assistants"],
+      " Power with intelligent systems that handle interactions, repetitive tasks and more. We deliver solutions that streamline operations, eliminate inefficiencies & run 24/7",
+    features: [ ],
   },
   {
     id: "06",
