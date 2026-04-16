@@ -10,7 +10,7 @@ const testimonials = [
   {
     id: 1,
     name: "Margaret Thompson",
-    role: "Family Member",
+    role: "Relative",
     image: "/images/testimonials/client1.jpg",
     rating: 5,
     text: "Hudsal has been a blessing for our family. The caregivers are compassionate, professional, and truly care about my mother's wellbeing. I couldn't be more grateful for their exceptional service.",
@@ -18,7 +18,7 @@ const testimonials = [
   {
     id: 2,
     name: "Robert Williams",
-    role: "Care Home Resident",
+    role: "Team Leader",
     image: "/images/testimonials/client2.jpg",
     rating: 5,
     text: "The staff here treat me with dignity and respect every single day. The medical care is top-notch, and I finally feel like I'm in good hands. Highly recommend Hudsal to anyone seeking quality care.",
@@ -26,7 +26,7 @@ const testimonials = [
   {
     id: 3,
     name: "David Harrison",
-    role: "Healthcare Partner",
+    role: "Care Home Partner",
     image: "/images/testimonials/client3.jpg",
     rating: 5,
     text: "Working with Hadsul has transformed our care home operations. Their emergency staffing solutions and IT support have streamlined everything. A truly professional and reliable partner.",
