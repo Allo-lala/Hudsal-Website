@@ -5,59 +5,59 @@ import Image from "next/image";
 const awards = [
   {
     id: 1,
-    logo: "/images/awards/benecol.svg",
+    logo: "/images/awards/hamberley.png",
     organization: "CQC",
-    category: "Outstanding Care Provider",
-    year: "2024"
+    // category: "Outstanding Care Provider",
+    // year: "2024"
   },
   {
     id: 2,
-    logo: "/images/awards/spons.svg",
+    logo: "/images/awards/neuven.png",
     organization: "NHS",
-    category: "Excellence in Healthcare",
-    year: "2023"
+    // category: "Excellence in Healthcare",
+    // year: "2023"
   },
   {
     id: 3,
-    logo: "/images/awards/spons.svg",
+    logo: "/images/awards/bupa.png",
     organization: "ISO",
-    category: "Quality Management",
-    year: "2024"
+    // category: "Quality Management",
+    // year: "2024"
   },
   {
     id: 4,
     logo: "/images/awards/Heylen.svg",
     organization: "Healthcare Awards",
-    category: "Innovation in Care",
-    year: "2023"
+    // category: "Innovation in Care",
+    // year: "2023"
   },
   {
     id: 5,
-    logo: "/images/awards/Vlaamse.svg",
+    logo: "/images/awards/benecol.svg",
     organization: "Care Industry",
-    category: "Best Staffing Solutions",
-    year: "2024"
+    // category: "Best Staffing Solutions",
+    // year: "2024"
   },
   {
     id: 6,
-    logo: "/images/awards/sponlog.svg",
+    logo: "/images/awards/shaw.png",
     organization: "UK Healthcare",
-    category: "Digital Excellence",
-    year: "2023"
+    // category: "Digital Excellence",
+    // year: "2023"
   },
   {
     id: 7,
-    logo: "/images/awards/spons.svg",
+    logo: "/images/awards/bupa.png",
     organization: "Business Excellence",
-    category: "Sustainability Leader",
-    year: "2024"
+    // category: "Sustainability Leader",
+    // year: "2024"
   },
   {
     id: 8,
-    logo: "/images/awards/sponlog.svg",
+    logo: "/images/awards/care.png",
     organization: " Awards",
-    category: "Outstanding Service",
-    year: "2023"
+    // category: "Outstanding Service",
+    // year: "2023"
   }
 ];
 
