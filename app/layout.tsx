@@ -143,14 +143,7 @@ export const metadata: Metadata = {
     description: 'CQC registered healthcare staffing, consultancy, and IT solutions provider. Offering NHS compliant services including nursing care, residential care, professional training, and software solutions across the UK.',
     images: [
       {
-        url: 'https://hadsul.vercel.app/favicon.ico',
-        width: 512,
-        height: 512,
-        alt: 'Hadsul Limited',
-        type: 'image/x-icon',
-      },
-      {
-        url: 'https://hadsul.vercel.app/logo.png',
+        url: 'https://hadsul.co.uk/logo.png',
         width: 512,
         height: 512,
         alt: 'Hadsul Limited',
@@ -162,7 +155,7 @@ export const metadata: Metadata = {
     card: 'summary',
     title: 'Hadsul Limited - Healthcare Staffing & Consultancy',
     description: 'CQC registered healthcare staffing, consultancy, and IT solutions provider. NHS compliant services across the UK.',
-    images: ['https://hadsul.vercel.app/favicon.ico'],
+    images: ['https://hadsul.co.uk/logo.png'],
     creator: '@hadsulltd',
   },
   robots: {
