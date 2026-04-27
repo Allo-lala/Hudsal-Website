@@ -139,8 +139,8 @@ export const metadata: Metadata = {
     locale: 'en_GB',
     url: 'https://hadsul.vercel.app',
     siteName: 'Hadsul Limited',
-    title: 'Hadsul Limited - Healthcare Staffing & Consultancy',
-    description: 'CQC registered healthcare staffing, consultancy, and IT solutions provider. Offering NHS compliant services including nursing care, residential care, professional training, and software solutions across the UK.',
+    title: 'Hadsul Limited - Best Healthcare Staffing, Consultancy & IT Solutions',
+    // description: 'CQC registered healthcare staffing, consultancy, and IT solutions provider. Offering NHS compliant services including nursing care, residential care, professional training, and software solutions.',
     images: [
       {
         url: 'https://hadsul.vercel.app/favicon-2.png',

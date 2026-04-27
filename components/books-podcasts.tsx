@@ -7,6 +7,7 @@ import Image from "next/image";
 import Fireworks from "react-canvas-confetti/dist/presets/fireworks";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements, PaymentElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import { validatePhone } from "@/lib/validation";
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 
@@ -17,7 +18,7 @@ const BOOK = {
   image: "/images/books/books.png",
 };
 
-// ── Stripe payment form ──────
+// ─ Stripe payment form ──────
 function BookPaymentForm({
   copies,
   totalPence,
@@ -86,13 +87,32 @@ function BookModal({ onClose }: { onClose: () => void }) {
   const [clientSecret, setClientSecret] = useState("");
   const [loadingIntent, setLoadingIntent] = useState(false);
   const [intentError, setIntentError] = useState("");
+  const [phoneError, setPhoneError] = useState("");
   const [form, setForm] = useState<BookForm>({ name: "", email: "", phone: "", address: "", city: "", postcode: "", copies: 1, signed: false, notes: "" });
 
   const totalPence = BOOK.pence * form.copies;
   const set = (field: keyof BookForm, value: string | number | boolean) => setForm((f) => ({ ...f, [field]: value }));
 
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    // Only allow numbers, +, spaces, hyphens, and parentheses
+    const sanitized = value.replace(/[^0-9+\s\-()]/g, "");
+    set("phone", sanitized);
+    
+    // Clear error when user starts typing
+    if (phoneError) setPhoneError("");
+  };
+
   const handleDetailsSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Validate phone number before proceeding
+    const phoneValidationError = validatePhone(form.phone);
+    if (phoneValidationError) {
+      setPhoneError(phoneValidationError);
+      return;
+    }
+    
     setLoadingIntent(true);
     setIntentError("");
     try {
@@ -184,8 +204,18 @@ function BookModal({ onClose }: { onClose: () => void }) {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-1">Phone *</label>
-                  <input required type="tel" value={form.phone} onChange={(e) => set("phone", e.target.value)} placeholder="+44 7123 456 789"
-                    className="w-full px-4 py-2.5 border border-input rounded-lg bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-emerald" />
+                  <input 
+                    required 
+                    type="tel" 
+                    value={form.phone} 
+                    onChange={handlePhoneChange} 
+                    placeholder="+44 7123 456 789"
+                    pattern="^(\+?[\d\s\-().]{7,20})$"
+                    className={`w-full px-4 py-2.5 border ${phoneError ? 'border-red-500' : 'border-input'} rounded-lg bg-background text-foreground text-sm focus:outline-none focus:ring-2 ${phoneError ? 'focus:ring-red-500' : 'focus:ring-emerald'}`}
+                  />
+                  {phoneError && (
+                    <p className="text-xs text-red-500 mt-1">{phoneError}</p>
+                  )}
                 </div>
               </div>
 
