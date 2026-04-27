@@ -104,7 +104,7 @@ const poppins = localFont({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://hadsul.co.uk'),
+  metadataBase: new URL('https://hadsul.vercel.app'),
   title: {
     default: 'Hadsul Limited',
     template: '%s | Hadsul'
@@ -137,13 +137,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_GB',
-    url: 'https://hadsul.co.uk',
+    url: 'https://hadsul.vercel.app',
     siteName: 'Hadsul Limited',
     title: 'Hadsul Limited - Healthcare Staffing & Consultancy',
     description: 'CQC registered healthcare staffing, consultancy, and IT solutions provider. Offering NHS compliant services including nursing care, residential care, professional training, and software solutions across the UK.',
     images: [
       {
-        url: 'https://hadsul.co.uk/logo.png',
+        url: 'https://hadsul.vercel.app/favicon-2.png',
         width: 512,
         height: 512,
         alt: 'Hadsul Limited',
@@ -155,7 +155,7 @@ export const metadata: Metadata = {
     card: 'summary',
     title: 'Hadsul Limited - Healthcare Staffing & Consultancy',
     description: 'CQC registered healthcare staffing, consultancy, and IT solutions provider. NHS compliant services across the UK.',
-    images: ['https://hadsul.co.uk/logo.png'],
+    images: ['https://hadsul.vercel.app/favicon-2.png'],
     creator: '@hadsulltd',
   },
   robots: {
@@ -190,8 +190,8 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "HealthcareOrganization",
     "name": "Hadsul Limited",
-    "url": "https://hadsul.co.uk",
-    "logo": "https://hadsul.co.uk/images/logo.png",
+    "url": "https://hadsul.vercel.app",
+    "logo": "https://hadsul.vercel.app/favicon-2.png",
     "description": "CQC registered and consultancy services across the UK",
     "address": {
       "@type": "PostalAddress",
@@ -215,9 +215,9 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Hadsul Limited",
-    "image": "https://hadsul.co.uk/images/logo.png",
-    "@id": "https://hadsul.co.uk",
-    "url": "https://hadsul.co.uk",
+    "image": "https://hadsul.vercel.app/favicon-2.png",
+    "@id": "https://hadsul.vercel.app",
+    "url": "https://hadsul.vercel.app",
     "telephone": "+44-739-948-3885",
     "priceRange": "££",
     "address": {
