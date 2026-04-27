@@ -13,6 +13,7 @@ import {
 } from "@stripe/react-stripe-js";
 import { useCart } from "@/lib/cart-context";
 import { Button } from "@/components/ui/button";
+import { validatePhone } from "@/lib/validation";
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 
@@ -196,11 +197,31 @@ function DetailsForm({
   onNext: () => void;
 }) {
   const { items, subtotal } = useCart();
+  const [phoneError, setPhoneError] = useState("");
+  
   const set = (field: keyof FormData, value: string) =>
     setForm({ ...form, [field]: value });
 
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    // Only allow numbers, +, spaces, hyphens, and parentheses
+    const sanitized = value.replace(/[^0-9+\s\-()]/g, "");
+    set("phone", sanitized);
+    
+    // Clear error when user starts typing
+    if (phoneError) setPhoneError("");
+  };
+
   const handleNext = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Validate phone number before proceeding
+    const phoneValidationError = validatePhone(form.phone);
+    if (phoneValidationError) {
+      setPhoneError(phoneValidationError);
+      return;
+    }
+    
     onNext();
   };
 
@@ -256,8 +277,18 @@ function DetailsForm({
           </div>
           <div>
             <label className="text-xs text-gray-500 mb-1 block">Phone *</label>
-            <input required type="tel" value={form.phone} onChange={(e) => set("phone", e.target.value)}
-              className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0071E3]" />
+            <input 
+              required 
+              type="tel" 
+              value={form.phone} 
+              onChange={handlePhoneChange}
+              placeholder="+44 7123 456789"
+              pattern="^(\+?[\d\s\-().]{7,20})$"
+              className={`w-full border ${phoneError ? 'border-red-500' : 'border-gray-200'} rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 ${phoneError ? 'focus:ring-red-500' : 'focus:ring-[#0071E3]'}`}
+            />
+            {phoneError && (
+              <p className="text-xs text-red-500 mt-1">{phoneError}</p>
+            )}
           </div>
           {/* <div className="col-span-2">
             <label className="text-xs text-gray-500 mb-1 block">Company / Care Home</label>

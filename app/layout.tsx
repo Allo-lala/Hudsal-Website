@@ -109,7 +109,7 @@ export const metadata: Metadata = {
     default: 'Hadsul Limited',
     template: '%s | Hadsul'
   },
-  description: 'CQC registered healthcare staffing, consultancy, and IT solutions. NHS compliant services including nursing care, residential care, and professional training across the UK.',
+  description: 'CQC registered healthcare staffing, consultancy, and IT solutions provider. Offering NHS compliant services including nursing care, residential care, professional training, and software solutions across the UK.',
   keywords: [
     'h\Healthcare staffing UK',
     'CQC registered',
@@ -139,22 +139,31 @@ export const metadata: Metadata = {
     locale: 'en_GB',
     url: 'https://hadsul.co.uk',
     siteName: 'Hadsul Limited',
-    title: 'Hadsul - Healthcare Staffing & Consultancy Services',
-    description: 'CQC registered healthcare staffing and consultancy services across the UK.',
+    title: 'Hadsul Limited - Healthcare Staffing & Consultancy',
+    description: 'CQC registered healthcare staffing, consultancy, and IT solutions provider. Offering NHS compliant services including nursing care, residential care, professional training, and software solutions across the UK.',
     images: [
       {
-        url: '/images/logo.png',
-        width: 1200,
-        height: 630,
-        alt: 'Hadsul Limited - Healthcare Staffing, IT solutions & Consultancy',
+        url: 'https://hadsul.vercel.app/favicon.ico',
+        width: 512,
+        height: 512,
+        alt: 'Hadsul Limited',
+        type: 'image/x-icon',
+      },
+      {
+        url: 'https://hadsul.vercel.app/logo.png',
+        width: 512,
+        height: 512,
+        alt: 'Hadsul Limited',
+        type: 'image/png',
       },
     ],
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'Hadsul - Healthcare Staffing, IT solutions & Consultancy',
-    description: 'CQC registered staffing and consultancy services',
-    images: ['/images/logo.png'],
+    card: 'summary',
+    title: 'Hadsul Limited - Healthcare Staffing & Consultancy',
+    description: 'CQC registered healthcare staffing, consultancy, and IT solutions provider. NHS compliant services across the UK.',
+    images: ['https://hadsul.vercel.app/favicon.ico'],
+    creator: '@hadsulltd',
   },
   robots: {
     index: true,
@@ -198,7 +207,7 @@ export default function RootLayout({
     },
     "contactPoint": {
       "@type": "ContactPoint",
-      "email": "info@hadsul.co.uk",
+      "email": "admin@hadsul.co.uk",
       "contactType": "Customer Service",
       "availableLanguage": "English"
     },

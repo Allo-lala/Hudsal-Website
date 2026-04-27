@@ -202,7 +202,6 @@ export default function AboutPage() {
             {/* Content */}
             <div>
               <div className="flex items-center gap-2 mb-4">
-                {/* <Sparkles className="w-4 h-4 text-emerald" /> */}
                 <span className="text-emerald text-sm font-medium tracking-wider uppercase">
                   Who We Are
                 </span>

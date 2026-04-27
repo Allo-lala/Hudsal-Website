@@ -257,7 +257,7 @@ export async function generateAssessmentReport(data: AssessmentData): Promise<Ui
       'operational resilience and strategic alignment.',
       '',
       'For detailed recommendations and strategic consultation,',
-      'please contact our advisory team.',
+      'please contact us.',
     ];
     
     observations.forEach(line => {
