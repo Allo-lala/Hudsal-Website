@@ -2,7 +2,8 @@ import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
 import { CrmSection } from "@/components/crm-section";
 import { ProductsSection } from "@/components/products-section";
-import { Services } from "@/components/services";
+// import { Services } from "@/components/services";
+import { CoreServicesSection } from "@/components/core-services-section";
 import { HealthcareProducts } from "@/components/healthcare-products";
 import { BooksAndPodcasts } from "@/components/books-podcasts";
 import { PhilanthropySection } from "@/components/philanthropy-section";
@@ -44,7 +45,8 @@ export default function Home() {
       <Hero />
       <CrmSection />
       <ProductsSection />
-      <Services />
+      {/* <Services /> */}
+      <CoreServicesSection />
       <HealthcareProducts />
       <BooksAndPodcasts />
       <PhilanthropySection />

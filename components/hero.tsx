@@ -20,8 +20,8 @@ const slides: Slide[] = [
     id: 1,
     image: "/images/hadsul-house.png",
     title: "Become",
-    subtitle: "We help people Start, Grow & Scale the business of their dreams through expert Business Coaching",
-    buttonText: "Start Now",
+    subtitle: "We partner with care providers, healthcare organisations, and public sector stakeholders to deliver high-quality care, improve operational efficiency, and implement scalable healthcare digital infrastructure.",
+    buttonText: "Call Now",
     href: "/events"
   },
   {
@@ -73,14 +73,14 @@ const slides: Slide[] = [
   //   href: "/#books-podcasts"
   // },
   
-  {
-    id: 7,
-    image: "/images/realestate.jpg",
-    title: "Real Estate Opportunities",
-    subtitle: "Premium real estate opportunities with Hadsul. Quality properties and professional service for your investment needs.",
-    buttonText: "View Properties",
-    href: "https://hadsul.com"
-  }
+  // {
+  //   id: 7,
+  //   image: "/images/realestate.jpg",
+  //   title: "Real Estate Opportunities",
+  //   subtitle: "Premium real estate opportunities with Hadsul. Quality properties and professional service for your investment needs.",
+  //   buttonText: "View Properties",
+  //   href: "https://hadsul.com"
+  // }
 ];
 
 export function Hero() {
@@ -174,7 +174,7 @@ export function Hero() {
                       unoptimized
                     />
                   </span>
-                  <span className="text-white"> In Business & in Life</span>
+                  <span className="text-white"> In Healthcare </span>
                 </>
               ) : (
                 // Other slides: alternate word colors
