@@ -62,16 +62,11 @@ export function MeetingPlatformModal({ isOpen, onClose }: MeetingPlatformModalPr
     if (typeof window !== 'undefined' && window.Calendly) {
       setIsCalendlyOpen(true);
       
-      // Remove ALL existing Calendly elements
-      const existingOverlays = document.querySelectorAll('.calendly-overlay, .calendly-popup-content, .calendly-popup-close');
-      existingOverlays.forEach(overlay => overlay.remove());
-
-      // Small delay to ensure cleanup is complete
-      setTimeout(() => {
-        window.Calendly?.initPopupWidget({
-          url: 'https://calendly.com/musokeakisam16/30min?back=1&month=2026-02'
-        });
-      }, 100);
+      // Don't remove existing overlays - let Calendly handle it
+      // Just open the widget
+      window.Calendly.initPopupWidget({
+        url: 'https://calendly.com/musokeakisam16/30min?back=1&month=2026-02'
+      });
 
       // Reset flag after popup is closed
       setTimeout(() => {

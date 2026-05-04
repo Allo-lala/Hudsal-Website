@@ -96,6 +96,44 @@ export function CoreServicesSection() {
   const [isHovering, setIsHovering] = useState(false);
   const [isMeetingModalOpen, setIsMeetingModalOpen] = useState(false);
 
+  // Load Calendly widget script and styles
+  useEffect(() => {
+    // Check if Calendly is already loaded
+    if (document.querySelector('script[src*="calendly"]')) {
+      return;
+    }
+
+    // Add Calendly CSS only if not already present
+    if (!document.querySelector('link[href*="calendly"]')) {
+      const link = document.createElement('link');
+      link.href = 'https://assets.calendly.com/assets/external/widget.css';
+      link.rel = 'stylesheet';
+      document.head.appendChild(link);
+    }
+
+    // Add Calendly JS only if not already present
+    const script = document.createElement('script');
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.async = true;
+    document.body.appendChild(script);
+
+    // Hide Calendly badge
+    const style = document.createElement('style');
+    style.textContent = `
+      .calendly-badge-widget,
+      .calendly-badge-content {
+        display: none !important;
+      }
+      .calendly-overlay:not(:last-of-type) {
+        display: none !important;
+      }
+      .calendly-spinner-container:not(:last-of-type) {
+        display: none !important;
+      }
+    `;
+    document.head.appendChild(style);
+  }, []);
+
   // Auto-transition between categories every 2 seconds
   useEffect(() => {
     if (isHovering) return; // Pause auto-transition when user is hovering
@@ -106,7 +144,7 @@ export function CoreServicesSection() {
         const nextIndex = (currentIndex + 1) % serviceCategories.length;
         return serviceCategories[nextIndex].id;
       });
-    }, 2000); // 2 seconds
+    }, 3000); // 3 seconds
 
     return () => clearInterval(interval);
   }, [isHovering]);
