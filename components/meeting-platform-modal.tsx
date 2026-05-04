@@ -19,7 +19,7 @@ declare global {
 }
 
 export function MeetingPlatformModal({ isOpen, onClose }: MeetingPlatformModalProps) {
-  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
+  const [showCalendlyEmbed, setShowCalendlyEmbed] = useState(false);
   const [showZoomEmbed, setShowZoomEmbed] = useState(false);
   const [showGoogleMeetEmbed, setShowGoogleMeetEmbed] = useState(false);
 
@@ -54,32 +54,12 @@ export function MeetingPlatformModal({ isOpen, onClose }: MeetingPlatformModalPr
   if (!isOpen) return null;
 
   const openCalendly = () => {
-    // Prevent multiple popups
-    if (isCalendlyOpen) {
-      return;
-    }
+    // Show Calendly embed instead of popup
+    setShowCalendlyEmbed(true);
+  };
 
-    if (typeof window !== 'undefined' && window.Calendly) {
-      setIsCalendlyOpen(true);
-      
-      // Don't remove existing overlays - let Calendly handle it
-      // Just open the widget
-      window.Calendly.initPopupWidget({
-        url: 'https://calendly.com/musokeakisam16/30min?back=1&month=2026-02'
-      });
-
-      // Reset flag after popup is closed
-      setTimeout(() => {
-        setIsCalendlyOpen(false);
-      }, 2000);
-
-      // Close the platform selection modal
-      onClose();
-    } else {
-      // Fallback: open in new tab if widget not loaded
-      window.open('https://calendly.com/musokeakisam16/30min?back=1&month=2026-02', '_blank');
-      onClose();
-    }
+  const closeCalendlyEmbed = () => {
+    setShowCalendlyEmbed(false);
   };
 
   const openZoom = () => {
@@ -99,6 +79,59 @@ export function MeetingPlatformModal({ isOpen, onClose }: MeetingPlatformModalPr
   const closeGoogleMeetEmbed = () => {
     setShowGoogleMeetEmbed(false);
   };
+
+  // If Calendly embed is showing, display it
+  if (showCalendlyEmbed) {
+    return (
+      <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+        <div className="relative bg-white rounded-2xl shadow-2xl animate-scale-in max-w-4xl w-full">
+          {/* Header */}
+          <div className="flex items-center justify-between px-6 py-4 border-b border-border">
+            <h2 className="text-xl font-bold text-foreground">Schedule via Calendly</h2>
+            <button
+              onClick={() => {
+                closeCalendlyEmbed();
+                onClose();
+              }}
+              className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center hover:bg-secondary/80 transition-colors"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
+
+          {/* Calendly Inline Embed */}
+          <div className="p-4">
+            <iframe 
+              src="https://calendly.com/musokeakisam16/30min?embed_domain=hadsul.vercel.app&embed_type=Inline&hide_gdpr_banner=1" 
+              width="100%" 
+              height="560" 
+              frameBorder="0"
+              className="rounded-lg"
+              title="Calendly Scheduler"
+            />
+          </div>
+        </div>
+
+        {/* Custom CSS for animation */}
+        <style jsx>{`
+          @keyframes scaleIn {
+            0% {
+              opacity: 0;
+              transform: scale(0.9);
+            }
+            100% {
+              opacity: 1;
+              transform: scale(1);
+            }
+          }
+
+          .animate-scale-in {
+            animation: scaleIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+          }
+        `}</style>
+      </div>
+    );
+  }
 
   // If Zoom embed is showing, display it
   if (showZoomEmbed) {

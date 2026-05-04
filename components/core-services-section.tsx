@@ -117,16 +117,18 @@ export function CoreServicesSection() {
     script.async = true;
     document.body.appendChild(script);
 
-    // Hide Calendly badge
+    // Add custom styles to ensure only one popup appears
     const style = document.createElement('style');
     style.textContent = `
       .calendly-badge-widget,
       .calendly-badge-content {
         display: none !important;
       }
+      /* Ensure only one overlay appears */
       .calendly-overlay:not(:last-of-type) {
         display: none !important;
       }
+      /* Hide duplicate spinners */
       .calendly-spinner-container:not(:last-of-type) {
         display: none !important;
       }
