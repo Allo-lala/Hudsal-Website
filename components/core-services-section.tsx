@@ -16,23 +16,23 @@ const serviceCategories = [
     services: [
       {
         name: "Home Care",
-        description: "Personalized care in the comfort of your own home. Our compassionate team provides support tailored to individual needs.",
-        image: "/images/core/wooow.jpg",
+        description: "Personalized care in the comfort of your own home. Hadsul provides support tailored to individual needs.",
+        image: "/images/core/care/homecare.jpeg",
       },
       {
         name: "Supported Living",
         description: "Independent living with the right level of support. Empowering individuals to live life on their own terms.",
-        image: "/images/core/woot.jpg",
+        image: "/images/core/care/supported_living.jpeg",
       },
       {
         name: "Care Homes",
-        description: "Residential care in a warm, welcoming environment. Creating a home away from home with dignity and respect.",
-        image: "/images/core/wooow.jpg",
+        description: "Residential care in a warm, welcoming environment creating a home away from home with dignity and respect.",
+        image: "/images/core/care/care_home.jpeg",
       },
       {
         name: "Dementia Care",
         description: "Specialist support for those living with dementia. Expert care that understands and responds to unique needs.",
-        image: "/images/core/woot.jpg",
+        image: "/images/core/care/dementia.jpeg",
       },
     ],
   },
@@ -182,7 +182,7 @@ export function CoreServicesSection() {
                 className={`flex items-center gap-2 sm:gap-3 px-4 sm:px-8 py-3 sm:py-4 rounded-full transition-all duration-300 font-semibold text-sm sm:text-base whitespace-nowrap flex-shrink-0 ${
                   isActive
                     ? "bg-emerald text-white shadow-lg scale-105"
-                    : "bg-white text-muted-foreground hover:bg-emerald/10 hover:text-emerald border-2 border-border hover:border-emerald"
+                    : "bg-white text-foreground hover:bg-emerald hover:text-white border-2 border-border hover:border-emerald"
                 }`}
               >
                 {/* <CategoryIcon className="w-4 h-4 sm:w-5 sm:h-5" /> */}
@@ -201,7 +201,7 @@ export function CoreServicesSection() {
               return (
                 <div
                   key={`${currentCategory.id}-${index}`}
-                  className="group relative rounded-2xl overflow-hidden shadow-lg border-2 border-border hover:border-emerald transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 animate-slide-up-fade h-80"
+                  className="group relative rounded-2xl overflow-hidden shadow-lg border-2 border-border transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 animate-slide-up-fade h-80"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   {/* Background Image */}
@@ -216,7 +216,7 @@ export function CoreServicesSection() {
                   {/* Content */}
                   <div className="relative h-full flex flex-col justify-end p-6 text-white">
                     {/* Service Name */}
-                    <h4 className="text-xl font-bold mb-3 group-hover:text-emerald-300 transition-colors">
+                    <h4 className="text-xl font-bold mb-3 transition-colors">
                       {service.name}
                     </h4>
 
@@ -239,7 +239,6 @@ export function CoreServicesSection() {
             className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-10 py-6 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all hover:scale-105"
           >
             <Link href="/contact">
-              {/* <CtaIcon className="w-5 h-5 mr-2" /> */}
               {currentCategory.ctaText}
             </Link>
           </Button>
@@ -257,7 +256,7 @@ export function CoreServicesSection() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 onClick={() => setIsMeetingModalOpen(true)}
-                className="bg-emerald hover:bg-[#20bd5a] text-white rounded-full px-10 py-6 text-lg font-semibold shadow-lg hover:shadow-xl transition-all"
+                className="bg-[#0071E3] hover:bg-[#0077ED] text-white rounded-full px-10 py-6 text-lg font-semibold shadow-lg hover:shadow-xl transition-all"
               >
                 Schedule Consultation
               </Button>
