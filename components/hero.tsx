@@ -20,48 +20,48 @@ const slides: Slide[] = [
     id: 1,
     image: "/images/hadsul-house.png",
     title: "Become",
-    subtitle: "We partner with care providers, healthcare organisations, and public sector stakeholders to deliver high-quality care, improve operational efficiency, and implement scalable healthcare digital infrastructure.",
-    buttonText: "Call Now",
+    subtitle: "We help healthcare providers strengthen operations, optimise workforce performance, and implement systems that enable sustainable growth.",
+    buttonText: "Explore Hadsul",
     href: "/events"
   },
   {
     id: 6,
     image: "/images/it-solutions.png",
-    title: "IT Solutions",
-    subtitle: "Integrate modern technology designed to simplify processes, automate tasks, and improve performance. Our IT solutions help you work smarter and operate with clarity and effortless control in a digital-first world.",
+    title: "Digital Healthcare Infrastructure",
+    subtitle: "We design and implement intelligent systems that simplify operations, automate workflows, and provide real-time visibility — enabling care providers to operate with clarity, control, and efficiency.",
     buttonText: "Explore Solutions",
     href: "/services"
   },
   {
     id: 5,
     image: "/images/financee.png",
-    title: "Finance Consultancy",
-    subtitle: "Practical financial insight and support to help boards make smarter, confident decisions, navigate challenges, identify opportunities, and build a stronger financial future.",
-    buttonText: "Learn More",
+    title: "Strategic & Financial Advisory",
+    subtitle: "We support healthcare leaders with structured financial insight, performance analysis, and decision-making frameworks to strengthen resilience, improve outcomes, and unlock growth opportunities.",
+    buttonText: "View Services",
     href: "/what-we-do/consultancy"
   },
    {
     id: 8,
     image: "/images/services/staffing.png",
-    title: " Healthcare Staffing ",
-    subtitle:"Staff with the right professionals at the right time. Choose from permanent hires, temporary staff, trusted agency placements, or a reliable bank of pre-approved professionals ready to step in when demand changes.",
-    buttonText: "Hire Now",
+    title: " Workforce & Staffing Solutions ",
+    subtitle:"Access qualified, fully vetted healthcare professionals when and where you need them. Choose from permanent hires, temporary staff, trusted agency placements, or a reliable bank of pre-approved professionals ready to step in when demand changes.",
+    buttonText: "Request Staff",
     href: "/what-we-do/healthcare-staffing"
   },
   {
     id: 2,
     image: "/images/products_ppe.png",
-    title: "Get in-store experience online ",
-    subtitle:"Fully equip with high-quality PPE. Easily order for masks, gloves, face shields, sanitisers and more. Enjoy fast dependable same day delivery without delays.",
+    title: "Essential Healthcare Supplies",
+    subtitle:"Reliable access to high-quality PPE and clinical supplies, ensuring your organisation remains fully equipped, compliant, and prepared to deliver safe and effective care.",
     buttonText: "Order Now",
     href: "/products"
   },
   {
     id: 3,
     image: "/images/hero-care.png",
-    title: "Streamline Operations with  Our free CRM ",
-    subtitle:"Experience efficiency from AI-driven Insights, In-Built Automated Workflows, AI Features, Dashboards to Payments and much more empowering agencies.",
-    buttonText: "Request CRM",
+    title: "Healthcare Operations Platform",
+    subtitle:"Our proprietary CRM system enables healthcare providers to manage clients, staff, compliance, and finances within one integrated platform — driving efficiency, visibility, and scalable growth.",
+    buttonText: "Apply For Access",
     href: "/what-we-do/client-relationship-manager"
   },
   // {

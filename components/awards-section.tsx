@@ -74,7 +74,7 @@ export function AwardsSection() {
             Our Partners
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto px-4">
-            Trusted by leading organizations in Healthcare, Consultancy, Tech and beyond
+            Trusted by leading organizations in Healthcare 
           </p>
         </div>
       </section>

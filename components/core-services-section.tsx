@@ -21,7 +21,7 @@ const serviceCategories = [
       },
       {
         name: "Supported Living",
-        description: "Independent living with the right level of support. Empowering individuals to live life on their own terms.",
+        description: "Empowering individuals to live life on their own terms with the right level of support.",
         image: "/images/core/care/supported_living.jpeg",
       },
       {
@@ -31,7 +31,7 @@ const serviceCategories = [
       },
       {
         name: "Dementia Care",
-        description: "Specialist support for those living with dementia. Expert care that understands and responds to unique needs.",
+        description: "Expert care that understands and responds to unique needs.",
         image: "/images/core/care/dementia.jpeg",
       },
     ],
@@ -164,10 +164,10 @@ export function CoreServicesSection() {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4 animate-slide-up">
-            Hadsul Group
+            Healthcare Delivery & Transformation
           </h2>
           <p className="text-muted-foreground text-lg max-w-3xl mx-auto animate-slide-up" style={{ animationDelay: "100ms" }}>
-            From compassionate care to strategic consulting and cutting-edge technology—we deliver excellence across every aspect of healthcare.
+             Compassionate care, strategic consulting & Digital Solutions for excellence in the Healthcare Sector. We Deliver satisfactory care services helping healthcare providers scale, improve operations and grow sustainably.
           </p>
         </div>
 

@@ -46,7 +46,7 @@ export function CrmSection() {
                 variant="outline"
                 className="bg-[#0071E3] hover:bg-[#0077ED] text-white rounded-full px-7 py-3 font-semibold text-base shadow-lg transition-all"
               >
-                Request CRM
+                Apply For Access
               </Button>
             </div>
 

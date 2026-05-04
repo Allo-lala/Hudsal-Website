@@ -119,7 +119,7 @@ export function CRMRequestModal({ isOpen, onClose }: CRMRequestModalProps) {
         {step === "form" && (
           <div className="p-8">
             <div className="text-center mb-6">
-              <h2 className="text-2xl font-bold text-foreground mb-2">Request CRM</h2>
+              <h2 className="text-2xl font-bold text-foreground mb-2">CRM Application</h2>
               <p className="text-muted-foreground">Fill out the form below and we&apos;ll get back to you shortly</p>
             </div>
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -177,7 +177,7 @@ export function CRMRequestModal({ isOpen, onClose }: CRMRequestModalProps) {
                 <Textarea id="currentPlatforms" name="currentPlatforms" value={formData.currentPlatforms} onChange={handleInputChange} placeholder="e.g., CRM, Manual Paperwork, Excel, Roundsy etc." rows={3} className="mt-1" />
               </div>
               <Button type="submit" disabled={isSubmitting} className="w-full bg-emerald hover:bg-emerald-dark text-white rounded-full mt-6 disabled:opacity-50 disabled:cursor-not-allowed">
-                {isSubmitting ? "Submitting..." : "Request CRM"}
+                {isSubmitting ? "Submitting..." : "Submit Application"}
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </form>
@@ -190,7 +190,7 @@ export function CRMRequestModal({ isOpen, onClose }: CRMRequestModalProps) {
             <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
               <CheckCircle className="w-10 h-10 text-emerald" />
             </div>
-            <h2 className="text-2xl font-bold text-foreground mb-2">Request Received!</h2>
+            <h2 className="text-2xl font-bold text-foreground mb-2">Application Received!</h2>
             <p className="text-muted-foreground mb-6">
               Thank you for your interest in our CRM platform. We&apos;ll review your request and contact you shortly.
             </p>
