@@ -10,9 +10,9 @@ const serviceCategories = [
   {
     id: "care",
     title: "Care Services",
-    icon: Heart,
+    // icon: Heart,
     ctaText: "Request Staff",
-    ctaIcon: UserPlus,
+    // ctaIcon: UserPlus,
     services: [
       {
         name: "Home Care",
@@ -38,7 +38,7 @@ const serviceCategories = [
   },
   {
     id: "consulting",
-    title: "Consulting",
+    title: "Consultancy",
     // icon: Briefcase,
     ctaText: "Book a Consultation",
     // ctaIcon: Calendar,
@@ -46,31 +46,31 @@ const serviceCategories = [
       {
         name: "Healthcare Consulting",
         description: "Strategic advice for healthcare organizations. Transform your operations with expert guidance and proven methodologies.",
-        image: "/images/core/woot.jpg",
+        image: "/images/core/consultancy/health_consulting.webp",
       },
       {
         name: "Operations Improvement",
         description: "Streamline processes and boost efficiency. Data-driven solutions that deliver measurable results.",
-        image: "/images/core/wooow.jpg",
+        image: "/images/core/consultancy/operations_improvement.webp",
       },
       {
         name: "Business Health Checks",
         description: "Comprehensive assessments to identify opportunities. Uncover hidden potential and mitigate risks.",
-        image: "/images/core/woot.jpg",
+        image: "/images/core/consultancy/business_check.webp",
       },
       {
-        name: "Free Health Check",
-        description: "Complimentary initial consultation and assessment. No obligation—just expert insights to help you move forward.",
-        image: "/images/core/wooow.jpg",
+        name: " Health Check",
+        description: "Complimentary initial consultation and assessment. No obligation—just expert insights for you to you move forward.",
+        image: "/images/core/consultancy/health_checks.webp",
       },
     ],
   },
   {
     id: "digital",
     title: "IT Solutions",
-    icon: Laptop,
+    // icon: Laptop,
     ctaText: "Get A Service",
-    ctaIcon: Wrench,
+    // ctaIcon: Wrench,
     services: [
       {
         name: "CRM Systems",
@@ -152,7 +152,7 @@ export function CoreServicesSection() {
   }, [isHovering]);
 
   const currentCategory = serviceCategories.find((cat) => cat.id === activeCategory) || serviceCategories[0];
-  const CtaIcon = currentCategory.ctaIcon;
+  // const CtaIcon = currentCategory.ctaIcon;
 
   return (
     <section 
@@ -174,7 +174,7 @@ export function CoreServicesSection() {
         {/* Category Tabs */}
         <div className="flex justify-center gap-2 sm:gap-4 mb-12 overflow-x-auto pb-2 scrollbar-hide">
           {serviceCategories.map((category) => {
-            const CategoryIcon = category.icon;
+            // const CategoryIcon = category.icon;
             const isActive = activeCategory === category.id;
 
             return (
