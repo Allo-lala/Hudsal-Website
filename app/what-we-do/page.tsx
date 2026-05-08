@@ -67,7 +67,7 @@ const services = [
     description: "Continuous analysis of regulatory landscapes and your operational data to predict and prepare for inspection focus areas, moving from reactive compliance to proactive readiness. ",
     features: [],
     href: "/what-we-do/free-inspection-compliance-foresight",
-    image: "/images/services/it-solutions.png",
+    image: "/images/services/Inspection.webp",
   },
   {
     id: "08",
@@ -85,7 +85,7 @@ const services = [
     description: "An objective, experienced viewpoint on your operations and governance structures, challenging assumptions and ensuring robust decision-making frameworks are in place.",
     features: [ ],
     href: "/what-we-do/free-external-perspective-governance-support",
-    image: "/images/services/solutions.avif",
+    image: "/images/services/governance.webp",
   },
   
 ];

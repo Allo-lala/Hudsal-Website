@@ -34,6 +34,16 @@ const serviceCategories = [
         description: "Expert care that understands and responds to unique needs.",
         image: "/images/core/care/dementia.jpeg",
       },
+      {
+        name: "Registered Managers",
+        description: "Experienced registered and assistant managers available for short-term and long-term placements to lead your care operations.",
+        image: "/images/core/woot.jpg",
+      },
+      {
+        name: "Virtual Companionship",
+        description: "Compassionate virtual support for those seeking meaningful conversation and connection from the comfort of home.",
+        image: "/images/core/wooow.jpg",
+      },
     ],
   },
   {
@@ -63,6 +73,26 @@ const serviceCategories = [
         description: "Complimentary initial consultation and assessment. No obligation—just expert insights for you to you move forward.",
         image: "/images/core/consultancy/health_checks.webp",
       },
+      {
+        name: "Financial Auditing",
+        description: "Thorough financial reviews to ensure compliance and accuracy. Identify discrepancies and strengthen your financial controls.",
+        image: "/images/core/wooow.jpg",
+      },
+      {
+        name: "Book Keeping",
+        description: "Professional bookkeeping services to keep your finances organized. Accurate records for informed decision-making.",
+        image: "/images/core/woot.jpg",
+      },
+      {
+        name: "Financial Advisor",
+        description: "Expert financial guidance tailored to your healthcare business. Strategic planning for sustainable growth and profitability.",
+        image: "/images/core/wooow.jpg",
+      },
+      {
+        name: "Management",
+        description: "Comprehensive management solutions to optimize your operations. Leadership support that drives performance and results.",
+        image: "/images/core/woot.jpg",
+      },
     ],
   },
   {
@@ -86,6 +116,21 @@ const serviceCategories = [
         name: "Tech Solutions",
         description: "Custom software tailored to your needs. From concept to deployment, we build technology that works for you.",
         image: "/images/core/wooow.jpg",
+      },
+      {
+        name: "Cyber Security",
+        description: "Protect sensitive patient data and healthcare systems. Comprehensive security solutions to safeguard against threats and ensure compliance.",
+        image: "/images/core/woot.jpg",
+      },
+      {
+        name: "Data Migration & Protection",
+        description: "Secure data migration and backup solutions for healthcare providers. Ensure continuity and protect critical patient information.",
+        image: "/images/core/wooow.jpg",
+      },
+      {
+        name: "Robot Training",
+        description: "Advanced robotics training for healthcare automation. Empower your team to leverage cutting-edge technology in patient care.",
+        image: "/images/core/woot.jpg",
       },
     ],
   },
