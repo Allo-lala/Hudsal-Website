@@ -5,6 +5,7 @@ import { Heart, Briefcase, Laptop, UserPlus, Calendar, Wrench } from "lucide-rea
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { MeetingPlatformModal } from "@/components/meeting-platform-modal";
+import { StaffRequestModal } from "@/components/staff-request-modal";
 
 const serviceCategories = [
   {
@@ -140,6 +141,7 @@ export function CoreServicesSection() {
   const [activeCategory, setActiveCategory] = useState("care");
   const [isHovering, setIsHovering] = useState(false);
   const [isMeetingModalOpen, setIsMeetingModalOpen] = useState(false);
+  const [isStaffRequestModalOpen, setIsStaffRequestModalOpen] = useState(false);
 
   // Load Calendly widget script and styles
   useEffect(() => {
@@ -280,15 +282,33 @@ export function CoreServicesSection() {
 
         {/* Category CTA */}
         <div className="text-center mb-16 animate-slide-up" style={{ animationDelay: `${currentCategory.services.length * 100}ms` }}>
-          <Button
-            asChild
-            size="lg"
-            className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-10 py-6 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all hover:scale-105"
-          >
-            <Link href="/contact">
+          {currentCategory.id === "care" ? (
+            <Button
+              onClick={() => setIsStaffRequestModalOpen(true)}
+              size="lg"
+              className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-10 py-6 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all hover:scale-105"
+            >
               {currentCategory.ctaText}
-            </Link>
-          </Button>
+            </Button>
+          ) : currentCategory.id === "consulting" ? (
+            <Button
+              onClick={() => setIsMeetingModalOpen(true)}
+              size="lg"
+              className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-10 py-6 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all hover:scale-105"
+            >
+              {currentCategory.ctaText}
+            </Button>
+          ) : (
+            <Button
+              asChild
+              size="lg"
+              className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-10 py-6 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all hover:scale-105"
+            >
+              <Link href="/contact">
+                {currentCategory.ctaText}
+              </Link>
+            </Button>
+          )}
         </div>
 
         {/* Bottom CTA */}
@@ -316,6 +336,12 @@ export function CoreServicesSection() {
       <MeetingPlatformModal 
         isOpen={isMeetingModalOpen} 
         onClose={() => setIsMeetingModalOpen(false)} 
+      />
+
+      {/* Staff Request Modal */}
+      <StaffRequestModal 
+        isOpen={isStaffRequestModalOpen} 
+        onClose={() => setIsStaffRequestModalOpen(false)} 
       />
 
       {/* Custom CSS for animations */}
