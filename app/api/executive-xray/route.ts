@@ -98,7 +98,7 @@ export async function POST(request: NextRequest) {
         </div>
         
         <p>Best regards,<br>
-        The Hadsul Team</p>
+         Hadsul Limited</p>
         
         <hr style="margin: 30px 0; border: none; border-top: 1px solid #e5e7eb;">
         <p style="color: #6b7280; font-size: 12px;">

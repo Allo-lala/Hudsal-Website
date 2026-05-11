@@ -87,6 +87,7 @@ export function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [isHireModalOpen, setIsHireModalOpen] = useState(false);
+  const [animationKey, setAnimationKey] = useState(0);
 
   // Auto-slide functionality
   useEffect(() => {
@@ -94,6 +95,7 @@ export function Hero() {
 
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
+      setAnimationKey((prev) => prev + 1);
     }, 5000);
 
     return () => clearInterval(interval);
@@ -101,11 +103,13 @@ export function Hero() {
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
+    setAnimationKey((prev) => prev + 1);
     setIsAutoPlaying(false);
   };
 
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+    setAnimationKey((prev) => prev + 1);
     setIsAutoPlaying(false);
   };
 
@@ -160,7 +164,10 @@ export function Hero() {
             </div>
 
             {/* Main Heading - Dynamic based on current slide */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+            <h1 
+              key={`title-${animationKey}`}
+              className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 animate-zoom-in"
+            >
               {currentSlide === 0 ? (
                 // First slide: "Become" + GIF + "In Business & in Life" - all inline, breaks naturally fragment, Let it break
                 <>
@@ -188,13 +195,19 @@ export function Hero() {
 
             {/* Subtitle - Only show if slide has subtitle */}
             {slides[currentSlide].subtitle && (
-              <p className="text-lg md:text-xl text-white/90 leading-relaxed mb-8 max-w-xl">
+              <p 
+                key={`subtitle-${animationKey}`}
+                className="text-lg md:text-xl text-white/90 leading-relaxed mb-8 max-w-xl animate-zoom-in"
+              >
                 {slides[currentSlide].subtitle}
               </p>
             )}
 
             {/* WhatsApp-colored Pill Button */}
-            <div className="mb-12 flex justify-center lg:justify-start">
+            <div 
+              key={`button-${animationKey}`}
+              className="mb-12 flex justify-center lg:justify-start animate-slide-in-left"
+            >
               {slides[currentSlide].id === 8 ? (
                 <button
                   onClick={() => setIsHireModalOpen(true)}
@@ -302,6 +315,56 @@ export function Hero() {
         onClose={() => setIsHireModalOpen(false)}
         preselectedService="Healthcare Staffing"
       />
+
+      {/* Custom CSS for animations */}
+      <style jsx>{`
+        @keyframes slideInLeft {
+          0% {
+            opacity: 0;
+            transform: translateX(-100px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        @keyframes zoomIn {
+          0% {
+            opacity: 0;
+            transform: scale(0.8);
+          }
+          100% {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+
+        @keyframes slideInRight {
+          0% {
+            opacity: 0;
+            transform: translateX(100px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        .animate-slide-in-left {
+          animation: slideInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .animate-zoom-in {
+          animation: zoomIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+          opacity: 0;
+        }
+
+        .animate-slide-in-right {
+          animation: slideInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+          opacity: 0;
+        }
+      `}</style>
     </section>
   );
 }

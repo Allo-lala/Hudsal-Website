@@ -181,7 +181,7 @@ export function CoreServicesSection() {
     document.head.appendChild(style);
   }, []);
 
-  // Auto-transition between categories every 2 seconds
+  // Auto-transition between categories
   useEffect(() => {
     if (isHovering) return; // Pause auto-transition when user is hovering
 
@@ -191,7 +191,7 @@ export function CoreServicesSection() {
         const nextIndex = (currentIndex + 1) % serviceCategories.length;
         return serviceCategories[nextIndex].id;
       });
-    }, 3000); // 3 seconds
+    }, 9000); // 9 seconds
 
     return () => clearInterval(interval);
   }, [isHovering]);
