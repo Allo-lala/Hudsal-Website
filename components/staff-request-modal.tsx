@@ -150,7 +150,7 @@ export function StaffRequestModal({ isOpen, onClose }: StaffRequestModalProps) {
     if (name === "serviceType" && value === "Virtual Companionship") {
       const confirmed = window.confirm(
         "Virtual Companionship \n\n" +
-        "This is a virtual service. We will connect with you through video calls, phone calls, or messaging platforms.\n\n" +
+        "This is a virtual service. We will connect with you through video calls, phone calls, or prefered messaging platforms.\n\n" +
         "Click OK to proceed with this service, or Cancel to select a different service."
       );
       

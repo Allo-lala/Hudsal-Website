@@ -1,6 +1,7 @@
 import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
 import { CrmSection } from "@/components/crm-section";
+import { VisionPathSection } from "@/components/vision-path-section";
 import { ProductsSection } from "@/components/products-section";
 // import { Services } from "@/components/services";
 import { CoreServicesSection } from "@/components/core-services-section";
@@ -44,6 +45,7 @@ export default function Home() {
       <Header />
       <Hero />
       <CrmSection />
+      <VisionPathSection />
       <ProductsSection />
       {/* <Services /> */}
       <CoreServicesSection />
