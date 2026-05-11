@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { MeetingPlatformModal } from "@/components/meeting-platform-modal";
 import { StaffRequestModal } from "@/components/staff-request-modal";
+import { ConsultancyRequestModal } from "@/components/consultancy-request-modal";
+import { ITSolutionsModal } from "@/components/it-solutions-modal";
 
 const serviceCategories = [
   {
@@ -142,6 +144,8 @@ export function CoreServicesSection() {
   const [isHovering, setIsHovering] = useState(false);
   const [isMeetingModalOpen, setIsMeetingModalOpen] = useState(false);
   const [isStaffRequestModalOpen, setIsStaffRequestModalOpen] = useState(false);
+  const [isConsultancyModalOpen, setIsConsultancyModalOpen] = useState(false);
+  const [isITSolutionsModalOpen, setIsITSolutionsModalOpen] = useState(false);
 
   // Load Calendly widget script and styles
   useEffect(() => {
@@ -292,7 +296,15 @@ export function CoreServicesSection() {
             </Button>
           ) : currentCategory.id === "consulting" ? (
             <Button
-              onClick={() => setIsMeetingModalOpen(true)}
+              onClick={() => setIsConsultancyModalOpen(true)}
+              size="lg"
+              className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-10 py-6 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all hover:scale-105"
+            >
+              {currentCategory.ctaText}
+            </Button>
+          ) : currentCategory.id === "digital" ? (
+            <Button
+              onClick={() => setIsITSolutionsModalOpen(true)}
               size="lg"
               className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-10 py-6 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all hover:scale-105"
             >
@@ -342,6 +354,18 @@ export function CoreServicesSection() {
       <StaffRequestModal 
         isOpen={isStaffRequestModalOpen} 
         onClose={() => setIsStaffRequestModalOpen(false)} 
+      />
+
+      {/* Consultancy Request Modal */}
+      <ConsultancyRequestModal 
+        isOpen={isConsultancyModalOpen} 
+        onClose={() => setIsConsultancyModalOpen(false)} 
+      />
+
+      {/* IT Solutions Modal */}
+      <ITSolutionsModal 
+        isOpen={isITSolutionsModalOpen} 
+        onClose={() => setIsITSolutionsModalOpen(false)} 
       />
 
       {/* Custom CSS for animations */}

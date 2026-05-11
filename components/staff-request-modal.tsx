@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FireworksOverlay } from "@/components/fireworks-overlay";
+import { validateEmail, validatePhone } from "@/lib/validation";
 
 interface StaffRequestModalProps {
   isOpen: boolean;
@@ -72,18 +73,21 @@ export function StaffRequestModal({ isOpen, onClose }: StaffRequestModalProps) {
 
     if (!formData.firstName.trim()) newErrors.firstName = "First name is required";
     if (!formData.lastName.trim()) newErrors.lastName = "Last name is required";
-    if (!formData.email.trim()) {
-      newErrors.email = "Email is required";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Invalid email format";
-    }
-    if (!formData.phone.trim()) newErrors.phone = "Phone number is required";
+    
+    // Email validation
+    const emailError = validateEmail(formData.email);
+    if (emailError) newErrors.email = emailError;
+    
+    // Phone validation
+    const phoneError = validatePhone(formData.phone);
+    if (phoneError) newErrors.phone = phoneError;
+    
     if (!formData.businessName.trim()) newErrors.businessName = "Business name is required";
-    if (!formData.businessEmail.trim()) {
-      newErrors.businessEmail = "Business email is required";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.businessEmail)) {
-      newErrors.businessEmail = "Invalid email format";
-    }
+    
+    // Business email validation
+    const businessEmailError = validateEmail(formData.businessEmail);
+    if (businessEmailError) newErrors.businessEmail = businessEmailError;
+    
     if (!formData.address.trim()) newErrors.address = "Address is required";
     if (!formData.serviceType) newErrors.serviceType = "Please select a service";
     if (formData.serviceType === "Other" && !formData.otherService.trim()) {
