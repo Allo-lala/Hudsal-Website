@@ -111,6 +111,19 @@ export function StaffRequestModal({ isOpen, onClose, preselectedService = "" }: 
 
     if (!validateForm()) return;
 
+    // Show Virtual Companionship confirmation if preselected on mobile
+    if (preselectedService === "Virtual Companionship") {
+      const confirmed = window.confirm(
+        "Virtual Companionship\n\n" +
+        "This is a virtual service. We will connect with you through video calls, phone calls, or preferred messaging platforms.\n\n" +
+        "Click OK to proceed with your request, or Cancel to go back."
+      );
+      
+      if (!confirmed) {
+        return; // Don't submit if user cancels
+      }
+    }
+
     setIsSubmitting(true);
     setSubmitStatus("idle");
 
