@@ -9,6 +9,7 @@ import { validateEmail, validatePhone } from "@/lib/validation";
 interface ITSolutionsModalProps {
   isOpen: boolean;
   onClose: () => void;
+  preselectedService?: string;
 }
 
 const itServices = [
@@ -21,7 +22,7 @@ const itServices = [
   "Other"
 ];
 
-export function ITSolutionsModal({ isOpen, onClose }: ITSolutionsModalProps) {
+export function ITSolutionsModal({ isOpen, onClose, preselectedService = "" }: ITSolutionsModalProps) {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -30,13 +31,20 @@ export function ITSolutionsModal({ isOpen, onClose }: ITSolutionsModalProps) {
     businessName: "",
     businessEmail: "",
     address: "",
-    serviceType: "",
+    serviceType: preselectedService,
     projectDescription: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [showFireworks, setShowFireworks] = useState(false);
+
+  // Update serviceType when preselectedService changes
+  useEffect(() => {
+    if (preselectedService && isOpen) {
+      setFormData(prev => ({ ...prev, serviceType: preselectedService }));
+    }
+  }, [preselectedService, isOpen]);
 
   // Lock background scroll when modal is open
   useEffect(() => {
@@ -325,22 +333,31 @@ export function ITSolutionsModal({ isOpen, onClose }: ITSolutionsModalProps) {
                 <label htmlFor="serviceType" className="block text-sm font-medium text-foreground mb-2">
                   Select Service <span className="text-red-500">*</span>
                 </label>
-                <select
-                  id="serviceType"
-                  name="serviceType"
-                  value={formData.serviceType}
-                  onChange={handleChange}
-                  className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald ${
-                    errors.serviceType ? "border-red-500" : "border-border"
-                  } ${formData.serviceType ? "font-bold" : ""}`}
-                >
-                  <option value="" disabled>-- Select a service --</option>
-                  {itServices.map((service) => (
-                    <option key={service} value={service}>
-                      {service}
-                    </option>
-                  ))}
-                </select>
+                {preselectedService ? (
+                  <input
+                    type="text"
+                    value={formData.serviceType}
+                    readOnly
+                    className="w-full px-4 py-2 border border-border rounded-lg bg-gray-50 font-bold cursor-not-allowed"
+                  />
+                ) : (
+                  <select
+                    id="serviceType"
+                    name="serviceType"
+                    value={formData.serviceType}
+                    onChange={handleChange}
+                    className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald ${
+                      errors.serviceType ? "border-red-500" : "border-border"
+                    } ${formData.serviceType ? "font-bold" : ""}`}
+                  >
+                    <option value="" disabled> Select a service</option>
+                    {itServices.map((service) => (
+                      <option key={service} value={service}>
+                        {service}
+                      </option>
+                    ))}
+                  </select>
+                )}
                 {errors.serviceType && <p className="text-red-500 text-sm mt-1">{errors.serviceType}</p>}
               </div>
 

@@ -9,6 +9,7 @@ import { validateEmail, validatePhone } from "@/lib/validation";
 interface ConsultancyRequestModalProps {
   isOpen: boolean;
   onClose: () => void;
+  preselectedService?: string;
 }
 
 const consultancyServices = [
@@ -28,7 +29,7 @@ const deliveryModes = [
   "Onsite"
 ];
 
-export function ConsultancyRequestModal({ isOpen, onClose }: ConsultancyRequestModalProps) {
+export function ConsultancyRequestModal({ isOpen, onClose, preselectedService = "" }: ConsultancyRequestModalProps) {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -37,7 +38,7 @@ export function ConsultancyRequestModal({ isOpen, onClose }: ConsultancyRequestM
     businessName: "",
     businessEmail: "",
     address: "",
-    serviceType: "",
+    serviceType: preselectedService,
     deliveryMode: "",
     otherService: "",
   });
@@ -45,6 +46,13 @@ export function ConsultancyRequestModal({ isOpen, onClose }: ConsultancyRequestM
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [showFireworks, setShowFireworks] = useState(false);
+
+  // Update serviceType when preselectedService changes
+  useEffect(() => {
+    if (preselectedService && isOpen) {
+      setFormData(prev => ({ ...prev, serviceType: preselectedService }));
+    }
+  }, [preselectedService, isOpen]);
 
   // Lock background scroll when modal is open
   useEffect(() => {
@@ -335,22 +343,31 @@ export function ConsultancyRequestModal({ isOpen, onClose }: ConsultancyRequestM
                 <label htmlFor="serviceType" className="block text-sm font-medium text-foreground mb-2">
                   Select Service <span className="text-red-500">*</span>
                 </label>
-                <select
-                  id="serviceType"
-                  name="serviceType"
-                  value={formData.serviceType}
-                  onChange={handleChange}
-                  className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald ${
-                    errors.serviceType ? "border-red-500" : "border-border"
-                  } ${formData.serviceType ? "font-bold" : ""}`}
-                >
-                  <option value="" disabled>-- Select a service --</option>
-                  {consultancyServices.map((service) => (
-                    <option key={service} value={service}>
-                      {service}
-                    </option>
-                  ))}
-                </select>
+                {preselectedService ? (
+                  <input
+                    type="text"
+                    value={formData.serviceType}
+                    readOnly
+                    className="w-full px-4 py-2 border border-border rounded-lg bg-gray-50 font-bold cursor-not-allowed"
+                  />
+                ) : (
+                  <select
+                    id="serviceType"
+                    name="serviceType"
+                    value={formData.serviceType}
+                    onChange={handleChange}
+                    className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald ${
+                      errors.serviceType ? "border-red-500" : "border-border"
+                    } ${formData.serviceType ? "font-bold" : ""}`}
+                  >
+                    <option value="" disabled>-- Select a service --</option>
+                    {consultancyServices.map((service) => (
+                      <option key={service} value={service}>
+                        {service}
+                      </option>
+                    ))}
+                  </select>
+                )}
                 {errors.serviceType && <p className="text-red-500 text-sm mt-1">{errors.serviceType}</p>}
               </div>
 
@@ -368,7 +385,7 @@ export function ConsultancyRequestModal({ isOpen, onClose }: ConsultancyRequestM
                     errors.deliveryMode ? "border-red-500" : "border-border"
                   } ${formData.deliveryMode ? "font-bold" : ""}`}
                 >
-                  <option value="" disabled>-- Select delivery mode --</option>
+                  <option value="" disabled>Select delivery mode</option>
                   {deliveryModes.map((mode) => (
                     <option key={mode} value={mode}>
                       {mode}

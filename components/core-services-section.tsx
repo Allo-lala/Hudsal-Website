@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Heart, Briefcase, Laptop, UserPlus, Calendar, Wrench } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { MeetingPlatformModal } from "@/components/meeting-platform-modal";
@@ -146,6 +145,7 @@ export function CoreServicesSection() {
   const [isStaffRequestModalOpen, setIsStaffRequestModalOpen] = useState(false);
   const [isConsultancyModalOpen, setIsConsultancyModalOpen] = useState(false);
   const [isITSolutionsModalOpen, setIsITSolutionsModalOpen] = useState(false);
+  const [preselectedService, setPreselectedService] = useState<string>("");
 
   // Load Calendly widget script and styles
   useEffect(() => {
@@ -205,6 +205,23 @@ export function CoreServicesSection() {
   const currentCategory = serviceCategories.find((cat) => cat.id === activeCategory) || serviceCategories[0];
   // const CtaIcon = currentCategory.ctaIcon;
 
+  // Handle service card click on mobile
+  const handleServiceClick = (serviceName: string) => {
+    // Only trigger on mobile/tablet (screens smaller than lg breakpoint)
+    if (window.innerWidth < 1024) {
+      setPreselectedService(serviceName);
+      
+      // Open appropriate modal based on category
+      if (currentCategory.id === "care") {
+        setIsStaffRequestModalOpen(true);
+      } else if (currentCategory.id === "consulting") {
+        setIsConsultancyModalOpen(true);
+      } else if (currentCategory.id === "digital") {
+        setIsITSolutionsModalOpen(true);
+      }
+    }
+  };
+
   return (
     <section 
       className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-background via-secondary/10 to-background"
@@ -254,7 +271,8 @@ export function CoreServicesSection() {
               return (
                 <div
                   key={`${currentCategory.id}-${index}`}
-                  className="group relative rounded-2xl overflow-hidden shadow-lg border-2 border-border transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 animate-slide-up-fade h-80"
+                  onClick={() => handleServiceClick(service.name)}
+                  className="group relative rounded-2xl overflow-hidden shadow-lg border-2 border-border transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 animate-slide-up-fade h-80 lg:cursor-default cursor-pointer"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   {/* Background Image */}
@@ -353,19 +371,22 @@ export function CoreServicesSection() {
       {/* Staff Request Modal */}
       <StaffRequestModal 
         isOpen={isStaffRequestModalOpen} 
-        onClose={() => setIsStaffRequestModalOpen(false)} 
+        onClose={() => setIsStaffRequestModalOpen(false)}
+        preselectedService={preselectedService}
       />
 
       {/* Consultancy Request Modal */}
       <ConsultancyRequestModal 
         isOpen={isConsultancyModalOpen} 
-        onClose={() => setIsConsultancyModalOpen(false)} 
+        onClose={() => setIsConsultancyModalOpen(false)}
+        preselectedService={preselectedService}
       />
 
       {/* IT Solutions Modal */}
       <ITSolutionsModal 
         isOpen={isITSolutionsModalOpen} 
-        onClose={() => setIsITSolutionsModalOpen(false)} 
+        onClose={() => setIsITSolutionsModalOpen(false)}
+        preselectedService={preselectedService}
       />
 
       {/* Custom CSS for animations */}

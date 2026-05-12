@@ -9,6 +9,7 @@ import { validateEmail, validatePhone } from "@/lib/validation";
 interface StaffRequestModalProps {
   isOpen: boolean;
   onClose: () => void;
+  preselectedService?: string;
 }
 
 const careServices = [
@@ -21,7 +22,7 @@ const careServices = [
   "Other"
 ];
 
-export function StaffRequestModal({ isOpen, onClose }: StaffRequestModalProps) {
+export function StaffRequestModal({ isOpen, onClose, preselectedService = "" }: StaffRequestModalProps) {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -30,13 +31,20 @@ export function StaffRequestModal({ isOpen, onClose }: StaffRequestModalProps) {
     businessName: "",
     businessEmail: "",
     address: "",
-    serviceType: "",
+    serviceType: preselectedService,
     otherService: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [showFireworks, setShowFireworks] = useState(false);
+
+  // Update serviceType when preselectedService changes
+  useEffect(() => {
+    if (preselectedService && isOpen) {
+      setFormData(prev => ({ ...prev, serviceType: preselectedService }));
+    }
+  }, [preselectedService, isOpen]);
 
   // Lock background scroll when modal is open
   useEffect(() => {
@@ -150,7 +158,7 @@ export function StaffRequestModal({ isOpen, onClose }: StaffRequestModalProps) {
     if (name === "serviceType" && value === "Virtual Companionship") {
       const confirmed = window.confirm(
         "Virtual Companionship \n\n" +
-        "This is a virtual service. We will connect with you through video calls, phone calls, or prefered messaging platforms.\n\n" +
+        "This is a virtual service. We will connect with you through video calls, phone calls, or your prefered messaging platforms.\n\n" +
         "Click OK to proceed with this service, or Cancel to select a different service."
       );
       
@@ -173,7 +181,7 @@ export function StaffRequestModal({ isOpen, onClose }: StaffRequestModalProps) {
       <div className="relative bg-white rounded-2xl w-full max-w-2xl shadow-2xl animate-scale-in max-h-[90vh] overflow-y-auto">
         {/* Header */}
         <div className="sticky top-0 bg-white flex items-center justify-between px-6 py-4 border-b border-border rounded-t-2xl z-10">
-          <h2 className="text-2xl font-bold text-foreground">Request Staff</h2>
+          <h2 className="text-2xl font-bold text-foreground">Request Staff Form</h2>
           <button
             onClick={onClose}
             className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center hover:bg-secondary/80 transition-colors"
@@ -340,22 +348,31 @@ export function StaffRequestModal({ isOpen, onClose }: StaffRequestModalProps) {
               <label htmlFor="serviceType" className="block text-sm font-medium text-foreground mb-2">
                 Select Service <span className="text-red-500">*</span>
               </label>
-              <select
-                id="serviceType"
-                name="serviceType"
-                value={formData.serviceType}
-                onChange={handleChange}
-                className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald ${
-                  errors.serviceType ? "border-red-500" : "border-border"
-                } ${formData.serviceType ? "font-bold" : ""}`}
-              >
-                <option value="" disabled>-- Select a service --</option>
-                {careServices.map((service) => (
-                  <option key={service} value={service}>
-                    {service}
-                  </option>
-                ))}
-              </select>
+              {preselectedService ? (
+                <input
+                  type="text"
+                  value={formData.serviceType}
+                  readOnly
+                  className="w-full px-4 py-2 border border-border rounded-lg bg-gray-50 font-bold cursor-not-allowed"
+                />
+              ) : (
+                <select
+                  id="serviceType"
+                  name="serviceType"
+                  value={formData.serviceType}
+                  onChange={handleChange}
+                  className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald ${
+                    errors.serviceType ? "border-red-500" : "border-border"
+                  } ${formData.serviceType ? "font-bold" : ""}`}
+                >
+                  <option value="" disabled> Select a service </option>
+                  {careServices.map((service) => (
+                    <option key={service} value={service}>
+                      {service}
+                    </option>
+                  ))}
+                </select>
+              )}
               {errors.serviceType && <p className="text-red-500 text-sm mt-1">{errors.serviceType}</p>}
             </div>
 
