@@ -12,9 +12,7 @@ const serviceCategories = [
   {
     id: "care",
     title: "Care Services",
-    // icon: Heart,
     ctaText: "Request Staff",
-    // ctaIcon: UserPlus,
     services: [
       {
         name: "Home Care",
@@ -39,12 +37,12 @@ const serviceCategories = [
       {
         name: "Registered Managers",
         description: "Experienced registered and assistant managers available for short-term and long-term placements to lead your care operations.",
-        image: "/images/core/woot.jpg",
+        image: "/images/core/care/registered_managers.webp",
       },
       {
         name: "Virtual Companionship",
         description: "Compassionate virtual support for those seeking meaningful conversation and connection from the comfort of home.",
-        image: "/images/core/wooow.jpg",
+        image: "/images/core/care/virtual_companionship.webp",
       },
     ],
   },
@@ -78,61 +76,59 @@ const serviceCategories = [
       {
         name: "Financial Auditing",
         description: "Thorough financial reviews to ensure compliance and accuracy. Identify discrepancies and strengthen your financial controls.",
-        image: "/images/core/wooow.jpg",
+        image: "/images/core/consultancy/financial_auditing.webp",
       },
       {
         name: "Book Keeping",
         description: "Professional bookkeeping services to keep your finances organized. Accurate records for informed decision-making.",
-        image: "/images/core/woot.jpg",
+        image: "/images/core/consultancy/book_keeping.webp",
       },
       {
         name: "Financial Advisor",
         description: "Expert financial guidance tailored to your healthcare business. Strategic planning for sustainable growth and profitability.",
-        image: "/images/core/wooow.jpg",
+        image: "/images/core/consultancy/financial_advisor.webp",
       },
       {
         name: "Management",
         description: "Comprehensive management solutions to optimize your operations. Leadership support that drives performance and results.",
-        image: "/images/core/woot.jpg",
+        image: "/images/core/consultancy/management.webp",
       },
     ],
   },
   {
     id: "digital",
     title: "IT Solutions",
-    // icon: Laptop,
     ctaText: "Get A Service",
-    // ctaIcon: Wrench,
     services: [
       {
         name: "CRM Systems",
         description: "Manage relationships and streamline communications. Purpose-built systems that integrate seamlessly with your workflow.",
-        image: "/images/core/wooow.jpg",
+        image: "/images/core/it/CRM_systems.webp",
       },
       {
         name: "Automation",
         description: "Reduce admin burden with intelligent automation. Free your team to focus on what matters—caring for people.",
-        image: "/images/core/woot.jpg",
+        image: "/images/core/it/automations.webp",
       },
       {
         name: "Tech Solutions",
         description: "Custom software tailored to your needs. From concept to deployment, we build technology that works for you.",
-        image: "/images/core/wooow.jpg",
+        image: "/images/core/it/tech_solutions.webp",
       },
       {
         name: "Cyber Security",
         description: "Protect sensitive patient data and healthcare systems. Comprehensive security solutions to safeguard against threats and ensure compliance.",
-        image: "/images/core/woot.jpg",
+        image: "/images/core/it/cyber_security.webp",
       },
       {
         name: "Data Migration & Protection",
         description: "Secure data migration and backup solutions for healthcare providers. Ensure continuity and protect critical patient information.",
-        image: "/images/core/wooow.jpg",
+        image: "/images/core/it/data_migration.webp",
       },
       {
         name: "Robot Training",
         description: "Advanced robotics training for healthcare automation. Empower your team to leverage cutting-edge technology in patient care.",
-        image: "/images/core/woot.jpg",
+        image: "/images/core/it/robot_training.webp",
       },
     ],
   },

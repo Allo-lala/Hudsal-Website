@@ -65,6 +65,17 @@ export function VisionPathSection() {
           </p>
           
         </div>
+
+        {/* Arrow pointing to products section */}
+        <div className={`flex justify-center mt-12 transition-all duration-1000 delay-500 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
+        }`}>
+          <img 
+            src="/arrow.png" 
+            alt="Explore our products below" 
+            className="w-16 h-16 sm:w-20 sm:h-20 animate-bounce"
+          />
+        </div>
       </div>
     </section>
   );
