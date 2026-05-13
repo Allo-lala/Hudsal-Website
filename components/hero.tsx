@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { BecomeClientModal } from "@/components/become-client-modal";
+import { StaffRequestModal } from "@/components/staff-request-modal";
 
 interface Slide {
   id: number;
@@ -38,7 +39,7 @@ const slides: Slide[] = [
     title: "Strategic & Financial Advisory",
     subtitle: "We support healthcare leaders with structured financial insight, performance analysis, and decision-making frameworks to strengthen resilience, improve outcomes, and unlock growth opportunities.",
     buttonText: "View Services",
-    href: "/what-we-do/consultancy"
+    href: "/#consultancy-section"
   },
    {
     id: 8,
@@ -87,6 +88,7 @@ export function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [isHireModalOpen, setIsHireModalOpen] = useState(false);
+  const [isStaffRequestModalOpen, setIsStaffRequestModalOpen] = useState(false);
   const [animationKey, setAnimationKey] = useState(0);
 
   // Auto-slide functionality
@@ -210,7 +212,7 @@ export function Hero() {
             >
               {slides[currentSlide].id === 8 ? (
                 <button
-                  onClick={() => setIsHireModalOpen(true)}
+                  onClick={() => setIsStaffRequestModalOpen(true)}
                   className="bg-[#25D366] hover:bg-[#20b858] text-white font-medium px-8 py-4 rounded-full transition-colors duration-300 shadow-lg hover:shadow-xl"
                 >
                   {slides[currentSlide].buttonText}
@@ -365,6 +367,16 @@ export function Hero() {
           opacity: 0;
         }
       `}</style>
+
+      {/* Modals */}
+      <BecomeClientModal 
+        isOpen={isHireModalOpen} 
+        onClose={() => setIsHireModalOpen(false)} 
+      />
+      <StaffRequestModal 
+        isOpen={isStaffRequestModalOpen} 
+        onClose={() => setIsStaffRequestModalOpen(false)} 
+      />
     </section>
   );
 }

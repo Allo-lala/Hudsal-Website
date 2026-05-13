@@ -317,7 +317,7 @@ export function BooksAndPodcasts() {
             The Hadsul House
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            It's no secret that 90% of new business ventures in the UK don't make it past their first year. But that's where we come in. Hadsul is built on real-world experience, hard-earned lessons, & the belief that you deserve more than just inspiration — you deserve a <b> "Tried & Tested" </b> path forward.
+            Hadsul is built on real-world experience, hard-earned lessons, & the belief that you deserve more than just inspiration — you deserve a <b> "Tried & Tested" </b> path forward.
           </p>
         </div>
 
@@ -331,7 +331,7 @@ export function BooksAndPodcasts() {
               <h3 className="text-2xl font-bold text-foreground"> Books</h3>
             </div>
             <p className="text-muted-foreground mb-8">
-              Expand your knowledge with our human written books
+              Relax with exquisite human written healthcare stories
             </p>
 
             {/* Book Display - Vertical Layout */}
@@ -384,7 +384,7 @@ export function BooksAndPodcasts() {
               <h3 className="text-2xl font-bold text-foreground">Podcasts</h3>
             </div>
             <p className="text-muted-foreground mb-8">
-              Listen to our healthcare podcasts on your favorite platform
+              Listen to our health podcasts on your favorite platform
             </p>
 
             {/* Circular Podcast Design - Increased Size */}
@@ -527,7 +527,7 @@ export function BooksAndPodcasts() {
               <h3 className="text-2xl font-bold text-foreground">Webinars</h3>
             </div>
             <p className="text-muted-foreground mb-8">
-              Join our interactive webinars and get notified when we go live
+              Join our educative & interactive webinars and get notified when we go live
             </p>
 
             {/* Square Webinar Design - Similar to Podcast but Square */}

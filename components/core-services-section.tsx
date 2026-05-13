@@ -36,12 +36,12 @@ const serviceCategories = [
       },
       {
         name: "Registered Managers",
-        description: "Experienced registered and assistant managers available for short-term and long-term placements to lead your care operations.",
+        description: "Experienced registered and assistant managers available for short-term and long-term placements to lead your operations.",
         image: "/images/core/care/registered_managers.webp",
       },
       {
         name: "Virtual Companionship",
-        description: "Compassionate virtual support for those seeking meaningful conversation and connection from the comfort of home.",
+        description: "Compassionate virtual support for those seeking meaningful and emotional connection from your comfort.",
         image: "/images/core/care/virtual_companionship.webp",
       },
     ],
@@ -55,42 +55,42 @@ const serviceCategories = [
     services: [
       {
         name: "Healthcare Consulting",
-        description: "Strategic advice for healthcare organizations. Transform your operations with expert guidance and proven methodologies.",
+        description: "Proven methodologies & strategic expert guidance for healthcare organizations. ",
         image: "/images/core/consultancy/health_consulting.webp",
       },
       {
         name: "Operations Improvement",
-        description: "Streamline processes and boost efficiency. Data-driven solutions that deliver measurable results.",
+        description: "Data-driven efficient solutions that deliver measurable and scalable results.",
         image: "/images/core/consultancy/operations_improvement.webp",
       },
       {
         name: "Business Health Checks",
-        description: "Comprehensive assessments to identify opportunities. Uncover hidden potential and mitigate risks.",
+        description: "Comprehensive assessments to identify opportunities & uncover hidden potential and mitigate risks.",
         image: "/images/core/consultancy/business_check.webp",
       },
       {
         name: " Health Check",
-        description: "Complimentary initial consultation and assessment. No obligation—just expert insights for you to you move forward.",
+        description: "Complimentary initial consultation and assessment. No obligation, just expert forward insights.",
         image: "/images/core/consultancy/health_checks.webp",
       },
       {
         name: "Financial Auditing",
-        description: "Thorough financial reviews to ensure compliance and accuracy. Identify discrepancies and strengthen your financial controls.",
+        description: "Financial reviews identify discrepancies and strengthen your financial controls, compliance and accuracy.",
         image: "/images/core/consultancy/financial_auditing.webp",
       },
       {
         name: "Book Keeping",
-        description: "Professional bookkeeping services to keep your finances organized. Accurate records for informed decision-making.",
+        description: "Keep your data organized. Accurate records for informed decision-making.",
         image: "/images/core/consultancy/book_keeping.webp",
       },
       {
         name: "Financial Advisor",
-        description: "Expert financial guidance tailored to your healthcare business. Strategic planning for sustainable growth and profitability.",
+        description: "Expert strategic planning for sustainable growth and profitability.",
         image: "/images/core/consultancy/financial_advisor.webp",
       },
       {
         name: "Management",
-        description: "Comprehensive management solutions to optimize your operations. Leadership support that drives performance and results.",
+        description: "Optimize your operations with performance and results based leadership.",
         image: "/images/core/consultancy/management.webp",
       },
     ],
@@ -102,32 +102,32 @@ const serviceCategories = [
     services: [
       {
         name: "CRM Systems",
-        description: "Manage relationships and streamline communications. Purpose-built systems that integrate seamlessly with your workflow.",
+        description: "Purpose-built systems that integrate seamlessly with your workflow.",
         image: "/images/core/it/CRM_systems.webp",
       },
       {
         name: "Automation",
-        description: "Reduce admin burden with intelligent automation. Free your team to focus on what matters—caring for people.",
+        description: "Do not do work twice. Free your team to focus on what matters —caring for people.",
         image: "/images/core/it/automations.webp",
       },
       {
         name: "Tech Solutions",
-        description: "Custom software tailored to your needs. From concept to deployment, we build technology that works for you.",
+        description: "From concept to deployment, we build technologies that works for you.",
         image: "/images/core/it/tech_solutions.webp",
       },
       {
         name: "Cyber Security",
-        description: "Protect sensitive patient data and healthcare systems. Comprehensive security solutions to safeguard against threats and ensure compliance.",
+        description: "Comprehensive tight solutions to protect & safeguard data against threats and ensure compliances.",
         image: "/images/core/it/cyber_security.webp",
       },
       {
         name: "Data Migration & Protection",
-        description: "Secure data migration and backup solutions for healthcare providers. Ensure continuity and protect critical patient information.",
+        description: "Secure data migration and backup solutions for healthcare providers.",
         image: "/images/core/it/data_migration.webp",
       },
       {
         name: "Robot Training",
-        description: "Advanced robotics training for healthcare automation. Empower your team to leverage cutting-edge technology in patient care.",
+        description: "Acurate & advanced training for healthcare operations automation.",
         image: "/images/core/it/robot_training.webp",
       },
     ],
@@ -142,6 +142,13 @@ export function CoreServicesSection() {
   const [isConsultancyModalOpen, setIsConsultancyModalOpen] = useState(false);
   const [isITSolutionsModalOpen, setIsITSolutionsModalOpen] = useState(false);
   const [preselectedService, setPreselectedService] = useState<string>("");
+
+  // Check URL hash on mount and switch to consultancy if needed
+  useEffect(() => {
+    if (window.location.hash === '#consultancy-section') {
+      setActiveCategory('consulting');
+    }
+  }, []);
 
   // Load Calendly widget script and styles
   useEffect(() => {
@@ -236,7 +243,7 @@ export function CoreServicesSection() {
         </div>
 
         {/* Category Tabs */}
-        <div className="flex justify-center gap-2 sm:gap-4 mb-12 overflow-x-auto pb-2 scrollbar-hide">
+        <div id="consultancy-section" className="flex justify-center gap-2 sm:gap-4 mb-12 overflow-x-auto pb-2 scrollbar-hide">
           {serviceCategories.map((category) => {
             // const CategoryIcon = category.icon;
             const isActive = activeCategory === category.id;
