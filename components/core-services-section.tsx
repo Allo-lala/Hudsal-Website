@@ -238,7 +238,9 @@ export function CoreServicesSection() {
             Healthcare Delivery & Transformation
           </h2>
           <p className="text-muted-foreground text-lg max-w-3xl mx-auto animate-slide-up" style={{ animationDelay: "100ms" }}>
-             Compassionate care, strategic consulting & Digital Solutions for excellence in the Healthcare Sector. We Deliver satisfactory care services helping healthcare providers scale, improve operations and grow sustainably.
+             {/* Compassionate care, strategic consulting & Digital Solutions for excellence in the Healthcare Sector. We Deliver satisfactory care services helping healthcare providers scale, improve operations and grow sustainably. */}
+             Delivering high-quality care, operational expertise, and digital infrastructure for modern healthcare organisations.
+             We support providers through healthcare staffing, strategic advisory, and integrated systems that improve performance, strengthen operations, and enable sustainable growth.
           </p>
         </div>
 
@@ -348,17 +350,18 @@ export function CoreServicesSection() {
         <div className="text-center mt-20">
           <div className="bg-gradient-to-r from-emerald/10 to-emerald/5 rounded-3xl p-8 sm:p-12 shadow-2xl">
             <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
-              Ready to Transform Your Healthcare Operations?
+              Ready to Strengthen Your Healthcare Operations?
             </h3>
             <p className="text-muted-foreground text-lg mb-6 max-w-2xl mx-auto">
-              Join hundreds of healthcare providers who trust Hadsul for staffing, consulting, and technology solutions.
+              Hadsul partners with healthcare providers to improve workforce reliability, operational performance, and digital capability through integrated healthcare solutions.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 onClick={() => setIsMeetingModalOpen(true)}
                 className="bg-[#0071E3] hover:bg-[#0077ED] text-white rounded-full px-10 py-6 text-lg font-semibold shadow-lg hover:shadow-xl transition-all"
               >
-                Schedule Consultation
+                {/* Schedule Consultation */}
+                Engage With Us
               </Button>
             </div>
           </div>

@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { BecomeClientModal } from "@/components/become-client-modal";
 import { StaffRequestModal } from "@/components/staff-request-modal";
+import { CRMRequestModal } from "@/components/crm-request-modal";
 
 interface Slide {
   id: number;
@@ -89,6 +90,7 @@ export function Hero() {
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [isHireModalOpen, setIsHireModalOpen] = useState(false);
   const [isStaffRequestModalOpen, setIsStaffRequestModalOpen] = useState(false);
+  const [isCRMModalOpen, setIsCRMModalOpen] = useState(false);
   const [animationKey, setAnimationKey] = useState(0);
 
   // Auto-slide functionality
@@ -213,6 +215,13 @@ export function Hero() {
               {slides[currentSlide].id === 8 ? (
                 <button
                   onClick={() => setIsStaffRequestModalOpen(true)}
+                  className="bg-[#25D366] hover:bg-[#20b858] text-white font-medium px-8 py-4 rounded-full transition-colors duration-300 shadow-lg hover:shadow-xl"
+                >
+                  {slides[currentSlide].buttonText}
+                </button>
+              ) : slides[currentSlide].id === 3 ? (
+                <button
+                  onClick={() => setIsCRMModalOpen(true)}
                   className="bg-[#25D366] hover:bg-[#20b858] text-white font-medium px-8 py-4 rounded-full transition-colors duration-300 shadow-lg hover:shadow-xl"
                 >
                   {slides[currentSlide].buttonText}
@@ -376,6 +385,10 @@ export function Hero() {
       <StaffRequestModal 
         isOpen={isStaffRequestModalOpen} 
         onClose={() => setIsStaffRequestModalOpen(false)} 
+      />
+      <CRMRequestModal 
+        isOpen={isCRMModalOpen} 
+        onClose={() => setIsCRMModalOpen(false)} 
       />
     </section>
   );

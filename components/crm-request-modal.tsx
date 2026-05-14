@@ -128,44 +128,44 @@ export function CRMRequestModal({ isOpen, onClose }: CRMRequestModalProps) {
               )}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <Label htmlFor="firstName">First Name *</Label>
+                  <Label htmlFor="firstName">First Name <span className="text-red-500">*</span> </Label>
                   <Input id="firstName" name="firstName" value={formData.firstName} onChange={handleInputChange} placeholder="Enter your first name" required className="mt-1" />
                 </div>
                 <div>
-                  <Label htmlFor="lastName">Last Name *</Label>
+                  <Label htmlFor="lastName">Last Name <span className="text-red-500">*</span> </Label>
                   <Input id="lastName" name="lastName" value={formData.lastName} onChange={handleInputChange} placeholder="Enter your last name" required className="mt-1" />
                 </div>
               </div>
               <div>
-                <Label htmlFor="email">Email *</Label>
+                <Label htmlFor="email">Email <span className="text-red-500">*</span> </Label>
                 <Input id="email" name="email" type="email" value={formData.email} onChange={handleInputChange} placeholder="Enter your email" required className="mt-1" />
                 {fieldErrors.email && <p className="text-red-500 text-xs mt-1">{fieldErrors.email}</p>}
               </div>
               <div>
-                <Label htmlFor="jobTitle">Job Title *</Label>
+                <Label htmlFor="jobTitle">Job Title <span className="text-red-500">*</span> </Label>
                 <Input id="jobTitle" name="jobTitle" value={formData.jobTitle} onChange={handleInputChange} placeholder="Enter your job title" required className="mt-1" />
               </div>
               <div>
-                <Label htmlFor="phoneNumber">Phone Number (UK) *</Label>
+                <Label htmlFor="phoneNumber">Phone Number <span className="text-red-500">*</span> </Label>
                 <Input id="phoneNumber" name="phoneNumber" type="tel" value={formData.phoneNumber} onChange={handleInputChange} placeholder="+44 7123 456 789" required className="mt-1" />
                 {fieldErrors.phoneNumber && <p className="text-red-500 text-xs mt-1">{fieldErrors.phoneNumber}</p>}
               </div>
               <div>
-                <Label htmlFor="companyName">Care Home Name *</Label>
+                <Label htmlFor="companyName">Care Home Name <span className="text-red-500">*</span> </Label>
                 <Input id="companyName" name="companyName" value={formData.companyName} onChange={handleInputChange} placeholder="Enter company name" required className="mt-1" />
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <Label htmlFor="country">County *</Label>
+                  <Label htmlFor="country">County <span className="text-red-500">*</span> </Label>
                   <Input id="country" name="country" value={formData.country} onChange={handleInputChange} placeholder="Enter county" required className="mt-1" />
                 </div>
                 <div>
-                  <Label htmlFor="state">Town/City *</Label>
+                  <Label htmlFor="state">Town/City <span className="text-red-500">*</span> </Label>
                   <Input id="state" name="state" value={formData.state} onChange={handleInputChange} placeholder="Enter town/city" required className="mt-1" />
                 </div>
               </div>
               <div>
-                <Label htmlFor="hearAboutUs">How did you hear about us? *</Label>
+                <Label htmlFor="hearAboutUs">How did you hear about us? <span className="text-red-500">*</span> </Label>
                 <Input id="hearAboutUs" name="hearAboutUs" value={formData.hearAboutUs} onChange={handleInputChange} placeholder="e.g., Google, LinkedIn, Referral" required className="mt-1" />
               </div>
               <div>

@@ -113,7 +113,7 @@ export function Testimonials() {
           </p>
         </div>
 
-        {/* Slider */}
+        {/* Slider */}  
         <div
           className="relative mb-16"
           onMouseEnter={() => setIsAutoPlaying(false)}

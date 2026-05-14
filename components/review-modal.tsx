@@ -172,7 +172,7 @@ export function ReviewModal({ isOpen, onClose }: ReviewModalProps) {
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">
                   <User className="w-4 h-4 inline mr-2" />
-                  Full Name *
+                  Full Name <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
@@ -187,7 +187,7 @@ export function ReviewModal({ isOpen, onClose }: ReviewModalProps) {
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">
                   <Briefcase className="w-4 h-4 inline mr-2" />
-                  Role/Relationship *
+                  Role/Relationship <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
@@ -206,7 +206,7 @@ export function ReviewModal({ isOpen, onClose }: ReviewModalProps) {
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">
                   <MapPin className="w-4 h-4 inline mr-2" />
-                  Address *
+                  Address <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
@@ -220,7 +220,7 @@ export function ReviewModal({ isOpen, onClose }: ReviewModalProps) {
               </div>
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">
-                  Service Used *
+                  Service Used <span className="text-red-500">*</span>
                 </label>
                 <select
                   name="service"
@@ -240,7 +240,7 @@ export function ReviewModal({ isOpen, onClose }: ReviewModalProps) {
             {/* Rating */}
             <div>
               <label className="block text-sm font-medium text-foreground mb-2">
-                Rating *
+                Rating <span className="text-red-500">*</span>
               </label>
               <div className="flex gap-2">
                 {[1, 2, 3, 4, 5].map((star) => (
@@ -265,7 +265,7 @@ export function ReviewModal({ isOpen, onClose }: ReviewModalProps) {
             {/* Review Text */}
             <div>
               <label className="block text-sm font-medium text-foreground mb-2">
-                Your Review *
+                Your Review <span className="text-red-500">*</span>
               </label>
               <textarea
                 name="review"
