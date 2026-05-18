@@ -147,7 +147,7 @@ export function ReviewModal({ isOpen, onClose }: ReviewModalProps) {
       <div className="bg-card rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-border">
-          <h2 className="text-2xl font-bold text-foreground">Leave a Review</h2>
+          <h2 className="text-2xl font-bold text-foreground">Leave feedback</h2>
           <button
             onClick={onClose}
             className="w-8 h-8 rounded-full bg-secondary hover:bg-secondary/80 flex items-center justify-center transition-colors"
@@ -163,7 +163,7 @@ export function ReviewModal({ isOpen, onClose }: ReviewModalProps) {
               <Star className="w-8 h-8 text-emerald fill-emerald" />
             </div>
             <h3 className="text-xl font-semibold text-foreground mb-2">Thank You!</h3>
-            <p className="text-muted-foreground">Your review has been submitted successfully.</p>
+            <p className="text-muted-foreground">Your feedback has been submitted successfully.</p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="p-6 space-y-6">
@@ -274,7 +274,7 @@ export function ReviewModal({ isOpen, onClose }: ReviewModalProps) {
                 required
                 rows={4}
                 className="w-full px-4 py-3 border border-border rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-emerald resize-none"
-                placeholder="Share your experience with Hadsal ..."
+                placeholder="Share your experience with Hudsal ..."
               />
             </div>
 

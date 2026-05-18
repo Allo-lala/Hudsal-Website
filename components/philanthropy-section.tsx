@@ -14,10 +14,12 @@ export function PhilanthropySection() {
       <div className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-balance animate-slide-up">
-            When you choose Hadsul, you’re also choosing to uplift lives.
+            {/* When you choose Hadsul, you’re also choosing to uplift lives. */}
+            Creating Meaningful Healthcare Impact
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto animate-slide-up animate-delay-200">
-            Your support helps fund essential charity programs for communities in urgent need.
+            {/* Your support helps fund essential charity programs for communities in urgent need. */}
+            Beyond service delivery, Hadsul supports initiatives focused on healthcare accessibility, workforce empowerment, and community wellbeing in underserved areas.
           </p>
         </div>
       </div>

@@ -317,7 +317,8 @@ export function BooksAndPodcasts() {
             The Hadsul House
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Hadsul is built on real-world experience, hard-earned lessons, & the belief that you deserve more than just inspiration — you deserve a <b> "Tried & Tested" </b> path forward.
+            A platform for healthcare insight, operational knowledge, and industry perspectives — featuring resources, discussions, and thought leadership focused on the future of healthcare delivery and organisational performance.
+            {/* Hadsul is built on real-world experience, hard-earned lessons, & the belief that you deserve more than just inspiration — you deserve a <b> "Tried & Tested" </b> path forward. */}
           </p>
         </div>
 
@@ -328,10 +329,11 @@ export function BooksAndPodcasts() {
               <div className="w-12 h-12 rounded-lg flex items-center justify-center">
                 <BookOpen className="w-6 h-6 text-emerald" />
               </div>
-              <h3 className="text-2xl font-bold text-foreground"> Books</h3>
+              <h3 className="text-2xl font-bold text-foreground"> Publications</h3>
             </div>
             <p className="text-muted-foreground mb-8">
-              Relax with exquisite human written healthcare stories
+              Insightful publications focused on healthcare delivery, operational performance, and industry transformation.
+              {/* Relax with exquisite human written healthcare stories */}
             </p>
 
             {/* Book Display - Vertical Layout */}
@@ -381,10 +383,11 @@ export function BooksAndPodcasts() {
               <div className="w-12 h-12 rounded-lg flex items-center justify-center">
                 <Headphones className="w-6 h-6 text-emerald" />
               </div>
-              <h3 className="text-2xl font-bold text-foreground">Podcasts</h3>
+              <h3 className="text-2xl font-bold text-foreground">Conversations</h3>
             </div>
             <p className="text-muted-foreground mb-8">
-              Listen to our health podcasts on your favorite platform
+              Expert-led discussions exploring healthcare leadership, operational challenges, workforce solutions, and innovation across the sector.
+              {/* Listen to our health podcasts on your favorite platform */}
             </p>
 
             {/* Circular Podcast Design - Increased Size */}
@@ -524,10 +527,11 @@ export function BooksAndPodcasts() {
               <div className="w-12 h-12 rounded-lg flex items-center justify-center">
                 <ExternalLink className="w-6 h-6 text-emerald" />
               </div>
-              <h3 className="text-2xl font-bold text-foreground">Webinars</h3>
+              <h3 className="text-2xl font-bold text-foreground">Executive Sessions</h3>
             </div>
             <p className="text-muted-foreground mb-8">
-              Join our educative & interactive webinars and get notified when we go live
+              Interactive sessions on healthcare operations, workforce strategy, compliance, experiences and transformation.
+              {/* Join our educative & interactive webinars and get notified when we go live */}
             </p>
 
             {/* Square Webinar Design - Similar to Podcast but Square */}

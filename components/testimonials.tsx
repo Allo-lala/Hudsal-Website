@@ -9,51 +9,51 @@ import { ReviewModal } from "@/components/review-modal";
 const testimonials = [
   {
     id: 1,
-    name: "Margaret Thompson",
-    role: "Relative",
-    image: "/images/testimonials/client1.jpg",
+    name: "Sarah Mitchell",
+    // role: "Daughter of Client",
+    image: "/images/team/sarah.jpg",
     rating: 5,
-    text: "Hudsal has been a blessing for our family. The caregivers are compassionate, professional, and truly care about my mother's wellbeing. I couldn't be more grateful for their exceptional service.",
+    text: "Hadsul provided our family with confidence during a very important transition. They communicated clearly, delivered consistent support, and ensured my mother received high-quality care with dignity and professionalism.",
   },
   {
     id: 2,
     name: "Robert Williams",
-    role: "Team Leader",
+    // role: "Care Home Resident",
     image: "/images/testimonials/client2.jpg",
     rating: 5,
-    text: "The staff here treat me with dignity and respect every single day. The medical care is top-notch, and I finally feel like I'm in good hands. Highly recommend Hudsal to anyone seeking quality care.",
+    text: "The quality of care, attention to wellbeing, and supportive environment have made a significant difference to my daily life.",
   },
   {
     id: 3,
-    name: "David Harrison",
-    role: "Care Home Partner",
-    image: "/images/testimonials/client3.jpg",
+    name: "Margaret Thompson",
+    // role: "Family Representative",
+    image: "/images/testimonials/client1.jpg",
     rating: 5,
-    text: "Working with Hadsul has transformed our care home operations. Their emergency staffing solutions and IT support have streamlined everything. A truly professional and reliable partner.",
+    text: "From the beginning, Hadsul handled every stage of the process with care and professionalism. Their support gave me reassurance and the improvement has been remarkable.",
   },
   {
     id: 4,
-    name: "Sarah Mitchell",
-    role: "Family Member",
-    image: "/images/testimonials/client1.jpg",
+    name: "David Harrison",
+    // role: "Care Home Operations Partner",
+    image: "/images/testimonials/client3.jpg",
     rating: 5,
-    text: "The level of care and attention my father receives is outstanding. The staff goes above and beyond every day. We're so grateful to have found Hadsul.",
+    text: "Hadsul has strengthened our operational capacity. Their understanding of healthcare environments makes them a valuable long-term partner.",
   },
   {
     id: 5,
     name: "James Anderson",
-    role: "Care Home Manager",
-    image: "/images/testimonials/client2.jpg",
+    // role: "Hospital Administrator",
+    image: "/images/team/james.jpg",
     rating: 5,
-    text: "Hadsul's CRM is game-changing for our facility. Professional, reliable, and exceeded expectations.",
+    text: "The staff integrated efficiently into our teams and maintained a high professional standard.",
   },
   {
     id: 6,
-    name: "Emily Roberts",
-    role: "Healthcare Professional",
-    image: "/images/testimonials/client3.jpg",
+    name: "Emma Roberts",
+    // role: "Care Home Manager",
+    image: "/images/team/emma.jpg",
     rating: 5,
-    text: "Working with Hadsul has been an incredible experience. They truly value their staff and provide excellent support. Proud to be part of this team.",
+    text: "The systems significantly improved our operations visibility and workflow efficiency across our care home. Their CRM and support have modernised key areas of our operation.",
   },
 ];
 
@@ -167,7 +167,7 @@ export function Testimonials() {
                             {testimonial.name}
                           </h4>
                           <p className="text-sm text-muted-foreground">
-                            {testimonial.role}
+                            {/* {testimonial.role} */}
                           </p>
                         </div>
                       </div>
@@ -200,17 +200,18 @@ export function Testimonials() {
         {/* Leave a Review CTA */}
         <div className="text-center mt-16">
           <h3 className="text-2xl font-bold text-foreground mb-4">
-            Share Your Experience
+            Client Feedback & Experience
           </h3>
           <p className="text-muted-foreground mb-6 max-w-md mx-auto">
-            Have you used our services? We&apos;d love to hear about your
-            experience with Hadsul.
+            We value structured feedback from the organisations and families we support. 
+            Your insights help us continuously improve service quality, operational performance,
+             and care delivery standards.
           </p>
           <Button
             className="bg-emerald hover:bg-emerald-dark text-white rounded-full px-8 py-3"
             onClick={() => setIsReviewModalOpen(true)}
           >
-            Leave a Review
+            Submit Feedback
           </Button>
         </div>
       </div>

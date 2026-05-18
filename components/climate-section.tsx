@@ -81,10 +81,11 @@ export function ClimateSection() {
           <div className="order-2 lg:order-1 space-y-8">
             <div>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 animate-slide-up">
-                Speak the Planet's Green Language
+                {/* Speak the Planet's Green Language */}
+                Building More Sustainable Healthcare Systems
               </h2>
               <p className="text-xl md:text-2xl text-muted-foreground mb-8 animate-slide-up animate-delay-200">
-                Be part of creating a sustainable future through innovative climate solutions and community action.
+                The future of healthcare depends on efficient systems, responsible operations, and long-term sustainability across workforce, infrastructure, and service delivery.
               </p>
             </div>
 
