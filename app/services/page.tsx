@@ -244,13 +244,17 @@ export default function ProductsPage() {
               All plans include 24/7 support and can be cancelled anytime
             </p>
             <div className="flex justify-center gap-4">
+              <a href="/products" className="inline-block">
               <Button variant="outline" className="rounded-full">
                 Visit Our Shop
               </Button>
+              </a>
+              <a href="/contact" className="inline-block">
               <Button className="bg-emerald hover:bg-emerald-dark text-white rounded-full">
-                <Phone className="w-4 h-4 mr-2" />
-                Contact Sales
+                {/* <Phone className="w-4 h-4 mr-2" /> */}
+                Contact us
               </Button>
+              </a>
             </div>
           </div>
         </div>
