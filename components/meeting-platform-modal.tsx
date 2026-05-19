@@ -102,7 +102,7 @@ export function MeetingPlatformModal({ isOpen, onClose }: MeetingPlatformModalPr
           {/* Calendly Inline Embed */}
           <div className="p-4">
             <iframe 
-              src="https://calendly.com/musokeakisam16/30min?embed_domain=hadsul.vercel.app&embed_type=Inline&hide_gdpr_banner=1" 
+              src="https://calendly.com/hadsulimited/30min?embed_domain=hadsul.vercel.app&embed_type=Inline&hide_gdpr_banner=1" 
               width="100%" 
               height="560" 
               frameBorder="0"
@@ -155,7 +155,7 @@ export function MeetingPlatformModal({ isOpen, onClose }: MeetingPlatformModalPr
           {/* Zoom Embed */}
           <div className="p-4">
             <iframe 
-              src="https://scheduler.zoom.us/kyagulanyi-allan/30-mins-with-kyagulanyi?embed=true" 
+              src="https://scheduler.zoom.us/hadsul-limited/30-mins-with-hadsul?embed=true" 
               frameBorder="0" 
               className="w-full h-[560px] rounded-lg"
               title="Zoom Scheduler"
@@ -206,7 +206,7 @@ export function MeetingPlatformModal({ isOpen, onClose }: MeetingPlatformModalPr
           {/* Google Calendar Appointment Scheduling Embed */}
           <div className="p-4">
             <iframe 
-              src="https://calendar.app.google/5zxgZyDxJy54T6NJA" 
+              src="https://calendar.app.google/3N7UwAd5stBhXwxL6" 
               frameBorder="0" 
               className="w-full h-[560px] rounded-lg"
               title="Google Meet Scheduler"

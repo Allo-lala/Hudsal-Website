@@ -18,7 +18,7 @@ const BOOK = {
   image: "/images/books/books.png",
 };
 
-// ─ Stripe payment form ──────
+// Stripe payment form ──────
 function BookPaymentForm({
   copies,
   totalPence,
@@ -166,7 +166,7 @@ function BookModal({ onClose }: { onClose: () => void }) {
               {/* Copies + signed */}
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-1">Number of Copies *</label>
+                  <label className="block text-sm font-medium text-foreground mb-1">Number of Copies <span className="text-red-500">*</span></label>
                   <div className="flex items-center border border-input rounded-lg overflow-hidden">
                     <button type="button" onClick={() => set("copies", Math.max(1, form.copies - 1))}
                       className="px-3 py-2.5 text-foreground hover:bg-secondary transition-colors text-lg font-bold">−</button>
@@ -193,17 +193,17 @@ function BookModal({ onClose }: { onClose: () => void }) {
               {/* Contact */}
               <div className="grid grid-cols-2 gap-4">
                 <div className="col-span-2">
-                  <label className="block text-sm font-medium text-foreground mb-1">Full Name *</label>
+                  <label className="block text-sm font-medium text-foreground mb-1">Full Name <span className="text-red-500">*</span></label>
                   <input required value={form.name} onChange={(e) => set("name", e.target.value)} placeholder="Your full name"
                     className="w-full px-4 py-2.5 border border-input rounded-lg bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-emerald" />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-1">Email *</label>
+                  <label className="block text-sm font-medium text-foreground mb-1">Email <span className="text-red-500">*</span></label>
                   <input required type="email" value={form.email} onChange={(e) => set("email", e.target.value)} placeholder="you@example.com"
                     className="w-full px-4 py-2.5 border border-input rounded-lg bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-emerald" />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-1">Phone *</label>
+                  <label className="block text-sm font-medium text-foreground mb-1">Phone <span className="text-red-500">*</span></label>
                   <input 
                     required 
                     type="tel" 
@@ -221,18 +221,18 @@ function BookModal({ onClose }: { onClose: () => void }) {
 
               {/* Address */}
               <div>
-                <label className="block text-sm font-medium text-foreground mb-1">Delivery Address *</label>
+                <label className="block text-sm font-medium text-foreground mb-1">Delivery Address <span className="text-red-500">*</span></label>
                 <input required value={form.address} onChange={(e) => set("address", e.target.value)} placeholder="Street address"
                   className="w-full px-4 py-2.5 border border-input rounded-lg bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-emerald" />
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-1">City *</label>
+                  <label className="block text-sm font-medium text-foreground mb-1">City <span className="text-red-500">*</span></label>
                   <input required value={form.city} onChange={(e) => set("city", e.target.value)} placeholder="London"
                     className="w-full px-4 py-2.5 border border-input rounded-lg bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-emerald" />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-1">Postcode *</label>
+                  <label className="block text-sm font-medium text-foreground mb-1">Postcode <span className="text-red-500">*</span></label>
                   <input required value={form.postcode} onChange={(e) => set("postcode", e.target.value)} placeholder="SW1A 1AA"
                     className="w-full px-4 py-2.5 border border-input rounded-lg bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-emerald" />
                 </div>
@@ -440,7 +440,7 @@ export function BooksAndPodcasts() {
 
                 {/* YouTube Icon - Top - Larger */}
                 <a
-                  href="https://youtube.com/hadsulltd"
+                  href="https://www.youtube.com/channel/UCuAdnK27hNerOP0jZkWAARQ"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="absolute top-[6%] left-1/2 -translate-x-1/2 w-14 h-14 rounded-xl shadow-lg hover:scale-125 transition-all duration-300"

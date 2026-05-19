@@ -140,7 +140,7 @@ export function ReviewModal({ isOpen, onClose }: ReviewModalProps) {
         isVisible={showSuccessToast}
         onClose={() => setShowSuccessToast(false)}
         title="Review Submitted!"
-        message="Thank you for sharing your experience with us. Your feedback helps us to serve you better."
+        message="Thank you for sharing your experience with us. Your feedback helps us to serve better."
       />
 
       <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
@@ -265,7 +265,7 @@ export function ReviewModal({ isOpen, onClose }: ReviewModalProps) {
             {/* Review Text */}
             <div>
               <label className="block text-sm font-medium text-foreground mb-2">
-                Your Review <span className="text-red-500">*</span>
+                Your Feedback <span className="text-red-500">*</span>
               </label>
               <textarea
                 name="review"
@@ -282,7 +282,7 @@ export function ReviewModal({ isOpen, onClose }: ReviewModalProps) {
             <div>
               <label className="block text-sm font-medium text-foreground mb-2">
                 <Upload className="w-4 h-4 inline mr-2" />
-                Profile Photo (Optional)
+                Head shot (Optional)
               </label>
               <input
                 type="file"

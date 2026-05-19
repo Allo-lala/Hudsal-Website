@@ -57,14 +57,14 @@ export function VisionPathSection() {
         </div>
 
         {/* Description Content */}
-        <div className={`max-w-4xl mx-auto space-y-6 text-base sm:text-lg text-muted-foreground leading-relaxed transition-all duration-1000 delay-300 ${
+        {/* <div className={`max-w-4xl mx-auto space-y-6 text-base sm:text-lg text-muted-foreground leading-relaxed transition-all duration-1000 delay-300 ${
           isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
         }`}>
           <p className="text-center">
             It's no secret that <span className="font-semibold text-foreground">90% of healthcare ventures in the UK don't make it past their first year</span>. But that's where Hadsul comes in.
           </p>
           
-        </div>
+        </div> */}
 
         {/* Arrow pointing to products section */}
         {/* <div className={`flex justify-center mt-12 transition-all duration-1000 delay-500 ${

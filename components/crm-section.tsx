@@ -46,7 +46,7 @@ export function CrmSection() {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm font-medium" style={{ backgroundColor: "#ffffffff", color: "#174731" }}>
               <span className="h-2 w-2 rounded-full animate-pulse" style={{ backgroundColor: "#f10808" }} />
-              <span className="text-emerald text-sm font-medium">AI-powered features</span>
+              <span className="text-emerald text-sm font-medium">AI-powered CRM</span>
             </div>
 
             {/* Headline */}

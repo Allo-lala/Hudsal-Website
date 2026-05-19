@@ -121,7 +121,7 @@ export function Header({ variant = 'auto', isAssessmentMode = false }: HeaderPro
       // Small delay to ensure cleanup is complete
       setTimeout(() => {
         window.Calendly?.initPopupWidget({
-          url: 'https://calendly.com/musokeakisam16/30min?back=1&month=2026-02'
+          url: 'https://calendly.com/hadsulimited/30min?back=1&month=2026-02'
         });
       }, 100);
       
@@ -132,7 +132,7 @@ export function Header({ variant = 'auto', isAssessmentMode = false }: HeaderPro
     } else {
       console.log('Calendly not loaded, opening in new tab');
       // Fallback: open in new tab if widget not loaded
-      window.open('https://calendly.com/musokeakisam16/30min?back=1&month=2026-02', '_blank');
+      window.open('https://calendly.com/hadsulimited/30min?back=1&month=2026-02', '_blank');
     }
   };
 
